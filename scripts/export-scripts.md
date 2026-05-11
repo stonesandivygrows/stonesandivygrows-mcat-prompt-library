@@ -146,6 +146,8 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 
   console.log(`Total questions: ${maxQuestions}. Starting scrape from question ${current}...`);
   const collected = [];
+  const passages = [];
+  const seenPassages = new Set();
 
   // If we aren't on question 1, go back to it
   if (current !== 1) {
@@ -168,6 +170,13 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
       }
     }
 
+    const passageHTML = getPassageHTML();
+    const passageKey = passageHTML.replace(/\s+/g, " ").trim();
+    if (passageKey && !seenPassages.has(passageKey)) {
+      seenPassages.add(passageKey);
+      passages.push({ question: q, html: passageHTML });
+    }
+
     const qHTML = cleanClone(getMainContent()).outerHTML;
     collected.push(`<div class="qblock" data-q="${q}">
       <h2>Question ${q}</h2>
@@ -175,8 +184,10 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     </div>`);
   }
 
-  // 4. Grab the passage (only once – from the first question page)
-  const passageHTML = getPassageHTML();
+  // 4. Build all distinct passages observed while each question page was active.
+  const passagesHTML = passages.length
+    ? passages.map(p => `<div class="passage-section"><h2>Passage at Question ${p.question}</h2>${p.html}</div>`).join("\n")
+    : `<div class="passage-section"><h2>Passage</h2><p>Passage not detected.</p></div>`;
 
   // 5. Build the final export page
   const fullPage = `<!DOCTYPE html>
@@ -212,7 +223,7 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 <body>
   <h1>Jack Westin Full Export</h1>
   ${resultsHTML ? `<div class="results-section"><h2>Test Results</h2>${resultsHTML}</div>` : ""}
-  <div class="passage-section"><h2>Passage</h2>${passageHTML || "<p>Passage not detected.</p>"}</div>
+  ${passagesHTML}
   ${collected.join("\n")}
   <script>setTimeout(() => window.print(), 900);</script>
 </body>
