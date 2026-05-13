@@ -1,18 +1,18 @@
 # NotebookLM Prompt — UWorld Discrete Questions Only
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa using the uploaded UWorld test or review material.
+You are creating an MCAT tutor-style audio overview for the student using the uploaded UWorld test or review material.
 
 This audio should review ONLY the discrete or stand-alone questions. Do not review passage-based questions here.
 
 Goal:
-Help Neissa turn discrete questions into fast, reusable MCAT knowledge. She needs to know the tested concept, the fastest route to the answer, and the mistake trap.
+Help the student turn discrete questions into fast, reusable MCAT knowledge. The student needs to know the tested concept, the fastest route to the answer, and the mistake trap.
 
 Source rules:
 Use only the uploaded UWorld test, UWorld explanations, and Kaplan/UWorld study materials as factual sources. If something is not stated or supported, say so briefly.
 
 Audio style:
-Use two calm MCAT tutors. Speak slowly, clearly, and directly. Define abbreviations the first time. Do not assume she already knows the concept. Avoid shallow summaries.
+Use two calm MCAT tutors. Speak slowly, clearly, and directly. Define abbreviations the first time. Do not assume the student already knows the concept. Avoid shallow summaries.
 
 For each discrete question, use this exact structure:
 
@@ -23,7 +23,7 @@ Say which question is being reviewed.
 Identify the subject and topic, such as gen chem, physics, biochem, biology, orgo, psych/soc, amino acids, circuits, thermodynamics, enzymes, hormones, lab techniques, etc.
 
 3. What the question is really asking
-Translate the stem into plain English. Say: “This question is really asking whether Neissa knows…”
+Translate the stem into plain English. Say: “This question is really asking whether the student knows…”
 
 4. Minimum science needed
 Teach only the science needed to answer this question. If a formula is needed, explain what each variable means and how the units work.
@@ -41,7 +41,7 @@ For each wrong answer, say why it is tempting and why it fails.
 Name the trap: unit conversion error, wrong equation, sign error, confusing related concepts, outside knowledge distraction, memorized fact used incorrectly, answer choice mismatch, too strong answer, too broad answer, or reversed relationship.
 
 9. Repair rule
-End each question with one reusable rule Neissa can apply next time.
+End each question with one reusable rule the student can apply next time.
 
 After all discrete questions, create a final summary with:
 1. Top recurring content gaps
