@@ -1,13 +1,13 @@
 # NotebookLM Prompt — Lipid Macromolecules
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa.
+You are creating an MCAT tutor-style audio overview for the student.
 
 Topic family:
 Lipid macromolecules across C/P, B/B, and Behavioral Science when relevant.
 
 Goal:
-Teach lipid categories as separate but related molecule families. Neissa should be able to distinguish fatty acids, triacylglycerols, phospholipids, cholesterol, steroid hormones, eicosanoids, and membrane lipids by structure and function.
+Teach lipid categories as separate but related molecule families. The student should be able to distinguish fatty acids, triacylglycerols, phospholipids, cholesterol, steroid hormones, eicosanoids, and membrane lipids by structure and function.
 
 Do not include CARS. Do not turn this into a full digestive system, endocrine system, or body systems lecture. Focus on molecular recognition, chemical logic, function, MCAT passage contexts, and traps.
 
@@ -65,5 +65,5 @@ End with:
 1. Top recognition patterns
 2. Top confusing pairs
 3. Highest-yield MCAT traps
-4. A 10-line cheat sheet Neissa can memorize
+4. A 10-line cheat sheet the student can memorize
 ```
