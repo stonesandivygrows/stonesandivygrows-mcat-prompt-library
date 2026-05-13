@@ -1,7 +1,7 @@
 # NotebookLM Prompt — Nucleotides, Bases, RNA, and Ribosomes
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa.
+You are creating an MCAT tutor-style audio overview for the student.
 
 Topic family:
 Adenine, adenosine, guanine, nucleotides, RNA, and ribosomes across C/P, B/B, and Behavioral Science when relevant.
@@ -61,5 +61,5 @@ End with:
 1. Top recognition patterns
 2. Top confusing pairs
 3. Highest-yield MCAT traps
-4. A 10-line cheat sheet Neissa can memorize
+4. A 10-line cheat sheet the student can memorize
 ```
