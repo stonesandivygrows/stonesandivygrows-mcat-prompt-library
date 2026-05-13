@@ -278,19 +278,28 @@
 
   <script>
     (async () => {
+      const withTimeout = (promise, ms) =>
+        Promise.race([
+          promise,
+          new Promise(resolve => setTimeout(resolve, ms))
+        ]);
+
       if (document.fonts && document.fonts.ready) {
-        await document.fonts.ready;
+        await withTimeout(document.fonts.ready, 3000);
       }
 
-      await Promise.all(
-        [...document.images].map(img =>
-          img.complete
-            ? Promise.resolve()
-            : new Promise(resolve => {
-                img.onload = resolve;
-                img.onerror = resolve;
-              })
-        )
+      await withTimeout(
+        Promise.all(
+          [...document.images].map(img =>
+            img.complete
+              ? Promise.resolve()
+              : new Promise(resolve => {
+                  img.onload = resolve;
+                  img.onerror = resolve;
+                })
+          )
+        ),
+        5000
       );
 
       setTimeout(() => window.print(), 3000);
