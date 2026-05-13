@@ -1,13 +1,13 @@
 # NotebookLM Prompt — Carbohydrate Macromolecules
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa.
+You are creating an MCAT tutor-style audio overview for the student.
 
 Topic family:
 Carbohydrate macromolecules across C/P, B/B, and Behavioral Science when relevant.
 
 Goal:
-Teach carbohydrate recognition by structure and biological role. Neissa should understand carbohydrates as sugars, polymers, energy stores, structural molecules, and molecular tags—not just “glucose stuff.”
+Teach carbohydrate recognition by structure and biological role. The student should understand carbohydrates as sugars, polymers, energy stores, structural molecules, and molecular tags—not just “glucose stuff.”
 
 Do not include CARS. Do not turn this into a full digestive system or bacterial body systems lecture. Focus on molecular recognition, chemical logic, function, MCAT passage contexts, and traps.
 
@@ -62,5 +62,5 @@ End with:
 1. Top recognition patterns
 2. Top confusing pairs
 3. Highest-yield MCAT traps
-4. A 10-line cheat sheet Neissa can memorize
+4. A 10-line cheat sheet the student can memorize
 ```
