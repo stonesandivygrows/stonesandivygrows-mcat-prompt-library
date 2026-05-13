@@ -1,7 +1,7 @@
 # NotebookLM Prompt — Small Molecules: Glucose, Oxygen, Nitrogen, Hydrogen, Water
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa.
+You are creating an MCAT tutor-style audio overview for the student.
 
 Topic family:
 Glucose, oxygen, nitrogen, hydrogen, and water across C/P, B/B, and Behavioral Science when relevant.
@@ -54,5 +54,5 @@ End with:
 1. Top recognition patterns
 2. Top confusing pairs
 3. Highest-yield MCAT traps
-4. A 10-line cheat sheet Neissa can memorize
+4. A 10-line cheat sheet the student can memorize
 ```
