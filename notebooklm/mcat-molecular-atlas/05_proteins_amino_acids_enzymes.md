@@ -1,13 +1,13 @@
 # NotebookLM Prompt — Proteins, Amino Acids, and Enzymes
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa.
+You are creating an MCAT tutor-style audio overview for the student.
 
 Topic family:
 Protein macromolecules, amino acids, essential/nonessential amino acids, ketogenic/glucogenic amino acids, peptide bonds, protein structure, and enzymes across C/P, B/B, and Behavioral Science when relevant.
 
 Goal:
-Unify amino acid structure, protein function, and enzyme logic. Neissa should be able to recognize proteins and amino acids in passages, figures, answer choices, enzyme questions, metabolism questions, and lab technique contexts.
+Unify amino acid structure, protein function, and enzyme logic. The student should be able to recognize proteins and amino acids in passages, figures, answer choices, enzyme questions, metabolism questions, and lab technique contexts.
 
 Do not include CARS. Do not turn this into a full human body systems or bacterial body systems lecture. Focus on molecular recognition, structure-function logic, MCAT passage contexts, and traps.
 
@@ -67,5 +67,5 @@ End with:
 1. Top recognition patterns
 2. Top confusing pairs
 3. Highest-yield MCAT traps
-4. A 10-line cheat sheet Neissa can memorize
+4. A 10-line cheat sheet the student can memorize
 ```
