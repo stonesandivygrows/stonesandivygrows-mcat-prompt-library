@@ -1,13 +1,13 @@
 # NotebookLM Prompt — Energy and Redox Currency: ATP, AMP, ADP, cAMP, NADH, FADH2, NADPH
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa.
+You are creating an MCAT tutor-style audio overview for the student.
 
 Topic family:
 ATP, ADP, AMP, cAMP, NADH, FADH2, and NADPH across C/P, B/B, and Behavioral Science when relevant.
 
 Goal:
-Separate phosphate energy currency from electron carrier currency. Neissa needs to understand why ATP, ADP, AMP, cAMP, NADH, FADH2, and NADPH are related but not interchangeable.
+Separate phosphate energy currency from electron carrier currency. The student needs to understand why ATP, ADP, AMP, cAMP, NADH, FADH2, and NADPH are related but not interchangeable.
 
 Do not include CARS. Do not turn this into a full human body systems or bacterial body systems lecture. Focus on molecular recognition, chemical logic, function, MCAT passage contexts, and traps.
 
@@ -60,5 +60,5 @@ End with:
 1. Top recognition patterns
 2. Top confusing pairs
 3. Highest-yield MCAT traps
-4. A 10-line cheat sheet Neissa can memorize
+4. A 10-line cheat sheet the student can memorize
 ```
