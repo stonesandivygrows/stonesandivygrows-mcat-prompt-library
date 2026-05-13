@@ -99,3 +99,121 @@ This is basically free fall in disguise. Fluid lower in the tank has more pressu
 
 **Visual I need later:** Tank of water with a hole at depth h, showing the exiting fluid speed.  
 **Memory hook:** Fluid falling height → free fall velocity.
+
+---
+
+# Visual Remediation Requests from Claude Questions
+
+These are larger confusion clusters that need visuals, interactive diagrams, comparison charts, or HTML-based study tools rather than simple flashcards.
+
+---
+
+## 9. Metabolic Shuttles Overview
+**Original question/request:** What are all the shuttles of metabolism, such as malate and carnitine?  
+**What I do not understand yet:** How the major metabolic shuttles differ, what each one transports, where each one operates, and why the cell needs them.  
+**Clarification already answered:** Show all three levels of detail: big-picture overview, medium pathway logic, and detailed molecule/enzyme movement.  
+**Why it matters:** Shuttles connect compartments and pathways. They explain how reducing equivalents, acetyl groups, and fatty acids move across membranes when the molecule itself cannot directly cross.  
+**Visual I need later:** Interactive compartment diagram with cytosol, mitochondrial outer membrane, intermembrane space, and matrix. Include malate-aspartate shuttle, glycerol-3-phosphate shuttle, and carnitine shuttle.  
+**Memory hook:** Shuttles solve the problem of “important cargo cannot cross this membrane directly.”
+
+---
+
+## 10. Glycerol vs Glyceraldehyde vs DHAP Metabolic Crossroads
+**Original question/request:** What is glycerol vs glyceraldehyde vs DHAP, and how do I know which is going where for lipid, protein, and sugar metabolism?  
+**What I do not understand yet:** All of it: molecule names, structures, pathway direction, organ context, and whether the molecule is being used for sugar metabolism, fat metabolism, or energy production.  
+**Clarification already answered:** Needs both comparison and interactive elements.  
+**Why it matters:** These similarly named molecules connect glycolysis, gluconeogenesis, triglyceride synthesis, glycerol metabolism, and fructose metabolism. Confusing their names makes pathway direction feel random.  
+**Visual I need later:** Side-by-side molecule comparison: glycerol, glyceraldehyde, glyceraldehyde-3-phosphate, glycerol-3-phosphate, and DHAP. Show arrows into glycolysis, gluconeogenesis, triglyceride synthesis, and liver/adipose-specific routes.  
+**Memory hook:** Glycerol is the fat backbone; G3P and DHAP are sugar-phosphate intermediates; glycerol-3-phosphate bridges sugar metabolism to fat storage.
+
+---
+
+## 11. Enzyme Kinetics
+**Original question/request:** Make visuals for kinetics when it comes to enzymes.  
+**What I do not understand yet:** How enzyme kinetics equations, graphs, inhibitors, Km, Vmax, and passage-based experimental results connect conceptually.  
+**Why it matters:** MCAT enzyme kinetics often tests graph interpretation more than memorization. The trap is knowing the equation but not recognizing what changed in the graph.  
+**Visual I need later:** Interactive Michaelis-Menten and Lineweaver-Burk graphs with sliders for competitive, noncompetitive, uncompetitive, enzyme concentration, substrate concentration, Km, and Vmax.  
+**Memory hook:** Km tells substrate affinity pattern; Vmax tells maximum catalytic capacity; inhibitors change one or both depending on mechanism.
+
+---
+
+## 12. Lab Techniques and Protein Assays
+**Original question/request:** Make visuals for lab techniques like protein assay and how to read the type of graphs the MCAT gives in passages.  
+**What I do not understand yet:** How to recognize the purpose of each lab technique, what the graph/table is actually measuring, and how to connect assay output to passage conclusions.  
+**Why it matters:** MCAT passages often hide straightforward biology inside unfamiliar experimental formats. The skill is decoding what was measured, not memorizing every assay detail.  
+**Visual I need later:** Technique-to-output map showing Western blot, ELISA, Bradford/BCA protein assay, SDS-PAGE, chromatography, PCR/qPCR, knockout studies, and reporter assays. Include example graph/table outputs.  
+**Memory hook:** Every lab technique answers one core question: presence, amount, size, activity, location, interaction, or causal effect.
+
+---
+
+## 13. Lab Vocabulary, Symbols, Graphs, and Tables
+**Original question/request:** Make visuals for lab vocabulary and symbols and graph/table reading, including knockout, in vivo, p value, logs, chromatography, etc.  
+**What I do not understand yet:** How to translate lab vocabulary, abbreviations, symbols, statistics, log scales, and table/graph conventions into testable meaning.  
+**Why it matters:** These terms are the language of MCAT passages. If the vocabulary is unclear, the passage feels harder than the underlying science.  
+**Visual I need later:** Interactive lab-symbol glossary with mini examples: knockout, knockdown, overexpression, in vivo, in vitro, ex vivo, p value, error bars, log scale, chromatography peaks, fold change, control group, experimental group, and significance markers.  
+**Memory hook:** Lab vocabulary is not extra detail; it tells you what was changed, what was measured, and whether the result matters.
+
+---
+
+## 14. Shells, Subshells, Orbitals, and Quantum Number Hierarchy
+**Original question/request:** Make visuals for subshell vs orbital vs energy level vs s/p/d/f vs shell.  
+**What I do not understand yet:** How shell, subshell, orbital, energy level, and s/p/d/f labels fit into one hierarchy instead of feeling like separate vocabulary words.  
+**Why it matters:** Electron configuration, quantum numbers, periodic trends, hybridization, and spectroscopy all depend on this hierarchy.  
+**Visual I need later:** Nested hierarchy diagram: energy level/shell n → subshell l → orbital ml → electron spin ms. Include s, p, d, f shapes and capacities.  
+**Memory hook:** Shell is the floor, subshell is the room type, orbital is the seat, electron is the person sitting in the seat.
+
+---
+
+## 15. Hybridization, Magnetic Quantum Number, Azimuthal Quantum Number, and Electron Capacity
+**Original question/request:** Make visuals for hybridization and magnetic quantum number and azimuthal quantum number and how many electrons are in each.  
+**What I do not understand yet:** How quantum numbers connect to orbital count, electron capacity, and hybridization patterns like sp, sp2, and sp3.  
+**Why it matters:** This connects Gen Chem electron structure with Organic Chemistry geometry and bonding.  
+**Visual I need later:** Table and interactive orbital boxes showing l values, ml values, number of orbitals, electron capacity, and hybridization geometry.  
+**Memory hook:** l gives the subshell type; ml counts the orbitals inside that subshell; each orbital holds 2 electrons.
+
+---
+
+## 16. Why Certain Elements Break the Octet Rule
+**Original question/request:** Explain the anatomy of why certain elements break the octet rule.  
+**What I do not understand yet:** Why some atoms can have incomplete octets, expanded octets, or odd-electron exceptions, and how to predict when this happens.  
+**Why it matters:** Octet-rule exceptions affect Lewis structures, formal charge, resonance, molecular geometry, and acid-base behavior.  
+**Visual I need later:** Decision tree for octet exceptions: hydrogen/helium duet, boron/aluminum incomplete octets, odd-electron radicals, and period 3+ expanded octets.  
+**Memory hook:** The octet rule is a strong default, not an absolute law.
+
+---
+
+## 17. OIL RIG, Electron Carriers, Donors/Acceptors, and Pathway Redox
+**Original question/request:** Explain OIL RIG in terms of electron carriers, acceptors, donors, and pathways. Example: how is NADH losing an electron turning malate into oxaloacetate?  
+**What I do not understand yet:** How redox language maps onto biochemical pathways, especially when NAD+/NADH, FAD/FADH2, substrates, and products are all changing together.  
+**Clarification already answered:** Needs both general redox chemistry and pathway examples together.  
+**Why it matters:** Redox is central to glycolysis, TCA cycle, beta-oxidation, fermentation, and ETC. The MCAT tests both the chemistry language and the pathway consequence.  
+**Visual I need later:** Paired redox diagram showing substrate oxidation and carrier reduction side by side, then reverse carrier oxidation in the ETC. Use malate → oxaloacetate with NAD+ → NADH as the anchor example.  
+**Memory hook:** If the substrate loses electrons, the carrier gains them; oxidation and reduction always come as a pair.
+
+---
+
+## 18. Reactive Oxygen Species in Eukaryotes and Prokaryotes
+**Original question/request:** Why do ROS exist, and what do they have to do with eukaryotes and prokaryotes?  
+**What I do not understand yet:** All of it: ROS formation, cell damage, antioxidant defenses, signaling roles, oxygen metabolism, and evolutionary context.  
+**Clarification already answered:** Needs formation, cellular role, and evolutionary aspect.  
+**Why it matters:** ROS connects ETC leakage, oxidative stress, immune killing, aerobic metabolism, mitochondria, bacterial survival, and antioxidant enzymes.  
+**Visual I need later:** Oxygen metabolism map showing electron leakage from ETC, superoxide formation, conversion to hydrogen peroxide, hydroxyl radical formation, and detox enzymes such as superoxide dismutase, catalase, and glutathione peroxidase.  
+**Memory hook:** ROS are the reactive side effect of using oxygen as a powerful electron acceptor.
+
+---
+
+## 19. Dipole Moments in Physics vs Organic Chemistry
+**Original question/request:** Why do dipole moments in physics and dipole moments in organic chemistry have the same name?  
+**What I do not understand yet:** How the same electrostatic idea applies to both physics charge separation and organic chemistry bond/molecular polarity.  
+**Why it matters:** Dipoles show up in electrostatics, molecular polarity, intermolecular forces, spectroscopy, and biological molecule interactions.  
+**Visual I need later:** Side-by-side physics dipole and organic molecule dipole, showing separated partial charges, vector direction, and net molecular dipole.  
+**Memory hook:** A dipole is always charge separation; different classes just use it at different scales.
+
+---
+
+## 20. Periodic Trends: Electron Affinity Magnitude vs Negative Sign
+**Original question/request:** Explain periodic table trends and why electron affinity increases across a period in magnitude but is negative, unlike ionization energy and electronegativity.  
+**What I do not understand yet:** Why adding an electron can release energy, why the value is often negative, and how to interpret “more negative” versus “larger magnitude.”  
+**Why it matters:** Electron affinity is easy to misread because the sign convention differs from trends like ionization energy and electronegativity.  
+**Visual I need later:** Periodic trend map with arrows plus energy diagram showing an atom gaining an electron and releasing energy. Include a note distinguishing numerical value from magnitude.  
+**Memory hook:** Electron affinity is about energy change when an electron is added; more attraction often means more energy released, so the number can become more negative.
