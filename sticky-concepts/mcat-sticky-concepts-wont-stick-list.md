@@ -217,3 +217,39 @@ These are larger confusion clusters that need visuals, interactive diagrams, com
 **Why it matters:** Electron affinity is easy to misread because the sign convention differs from trends like ionization energy and electronegativity.  
 **Visual I need later:** Periodic trend map with arrows plus energy diagram showing an atom gaining an electron and releasing energy. Include a note distinguishing numerical value from magnitude.  
 **Memory hook:** Electron affinity is about energy change when an electron is added; more attraction often means more energy released, so the number can become more negative.
+
+---
+
+## 21. Ploidy, Chromosome Count, and Chromatid Count Across the Cell Cycle
+**Original question/request:** Make visuals for ploidy and the count of chromosomes/chromatids during mitosis, meiosis, G1, G2, S phase, and checkpoints.  
+**What I do not understand yet:** How chromosome number, chromatid number, DNA content, and ploidy change across G1, S, G2, mitosis, meiosis I, and meiosis II.  
+**Why it matters:** The MCAT frequently tests whether DNA replication changes chromosome number, chromatid number, DNA content, or ploidy. These are separate counts, and mixing them up causes wrong answers.  
+**Visual I need later:** Interactive chromosome counter showing one cell moving through G1, S, G2, mitosis, meiosis I, and meiosis II. Include toggles for chromosome number, chromatid number, DNA content, homologous pairs, and ploidy.  
+**Memory hook:** S phase doubles DNA/chromatids, not ploidy; meiosis I separates homologs, meiosis II separates sister chromatids.
+
+---
+
+## 22. RNA Types, Ribosomes, and DNA Types
+**Original question/request:** Make visuals for all the different types of RNA, ribosome too, and DNA.  
+**What I do not understand yet:** How mRNA, tRNA, rRNA, snRNA, miRNA, siRNA, ribosomes, DNA, genes, coding regions, and regulatory regions differ in structure and function.  
+**Why it matters:** Molecular biology questions often require identifying which nucleic acid is carrying information, catalyzing a process, regulating expression, or physically building protein.  
+**Visual I need later:** Comparison chart and central-dogma flow diagram showing DNA → RNA → protein, with branches for mRNA, tRNA, rRNA/ribosome, snRNA/splicing, miRNA/siRNA regulation, and relevant MCAT functions.  
+**Memory hook:** DNA stores, mRNA carries, tRNA delivers, rRNA builds, snRNA edits, miRNA/siRNA silences.
+
+---
+
+## 23. Anatomy of DNA and RNA Molecules
+**Original question/request:** Make visuals for the anatomy of DNA and RNA, including NTP, phosphate, ribose, etc.  
+**What I do not understand yet:** How bases, sugars, phosphates, nucleosides, nucleotides, NTPs, dNTPs, ribose, deoxyribose, phosphodiester bonds, and 5 prime/3 prime directionality fit together.  
+**Why it matters:** Replication, transcription, PCR, reverse transcription, sequencing, and nucleic acid energetics all depend on knowing the physical parts of nucleotides and strand direction.  
+**Visual I need later:** Labeled nucleotide anatomy diagram comparing ribose vs deoxyribose, nucleoside vs nucleotide, NMP/NDP/NTP, dNTPs, phosphodiester linkage, base pairing, and 5 prime to 3 prime orientation.  
+**Memory hook:** Nucleoside = base + sugar; nucleotide = base + sugar + phosphate; polymerization uses triphosphate energy.
+
+---
+
+## 24. Replication, Duplication, Synthesis, Reverse Transcription, cDNA, PCR, and Gene Transfer Vocabulary
+**Original question/request:** Make visuals for replication vs duplication vs synthesis vs retro vs cDNA cloning vs PCR and other lab stuff, versus reverse transcriptase, transformation, transduction, conjugation, recombination, plasmid/DNA, operon/inducing/suppressing.  
+**What I do not understand yet:** How to separate biological processes from lab techniques, and how similar words describe different directions of information flow or genetic transfer.  
+**Why it matters:** MCAT passages often mix cell biology, molecular genetics, and lab methods. Confusing process names makes it hard to track what molecule is being copied, moved, inserted, expressed, or regulated.  
+**Visual I need later:** Large process map grouped by function: DNA copying, RNA synthesis, protein synthesis, reverse transcription, PCR amplification, cloning/cDNA, plasmid transfer, transformation, transduction, conjugation, recombination, operon induction/repression, and gene expression regulation.  
+**Memory hook:** First ask: what molecule is the starting material, what molecule is produced, and is this happening in a cell or in a lab?
