@@ -1,13 +1,13 @@
 # NotebookLM Prompt — Neurotransmitter Molecule Families: GABA and Acetylcholine
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa.
+You are creating an MCAT tutor-style audio overview for the student.
 
 Topic family:
 GABA, acetylcholine, and neurotransmitter molecule-family logic across B/B and Behavioral Science, with C/P chemistry only when needed.
 
 Goal:
-Help Neissa understand neurotransmitters as molecules with origins and chemical families, not random names. Focus especially on GABA and acetylcholine, then connect to other amino-acid-derived neurotransmitters only as useful comparisons.
+Help the student understand neurotransmitters as molecules with origins and chemical families, not random names. Focus especially on GABA and acetylcholine, then connect to other amino-acid-derived neurotransmitters only as useful comparisons.
 
 Do not include CARS. Do not turn this into a full human nervous system lecture. Avoid long anatomy sections. Focus on molecular recognition, chemical origin, function, receptor logic, and MCAT traps.
 
@@ -59,5 +59,5 @@ End with:
 1. Top recognition patterns
 2. Top confusing pairs
 3. Highest-yield MCAT traps
-4. A 10-line cheat sheet Neissa can memorize
+4. A 10-line cheat sheet the student can memorize
 ```
