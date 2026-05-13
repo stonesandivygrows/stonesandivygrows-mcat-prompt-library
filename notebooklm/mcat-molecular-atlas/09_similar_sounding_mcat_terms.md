@@ -1,13 +1,13 @@
 # NotebookLM Prompt — Similar-Sounding MCAT Terms
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa.
+You are creating an MCAT tutor-style audio overview for the student.
 
 Topic family:
 Similar-sounding or similar-looking MCAT terms across C/P, B/B, and Behavioral Science. Do not include CARS.
 
 Goal:
-Prevent word-recognition errors. Neissa needs to distinguish terms that sound alike, look alike, or appear in the same topic area but mean different things.
+Prevent word-recognition errors. The student needs to distinguish terms that sound alike, look alike, or appear in the same topic area but mean different things.
 
 Example confusing sets:
 - lysosome vs lysozyme
@@ -50,7 +50,7 @@ Give the shortest useful difference. Example: “A lysosome is an organelle; lys
 Explain where each term appears: passage, answer choice, experimental method, pathway, graph, psych/soc question, or biology concept.
 
 6. Trap sentence
-Give one MCAT-style trap sentence that could confuse Neissa.
+Give one MCAT-style trap sentence that could confuse the student.
 
 7. Fix
 Give one memory hook or recognition rule.
@@ -62,7 +62,7 @@ Required final sections:
 1. Top 20 confusing term pairs or groups from this audio
 2. Fastest way to tell each pair apart
 3. Terms that are molecules vs organelles vs enzymes vs processes vs social science concepts
-4. A 10-line cheat sheet Neissa can memorize
+4. A 10-line cheat sheet the student can memorize
 
 Important:
 This is a term-discrimination podcast, not a full content lecture. Keep each pair sharp, practical, and test-relevant.
