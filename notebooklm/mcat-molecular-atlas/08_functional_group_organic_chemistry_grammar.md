@@ -1,7 +1,7 @@
 # NotebookLM Prompt — Functional Group and Organic Chemistry Grammar
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa.
+You are creating an MCAT tutor-style audio overview for the student.
 
 Topic family:
 Functional groups and organic chemistry grammar across C/P, B/B, and Behavioral Science when relevant.
@@ -10,7 +10,7 @@ Core terms:
 Carboxylic acid, carboxylate, ester, ether, acyl, acetyl, methyl, amino group, amide, carbonyl, aldehyde, ketone, alcohol, hydroxyl, phosphate, sulfhydryl, anhydride, and related MCAT functional groups.
 
 Goal:
-Teach functional groups as the grammar of molecules. Neissa should learn how names and structures reveal reactivity, polarity, acid/base behavior, metabolism, macromolecule identity, and MCAT traps.
+Teach functional groups as the grammar of molecules. The student should learn how names and structures reveal reactivity, polarity, acid/base behavior, metabolism, macromolecule identity, and MCAT traps.
 
 Do not include CARS. Do not turn this into a full organic reaction course. Focus on recognition, chemical logic, biological relevance, and common MCAT mistakes.
 
@@ -67,5 +67,5 @@ End with:
 1. Top recognition patterns
 2. Top confusing pairs
 3. Highest-yield MCAT traps
-4. A 10-line cheat sheet Neissa can memorize
+4. A 10-line cheat sheet the student can memorize
 ```
