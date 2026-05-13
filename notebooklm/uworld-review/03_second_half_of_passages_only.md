@@ -1,18 +1,18 @@
 # NotebookLM Prompt — UWorld Second Half of Passages Only
 
 ```text
-You are creating an MCAT tutor-style audio overview for Neissa using the uploaded UWorld test or review material.
+You are creating an MCAT tutor-style audio overview for the student using the uploaded UWorld test or review material.
 
 This audio should review ONLY the second half of each passage and how it connects to the first half. Do not review discrete questions. Do not fully answer passage questions unless needed briefly to explain why the second half matters.
 
 Goal:
-Help Neissa finish understanding each passage, especially the experimental logic, data, graphs, conclusions, and likely question targets. She understands questions better when the passage has already been translated.
+Help the student finish understanding each passage, especially the experimental logic, data, graphs, conclusions, and likely question targets. The student understands questions better when the passage has already been translated.
 
 Source rules:
 Use only the uploaded UWorld test, UWorld explanations, and Kaplan/UWorld study materials as factual sources. If something is not stated or supported, say so briefly.
 
 Audio style:
-Use two calm MCAT tutors. Speak slowly and clearly. Be concrete. Explain graphs and data directly. Do not assume she remembers the first half perfectly; briefly reconnect to it.
+Use two calm MCAT tutors. Speak slowly and clearly. Be concrete. Explain graphs and data directly. Do not assume the student remembers the first half perfectly; briefly reconnect to it.
 
 For each passage, use this structure:
 
@@ -20,7 +20,7 @@ For each passage, use this structure:
 Say which passage is being reviewed.
 
 2. Quick first-half reminder
-Briefly remind Neissa of the topic, main experiment, what changed, what was measured, and the main comparison.
+Briefly remind the student of the topic, main experiment, what changed, what was measured, and the main comparison.
 
 3. What the second half adds
 Explain the new information in the second half: new method, condition, molecule, protein, pathway, result, graph, table, conclusion, complication, or exception.
@@ -61,7 +61,7 @@ Name possible traps: confusing correlation with causation, treating a measured o
 9. Final passage takeaway
 End each passage with: “The usable map for this passage is…”
 
-After all passages, create a final passage-reading lesson for Neissa:
+After all passages, create a final passage-reading lesson for the student:
 1. What changed?
 2. What was measured?
 3. Compared to what?
