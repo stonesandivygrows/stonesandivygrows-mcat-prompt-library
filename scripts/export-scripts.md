@@ -234,9 +234,44 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
   // ---------- HELPERS ----------
+  function collectQuestionCounts(text) {
+    return String(text || '')
+      .split(/\n+/)
+      .map(line => line.trim())
+      .map(line =>
+        line.match(/^(?:question\s*:?\s*)?(\d{1,3})\s+of\s+(\d{1,3})$/i) ||
+        line.match(/\bquestion\s*:?\s*(\d{1,3})\s+of\s+(\d{1,3})\b/i)
+      )
+      .filter(Boolean)
+      .map(m => ({ current: Number(m[1]), total: Number(m[2]) }))
+      .filter(({ current, total }) => current >= 1 && current <= total);
+  }
+
+  function chooseQuestionCount(matches) {
+    if (!matches.length) return null;
+
+    return matches.reduce((best, match) =>
+      match.total > best.total ? match : best
+    );
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const navigationRoots = [
+      ...document.querySelectorAll(
+        'nav, [role="navigation"], [class*="nav" i], [id*="nav" i], [class*="pagination" i], [id*="pagination" i]'
+      ),
+      ...[...document.querySelectorAll('a[aria-label*="next" i], button[aria-label*="next" i]')]
+        .map(el => el.closest('nav, [role="navigation"], [class*="nav" i], [id*="nav" i], [class*="pagination" i], [id*="pagination" i]') || el.parentElement)
+        .filter(Boolean)
+    ];
+
+    const scopedMatches = navigationRoots.flatMap(el => collectQuestionCounts(el.innerText));
+    const scopedCount = chooseQuestionCount(scopedMatches);
+    if (scopedCount) return scopedCount;
+
+    // Avoid broad substring matching: figure captions like "1 of 2" can appear
+    // before the real UWorld counter and would silently truncate the export.
+    return chooseQuestionCount(collectQuestionCounts(document.body.innerText));
   }
 
   function clickNext() {
@@ -350,21 +385,26 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found – stopping.');
-      break;
+      alert(`Export stopped before all questions were captured. Expected ${total}, captured ${questionsHTML.length}. No PDF was created.`);
+      return;
     }
 
     let newInfo = null;
     for (let i = 0; i < 25; i++) {
       await sleep(400);
       newInfo = getQuestionCount();
-      if (newInfo && newInfo.current !== current) break;
+      if (newInfo && newInfo.total === total && newInfo.current !== current) break;
     }
-    if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation stuck – stopping.');
-      break;
+    if (!newInfo || newInfo.total !== total || newInfo.current === current) {
+      alert(`Navigation could not be verified after Question ${current}. Expected ${total} total questions, captured ${questionsHTML.length}. No PDF was created.`);
+      return;
     }
     current = newInfo.current;
+  }
+
+  if (questionsHTML.length !== total) {
+    alert(`Export incomplete. Expected ${total} questions, captured ${questionsHTML.length}. No PDF was created.`);
+    return;
   }
 
   const dateStr = getTestDate();
