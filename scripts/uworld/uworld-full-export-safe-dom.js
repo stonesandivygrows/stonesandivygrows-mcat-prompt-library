@@ -170,6 +170,7 @@
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let abortReason = '';
 
   while (current <= total) {
     console.log(`Exporting Question ${current}...`);
@@ -190,7 +191,8 @@
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found – stopping.');
+      abortReason = `Next button not found after exporting Question ${current}.`;
+      console.warn(`${abortReason} Export aborted to avoid a partial PDF.`);
       break;
     }
 
@@ -203,11 +205,21 @@
     }
 
     if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation stuck – stopping.');
+      abortReason = `Navigation did not advance after exporting Question ${current}.`;
+      console.warn(`${abortReason} Export aborted to avoid a partial PDF.`);
       break;
     }
 
     current = newInfo.current;
+  }
+
+  if (abortReason || questionsHTML.length !== total) {
+    alert(
+      `Export incomplete: captured ${questionsHTML.length} of ${total} questions.\n\n` +
+      `${abortReason || 'The exported question count did not match the UWorld total.'}\n\n` +
+      'No PDF was opened. Please fix navigation or manually export from the missing question and re-run.'
+    );
+    return;
   }
 
   const testID = getTestID();
