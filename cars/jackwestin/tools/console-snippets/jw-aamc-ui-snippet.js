@@ -5,19 +5,37 @@ Source: "Pasted text (2).txt" (user-provided). This is an excerpt, not guarantee
 Use: paste into Chrome DevTools Console on a Jack Westin MCAT-style test page.
 */
 
+function pageGlobal(name) {
+  return (typeof window !== 'undefined' && window[name]) || null;
+}
+
+function toggleClassIfPresent(el, className) {
+  if (el && el.classList) {
+    el.classList.toggle(className);
+  }
+}
+
+function setModeButtonText(button, text) {
+  var label = button && button.querySelector ? button.querySelector('span') : null;
+  if (label) {
+    label.innerText = text;
+  }
+}
+
 // Hide Statistics toggle (cookie-backed)
 var statisticsStatus = fetchCookie('jw-hide-statistics')
 if (!statisticsStatus) {
   statisticsStatus = 0;
 }
-if (toggleStatistics) {
+var toggleStatisticsControl = pageGlobal('toggleStatistics');
+if (toggleStatisticsControl) {
   if (statisticsStatus == 1) {
-    toggleStatistics.setAttribute('checked', true);
+    toggleStatisticsControl.setAttribute('checked', true);
   } else {
-    toggleStatistics.removeAttribute('checked');
+    toggleStatisticsControl.removeAttribute('checked');
   }
   window.showStatistics = statisticsStatus;
-  toggleStatistics.onclick = function () {
+  toggleStatisticsControl.onclick = function () {
     statisticsStatus = fetchCookie('jw-hide-statistics')
     if (!statisticsStatus) {
       statisticsStatus = 0;
@@ -26,9 +44,9 @@ if (toggleStatistics) {
     window.showStatistics = statisticsStatus;
     storeCookie('jw-hide-statistics', statisticsStatus, 365);
     if (statisticsStatus == 1) {
-      toggleStatistics.setAttribute('checked', true);
+      toggleStatisticsControl.setAttribute('checked', true);
     } else {
-      toggleStatistics.removeAttribute('checked');
+      toggleStatisticsControl.removeAttribute('checked');
     }
   }
 }
@@ -36,41 +54,46 @@ if (toggleStatistics) {
 function toggleDarkClasses() {
   const is_dat = false;
   if (!is_dat) {
-    bodyElement.classList.toggle('dark');
-    aamcConfig.classList.toggle('dark');
-    increase.classList.toggle('btn-dark');
-    normal.classList.toggle('btn-dark');
-    decrease.classList.toggle('btn-dark');
+    toggleClassIfPresent(pageGlobal('bodyElement') || document.body, 'dark');
+    toggleClassIfPresent(pageGlobal('aamcConfig') || document.querySelector('#aamc-configuration'), 'dark');
+    toggleClassIfPresent(pageGlobal('increase'), 'btn-dark');
+    toggleClassIfPresent(pageGlobal('normal'), 'btn-dark');
+    toggleClassIfPresent(pageGlobal('decrease'), 'btn-dark');
   }
 }
 
 var darkMode = fetchCookie('dark-mode');
+var darkModeButton = pageGlobal('darkModeBtn');
+var sunIcon = pageGlobal('sun');
+var moonIcon = pageGlobal('moon');
 if (darkMode) {
   if (darkMode == 1) {
     toggleDarkClasses();
-    sun.classList.toggle('disable');
-    moon.classList.toggle('disable');
-    darkModeBtn.querySelector('span').innerText = 'Light mode';
+    toggleClassIfPresent(sunIcon, 'disable');
+    toggleClassIfPresent(moonIcon, 'disable');
+    setModeButtonText(darkModeButton, 'Light mode');
   } else {
-    darkModeBtn.querySelector('span').innerText = 'Dark mode';
+    setModeButtonText(darkModeButton, 'Dark mode');
   }
 }
 
-darkModeBtn.onclick = function (e) {
-  toggleDarkMode();
+if (darkModeButton) {
+  darkModeButton.onclick = function (e) {
+    toggleDarkMode();
+  }
 }
 
 function toggleDarkMode() {
   toggleDarkClasses();
-  sun.classList.toggle('disable');
-  moon.classList.toggle('disable');
+  toggleClassIfPresent(sunIcon, 'disable');
+  toggleClassIfPresent(moonIcon, 'disable');
   if (darkMode == 1) {
     darkMode = 0;
-    darkModeBtn.querySelector('span').innerText = 'Dark mode'
+    setModeButtonText(darkModeButton, 'Dark mode')
     storeCookie('dark-mode', darkMode, 365);
   } else {
     darkMode = 1;
-    darkModeBtn.querySelector('span').innerText = 'Light mode'
+    setModeButtonText(darkModeButton, 'Light mode')
     storeCookie('dark-mode', darkMode, 365);
   }
 }
@@ -99,20 +122,26 @@ function fetchCookie(name) {
 }
 
 function toggleConfiguration(event) {
-  if (btn) {
-    btn.classList.toggle('opened');
-    btn.setAttribute('aria-expanded', btn.classList.contains('opened'))
-  }
-  document.querySelector('#aamc-configuration').classList.toggle('active');
-  overly.classList.toggle('hide');
-}
-if (btn) {
-  btn.onclick = toggleConfiguration;
-}
-overly.onclick = toggleConfiguration;
+  var configButton = pageGlobal('btn');
+  var configPanel = document.querySelector('#aamc-configuration');
+  var overlay = pageGlobal('overly');
 
-increase.onclick = function () {
-  let elements = document.querySelectorAll(
-    'div[ref="base"] > div p, div[ref="base"] > div, label span, #correct-answer p');
-  // NOTE: excerpt ends here in the source file.
+  if (configButton) {
+    configButton.classList.toggle('opened');
+    configButton.setAttribute('aria-expanded', configButton.classList.contains('opened'))
+  }
+  toggleClassIfPresent(configPanel, 'active');
+  toggleClassIfPresent(overlay, 'hide');
 }
+var configButton = pageGlobal('btn');
+var overlay = pageGlobal('overly');
+if (configButton) {
+  configButton.onclick = toggleConfiguration;
+}
+if (overlay) {
+  overlay.onclick = toggleConfiguration;
+}
+
+// NOTE: The saved source excerpt ends before the font-size handlers are complete.
+// Do not install a partial `increase.onclick` handler, because that would replace
+// the page's existing behavior with a no-op.
