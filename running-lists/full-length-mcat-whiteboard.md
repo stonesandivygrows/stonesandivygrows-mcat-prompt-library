@@ -111,9 +111,25 @@ Reduction Is Gain
 ```
 
 ```text
+LEO GER
+Lose Electrons = Oxidation
+Gain Electrons = Reduction
+```
+
+```text
 Anode = Oxidation
 Cathode = Reduction
 Electrons flow Anode → Cathode
+```
+
+```text
+Reducing agent gets oxidized and helps reduce another species.
+Oxidizing agent gets reduced and helps oxidize another species.
+```
+
+```text
+RAO: Reducing Agent Oxidized
+OAR: Oxidizing Agent Reduced
 ```
 
 ```text
@@ -191,11 +207,22 @@ Better mental model:
 ```text
 pH = −log[H+]
 ↑[H+] → ↓pH
+↓[H+] → ↑pH
+```
+
+```text
+High pH = low H+ = more basic
+Low pH = high H+ = more acidic
 ```
 
 ```text
 pKa = −log Ka
 ↑Ka → ↓pKa → stronger acid
+```
+
+```text
+Low pKa = strong acid
+High pKa = weak acid
 ```
 
 ```text
@@ -377,8 +404,32 @@ Basic AAs: K, R, H = +
 ```
 
 ```text
+DE = negative acid side chains
+KRH = positive basic side chains
+```
+
+```text
+Amino acid charge mnemonic:
+Dragons Eat negative acid.
+Knights Ride Horses positive basic.
+```
+
+```text
+Nonpolar core: GAVLIMP
+Aromatic: FYW
+Hydroxyl: STY
+Sulfur: C, M
+Amide: N, Q
+```
+
+```text
 pH > pI → protein more negative
 pH < pI → protein more positive
+```
+
+```text
+High pH pulls off H+ → molecule/protein becomes more negative.
+Low pH adds H+ → molecule/protein becomes more positive.
 ```
 
 ### Molecule-Family Block
@@ -520,6 +571,12 @@ Done, not guessed.
 ```
 
 ```text
+OIL RIG
+RAO: reducing agent oxidized
+OAR: oxidizing agent reduced
+```
+
+```text
 ΔG < 0 = spontaneous
 Ecell > 0 = spontaneous
 ΔG = −nFE
@@ -532,7 +589,13 @@ Electrons: anode → cathode
 
 ```text
 pH = −log[H+]
-↑Ka → ↓pKa → stronger acid
+High pH = low H+
+Low pKa = strong acid
+```
+
+```text
+DE = − acidic
+KRH = + basic
 ```
 
 ```text
@@ -556,3 +619,4 @@ CARS: no outside knowledge.
 ## Update Log
 
 - 2026-05-18: Created from MCAT Logistics discussion on full-length test-day whiteboard setup, sign confusion, C/P electrochemistry, CARS trust/rereading, B/B experiment logic, P/S term traps, and personal arithmetic reminders.
+- 2026-05-18: Added explicit reducing/oxidizing agent reminders, high-pH/low-H+ wording, low-pKa strong-acid wording, and amino acid mnemonics including DE negative and KRH positive.
