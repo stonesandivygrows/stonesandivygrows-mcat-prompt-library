@@ -65,30 +65,56 @@ CARS:
 
 ---
 
-## Science Section Timing: C/P, B/B, P/S
+## 10-Minute Question Pacer for C/P and B/B
 
-Use the same timing checkpoints for C/P, B/B, and P/S.
+Purpose: Use this for C/P and B/B so you do not have to memorize time-left targets. At each 10-minute check-in, compare the elapsed time to the question number you should have finished.
+
+Rule:
 
 ```text
-95 min / 59Q
+Check by question number done, not by guessed questions.
 ```
 
-| Time Left | Target |
+Use for:
+
+```text
+C/P: 59 questions / 95 minutes
+B/B: 59 questions / 95 minutes
+```
+
+| Elapsed Time | Question You Should Have Finished |
 |---:|---:|
-| 95 | Start |
-| 75 | ~12 done |
-| 55 | ~24 done |
-| 35 | ~36 done |
-| 15 | ~48 done |
-| 5 | Finish / flag review |
+| 10 min | Q6 |
+| 20 min | Q12 |
+| 30 min | Q19 |
+| 40 min | Q25 |
+| 50 min | Q31 |
+| 60 min | Q37 |
+| 70 min | Q43 |
+| 80 min | Q50 |
+| 90 min | Q56 |
+| 95 min | Q59 |
 
-Reminder:
+Whiteboard compact version:
 
 ```text
-Checkpoint = done questions, not guessed questions.
+C/P + B/B 10-min pacer:
+10=Q6, 20=Q12, 30=Q19, 40=Q25, 50=Q31
+60=Q37, 70=Q43, 80=Q50, 90=Q56, 95=Q59
 ```
 
-If a first passage question takes long, do not automatically panic. It may include the time spent reading the passage.
+Safety rule:
+
+```text
+If behind by 3+ questions, stop perfecting. Flag and move.
+```
+
+Passage timing reminder:
+
+```text
+First question of a passage may include passage-reading time.
+Do not panic from one inflated question timer.
+```
 
 ---
 
@@ -98,6 +124,8 @@ If a first passage question takes long, do not automatically panic. It may inclu
 
 ```text
 C/P — 95 min / 59Q
+Use 10-min pacer: 10=Q6, 20=Q12, 30=Q19, 40=Q25, 50=Q31
+60=Q37, 70=Q43, 80=Q50, 90=Q56, 95=Q59
 Done, not guessed.
 Units first. Then equation.
 ```
@@ -351,6 +379,8 @@ Pick the answer the passage can prove.
 
 ```text
 B/B — 95 min / 59Q
+Use 10-min pacer: 10=Q6, 20=Q12, 30=Q19, 40=Q25, 50=Q31
+60=Q37, 70=Q43, 80=Q50, 90=Q56, 95=Q59
 Done, not guessed.
 ```
 
@@ -571,6 +601,12 @@ Done, not guessed.
 ```
 
 ```text
+C/P + B/B pacer:
+10=Q6, 20=Q12, 30=Q19, 40=Q25, 50=Q31
+60=Q37, 70=Q43, 80=Q50, 90=Q56, 95=Q59
+```
+
+```text
 OIL RIG
 RAO: reducing agent oxidized
 OAR: oxidizing agent reduced
@@ -620,3 +656,4 @@ CARS: no outside knowledge.
 
 - 2026-05-18: Created from MCAT Logistics discussion on full-length test-day whiteboard setup, sign confusion, C/P electrochemistry, CARS trust/rereading, B/B experiment logic, P/S term traps, and personal arithmetic reminders.
 - 2026-05-18: Added explicit reducing/oxidizing agent reminders, high-pH/low-H+ wording, low-pKa strong-acid wording, and amino acid mnemonics including DE negative and KRH positive.
+- 2026-05-19: Added a C/P and B/B 10-minute question pacer using question-number targets instead of time-left targets.
