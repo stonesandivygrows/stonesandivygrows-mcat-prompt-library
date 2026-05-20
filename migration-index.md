@@ -1,8 +1,20 @@
 # Migration Index
 
-Pending migration from legacy gists into structured repo files.
+Structured repo migration tracker for legacy gists and MCAT study-system materials.
+
+## Filed in repo
+
+### Interdisciplinary MCAT notes
+
+- Status: Filed in repo
+- GitHub path: `content-review/interdisciplinary-notes/2026-05-20__interdisciplinary-study-notes-index.md`
+- Notion hierarchy page: `03_CONTENT_REVIEW — Interdisciplinary Notes Index`
+- Notion database: `🌿 MCAT Active Study Hub`
+- Purpose: preserve the cross-subject MCAT study anchors as a versioned index while leaving giant raw transcripts / DOCX source material in the archive layer.
 
 ## Pending gist inventory
+
+These legacy gists still need direct content import because the GitHub connector could not fetch gist bodies directly from `gist.github.com` in this environment. They remain listed until each body is pasted, exported, or moved into repo files.
 
 1. https://gist.github.com/stonesandivygrows/a112ee83c1a16c2361555b59910166be
 2. https://gist.github.com/stonesandivygrows/16f4b843252d15a1efae7d307ba83655
@@ -15,7 +27,13 @@ Pending migration from legacy gists into structured repo files.
 
 ## Status key
 
-- Pending inventory
-- Pending content import
-- Filed in repo
-- Archived
+- Pending inventory: item located but not opened/imported
+- Pending content import: file exists but body has not been migrated
+- Filed in repo: content or clean index exists in repo
+- Archived: old source preserved but replaced by a better canonical file
+
+## Routing rule
+
+- GitHub stores prompts, indexes, workflows, and versioned markdown.
+- Notion stores active study pages, hierarchy, review hubs, and database entries.
+- Raw transcripts, screenshots, huge Anki exports, and audio files stay in local/iCloud/Drive archival storage unless deliberately excerpted.
