@@ -146,6 +146,7 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 
   console.log(`Total questions: ${maxQuestions}. Starting scrape from question ${current}...`);
   const collected = [];
+  let scrapeError = "";
 
   // If we aren't on question 1, go back to it
   if (current !== 1) {
@@ -163,7 +164,8 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (q > 1) {
       const moved = await clickQuestionFromNav(q);
       if (!moved) {
-        console.warn(`Could not navigate to question ${q}. Stopping.`);
+        scrapeError = `Expected ${maxQuestions} questions, but could not navigate to question ${q}.`;
+        console.warn(scrapeError);
         break;
       }
     }
@@ -177,6 +179,15 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 
   // 4. Grab the passage (only once – from the first question page)
   const passageHTML = getPassageHTML();
+
+  if (scrapeError || collected.length !== maxQuestions) {
+    alert(
+      `Export stopped before all questions were captured.\n\n` +
+      `${scrapeError || `Captured ${collected.length} of ${maxQuestions} questions.`}\n\n` +
+      "No PDF was created. Re-run after verifying that question navigation works."
+    );
+    return;
+  }
 
   // 5. Build the final export page
   const fullPage = `<!DOCTYPE html>
@@ -219,6 +230,11 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 </html>`;
 
   const w = window.open("", "JackWestinFullExport", "width=800,height=600");
+  if (!w) {
+    alert("Popup blocked. Allow popups for Jack Westin, then run the script again.");
+    return;
+  }
+
   w.document.write(fullPage);
   w.document.close();
   console.log(`Export complete – ${collected.length} questions collected. Print dialog opening...`);
@@ -333,6 +349,7 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let exportError = '';
 
   while (current <= total) {
     console.log(`📸 Question ${current}…`);
@@ -350,7 +367,8 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found – stopping.');
+      exportError = `Expected ${total} questions, but the Next button was not found after Question ${current}.`;
+      console.warn(exportError);
       break;
     }
 
@@ -361,7 +379,8 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
       if (newInfo && newInfo.current !== current) break;
     }
     if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation stuck – stopping.');
+      exportError = `Expected ${total} questions, but navigation did not advance after Question ${current}.`;
+      console.warn(exportError);
       break;
     }
     current = newInfo.current;
@@ -371,6 +390,15 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
   const site = 'UWorld';
   const subject = getSubject();
   const docTitle = `${dateStr}_${site}_${subject}`;
+
+  if (exportError || questionsHTML.length !== total) {
+    alert(
+      `Export stopped before all questions were captured.\n\n` +
+      `${exportError || `Captured ${questionsHTML.length} of ${total} questions.`}\n\n` +
+      'No PDF was created. Re-run from Question 1 after verifying that question navigation works.'
+    );
+    return;
+  }
 
   const fullHTML = `<!DOCTYPE html>
 <html>
@@ -399,6 +427,11 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 </html>`;
 
   const w = window.open('', '', 'width=800,height=600');
+  if (!w) {
+    alert('Popup blocked. Allow popups for UWorld, then run the script again.');
+    return;
+  }
+
   w.document.write(fullHTML);
   w.document.close();
   console.log(`✅ ${questionsHTML.length} questions exported. PDF will be named: ${docTitle}.pdf`);
