@@ -170,6 +170,7 @@
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let exportError = '';
 
   while (current <= total) {
     console.log(`Exporting Question ${current}...`);
@@ -190,7 +191,8 @@
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found – stopping.');
+      exportError = `Expected ${total} questions, but the Next button was not found after Question ${current}.`;
+      console.warn(exportError);
       break;
     }
 
@@ -203,7 +205,8 @@
     }
 
     if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation stuck – stopping.');
+      exportError = `Expected ${total} questions, but navigation did not advance after Question ${current}.`;
+      console.warn(exportError);
       break;
     }
 
@@ -214,6 +217,15 @@
   const date = getTestDate();
   const subject = getSubject();
   const numQ = questionsHTML.length;
+
+  if (exportError || numQ !== total) {
+    alert(
+      `Export stopped before all questions were captured.\n\n` +
+      `${exportError || `Captured ${numQ} of ${total} questions.`}\n\n` +
+      'No PDF was created. Re-run from Question 1 after verifying that question navigation works.'
+    );
+    return;
+  }
 
   const docTitle = `UWorld_${subject}_${date}_ID${testID}_${numQ}Q`.replace(/_{2,}/g, '_');
 
