@@ -24,13 +24,17 @@ const helpers = vm.runInNewContext(`
   ({ collectQuestionCounts, chooseQuestionCount });
 `);
 
+function plain(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
 test('question counter prefers the real test total over smaller asset captions', () => {
   const matches = helpers.collectQuestionCounts(`
     1 of 2
     Question 1 of 59
   `);
 
-  assert.deepEqual(helpers.chooseQuestionCount(matches), { current: 1, total: 59 });
+  assert.deepEqual(plain(helpers.chooseQuestionCount(matches)), { current: 1, total: 59 });
 });
 
 test('question counter ignores non-question prose and impossible counts', () => {
@@ -40,7 +44,7 @@ test('question counter ignores non-question prose and impossible counts', () => 
     12 of 59
   `);
 
-  assert.deepEqual(matches, [{ current: 12, total: 59 }]);
+  assert.deepEqual(plain(matches), [{ current: 12, total: 59 }]);
 });
 
 test('exporter refuses to print when navigation is incomplete or unverifiable', () => {
