@@ -2,9 +2,20 @@
 
 Paste this into Cursor after reading `00_Global_Rules_and_Batching.md`.
 
+## Correct Source Hierarchy
+
+```text
+Primary basis = user's Anki deck/card groups
+Verification/fill gaps = Kaplan Biology + Kaplan Biochemistry
+Passage/trap framing = UWorld
+Coverage validator = AAMC outline
+```
+
+Do not build the map from Kaplan first. Start from the relevant Anki cards, then use Kaplan/UWorld/AAMC to verify, correct, expand, or fill missing explanation.
+
 ## Task
 
-Build the Bio/Biochem section of my MCAT hierarchy map system.
+Build the Bio/Biochem section of the MCAT hierarchy map system using Anki as the starting scaffold.
 
 ## Subject Folder
 
@@ -13,8 +24,6 @@ MCAT_Hierarchy_Maps/01_Bio_Biochem/
 ```
 
 ## Folder/File Structure
-
-Create:
 
 ```text
 01_Bio_Biochem/
@@ -47,18 +56,21 @@ Create:
     └── Ch12_Integrated_Metabolism.md
 ```
 
+Chapter/file names are scaffolds until verified against the Anki card group and Kaplan/AAMC coverage.
+
 ## Bio/Biochem-Specific Rules
 
 Always include:
 
 ```text
-location → structure → function → regulation → disruption/trap
+Anki card/group → location → structure → function → regulation → disruption/trap → Kaplan/UWorld verification
 ```
 
 For organ systems:
 
 ```text
 System
+├── Anki card basis
 ├── Anatomy / structures
 ├── Flow direction or signal direction
 ├── Control signals
@@ -72,6 +84,7 @@ For pathways:
 
 ```text
 Pathway
+├── Anki card basis
 ├── Identity / purpose
 ├── Location
 ├── Fed/fasted state
@@ -87,6 +100,7 @@ For enzymes:
 
 ```text
 Enzyme concept
+├── Anki card basis
 ├── Active site
 ├── Substrate
 ├── Cofactors/coenzymes
@@ -97,10 +111,11 @@ Enzyme concept
 └── Major traps
 ```
 
-For macromolecules and molecular families:
+For molecules:
 
 ```text
 Molecule family atlas
+├── Anki card basis
 ├── Shared scaffold
 ├── What changed?
 ├── Functional consequence
@@ -109,8 +124,6 @@ Molecule family atlas
 ```
 
 ## Required Cross-Link Tags
-
-Use these when helpful:
 
 ```text
 🧬 Bio link = organ system, cell biology, genetics, physiology
@@ -125,23 +138,10 @@ Use these when helpful:
 
 ## Batching Protocol
 
-Follow this strictly:
-
 ```text
 Target output per batch: 1,200–2,000 tokens
 Hard max: 2,500 tokens
 ```
-
-One batch may be:
-
-```text
-├── subject README only
-├── one chapter top-level hierarchy only
-├── one expanded branch only
-└── one revision pass only
-```
-
-Never generate all Biology or all Biochemistry content in one batch.
 
 Each response must begin:
 
@@ -154,25 +154,31 @@ Status: Draft
 Each response must end:
 
 ```text
+QC CHECK
+├── Anki basis checked: pass / needs fix
+├── Verification source checked: Kaplan / UWorld / AAMC / needs source check
+├── Indentation: pass / needs fix
+├── Duplications/conflicts removed: pass / needs fix
+└── Next risk to audit: [specific issue]
+
 STOP POINT
 Next suggested batch: [specific next branch]
 ```
 
-## Output Format for Chapter Files
-
-Every file should start like this:
+## Chapter File Starter
 
 ```markdown
 # [Chapter Title]
 
-Source spine: Kaplan MCAT Biology/Biochemistry. UWorld/Anki used only for high-yield reinforcement.
+Basis: user's Anki deck/card group. Kaplan/UWorld/AAMC used to verify, correct, expand, and fill gaps.
 
 ## Hierarchy Map
 
 ```text
 [CHAPTER TITLE]
 │
-├── 1. Identity / Concept
+├── 1. Anki-Based Identity / Concept
+│   ├── Relevant Anki card group
 │   ├── What is it?
 │   ├── Where is it located?
 │   ├── What does it do?
@@ -210,16 +216,9 @@ Source spine: Kaplan MCAT Biology/Biochemistry. UWorld/Anki used only for high-y
 
 ## ▼ High-Yield Flashcard Review Layer
 
-- [Add exact targeted cards here after review]
+- [Paste exact targeted Anki cards here after review]
 ```
 
 ## Start Command
 
-Start by creating only:
-
-1. `01_Bio_Biochem/README.md`
-2. The folder structure
-3. Top-level index files for Biology and Biochemistry
-4. Empty chapter skeletons only
-
-Do not fully expand any chapter yet.
+Start by creating only the folder structure and empty skeletons. Do not fully expand any chapter until the relevant Anki card group is available.
