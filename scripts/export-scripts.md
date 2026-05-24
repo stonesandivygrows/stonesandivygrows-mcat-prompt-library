@@ -234,9 +234,42 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
   // ---------- HELPERS ----------
+  function collectQuestionCounts(text) {
+    return String(text || '')
+      .split(/\n+/)
+      .map(line => line.trim())
+      .map(line =>
+        line.match(/^(?:question\s*:?\s*)?(\d{1,3})\s+of\s+(\d{1,3})$/i) ||
+        line.match(/\bquestion\s*:?\s*(\d{1,3})\s+of\s+(\d{1,3})\b/i)
+      )
+      .filter(Boolean)
+      .map(m => ({ current: Number(m[1]), total: Number(m[2]) }))
+      .filter(({ current, total }) => current >= 1 && current <= total);
+  }
+
+  function chooseQuestionCount(matches) {
+    if (!matches.length) return null;
+    return matches.reduce((best, match) => match.total > best.total ? match : best);
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const navigationSelector =
+      'nav, [role="navigation"], [class*="nav" i], [id*="nav" i], [class*="pagination" i], [id*="pagination" i]';
+
+    const navigationRoots = [
+      ...document.querySelectorAll(navigationSelector),
+      ...[...document.querySelectorAll('a[aria-label*="next" i], button[aria-label*="next" i]')]
+        .map(el => el.closest(navigationSelector) || el.parentElement)
+        .filter(Boolean)
+    ];
+
+    const scopedCount = chooseQuestionCount(
+      navigationRoots.flatMap(el => collectQuestionCounts(el.innerText))
+    );
+
+    if (scopedCount) return scopedCount;
+
+    return chooseQuestionCount(collectQuestionCounts(document.body.innerText));
   }
 
   function clickNext() {
@@ -327,12 +360,14 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
       alert('Could not go to Question 1. Please navigate manually and re-run.');
       return;
     }
-    current = 1;
+    current = qInfo.current;
+    total = qInfo.total;
   }
 
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let abortReason = '';
 
   while (current <= total) {
     console.log(`📸 Question ${current}…`);
@@ -350,7 +385,8 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found – stopping.');
+      abortReason = `Next button not found after exporting Question ${current}.`;
+      console.warn(`${abortReason} Export aborted to avoid a partial PDF.`);
       break;
     }
 
@@ -358,13 +394,23 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     for (let i = 0; i < 25; i++) {
       await sleep(400);
       newInfo = getQuestionCount();
-      if (newInfo && newInfo.current !== current) break;
+      if (newInfo && newInfo.total === total && newInfo.current === current + 1) break;
     }
-    if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation stuck – stopping.');
+    if (!newInfo || newInfo.total !== total || newInfo.current !== current + 1) {
+      abortReason = `Navigation did not advance from Question ${current} to Question ${current + 1}.`;
+      console.warn(`${abortReason} Export aborted to avoid a partial PDF.`);
       break;
     }
     current = newInfo.current;
+  }
+
+  if (abortReason || questionsHTML.length !== total) {
+    alert(
+      `Export incomplete: captured ${questionsHTML.length} of ${total} questions.\n\n` +
+      `${abortReason || 'The exported question count did not match the UWorld total.'}\n\n` +
+      'No PDF was opened. Please fix navigation or manually export from the missing question and re-run.'
+    );
+    return;
   }
 
   const dateStr = getTestDate();
@@ -399,6 +445,11 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 </html>`;
 
   const w = window.open('', '', 'width=800,height=600');
+  if (!w) {
+    alert('Popup blocked. Allow popups for UWorld, then run the script again.');
+    return;
+  }
+
   w.document.write(fullHTML);
   w.document.close();
   console.log(`✅ ${questionsHTML.length} questions exported. PDF will be named: ${docTitle}.pdf`);
