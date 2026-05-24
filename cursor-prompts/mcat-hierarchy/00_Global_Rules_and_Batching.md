@@ -8,14 +8,56 @@ You are helping build an MCAT study system in Obsidian and GitHub. Your job is t
 
 ## Source Rules
 
-- Kaplan MCAT books are the primary chapter spine.
+- AAMC official MCAT content outline may be used as the exam blueprint and coverage validator.
+- Kaplan MCAT books are the primary chapter/learning spine for science content.
+- Khan Academy may be used for Behavioral Science, especially psychology/sociology, and as AAMC-linked supplemental coverage.
 - UWorld explanations may reinforce high-yield traps, applications, and MCAT framing.
-- Khan Academy may be used for Behavioral Science, especially psychology/sociology.
 - Anki exports may be used only to identify high-yield facts and memory anchors.
 - Do not treat Anki, Pankow, or third-party decks as the primary source unless the user explicitly asks for an Anki-only map.
 - Do not invent content.
 - If uncertain, write: `⚠ Needs source check`.
 - If a chapter title or file name is not source-verified, mark it as: `⚠ Chapter title/source spine needs verification`.
+
+## Evidence-Aligned Prompt Design Rules
+
+These rules are based on common prompt-engineering recommendations: precise instructions, explicit role/workflow, structured output, examples for fragile formats, relevant context/retrieval, and validation.
+
+- Define the role and task before asking for output.
+- State the source hierarchy before generating content.
+- State the exact output format before generating content.
+- Include a small example when the required format is fragile, such as tree indentation.
+- Use Markdown consistently.
+- Require validation/QC before marking anything final.
+- Split large tasks into bounded batches instead of generating whole subjects at once.
+- Require a stop point after each batch.
+- Require source-checking before content becomes canonical.
+- Use cross-links instead of duplicating the same explanation in multiple branches.
+
+## Content Alignment Rules
+
+The MCAT tests both content knowledge and scientific inquiry/reasoning. Therefore each generated map must include both content structure and question-solving structure.
+
+Every chapter/topic map should check for:
+
+```text
+Content alignment
+├── Does this appear in the AAMC/Kaplan/Khan/UWorld source spine?
+├── Is it placed in the right subject or chapter?
+├── Is it organized by how MCAT questions test it?
+├── Does it include applications/data/research methods where relevant?
+├── Does it include major traps and distinctions?
+└── Are uncertain claims marked instead of guessed?
+```
+
+If content belongs in more than one subject:
+
+```text
+Keep full explanation in the best home branch
+↓
+Add connection tag in the secondary branch
+↓
+Do not duplicate full explanation unless necessary
+```
 
 ## Output Rules
 
@@ -113,20 +155,22 @@ Before finishing each batch, check:
 - Did I avoid using Anki/Pankow as a replacement for Kaplan, UWorld, or Khan Academy?
 - Did I avoid duplicating the same concept under multiple branches unless it is clearly cross-linked?
 - Did I use connection tags instead of copying the same explanation repeatedly?
+- Did I check whether the topic also requires application/data/research-methods framing?
 
 ## Conflict Resolution Rules
 
 When sources or branches seem to conflict:
 
 ```text
-1. Prefer Kaplan/Khan Academy chapter logic for structure.
-2. Use UWorld for MCAT trap framing and applications.
-3. Use Anki only to catch high-yield recall points.
-4. If a fact appears in two places, keep the fuller explanation in the best branch and add a cross-link elsewhere.
-5. If a concept belongs in identity and math behavior, split it:
+1. Use AAMC official outline as the exam blueprint and coverage validator.
+2. Prefer Kaplan/Khan Academy chapter logic for teachable structure.
+3. Use UWorld for MCAT trap framing and applications.
+4. Use Anki only to catch high-yield recall points.
+5. If a fact appears in two places, keep the fuller explanation in the best branch and add a cross-link elsewhere.
+6. If a concept belongs in identity and math behavior, split it:
    ├── Identity branch = what it is / category
    └── Variable branch = equation / relationship / what changes
-6. If still uncertain, mark ⚠ Needs source check instead of guessing.
+7. If still uncertain, mark ⚠ Needs source check instead of guessing.
 ```
 
 ## Connection Tags
