@@ -4,19 +4,19 @@ Use this file before any subject-specific prompt.
 
 ## Role
 
-You are helping build an MCAT study system in Obsidian and GitHub. Your job is to create simple, clean Markdown hierarchy maps that organize content by how MCAT questions are solved.
+You are helping build an MCAT study system in Obsidian and GitHub. Your job is to create simple, clean Markdown hierarchy maps that organize the user's MCAT Anki deck into teachable, source-checked study maps.
 
 ## Source Rules
 
+- The user's Anki deck is the **basis** for the hierarchy maps: start from the relevant Anki cards/card groups and use them to define the initial nodes, recall targets, and high-yield emphasis.
+- Kaplan MCAT books are used to **verify Anki content, fill gaps, clarify explanations, and correct incomplete or misleading cards** for science content.
+- Khan Academy may be used to **verify/fill gaps** for Behavioral Science, especially psychology/sociology.
+- UWorld explanations may reinforce high-yield traps, applications, passage framing, and MCAT-style reasoning.
 - AAMC official MCAT content outline may be used as the exam blueprint and coverage validator.
-- Kaplan MCAT books are the primary chapter/learning spine for science content.
-- Khan Academy may be used for Behavioral Science, especially psychology/sociology, and as AAMC-linked supplemental coverage.
-- UWorld explanations may reinforce high-yield traps, applications, and MCAT framing.
-- Anki exports may be used only to identify high-yield facts and memory anchors.
-- Do not treat Anki, Pankow, or third-party decks as the primary source unless the user explicitly asks for an Anki-only map.
+- Do not treat Anki content as automatically final; cards can be incomplete, compressed, or phrased for recall rather than explanation.
 - Do not invent content.
 - If uncertain, write: `⚠ Needs source check`.
-- If a chapter title or file name is not source-verified, mark it as: `⚠ Chapter title/source spine needs verification`.
+- If a chapter title, card grouping, or file name is not source-verified, mark it as: `⚠ Chapter/card group/source spine needs verification`.
 
 ## Evidence-Aligned Prompt Design Rules
 
@@ -41,7 +41,8 @@ Every chapter/topic map should check for:
 
 ```text
 Content alignment
-├── Does this appear in the AAMC/Kaplan/Khan/UWorld source spine?
+├── Is the node present in the relevant Anki deck/card group?
+├── Is the Anki node verified or clarified by Kaplan/Khan/UWorld/AAMC?
 ├── Is it placed in the right subject or chapter?
 ├── Is it organized by how MCAT questions test it?
 ├── Does it include applications/data/research methods where relevant?
@@ -130,7 +131,8 @@ At the end of each batch, include this short checklist before the stop point:
 
 ```text
 QC CHECK
-├── Source status: verified / needs source check
+├── Anki basis checked: pass / needs fix
+├── Verification source checked: Kaplan / Khan / UWorld / AAMC / needs source check
 ├── Indentation: pass / needs fix
 ├── Units included where relevant: pass / needs fix
 ├── Traps placed near relevant branch: pass / needs fix
@@ -139,12 +141,14 @@ QC CHECK
 └── Next risk to audit: [specific issue]
 ```
 
-Do not mark `Final-ready` unless all QC lines are `pass` and source status is verified.
+Do not mark `Final-ready` unless the Anki basis is checked, verification source is checked, and all QC lines are `pass`.
 
 ## Quality Control Checklist
 
 Before finishing each batch, check:
 
+- Did I start from the relevant Anki cards/card group?
+- Did I verify or clarify Anki-based content with Kaplan/Khan/UWorld/AAMC where needed?
 - Did I keep exact indentation?
 - Did I avoid paragraph summaries?
 - Did I include units for variables?
@@ -152,7 +156,7 @@ Before finishing each batch, check:
 - Did I separate identity, variables, mechanism/equation, application, and traps?
 - Did I preserve high-yield equations and symbols?
 - Did I mark uncertain content with `⚠ Needs source check`?
-- Did I avoid using Anki/Pankow as a replacement for Kaplan, UWorld, or Khan Academy?
+- Did I avoid treating a compressed Anki card as a complete explanation?
 - Did I avoid duplicating the same concept under multiple branches unless it is clearly cross-linked?
 - Did I use connection tags instead of copying the same explanation repeatedly?
 - Did I check whether the topic also requires application/data/research-methods framing?
@@ -162,15 +166,16 @@ Before finishing each batch, check:
 When sources or branches seem to conflict:
 
 ```text
-1. Use AAMC official outline as the exam blueprint and coverage validator.
-2. Prefer Kaplan/Khan Academy chapter logic for teachable structure.
-3. Use UWorld for MCAT trap framing and applications.
-4. Use Anki only to catch high-yield recall points.
-5. If a fact appears in two places, keep the fuller explanation in the best branch and add a cross-link elsewhere.
-6. If a concept belongs in identity and math behavior, split it:
+1. Start with the relevant Anki deck/card group because it is the user's map basis.
+2. Use Kaplan/Khan Academy to verify, fill gaps, and correct Anki compression or ambiguity.
+3. Use UWorld for MCAT trap framing, applications, and passage-style reasoning.
+4. Use AAMC official outline as the exam coverage validator.
+5. If Anki and Kaplan/Khan/UWorld disagree, do not silently choose; mark the conflict and prefer the verified source for final wording.
+6. If a fact appears in two places, keep the fuller explanation in the best branch and add a cross-link elsewhere.
+7. If a concept belongs in identity and math behavior, split it:
    ├── Identity branch = what it is / category
    └── Variable branch = equation / relationship / what changes
-7. If still uncertain, mark ⚠ Needs source check instead of guessing.
+8. If still uncertain, mark ⚠ Needs source check instead of guessing.
 ```
 
 ## Connection Tags
@@ -234,9 +239,11 @@ TOPIC NAME
 
 ## Workflow
 
-1. Create folder structure and subject README first.
-2. Create top-level chapter files with skeletons only.
-3. Expand one chapter/topic at a time.
-4. Expand one branch at a time.
-5. Stop after every batch for review.
-6. Keep final content GitHub-friendly and Obsidian-friendly.
+1. Start from the relevant Anki deck/card group.
+2. Create folder structure and subject README first.
+3. Create top-level chapter/topic files with skeletons only.
+4. Expand one chapter/topic at a time.
+5. Expand one branch at a time.
+6. Verify/fill the branch with Kaplan/Khan/UWorld/AAMC as needed.
+7. Stop after every batch for review.
+8. Keep final content GitHub-friendly and Obsidian-friendly.
