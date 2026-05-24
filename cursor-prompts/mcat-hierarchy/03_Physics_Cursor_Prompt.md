@@ -2,9 +2,20 @@
 
 Paste this into Cursor after reading `00_Global_Rules_and_Batching.md`.
 
+## Correct Source Hierarchy
+
+```text
+Primary basis = user's Anki deck/card groups
+Verification/fill gaps = Kaplan Physics and Math
+Passage/trap framing = UWorld
+Coverage validator = AAMC outline
+```
+
+Do not build the map from Kaplan first. Start from the relevant Anki cards, then use Kaplan/UWorld/AAMC to verify, correct, expand, or fill missing explanation.
+
 ## Task
 
-Build the Physics/Math section of my MCAT hierarchy map system.
+Build the Physics/Math section of the MCAT hierarchy map system using Anki as the starting scaffold.
 
 ## Subject Folder
 
@@ -13,8 +24,6 @@ MCAT_Hierarchy_Maps/03_Physics/
 ```
 
 ## Folder/File Structure
-
-Create:
 
 ```text
 03_Physics/
@@ -34,12 +43,14 @@ Create:
     └── Ch12_Data_Statistics.md
 ```
 
+Chapter/file names are scaffolds until verified against the Anki card group and Kaplan/AAMC coverage.
+
 ## Physics-Specific Rules
 
 Always organize physics by:
 
 ```text
-identity → variables/units → equation → proportional relationship → graph/data clue → trap
+Anki card/group → identity → variables/units → equation → proportional relationship → graph/data clue → trap → Kaplan/UWorld verification
 ```
 
 Separate conceptual identity from math behavior.
@@ -48,6 +59,7 @@ For every equation:
 
 ```text
 Equation
+├── Anki card basis
 ├── Formula
 ├── Units
 ├── Variable meanings
@@ -61,6 +73,7 @@ For mechanics:
 
 ```text
 Mechanics concept
+├── Anki card basis
 ├── scalar/vector identity
 ├── force or motion variable
 ├── equation
@@ -73,6 +86,7 @@ For fluids:
 
 ```text
 Fluid concept
+├── Anki card basis
 ├── pressure/flow identity
 ├── equation
 ├── variable meaning
@@ -85,6 +99,7 @@ For electricity/magnetism:
 
 ```text
 E/M concept
+├── Anki card basis
 ├── field vs force vs potential vs energy
 ├── source charge/current
 ├── direction/sign
@@ -97,6 +112,7 @@ For waves/light:
 
 ```text
 Wave/optics concept
+├── Anki card basis
 ├── wave identity
 ├── medium requirement
 ├── variables and units
@@ -106,21 +122,7 @@ Wave/optics concept
 └── trap
 ```
 
-For math/data:
-
-```text
-Math/data skill
-├── what the graph/table shows
-├── variables and units
-├── proportional relationship
-├── shortcut
-├── arithmetic trap
-└── MCAT application
-```
-
 ## Required Cross-Link Tags
-
-Use these when helpful:
 
 ```text
 ⚙ Physics link = mechanics, fluids, circuits, waves, optics
@@ -141,6 +143,7 @@ Example:
 
 ```text
 Acceleration
+├── Anki card basis
 ├── Equation relationship
 │   └── a = F/m
 ├── Unit meaning
@@ -151,24 +154,10 @@ Acceleration
 
 ## Batching Protocol
 
-Follow this strictly:
-
 ```text
 Target output per batch: 1,200–2,000 tokens
 Hard max: 2,500 tokens
 ```
-
-One batch may be:
-
-```text
-├── subject README only
-├── one chapter top-level hierarchy only
-├── one expanded equation branch only
-├── one expanded concept branch only
-└── one revision pass only
-```
-
-Never generate all Physics/Math chapters in one batch.
 
 Each response must begin:
 
@@ -181,25 +170,32 @@ Status: Draft
 Each response must end:
 
 ```text
+QC CHECK
+├── Anki basis checked: pass / needs fix
+├── Verification source checked: Kaplan / UWorld / AAMC / needs source check
+├── Indentation: pass / needs fix
+├── Units included where relevant: pass / needs fix
+├── Duplications/conflicts removed: pass / needs fix
+└── Next risk to audit: [specific issue]
+
 STOP POINT
 Next suggested batch: [specific next branch]
 ```
 
-## Output Format for Chapter Files
-
-Every file should start like this:
+## Chapter File Starter
 
 ```markdown
 # [Chapter Title]
 
-Source spine: Kaplan MCAT Physics and Math. UWorld/Anki used only for high-yield reinforcement.
+Basis: user's Anki deck/card group. Kaplan/UWorld/AAMC used to verify, correct, expand, and fill gaps.
 
 ## Hierarchy Map
 
 ```text
 [CHAPTER TITLE]
 │
-├── 1. Identity / Concept
+├── 1. Anki-Based Identity / Concept
+│   ├── Relevant Anki card group
 │   ├── What is it?
 │   ├── What type of physical quantity is it?
 │   ├── What does it describe?
@@ -237,16 +233,9 @@ Source spine: Kaplan MCAT Physics and Math. UWorld/Anki used only for high-yield
 
 ## ▼ High-Yield Flashcard Review Layer
 
-- [Add exact targeted cards here after review]
+- [Paste exact targeted Anki cards here after review]
 ```
 
 ## Start Command
 
-Start by creating only:
-
-1. `03_Physics/README.md`
-2. The folder structure
-3. Top-level index file for Physics/Math
-4. Empty chapter skeletons only
-
-Do not fully expand any chapter yet.
+Start by creating only the folder structure and empty skeletons. Do not fully expand any chapter until the relevant Anki card group is available.
