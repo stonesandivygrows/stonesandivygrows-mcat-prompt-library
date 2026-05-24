@@ -2,9 +2,20 @@
 
 Paste this into Cursor after reading `00_Global_Rules_and_Batching.md`.
 
+## Correct Source Hierarchy
+
+```text
+Primary basis = user's Anki deck/card groups, especially Pankow/Behavioral cards
+Verification/fill gaps = Khan Academy + Kaplan Behavioral Science
+Passage/trap framing = UWorld
+Coverage validator = AAMC outline
+```
+
+Do not build the map from Kaplan or Khan Academy first. Start from the relevant Anki/Pankow cards, then use Khan Academy/Kaplan/UWorld/AAMC to verify, correct, expand, or fill missing explanation.
+
 ## Task
 
-Build the Behavioral Science section of my MCAT hierarchy map system.
+Build the Behavioral Science section of the MCAT hierarchy map system using Anki as the starting scaffold.
 
 ## Subject Folder
 
@@ -13,8 +24,6 @@ MCAT_Hierarchy_Maps/04_Behavioral/
 ```
 
 ## Folder/File Structure
-
-Create:
 
 ```text
 04_Behavioral/
@@ -34,14 +43,15 @@ Create:
     └── Unit12_Behavioral_Major_Traps.md
 ```
 
-## Behavioral-Specific Rules
+Unit/file names are scaffolds until verified against the Anki card group and Khan/Kaplan/AAMC coverage.
 
-Use Khan Academy/Pankow-style organization when it is more detailed than Kaplan.
+## Behavioral-Specific Rules
 
 Behavioral terms should be organized as:
 
 ```text
 Term
+├── Anki card basis
 ├── Definition
 ├── Distinguishing cue
 ├── Contrast term
@@ -53,6 +63,7 @@ For theories:
 
 ```text
 Theory
+├── Anki card basis
 ├── Core claim
 ├── Key theorist if high-yield
 ├── Example cue
@@ -64,6 +75,7 @@ For sociology:
 
 ```text
 Concept
+├── Anki card basis
 ├── Level: micro / meso / macro
 ├── Institution or group involved
 ├── Mechanism
@@ -75,6 +87,7 @@ For research methods:
 
 ```text
 Study design concept
+├── Anki card basis
 ├── Independent variable
 ├── Dependent variable
 ├── Operationalization
@@ -89,9 +102,11 @@ For similar terms:
 ```text
 Distinction pair
 ├── Term A
+│   ├── Anki card cue
 │   ├── definition
 │   └── recognition cue
 ├── Term B
+│   ├── Anki card cue
 │   ├── definition
 │   └── recognition cue
 └── Trap
@@ -99,8 +114,6 @@ Distinction pair
 ```
 
 ## Required Cross-Link Tags
-
-Use these when helpful:
 
 ```text
 🧠 Behavior link = cognition, emotion, social behavior, identity
@@ -128,24 +141,10 @@ Major Confusions
 
 ## Batching Protocol
 
-Follow this strictly:
-
 ```text
 Target output per batch: 1,200–2,000 tokens
 Hard max: 2,500 tokens
 ```
-
-One batch may be:
-
-```text
-├── subject README only
-├── one unit top-level hierarchy only
-├── one small cluster of related terms only
-├── one distinction-pair cluster only
-└── one revision pass only
-```
-
-Never generate all Behavioral Science units in one batch.
 
 Each response must begin:
 
@@ -158,25 +157,31 @@ Status: Draft
 Each response must end:
 
 ```text
+QC CHECK
+├── Anki basis checked: pass / needs fix
+├── Verification source checked: Khan / Kaplan / UWorld / AAMC / needs source check
+├── Indentation: pass / needs fix
+├── Duplications/conflicts removed: pass / needs fix
+└── Next risk to audit: [specific issue]
+
 STOP POINT
 Next suggested batch: [specific next branch]
 ```
 
-## Output Format for Unit Files
-
-Every file should start like this:
+## Unit File Starter
 
 ```markdown
 # [Unit Title]
 
-Source spine: Khan Academy/Pankow/Kaplan Behavioral Science. UWorld/Anki used only for high-yield reinforcement.
+Basis: user's Anki/Pankow card group. Khan Academy/Kaplan/UWorld/AAMC used to verify, correct, expand, and fill gaps.
 
 ## Hierarchy Map
 
 ```text
 [UNIT TITLE]
 │
-├── 1. Identity / Concept Cluster
+├── 1. Anki-Based Identity / Concept Cluster
+│   ├── Relevant Anki/Pankow card group
 │   ├── What is the topic?
 │   ├── What level is it? individual / group / society
 │   ├── What does it explain?
@@ -215,16 +220,9 @@ Source spine: Khan Academy/Pankow/Kaplan Behavioral Science. UWorld/Anki used on
 
 ## ▼ High-Yield Flashcard Review Layer
 
-- [Add exact targeted cards here after review]
+- [Paste exact targeted Anki/Pankow cards here after review]
 ```
 
 ## Start Command
 
-Start by creating only:
-
-1. `04_Behavioral/README.md`
-2. The folder structure
-3. Top-level index file for Behavioral Science
-4. Empty unit skeletons only
-
-Do not fully expand any unit yet.
+Start by creating only the folder structure and empty skeletons. Do not fully expand any unit until the relevant Anki/Pankow card group is available.
