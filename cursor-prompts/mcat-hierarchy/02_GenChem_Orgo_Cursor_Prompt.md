@@ -2,9 +2,20 @@
 
 Paste this into Cursor after reading `00_Global_Rules_and_Batching.md`.
 
+## Correct Source Hierarchy
+
+```text
+Primary basis = user's Anki deck/card groups
+Verification/fill gaps = Kaplan General Chemistry + Kaplan Organic Chemistry
+Passage/trap framing = UWorld
+Coverage validator = AAMC outline
+```
+
+Do not build the map from Kaplan first. Start from the relevant Anki cards, then use Kaplan/UWorld/AAMC to verify, correct, expand, or fill missing explanation.
+
 ## Task
 
-Build the General Chemistry and Organic Chemistry section of my MCAT hierarchy map system.
+Build the General Chemistry and Organic Chemistry section of the MCAT hierarchy map system using Anki as the starting scaffold.
 
 ## Subject Folder
 
@@ -13,8 +24,6 @@ MCAT_Hierarchy_Maps/02_GenChem_Orgo/
 ```
 
 ## Folder/File Structure
-
-Create:
 
 ```text
 02_GenChem_Orgo/
@@ -46,18 +55,21 @@ Create:
     └── Ch11_Organic_MCAT_Traps.md
 ```
 
+Chapter/file names are scaffolds until verified against the Anki card group and Kaplan/AAMC coverage.
+
 ## Chemistry-Specific Rules
 
 Always organize chemistry by:
 
 ```text
-identity → structure → charge/polarity → relationship/reactivity → experimental clue → trap
+Anki card/group → identity → structure → charge/polarity → relationship/reactivity → experimental clue → trap → Kaplan/UWorld verification
 ```
 
 For equations:
 
 ```text
 Equation
+├── Anki card basis
 ├── Formula
 ├── Units
 ├── Variable meanings
@@ -70,34 +82,25 @@ For thermodynamics vs kinetics:
 
 ```text
 Thermodynamics
+├── Anki card basis
 ├── favorability
 ├── equilibrium/product stability
 ├── ΔG, ΔH, ΔS
 └── trap: favorable does not mean fast
 
 Kinetics
+├── Anki card basis
 ├── rate
 ├── activation energy
 ├── catalyst effect
 └── trap: fast does not mean more stable
 ```
 
-For equilibrium/acids/bases:
-
-```text
-System
-├── identity of acid/base or equilibrium
-├── equation or expression
-├── direction shift
-├── pH/pKa or Q/K comparison
-├── buffer/titration landmark if relevant
-└── trap
-```
-
 For organic functional groups:
 
 ```text
 Functional group
+├── Anki card basis
 ├── identity / recognition pattern
 ├── electrophile or nucleophile role
 ├── leaving group behavior
@@ -107,31 +110,19 @@ Functional group
 └── MCAT trap
 ```
 
-For lab techniques:
+For lab techniques and spectroscopy:
 
 ```text
 Technique
-├── separation principle
-├── stationary/mobile phase or physical basis
-├── what moves fastest/slowest
-├── output/readout
-└── trap
-```
-
-For spectroscopy:
-
-```text
-Technique
-├── what it measures
-├── axis/units
-├── signal/pattern
-├── molecule feature revealed
+├── Anki card basis
+├── what it measures or separates
+├── physical/chemical principle
+├── axis/units or readout
+├── fastest/slowest or strongest/weakest signal
 └── trap
 ```
 
 ## Required Cross-Link Tags
-
-Use these when helpful:
 
 ```text
 ⚗ Chem link = acid/base, polarity, thermodynamics, equilibrium
@@ -146,23 +137,10 @@ Use these when helpful:
 
 ## Batching Protocol
 
-Follow this strictly:
-
 ```text
 Target output per batch: 1,200–2,000 tokens
 Hard max: 2,500 tokens
 ```
-
-One batch may be:
-
-```text
-├── subject README only
-├── one chapter top-level hierarchy only
-├── one expanded branch only
-└── one revision pass only
-```
-
-Never generate all chemistry or all organic chemistry content in one batch.
 
 Each response must begin:
 
@@ -175,25 +153,31 @@ Status: Draft
 Each response must end:
 
 ```text
+QC CHECK
+├── Anki basis checked: pass / needs fix
+├── Verification source checked: Kaplan / UWorld / AAMC / needs source check
+├── Indentation: pass / needs fix
+├── Duplications/conflicts removed: pass / needs fix
+└── Next risk to audit: [specific issue]
+
 STOP POINT
 Next suggested batch: [specific next branch]
 ```
 
-## Output Format for Chapter Files
-
-Every file should start like this:
+## Chapter File Starter
 
 ```markdown
 # [Chapter Title]
 
-Source spine: Kaplan MCAT General Chemistry/Organic Chemistry. UWorld/Anki used only for high-yield reinforcement.
+Basis: user's Anki deck/card group. Kaplan/UWorld/AAMC used to verify, correct, expand, and fill gaps.
 
 ## Hierarchy Map
 
 ```text
 [CHAPTER TITLE]
 │
-├── 1. Identity / Concept
+├── 1. Anki-Based Identity / Concept
+│   ├── Relevant Anki card group
 │   ├── What is it?
 │   ├── What category does it belong to?
 │   ├── What structure/charge/polarity matters?
@@ -232,16 +216,9 @@ Source spine: Kaplan MCAT General Chemistry/Organic Chemistry. UWorld/Anki used 
 
 ## ▼ High-Yield Flashcard Review Layer
 
-- [Add exact targeted cards here after review]
+- [Paste exact targeted Anki cards here after review]
 ```
 
 ## Start Command
 
-Start by creating only:
-
-1. `02_GenChem_Orgo/README.md`
-2. The folder structure
-3. Top-level index files for General Chemistry and Organic Chemistry
-4. Empty chapter skeletons only
-
-Do not fully expand any chapter yet.
+Start by creating only the folder structure and empty skeletons. Do not fully expand any chapter until the relevant Anki card group is available.
