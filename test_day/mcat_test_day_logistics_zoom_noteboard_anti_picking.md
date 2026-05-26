@@ -91,12 +91,14 @@ Physical triggers removed before the test means fewer urges during the test. Few
 - Remove or smooth every hangnail.
 - Exfoliate lips so there is less to pick at.
 - Pluck chin hairs beforehand.
+- Apply lotion to hands after washing if dry hands create nervousness or a picking/fidgeting urge.
 - Consider bringing tweezers only for permitted locker/break access, not for the testing room.
 - Consider long sleeves for comfort and as a possible noteboard cleanup backup if allowed.
 
 ### During exam
 
 - Keep hands task-directed: mouse, keyboard, noteboard, or lap.
+- If hands feel dry after washing during breaks, use permitted lotion before returning if allowed by test-center rules.
 - If picking urge appears, redirect to the noteboard/timing anchor.
 - Do not spend mental energy negotiating with the urge.
 - Use the rule: notice → redirect → continue.
@@ -137,6 +139,7 @@ Do not assume medication or personal items can enter the testing room unless off
 - Hangnails removed
 - Lips exfoliated
 - Chin hairs plucked
+- Hands moisturized / lotion packed if allowed for locker or break access
 - Medication packed according to official rules
 - ID ready
 - Long sleeve considered
