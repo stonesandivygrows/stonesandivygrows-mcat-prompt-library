@@ -8,6 +8,7 @@ Purpose:
 - Preserve the corrected review flow.
 - Keep sticky corrections active before moving to later tests.
 - Store the fixed MCAT biolab technique flowchart in GitHub as the source of record.
+- Track newly discovered problem areas from follow-up audio review.
 - Avoid duplicating the full final autopsy page.
 
 ## Placement
@@ -38,6 +39,10 @@ Review:
 - pyrophosphate release and PPi hydrolysis
 - Sanger gel reading bottom to top
 - when to complement vs when to read the sequence directly
+- template strand vs newly synthesized complementary strand
+- Sanger is not automatically cDNA
+- Taq polymerase is PCR-associated, but Sanger default wording is DNA polymerase
+- agarose is not the best default assumption for Sanger sequencing fragments
 
 Sticky line:
 
@@ -67,6 +72,7 @@ Review:
 - chloride movement and osmotic water movement
 - osmotic pressure vs oncotic pressure
 - CFTR loss leading to thick secretions
+- ATP controls the channel gate; the chloride gradient drives the ion movement
 
 Sticky line:
 
@@ -82,6 +88,8 @@ Review:
 - phenylalanine is hydrophobic and aromatic
 - mutation can disrupt protein folding
 - SDS-PAGE separates mostly by size after SDS denatures and coats proteins
+- SDS makes proteins negatively charged; reduction does not make them negative
+- reducing agents like DTT or beta-mercaptoethanol break disulfide bonds
 - fading band after trypsin means more degradation
 
 Sticky line:
@@ -102,6 +110,82 @@ Review:
 Sticky line:
 
 **Sine slides; cosine squashes; friction uses μN.**
+
+## 6. Electrophoresis physics: voltage, electric field, current
+
+Priority: high
+
+Review:
+- voltage is not “run through” the gel; a voltage difference is applied across the gel
+- voltage difference creates an electric field
+- electric field exerts force on charged molecules: F = qE
+- DNA has a negative phosphate backbone, so q is negative
+- negative DNA moves opposite the electric field, toward the positive anode
+- positive molecules would move with the electric field
+- neutral molecules have no meaningful net electrophoretic migration because q ≈ 0
+- current means movement of charge, not only movement of electrons
+- in gel/buffer, current is carried mostly by small ions in the buffer
+- the circular loop field around a current-carrying wire is magnetic field, not electric field
+
+Sticky line:
+
+**Voltage creates the electric field; the electric field moves charged molecules; buffer ions carry most of the current.**
+
+## 7. SDS-PAGE vs Sanger electrophoresis current confusion
+
+Priority: high
+
+Review:
+- both SDS-PAGE and Sanger gel/capillary electrophoresis require an applied voltage/current
+- DNA does not “make the current” in Sanger sequencing
+- Sanger DNA fragments are already negative because of the phosphate backbone
+- SDS-PAGE proteins become negative because SDS coats them
+- SDS denatures proteins and gives a similar charge-to-mass ratio
+- SDS-PAGE separates proteins mostly by size
+- Sanger separates DNA fragments by size, often differing by one nucleotide
+
+Sticky line:
+
+**Sanger: DNA is naturally negative. SDS-PAGE: SDS makes proteins negative. Both need applied voltage/current.**
+
+## 8. CFTR membrane protein domains and folding
+
+Priority: medium-high
+
+Review:
+- CFTR is an integral transmembrane protein
+- CFTR functions as a chloride channel/regulated transporter-family protein
+- TMD = transmembrane domain, embedded in lipid bilayer, forms the chloride pathway
+- NBD = nucleotide-binding domain, cytosolic, binds ATP
+- R domain = regulatory domain, controlled by phosphorylation
+- domains are not separate proteins; one protein can contain multiple domains
+- primary, secondary, tertiary, and quaternary structure are levels of organization, not separate molecules
+- transmembrane segments in eukaryotic membrane proteins are commonly alpha helices
+- beta sheets can form transmembrane beta barrels in special contexts, but CFTR-style TMD logic is alpha-helical
+- hydrophobic amino acids are expected on membrane-facing surfaces
+- polar/charged residues are expected in cytosolic or extracellular aqueous regions
+- exact NBD fold is not a required MCAT memorization target unless passage provides it
+
+Sticky line:
+
+**TMD makes the membrane path; NBD binds ATP; R domain regulates. The same protein contains all these domains.**
+
+## 9. Sanger technique classification cleanup
+
+Priority: medium-high
+
+Review:
+- Sanger sequencing is DNA polymerase extension plus ddNTP chain termination plus size separation
+- if the target DNA was first amplified by PCR, PCR is the prep step, not the sequencing step itself
+- cDNA only applies when starting from RNA/mRNA and using reverse transcriptase
+- do not call the newly synthesized strand “cDNA” unless it was made from RNA
+- template strand = strand read by polymerase
+- newly synthesized strand = strand being built, complementary to the template
+- Sanger gel is better associated with PAGE-like high-resolution separation or capillary electrophoresis, not basic agarose by default
+
+Sticky line:
+
+**Sanger = DNA synthesis + chain termination + size separation. cDNA only enters if RNA was converted to DNA first.**
 
 ---
 
@@ -214,6 +298,53 @@ MCAT BIOLAB TECHNIQUES
 
 ---
 
+# Added Physics-to-Biochemistry Bridge
+
+## Electrophoresis force model
+
+```text
+Voltage difference applied across gel
+        ↓
+Electric field forms across buffer/gel
+        ↓
+Charged molecules feel force: F = qE
+        ↓
+DNA has q < 0 because phosphate backbone is negative
+        ↓
+DNA force is opposite electric field
+        ↓
+DNA migrates toward positive anode
+        ↓
+Gel matrix sieves by size
+        ↓
+Smaller fragments migrate farther
+```
+
+## Electric field vs current vs magnetic field
+
+```text
+Voltage difference → creates electric field
+Electric field → drives charged particle motion
+Charged particle motion → current
+Current in gel/buffer → mostly ion movement, not electron flow
+Circular field around a wire/current → magnetic field, not electric field
+```
+
+## Sanger vs SDS-PAGE charge source
+
+```text
+Sanger sequencing:
+DNA fragments are naturally negative because of phosphate backbone.
+
+SDS-PAGE:
+Proteins become negative because SDS coats them.
+
+Reducing agents:
+DTT or beta-mercaptoethanol break disulfide bonds; they do not create the main negative charge.
+```
+
+---
+
 # Mini Retention Quiz
 
 Answer orally before moving to the next UWorld review.
@@ -238,6 +369,22 @@ Answer orally before moving to the next UWorld review.
 18. Which blot detects RNA?
 19. What does ELISA usually detect or quantify?
 20. What is the difference between RT-PCR and qPCR?
+21. Does Sanger sequencing require applied voltage/current?
+22. Does DNA create the current in a Sanger gel?
+23. What creates the electric field in electrophoresis?
+24. What equation explains the force on DNA in an electric field?
+25. Why does a neutral molecule not migrate meaningfully in electrophoresis?
+26. In SDS-PAGE, what makes proteins negative?
+27. What does a reducing agent do in SDS-PAGE?
+28. What is the difference between electric field and magnetic field around a current?
+29. In CFTR, what does the TMD do?
+30. In CFTR, what does the NBD do?
+31. In CFTR, what does the R domain do?
+32. Are protein domains separate proteins or regions of the same protein?
+33. Are CFTR transmembrane regions more likely alpha-helical or beta-sheet for MCAT purposes?
+34. When does cDNA enter the Sanger/PCR conversation?
+35. What is the strand being built by DNA polymerase called?
+36. Why is PAGE/capillary electrophoresis a better Sanger association than regular agarose gel?
 
 ---
 
@@ -253,6 +400,13 @@ Mark these if missed again:
 - Phosphorylation logic
 - Lab technique classification
 - Math tools / physics components
+- Electrophoresis charge/field/current logic
+- Anode/cathode sign confusion
+- Electric field vs magnetic field confusion
+- SDS vs reducing agent confusion
+- cDNA vs newly synthesized complementary DNA confusion
+- Membrane protein domain classification
+- Domain vs separate protein confusion
 
 ---
 
