@@ -9,9 +9,60 @@
 (async () => {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+  const popupSelectors = [
+    '.modal',
+    '.popup',
+    '.dialog',
+    '[role="dialog"]',
+    '.cdk-overlay-container',
+    '.cdk-overlay-pane',
+    '.mat-dialog-container',
+    '[class*="popup"]',
+    '[class*="modal"]',
+    '[class*="dialog"]',
+    '[class*="overlay"]'
+  ].join(', ');
+
+  function collectQuestionCounts(text) {
+    return String(text || '')
+      .split(/\n+/)
+      .map(line => line.trim())
+      .map(line =>
+        line.match(/^(?:question\s*:?\s*)?(\d{1,3})\s+of\s+(\d{1,3})$/i) ||
+        line.match(/\bquestion\s*:?\s*(\d{1,3})\s+of\s+(\d{1,3})\b/i)
+      )
+      .filter(Boolean)
+      .map(m => ({ current: Number(m[1]), total: Number(m[2]) }))
+      .filter(({ current, total }) => current >= 1 && current <= total);
+  }
+
+  function chooseQuestionCount(matches) {
+    if (!matches.length) return null;
+
+    return matches.reduce((best, match) =>
+      match.total > best.total ? match : best
+    );
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const navigationSelector =
+      'nav, [role="navigation"], [class*="nav" i], [id*="nav" i], [class*="pagination" i], [id*="pagination" i]';
+
+    const navigationRoots = [
+      ...document.querySelectorAll(navigationSelector),
+      ...[...document.querySelectorAll('a[aria-label*="next" i], button[aria-label*="next" i]')]
+        .map(el => el.closest(navigationSelector) || el.parentElement)
+        .filter(Boolean)
+    ];
+
+    const scopedCount = chooseQuestionCount(
+      navigationRoots.flatMap(el => collectQuestionCounts(el.innerText))
+    );
+
+    if (scopedCount) return scopedCount;
+
+    // Avoid taking the first broad "1 of 2" style caption as the test total.
+    return chooseQuestionCount(collectQuestionCounts(document.body.innerText));
   }
 
   function clickNext() {
@@ -53,6 +104,11 @@
 
     // Blue UWorld links commonly open a small modal with an image/diagram, but some include explanatory text.
     return hasMedia || text.length > 20;
+  }
+
+  function getVisibleUsablePopups() {
+    return [...document.querySelectorAll(popupSelectors)]
+      .filter(el => isVisible(el) && looksLikeUsablePopup(el));
   }
 
   function convertCanvasesToImages(sourceRoot, cloneRoot) {
@@ -109,32 +165,15 @@
   }
 
   function captureVisiblePopupHTML(linkLabel, seenSignatures) {
-    const popupSelectors = [
-      '.modal',
-      '.popup',
-      '.dialog',
-      '[role="dialog"]',
-      '.cdk-overlay-container',
-      '.cdk-overlay-pane',
-      '.mat-dialog-container',
-      '[class*="popup"]',
-      '[class*="modal"]',
-      '[class*="dialog"]',
-      '[class*="overlay"]'
-    ].join(', ');
-
-    const popups = [...document.querySelectorAll(popupSelectors)]
-      .filter(el => isVisible(el) && looksLikeUsablePopup(el));
-
     const captured = [];
 
-    for (const popup of popups) {
+    for (const popup of getVisibleUsablePopups()) {
       const clone = popup.cloneNode(true);
       convertCanvasesToImages(popup, clone);
       forcePopupClonePrintable(clone);
 
       const imgSources = [...clone.querySelectorAll('img')].map(img => img.currentSrc || img.src || '').join('|');
-      const signature = `${clone.innerText.trim().slice(0, 300)}|${imgSources}|svg:${clone.querySelectorAll('svg').length}|canvas:${clone.querySelectorAll('canvas').length}`;
+      const signature = `${(clone.innerText || '').trim().slice(0, 300)}|${imgSources}|svg:${clone.querySelectorAll('svg').length}|canvas:${clone.querySelectorAll('canvas').length}`;
 
       if (seenSignatures.has(signature)) continue;
       seenSignatures.add(signature);
@@ -160,13 +199,17 @@
       '[class*="close"]'
     ].join(', ');
 
-    const candidates = [...document.querySelectorAll(closeSelectors)]
-      .filter(el => isVisible(el) && !el.closest('#centerContent'));
+    const popups = getVisibleUsablePopups();
+    const candidates = popups.flatMap(popup =>
+      [...popup.querySelectorAll(closeSelectors)].filter(isVisible)
+    );
 
-    // Click the first few close controls only; this avoids accidentally clicking a hidden/global control.
+    // Only click close controls inside detected popups; global page close buttons can exit review.
     candidates.slice(0, 3).forEach(el => {
       try { el.click(); } catch (e) {}
     });
+
+    if (!popups.length) return;
 
     try {
       document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
@@ -355,12 +398,14 @@
       return;
     }
 
-    current = 1;
+    current = qInfo.current;
+    total = qInfo.total;
   }
 
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let abortReason = '';
 
   while (current <= total) {
     console.log(`Exporting Question ${current}...`);
@@ -381,7 +426,8 @@
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found – stopping.');
+      abortReason = `Next button not found after exporting Question ${current}.`;
+      console.warn(`${abortReason} Export aborted to avoid a partial PDF.`);
       break;
     }
 
@@ -390,15 +436,25 @@
     for (let i = 0; i < 25; i++) {
       await sleep(400);
       newInfo = getQuestionCount();
-      if (newInfo && newInfo.current !== current) break;
+      if (newInfo && newInfo.total === total && newInfo.current === current + 1) break;
     }
 
-    if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation stuck – stopping.');
+    if (!newInfo || newInfo.total !== total || newInfo.current !== current + 1) {
+      abortReason = `Navigation did not advance from Question ${current} to Question ${current + 1}.`;
+      console.warn(`${abortReason} Export aborted to avoid a partial PDF.`);
       break;
     }
 
     current = newInfo.current;
+  }
+
+  if (abortReason || questionsHTML.length !== total) {
+    alert(
+      `Export incomplete: captured ${questionsHTML.length} of ${total} questions.\n\n` +
+      `${abortReason || 'The exported question count did not match the UWorld total.'}\n\n` +
+      'No PDF was opened. Please fix navigation or manually export from the missing question and re-run.'
+    );
+    return;
   }
 
   const testID = getTestID();
@@ -523,19 +579,28 @@
 
   <script>
     (async () => {
+      const withTimeout = (promise, ms) =>
+        Promise.race([
+          promise,
+          new Promise(resolve => setTimeout(resolve, ms))
+        ]);
+
       if (document.fonts && document.fonts.ready) {
-        await document.fonts.ready;
+        await withTimeout(document.fonts.ready, 3000);
       }
 
-      await Promise.all(
-        [...document.images].map(img =>
-          img.complete
-            ? Promise.resolve()
-            : new Promise(resolve => {
-                img.onload = resolve;
-                img.onerror = resolve;
-              })
-        )
+      await withTimeout(
+        Promise.all(
+          [...document.images].map(img =>
+            img.complete
+              ? Promise.resolve()
+              : new Promise(resolve => {
+                  img.onload = resolve;
+                  img.onerror = resolve;
+                })
+          )
+        ),
+        5000
       );
 
       setTimeout(() => window.print(), 3000);
