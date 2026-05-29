@@ -234,9 +234,73 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
   // ---------- HELPERS ----------
+  function parseQuestionCountText(text) {
+    const matches = [];
+    const re = /(?:^|[^\d])(\d{1,3})\s+of\s+(\d{1,3})(?!\d)/gi;
+
+    for (const match of String(text || '').matchAll(re)) {
+      const current = Number(match[1]);
+      const total = Number(match[2]);
+
+      if (!Number.isInteger(current) || !Number.isInteger(total)) continue;
+      if (current < 1 || total < current || total > 300) continue;
+
+      matches.push({
+        current,
+        total,
+        index: match.index || 0,
+        hasQuestionContext: /\b(question|question\s+id)\b/i.test(
+          String(text || '').slice(Math.max(0, (match.index || 0) - 40), (match.index || 0) + match[0].length + 40)
+        )
+      });
+    }
+
+    return matches;
+  }
+
+  function chooseQuestionCount(matches) {
+    if (!matches.length) return null;
+
+    const questionContextMatches = matches.filter(m => m.hasQuestionContext);
+    const candidates = questionContextMatches.length ? questionContextMatches : matches;
+
+    // Figure captions commonly contain "1 of 3"; the review question counter is usually the largest total.
+    return candidates.reduce((best, match) => {
+      if (!best) return match;
+      if (match.total !== best.total) return match.total > best.total ? match : best;
+      return match.index < best.index ? match : best;
+    }, null);
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const scopedSelectors = [
+      '#questionInformation',
+      '[aria-label*="question" i]',
+      '[class*="question" i]',
+      '[id*="question" i]',
+      '[class*="counter" i]',
+      '[id*="counter" i]',
+      '[class*="pagination" i]',
+      '[id*="pagination" i]'
+    ].join(', ');
+
+    const scopedMatches = [...document.querySelectorAll(scopedSelectors)]
+      .filter(el => {
+        const text = (el.innerText || el.textContent || '').trim();
+        return text && text.length <= 200;
+      })
+      .flatMap(el => parseQuestionCountText(el.innerText || el.textContent || ''));
+
+    const scopedCount = chooseQuestionCount(scopedMatches);
+    if (scopedCount) return { current: scopedCount.current, total: scopedCount.total };
+
+    const bodyCount = chooseQuestionCount(parseQuestionCountText(document.body.innerText));
+    return bodyCount ? { current: bodyCount.current, total: bodyCount.total } : null;
+  }
+
+  function alertAndAbortExport(message) {
+    alert(message);
+    console.error(message);
   }
 
   function clickNext() {
@@ -333,6 +397,7 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let abortReason = '';
 
   while (current <= total) {
     console.log(`📸 Question ${current}…`);
@@ -350,7 +415,7 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found – stopping.');
+      abortReason = `Next button not found after Question ${current}. Export aborted before PDF creation to avoid a partial export.`;
       break;
     }
 
@@ -361,10 +426,22 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
       if (newInfo && newInfo.current !== current) break;
     }
     if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation stuck – stopping.');
+      abortReason = `Navigation did not advance after Question ${current}. Export aborted before PDF creation to avoid a partial export.`;
+      break;
+    }
+    if (newInfo.current !== current + 1 || newInfo.total !== total) {
+      abortReason = `Expected Question ${current + 1} of ${total}, but the page showed Question ${newInfo.current} of ${newInfo.total}. Export aborted before PDF creation to avoid a partial export.`;
       break;
     }
     current = newInfo.current;
+  }
+
+  if (abortReason || questionsHTML.length !== total) {
+    alertAndAbortExport(
+      abortReason ||
+      `Captured ${questionsHTML.length} of ${total} questions. Export aborted before PDF creation to avoid a partial export.`
+    );
+    return;
   }
 
   const dateStr = getTestDate();
@@ -399,6 +476,10 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 </html>`;
 
   const w = window.open('', '', 'width=800,height=600');
+  if (!w) {
+    alert('Popup blocked. Allow popups for UWorld, then run the script again.');
+    return;
+  }
   w.document.write(fullHTML);
   w.document.close();
   console.log(`✅ ${questionsHTML.length} questions exported. PDF will be named: ${docTitle}.pdf`);
