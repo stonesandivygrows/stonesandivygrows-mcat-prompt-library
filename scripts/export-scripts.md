@@ -153,6 +153,9 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (clicked) {
       current = 1;
       await sleep(800);
+    } else {
+      alert("Could not navigate back to question 1. Export aborted to avoid a misordered PDF.");
+      return;
     }
   }
 
@@ -163,20 +166,31 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (q > 1) {
       const moved = await clickQuestionFromNav(q);
       if (!moved) {
-        console.warn(`Could not navigate to question ${q}. Stopping.`);
-        break;
+        alert(`Could not navigate to question ${q}. Export aborted to avoid a partial PDF.`);
+        return;
       }
     }
 
+    const passageHTML = getPassageHTML();
     const qHTML = cleanClone(getMainContent()).outerHTML;
-    collected.push(`<div class="qblock" data-q="${q}">
-      <h2>Question ${q}</h2>
-      ${qHTML}
-    </div>`);
+    collected.push({ q, passageHTML, questionHTML: qHTML });
   }
 
-  // 4. Grab the passage (only once – from the first question page)
-  const passageHTML = getPassageHTML();
+  // 4. Render the passage that was visible with each question. Multi-passage
+  // tests change the left-hand passage panel as navigation advances.
+  const renderedBlocks = [];
+  let lastPassageHTML = null;
+  for (const item of collected) {
+    if (item.passageHTML !== lastPassageHTML) {
+      renderedBlocks.push(`<div class="passage-section"><h2>Passage for Question ${item.q}</h2>${item.passageHTML || "<p>Passage not detected.</p>"}</div>`);
+      lastPassageHTML = item.passageHTML;
+    }
+
+    renderedBlocks.push(`<div class="qblock" data-q="${item.q}">
+      <h2>Question ${item.q}</h2>
+      ${item.questionHTML}
+    </div>`);
+  }
 
   // 5. Build the final export page
   const fullPage = `<!DOCTYPE html>
@@ -212,8 +226,7 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 <body>
   <h1>Jack Westin Full Export</h1>
   ${resultsHTML ? `<div class="results-section"><h2>Test Results</h2>${resultsHTML}</div>` : ""}
-  <div class="passage-section"><h2>Passage</h2>${passageHTML || "<p>Passage not detected.</p>"}</div>
-  ${collected.join("\n")}
+  ${renderedBlocks.join("\n")}
   <script>setTimeout(() => window.print(), 900);</script>
 </body>
 </html>`;
