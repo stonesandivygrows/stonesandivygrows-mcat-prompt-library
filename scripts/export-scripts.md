@@ -153,6 +153,9 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (clicked) {
       current = 1;
       await sleep(800);
+    } else {
+      alert("Could not navigate back to question 1. Export aborted to avoid a misordered PDF.");
+      return;
     }
   }
 
@@ -163,20 +166,31 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (q > 1) {
       const moved = await clickQuestionFromNav(q);
       if (!moved) {
-        console.warn(`Could not navigate to question ${q}. Stopping.`);
-        break;
+        alert(`Could not navigate to question ${q}. Export aborted to avoid a partial PDF.`);
+        return;
       }
     }
 
+    const passageHTML = getPassageHTML();
     const qHTML = cleanClone(getMainContent()).outerHTML;
-    collected.push(`<div class="qblock" data-q="${q}">
-      <h2>Question ${q}</h2>
-      ${qHTML}
-    </div>`);
+    collected.push({ q, passageHTML, questionHTML: qHTML });
   }
 
-  // 4. Grab the passage (only once – from the first question page)
-  const passageHTML = getPassageHTML();
+  // 4. Render the passage that was visible with each question. Multi-passage
+  // tests change the left-hand passage panel as navigation advances.
+  const renderedBlocks = [];
+  let lastPassageHTML = null;
+  for (const item of collected) {
+    if (item.passageHTML !== lastPassageHTML) {
+      renderedBlocks.push(`<div class="passage-section"><h2>Passage for Question ${item.q}</h2>${item.passageHTML || "<p>Passage not detected.</p>"}</div>`);
+      lastPassageHTML = item.passageHTML;
+    }
+
+    renderedBlocks.push(`<div class="qblock" data-q="${item.q}">
+      <h2>Question ${item.q}</h2>
+      ${item.questionHTML}
+    </div>`);
+  }
 
   // 5. Build the final export page
   const fullPage = `<!DOCTYPE html>
@@ -212,13 +226,16 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 <body>
   <h1>Jack Westin Full Export</h1>
   ${resultsHTML ? `<div class="results-section"><h2>Test Results</h2>${resultsHTML}</div>` : ""}
-  <div class="passage-section"><h2>Passage</h2>${passageHTML || "<p>Passage not detected.</p>"}</div>
-  ${collected.join("\n")}
+  ${renderedBlocks.join("\n")}
   <script>setTimeout(() => window.print(), 900);</script>
 </body>
 </html>`;
 
   const w = window.open("", "JackWestinFullExport", "width=800,height=600");
+  if (!w) {
+    alert("Popup blocked. Allow popups for Jack Westin, then run the script again.");
+    return;
+  }
   w.document.write(fullPage);
   w.document.close();
   console.log(`Export complete – ${collected.length} questions collected. Print dialog opening...`);
@@ -234,9 +251,73 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
   // ---------- HELPERS ----------
+  function parseQuestionCountText(text) {
+    const matches = [];
+    const re = /(?:^|[^\d])(\d{1,3})\s+of\s+(\d{1,3})(?!\d)/gi;
+
+    for (const match of String(text || '').matchAll(re)) {
+      const current = Number(match[1]);
+      const total = Number(match[2]);
+
+      if (!Number.isInteger(current) || !Number.isInteger(total)) continue;
+      if (current < 1 || total < current || total > 300) continue;
+
+      matches.push({
+        current,
+        total,
+        index: match.index || 0,
+        hasQuestionContext: /\b(question|question\s+id)\b/i.test(
+          String(text || '').slice(Math.max(0, (match.index || 0) - 40), (match.index || 0) + match[0].length + 40)
+        )
+      });
+    }
+
+    return matches;
+  }
+
+  function chooseQuestionCount(matches) {
+    if (!matches.length) return null;
+
+    const questionContextMatches = matches.filter(m => m.hasQuestionContext);
+    const candidates = questionContextMatches.length ? questionContextMatches : matches;
+
+    // Figure captions commonly contain "1 of 3"; the review question counter is usually the largest total.
+    return candidates.reduce((best, match) => {
+      if (!best) return match;
+      if (match.total !== best.total) return match.total > best.total ? match : best;
+      return match.index < best.index ? match : best;
+    }, null);
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const scopedSelectors = [
+      '#questionInformation',
+      '[aria-label*="question" i]',
+      '[class*="question" i]',
+      '[id*="question" i]',
+      '[class*="counter" i]',
+      '[id*="counter" i]',
+      '[class*="pagination" i]',
+      '[id*="pagination" i]'
+    ].join(', ');
+
+    const scopedMatches = [...document.querySelectorAll(scopedSelectors)]
+      .filter(el => {
+        const text = (el.innerText || el.textContent || '').trim();
+        return text && text.length <= 200;
+      })
+      .flatMap(el => parseQuestionCountText(el.innerText || el.textContent || ''));
+
+    const scopedCount = chooseQuestionCount(scopedMatches);
+    if (scopedCount) return { current: scopedCount.current, total: scopedCount.total };
+
+    const bodyCount = chooseQuestionCount(parseQuestionCountText(document.body.innerText));
+    return bodyCount ? { current: bodyCount.current, total: bodyCount.total } : null;
+  }
+
+  function alertAndAbortExport(message) {
+    alert(message);
+    console.error(message);
   }
 
   function clickNext() {
@@ -333,6 +414,7 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let abortReason = '';
 
   while (current <= total) {
     console.log(`📸 Question ${current}…`);
@@ -350,7 +432,7 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found – stopping.');
+      abortReason = `Next button not found after Question ${current}. Export aborted before PDF creation to avoid a partial export.`;
       break;
     }
 
@@ -361,10 +443,22 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
       if (newInfo && newInfo.current !== current) break;
     }
     if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation stuck – stopping.');
+      abortReason = `Navigation did not advance after Question ${current}. Export aborted before PDF creation to avoid a partial export.`;
+      break;
+    }
+    if (newInfo.current !== current + 1 || newInfo.total !== total) {
+      abortReason = `Expected Question ${current + 1} of ${total}, but the page showed Question ${newInfo.current} of ${newInfo.total}. Export aborted before PDF creation to avoid a partial export.`;
       break;
     }
     current = newInfo.current;
+  }
+
+  if (abortReason || questionsHTML.length !== total) {
+    alertAndAbortExport(
+      abortReason ||
+      `Captured ${questionsHTML.length} of ${total} questions. Export aborted before PDF creation to avoid a partial export.`
+    );
+    return;
   }
 
   const dateStr = getTestDate();
@@ -399,6 +493,10 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 </html>`;
 
   const w = window.open('', '', 'width=800,height=600');
+  if (!w) {
+    alert('Popup blocked. Allow popups for UWorld, then run the script again.');
+    return;
+  }
   w.document.write(fullHTML);
   w.document.close();
   console.log(`✅ ${questionsHTML.length} questions exported. PDF will be named: ${docTitle}.pdf`);
