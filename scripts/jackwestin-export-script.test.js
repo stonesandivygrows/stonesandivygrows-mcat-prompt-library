@@ -60,9 +60,10 @@ class FakeNavRow extends FakeElement {
 }
 
 class FakeDocument {
-  constructor(pages) {
+  constructor(pages, { startQuestion = 1, failNavigationTo = new Set() } = {}) {
     this.pages = pages;
-    this.currentQuestion = 1;
+    this.currentQuestion = startQuestion;
+    this.failNavigationTo = failNavigationTo;
     this.body = new FakeElement({ text: this.bodyText });
     this.writes = [];
   }
@@ -95,6 +96,7 @@ class FakeDocument {
   querySelectorAll(selector) {
     if (selector === "#nav tbody tr") {
       return this.pages.map((_, index) => new FakeNavRow(index, question => {
+        if (this.failNavigationTo.has(question)) return;
         this.currentQuestion = question;
         this.body.innerText = this.bodyText;
       }));
@@ -117,8 +119,8 @@ function loadJackWestinScript() {
   return match[1];
 }
 
-async function runScriptWithPages(pages) {
-  const document = new FakeDocument(pages);
+async function runScriptWithPages(pages, { popupBlocked = false, startQuestion = 1, failNavigationTo = new Set() } = {}) {
+  const document = new FakeDocument(pages, { startQuestion, failNavigationTo });
   const popupDocument = new FakeDocument(pages);
   const alerts = [];
   const sandbox = {
@@ -127,7 +129,7 @@ async function runScriptWithPages(pages) {
     alert: message => alerts.push(message),
     setTimeout: callback => callback(),
     window: {
-      open: () => ({ document: popupDocument }),
+      open: () => popupBlocked ? null : ({ document: popupDocument }),
     },
   };
 
@@ -152,4 +154,30 @@ test("Jack Westin export keeps each passage with its question group", async () =
   assert.ok(output.indexOf("Passage A") < output.indexOf("Question 1 content"));
   assert.ok(output.indexOf("Question 2 content") < output.indexOf("Passage B"));
   assert.ok(output.indexOf("Passage B") < output.indexOf("Question 3 content"));
+});
+
+test("Jack Westin export aborts cleanly when the browser blocks the popup", async () => {
+  const { alerts, output } = await runScriptWithPages(
+    [
+      { passage: "Passage A", question: "Question 1 content" },
+      { passage: "Passage A", question: "Question 2 content" },
+    ],
+    { popupBlocked: true }
+  );
+
+  assert.deepEqual(alerts, ["Popup blocked. Allow popups for Jack Westin, then run the script again."]);
+  assert.equal(output, "");
+});
+
+test("Jack Westin export aborts if it cannot reset to question 1", async () => {
+  const { alerts, output } = await runScriptWithPages(
+    [
+      { passage: "Passage A", question: "Question 1 content" },
+      { passage: "Passage B", question: "Question 2 content" },
+    ],
+    { startQuestion: 2, failNavigationTo: new Set([1]) }
+  );
+
+  assert.deepEqual(alerts, ["Could not navigate back to question 1. Export aborted to avoid a misordered PDF."]);
+  assert.equal(output, "");
 });
