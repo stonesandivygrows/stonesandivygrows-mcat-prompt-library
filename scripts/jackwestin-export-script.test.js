@@ -117,7 +117,7 @@ function loadJackWestinScript() {
   return match[1];
 }
 
-async function runScriptWithPages(pages) {
+async function runScriptWithPages(pages, { popupBlocked = false } = {}) {
   const document = new FakeDocument(pages);
   const popupDocument = new FakeDocument(pages);
   const alerts = [];
@@ -127,7 +127,7 @@ async function runScriptWithPages(pages) {
     alert: message => alerts.push(message),
     setTimeout: callback => callback(),
     window: {
-      open: () => ({ document: popupDocument }),
+      open: () => popupBlocked ? null : ({ document: popupDocument }),
     },
   };
 
@@ -152,4 +152,13 @@ test("Jack Westin export keeps each passage with its question group", async () =
   assert.ok(output.indexOf("Passage A") < output.indexOf("Question 1 content"));
   assert.ok(output.indexOf("Question 2 content") < output.indexOf("Passage B"));
   assert.ok(output.indexOf("Passage B") < output.indexOf("Question 3 content"));
+});
+
+test("Jack Westin export alerts instead of crashing when the PDF popup is blocked", async () => {
+  const { alerts, output } = await runScriptWithPages([
+    { passage: "Passage A", question: "Question 1 content" },
+  ], { popupBlocked: true });
+
+  assert.deepEqual(alerts, ["Popup blocked. Allow popups for Jack Westin, then run the script again."]);
+  assert.equal(output, "");
 });

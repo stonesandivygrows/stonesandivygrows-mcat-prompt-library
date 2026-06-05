@@ -232,6 +232,10 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 </html>`;
 
   const w = window.open("", "JackWestinFullExport", "width=800,height=600");
+  if (!w) {
+    alert("Popup blocked. Allow popups for Jack Westin, then run the script again.");
+    return;
+  }
   w.document.write(fullPage);
   w.document.close();
   console.log(`Export complete – ${collected.length} questions collected. Print dialog opening...`);
