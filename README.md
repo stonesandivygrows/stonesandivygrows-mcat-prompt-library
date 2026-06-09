@@ -9,7 +9,7 @@ Private repository for organizing MCAT study prompts, durable concept notes, and
 - `notebooklm/behavioral-science/` — Khan Academy and Psych/Soc group prompts
 - `macwhisper/` — transcription, note conversion, and title-generation prompts
 - `canva/` — transcript-to-visual and design-generation prompts
-- `cars/` — CARS-specific prompts and review frameworks
+- `cars/` — CARS-specific prompts, decision trees, review frameworks, pattern reports, and passage autopsies
 - `practice-review/uworld/` — UWorld transcription workflows, review autopsies, and durable correction notes
 - `study-notes/` — durable MCAT concept explanations, misconception repairs, and cross-topic connections
 - `study-workflows/` — reusable review methods, study procedures, and active-recall systems
@@ -29,6 +29,10 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 
 ## Recently added study resources
 
+- `cars/01-strategy-garden/cars-operating-system-and-decision-tree.md`
+- `cars/01-strategy-garden/question-stem-translations-and-boundaries.md`
+- `cars/01-strategy-garden/syntax-proper-nouns-quotes-and-punctuation-protocol.md`
+- `cars/04-passage-autopsies/question-by-question-game-tape-template.md`
 - `cars/strategy/syntax-interruption-and-targeted-reread-protocol.md`
 - `cars/reviews/jack-westin/2026-05-15-21q-cars-autopsy.md`
 - `cars/reviews/jack-westin/2026-05-16-12q-cars-autopsy.md`
