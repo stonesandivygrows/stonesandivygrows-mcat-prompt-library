@@ -19,6 +19,14 @@ Structured repo migration tracker for legacy gists and MCAT study-system materia
 - Purpose: preserve the current operational CARS method, including controlled skipping, paragraph-job mapping, targeted rereading, answer-choice translation, whiteboard rules, and the next-practice experiment.
 - Source scope: synthesized from the May 15–16 Jack Westin reviews and the user's spoken strategy analysis; raw PDFs and transcripts remain in archive storage.
 
+### UWorld verbatim transcription + running master DOCX workflow
+
+- Status: Filed in repo
+- GitHub path: `practice-review/uworld/uworld-verbatim-transcription-running-master-docx-workflow.md`
+- Purpose: preserve the locked UWorld transcription prompt, full-explanation rule, visual reconstruction protocol, continuous-flow master DOCX structure, append procedure, and anti-fabrication quality checks.
+- Source scope: synthesized from the March 18 and March 31 UWorld running-document workflow discussed in chat.
+- Archive boundary: raw UWorld PDFs, screenshots, full copyrighted question text, and generated master DOCX files remain in private Drive/local storage.
+
 ## Pending gist inventory
 
 These legacy gists still need direct content import because the GitHub connector could not fetch gist bodies directly from `gist.github.com` in this environment. They remain listed until each body is pasted, exported, or moved into repo files.
