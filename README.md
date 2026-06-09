@@ -1,6 +1,6 @@
 # MCAT Prompt Library
 
-Private repository for organizing MCAT study prompts, durable concept notes, and study workflows by tool and use case.
+Private repository for organizing MCAT study prompts, durable concept notes, study workflows, and medical-school application frameworks by tool and use case.
 
 ## Folder structure
 
@@ -13,6 +13,7 @@ Private repository for organizing MCAT study prompts, durable concept notes, and
 - `study-notes/` — durable MCAT concept explanations, misconception repairs, and cross-topic connections
 - `study-workflows/` — reusable review methods, study procedures, and active-recall systems
 - `anki/` — Anki export storage, routing, extraction, and chapter-layer protocols
+- `medical-school-applications/` — reusable secondary-essay planning, revision, chronology, and school-fit frameworks
 - `naming-rules/` — transcript title and naming conventions
 - `archive/` — legacy or superseded prompt versions
 
@@ -31,6 +32,7 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 - `study-notes/chem-phys/foundational-concepts/sign-conventions-negative-values.md`
 - `study-notes/chem-phys/foundational-concepts/gas-laws-variables-constraints-and-piston-work.md`
 - `study-workflows/anki-pdf-active-recall-backward-review.md`
+- `medical-school-applications/secondary-essay-revision-framework.md`
 
 ## Migration status
 
