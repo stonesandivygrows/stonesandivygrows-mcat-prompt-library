@@ -12,8 +12,19 @@ Private repository for organizing MCAT study prompts, durable concept notes, and
 - `cars/` — CARS-specific prompts and review frameworks
 - `study-notes/` — durable MCAT concept explanations, misconception repairs, and cross-topic connections
 - `study-workflows/` — reusable review methods, study procedures, and active-recall systems
+- `anki/` — Anki export storage, routing, extraction, and chapter-layer protocols
 - `naming-rules/` — transcript title and naming conventions
 - `archive/` — legacy or superseded prompt versions
+
+## Anki reference layer
+
+Large Anki exports remain in private local or cloud storage under the canonical local path:
+
+`~/Desktop/mcat/ipad anki/`
+
+They are used as searchable reference pools for Kaplan Chapter Hubs. Only targeted, verified cards are placed into each chapter's `▼ High-Yield Flashcard Review Layer`.
+
+See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-protocol.md).
 
 ## Recently added study resources
 
