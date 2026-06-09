@@ -12,6 +12,13 @@ Structured repo migration tracker for legacy gists and MCAT study-system materia
 - Notion database: `🌿 MCAT Active Study Hub`
 - Purpose: preserve the cross-subject MCAT study anchors as a versioned index while leaving giant raw transcripts / DOCX source material in the archive layer.
 
+### Current CARS testing strategy
+
+- Status: Filed in repo
+- GitHub path: `practice-review/cars/2026-05-16__current-cars-testing-strategy.md`
+- Purpose: preserve the current operational CARS method, including controlled skipping, paragraph-job mapping, targeted rereading, answer-choice translation, whiteboard rules, and the next-practice experiment.
+- Source scope: synthesized from the May 15–16 Jack Westin reviews and the user's spoken strategy analysis; raw PDFs and transcripts remain in archive storage.
+
 ## Pending gist inventory
 
 These legacy gists still need direct content import because the GitHub connector could not fetch gist bodies directly from `gist.github.com` in this environment. They remain listed until each body is pasted, exported, or moved into repo files.
