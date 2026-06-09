@@ -29,6 +29,7 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 
 ## Recently added study resources
 
+- `study-notes/biology/reproduction/gametogenesis-fertilization-development-terminology.md`
 - `study-notes/chem-phys/foundational-concepts/sign-conventions-negative-values.md`
 - `study-notes/chem-phys/foundational-concepts/gas-laws-variables-constraints-and-piston-work.md`
 - `study-workflows/anki-pdf-active-recall-backward-review.md`
