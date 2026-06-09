@@ -15,7 +15,8 @@ cars/
 ├── analysis-prompts.md                        # Reusable analysis prompts
 ├── 01-strategy-garden/
 │   └── 3-layer-operational-autopsy.md         # Stable reading/autopsy rules
-├── 02-pattern-reports/                        # Cross-passage trend reports
+├── 02-pattern-reports/
+│   └── 2026-05__core-strategy-failures.md     # Cross-passage May diagnosis
 ├── 03-jack-westin-session-hubs/
 │   └── 2026/
 │       ├── 2026-05-15__may-15-16-session-hub.md
@@ -45,6 +46,7 @@ A rule that applies only to one passage stays inside that passage autopsy.
 
 Cross-passage diagnoses belong here:
 
+- [May 2026 Core Strategy Failures](02-pattern-reports/2026-05__core-strategy-failures.md)
 - ADHD cognitive-fatigue patterns
 - recurring timing breakdowns
 - repeated syntax failures
@@ -89,6 +91,7 @@ See the [full operational specification](01-strategy-garden/3-layer-operational-
 
 - **GitHub:** canonical, versioned Markdown; prompts; indexes; durable reports; cleaned autopsies.
 - **Obsidian:** active navigation, backlinks, local parent/child browsing, and study use.
+- **Notion:** mirrored study-vibes dashboard and editable working hierarchy for active review.
 - **Local/cloud archive:** raw PDFs, screenshots, audio, giant exports, and source files unless a small excerpt is required for a durable analysis.
 
-Notion is not the canonical active hierarchy for this folder.
+GitHub remains the version-controlled source of truth; Notion mirrors the parent/child organization for active study and editable review.
