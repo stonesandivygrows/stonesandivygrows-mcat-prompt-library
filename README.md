@@ -37,6 +37,8 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 - `cars/reviews/jack-westin/2026-05-15-21q-cars-autopsy.md`
 - `cars/reviews/jack-westin/2026-05-16-12q-cars-autopsy.md`
 - `practice-review/uworld/uworld-verbatim-transcription-running-master-docx-workflow.md`
+- `practice-review/uworld/uworld-mcat-science-practice-test-autopsy-prompt.md`
+- `practice-review/uworld/2026-04-26__uworld_test_12__completed_autopsy_summary.md`
 - `study-notes/bio-biochem/biological-membranes/fluid-mosaic-model-and-membrane-proteins.md`
 - `study-notes/biology/reproduction/gametogenesis-fertilization-development-terminology.md`
 - `study-notes/chem-phys/foundational-concepts/sign-conventions-negative-values.md`
