@@ -34,6 +34,22 @@ Structured repo migration tracker for legacy gists and MCAT study-system materia
 - Source scope: synthesized from the March 18 and March 31 UWorld running-document workflow discussed in chat.
 - Archive boundary: raw UWorld PDFs, screenshots, full copyrighted question text, and generated master DOCX files remain in private Drive/local storage.
 
+### UWorld MCAT science practice-test autopsy prompt
+
+- Status: Filed in repo
+- GitHub path: `practice-review/uworld/uworld-mcat-science-practice-test-autopsy-prompt.md`
+- Purpose: preserve the reusable 17-section science-autopsy framework, transcript-mining rules, passage and figure analysis, question-by-question diagnosis, pacing audit, Anki routing, and running-document completion protocol.
+- Source scope: reconstructed from the April 26 UWorld Test 12 review workflow and the user's locked autopsy requirements.
+- Archive boundary: raw UWorld content and complete generated autopsy documents remain in private storage.
+
+### UWorld Test 12 completed science autopsy summary
+
+- Status: Filed in repo
+- GitHub path: `practice-review/uworld/2026-04-26__uworld_test_12__completed_autopsy_summary.md`
+- Purpose: preserve the copyright-safe final diagnostic layer for all 30 questions and all passage blocks, including time-collapse patterns, directionality repairs, content targets, Anki candidates, and next-set operating rules.
+- Source scope: synthesized from the completed Test 12 report, UWorld export, and audio-review transcript.
+- Completion note: all 30 questions and all passages were reviewed; the full completed DOCX remains in private Drive/local storage.
+
 ## Pending gist inventory
 
 These legacy gists still need direct content import because the GitHub connector could not fetch gist bodies directly from `gist.github.com` in this environment. They remain listed until each body is pasted, exported, or moved into repo files.
