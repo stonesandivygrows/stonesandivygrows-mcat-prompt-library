@@ -10,6 +10,7 @@ Private repository for organizing MCAT study prompts, durable concept notes, and
 - `macwhisper/` — transcription, note conversion, and title-generation prompts
 - `canva/` — transcript-to-visual and design-generation prompts
 - `cars/` — CARS-specific prompts and review frameworks
+- `practice-review/uworld/` — UWorld transcription workflows, review autopsies, and durable correction notes
 - `study-notes/` — durable MCAT concept explanations, misconception repairs, and cross-topic connections
 - `study-workflows/` — reusable review methods, study procedures, and active-recall systems
 - `anki/` — Anki export storage, routing, extraction, and chapter-layer protocols
@@ -28,6 +29,7 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 
 ## Recently added study resources
 
+- `practice-review/uworld/uworld-verbatim-transcription-running-master-docx-workflow.md`
 - `study-notes/bio-biochem/biological-membranes/fluid-mosaic-model-and-membrane-proteins.md`
 - `study-notes/biology/reproduction/gametogenesis-fertilization-development-terminology.md`
 - `study-notes/chem-phys/foundational-concepts/sign-conventions-negative-values.md`
