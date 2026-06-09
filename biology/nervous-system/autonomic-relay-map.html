@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Autonomic Nervous System Relay Map</title>
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --card: #ffffff;
+    --ink: #1f2937;
+    --muted: #6b7280;
+    --cns: #dbeafe;
+    --pns: #dcfce7;
+    --syn: #fef3c7;
+    --symp: #fee2e2;
+    --para: #e0f2fe;
+    --adrenal: #ede9fe;
+    --line: #374151;
+  }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--ink); }
+  .page { max-width: 1200px; margin: 0 auto; padding: 28px; }
+  h1 { text-align: center; margin-bottom: 8px; font-size: 32px; }
+  .subtitle { text-align: center; color: var(--muted); margin-bottom: 26px; font-size: 16px; }
+  .legend, .key-box { background: var(--card); border: 2px solid #e5e7eb; border-radius: 16px; padding: 16px; margin-bottom: 24px; }
+  .legend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .pill { padding: 8px 10px; border-radius: 12px; font-weight: 700; border: 1px solid #d1d5db; }
+  .cns { background: var(--cns); } .pns { background: var(--pns); } .syn { background: var(--syn); }
+  .symp { background: var(--symp); } .para { background: var(--para); } .adrenal { background: var(--adrenal); }
+  .section-title { font-size: 24px; margin: 30px 0 12px; border-left: 8px solid #111827; padding-left: 10px; }
+  .map { background: var(--card); border-radius: 18px; border: 2px solid #e5e7eb; padding: 22px; margin-bottom: 28px; overflow-x: auto; }
+  .row { display: flex; align-items: stretch; gap: 12px; min-width: 980px; }
+  .node { flex: 1; border: 2px solid #111827; border-radius: 16px; padding: 14px; min-height: 130px; box-shadow: 0 3px 0 rgba(0,0,0,0.08); }
+  .node h3 { margin: 0 0 8px; font-size: 18px; }
+  .node p { margin: 5px 0; font-size: 14px; line-height: 1.35; }
+  .arrow { width: 90px; display: flex; align-items: center; justify-content: center; position: relative; }
+  .arrow-label { background: #fff; border: 2px solid #111827; border-radius: 12px; padding: 8px; font-size: 13px; font-weight: 700; text-align: center; z-index: 2; }
+  .arrow::before { content: ""; position: absolute; height: 4px; width: 90%; background: var(--line); left: 0; top: 50%; transform: translateY(-50%); }
+  .arrow::after { content: ""; position: absolute; right: 0; top: calc(50% - 7px); border-left: 14px solid var(--line); border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+  .small { font-size: 13px; color: var(--muted); }
+  .warning { background: #fff7ed; border-left: 8px solid #f97316; padding: 14px; border-radius: 12px; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 14px; overflow: hidden; margin: 16px 0; }
+  th, td { border: 1px solid #d1d5db; padding: 12px; text-align: left; vertical-align: top; }
+  th { background: #111827; color: white; }
+  .mini-flow { font-family: "Courier New", monospace; white-space: pre-wrap; background: #111827; color: #f9fafb; border-radius: 14px; padding: 18px; line-height: 1.5; font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Autonomic Nervous System Relay Map</h1>
+  <div class="subtitle">From brain/spinal cord → autonomic ganglion → target organ, with nuclei, ganglia, pre/post-synaptic roles, and neurotransmitters.</div>
+  <div class="legend"><h2>Color Key</h2><div class="legend-grid"><div class="pill cns">CNS = brain/spinal cord</div><div class="pill pns">PNS = nerves/ganglia</div><div class="pill syn">Synapse = communication point</div><div class="pill para">Parasympathetic pathway</div><div class="pill symp">Sympathetic pathway</div><div class="pill adrenal">Adrenal medulla exception</div></div></div>
+  <div class="key-box">
+    <h2>Core Vocabulary Before the Map</h2>
+    <table>
+      <tr><th>Term</th><th>Meaning</th><th>MCAT correction</th></tr>
+      <tr><td><strong>Presynaptic</strong></td><td>The cell/axon terminal <strong>releasing neurotransmitter</strong> at one specific synapse.</td><td>Not automatically CNS. It means “before this synapse.”</td></tr>
+      <tr><td><strong>Postsynaptic</strong></td><td>The cell/target <strong>receiving neurotransmitter</strong> at one specific synapse.</td><td>Not automatically PNS or target organ. It means “after this synapse.”</td></tr>
+      <tr><td><strong>Preganglionic</strong></td><td>Neuron whose cell body is in the CNS and whose axon goes <strong>to a ganglion</strong>.</td><td>“Pre-ganglionic” = before the ganglion, not the same as “presynaptic” in every context.</td></tr>
+      <tr><td><strong>Postganglionic</strong></td><td>Neuron whose cell body is in an autonomic ganglion and whose axon goes <strong>to the target organ</strong>.</td><td>This neuron is postsynaptic at the ganglion but presynaptic at the target organ.</td></tr>
+      <tr><td><strong>Nucleus</strong></td><td>Cluster of neuron cell bodies in the CNS.</td><td>Exception: “basal ganglia” are CNS structures historically called ganglia.</td></tr>
+      <tr><td><strong>Ganglion</strong></td><td>Cluster of neuron cell bodies in the PNS.</td><td>Dorsal root ganglion = sensory; autonomic ganglia = sympathetic/parasympathetic relay.</td></tr>
+      <tr><td><strong>Tract</strong></td><td>Bundle of axons in the CNS.</td><td>CNS axon bundle.</td></tr>
+      <tr><td><strong>Nerve</strong></td><td>Bundle of axons in the PNS.</td><td>PNS axon bundle.</td></tr>
+    </table>
+  </div>
+  <h2 class="section-title">Universal Autonomic Relay</h2>
+  <div class="map"><div class="row">
+    <div class="node cns"><h3>1. CNS command center</h3><p><strong>Location:</strong> brainstem or spinal cord</p><p><strong>Cell body clusters:</strong> nuclei</p><p><strong>Axon bundles:</strong> tracts</p><p class="small">This is where the autonomic preganglionic neuron begins.</p></div>
+    <div class="arrow"><div class="arrow-label">axon exits CNS</div></div>
+    <div class="node pns"><h3>2. Preganglionic neuron</h3><p><strong>Cell body:</strong> in CNS</p><p><strong>Axon:</strong> travels into PNS</p><p><strong>At ganglion:</strong> becomes presynaptic</p><p><strong>Releases:</strong> ACh</p></div>
+    <div class="arrow"><div class="arrow-label">Synapse #1<br>ACh</div></div>
+    <div class="node syn"><h3>3. Autonomic ganglion</h3><p><strong>Location:</strong> PNS</p><p><strong>Contains:</strong> postganglionic neuron cell bodies</p><p><strong>Preganglionic neuron:</strong> presynaptic here</p><p><strong>Postganglionic neuron:</strong> postsynaptic here</p></div>
+    <div class="arrow"><div class="arrow-label">axon to organ</div></div>
+    <div class="node pns"><h3>4. Postganglionic neuron</h3><p><strong>Cell body:</strong> in ganglion</p><p><strong>At ganglion:</strong> postsynaptic</p><p><strong>At target organ:</strong> presynaptic</p><p><strong>Releases:</strong> ACh or NE depending on division</p></div>
+    <div class="arrow"><div class="arrow-label">Synapse #2<br>ACh or NE</div></div>
+    <div class="node"><h3>5. Target organ</h3><p><strong>Examples:</strong> heart, lungs, GI tract, glands, vessels</p><p><strong>Role:</strong> postsynaptic receiver at the target synapse</p><p><strong>Has:</strong> receptors for ACh, NE, or circulating epinephrine</p></div>
+  </div></div>
+  <h2 class="section-title">Parasympathetic Pathway: ACh → ACh</h2>
+  <div class="map"><div class="row">
+    <div class="node cns"><h3>Brainstem nuclei / sacral spinal cord</h3><p><strong>CNS cell bodies:</strong> nuclei</p><p><strong>Preganglionic neuron begins here.</strong></p></div>
+    <div class="arrow"><div class="arrow-label">long preganglionic axon</div></div>
+    <div class="node para"><h3>Preganglionic parasympathetic neuron</h3><p><strong>Presynaptic at ganglion</strong></p><p><strong>Neurotransmitter:</strong> ACh</p></div>
+    <div class="arrow"><div class="arrow-label">ACh<br>Synapse #1</div></div>
+    <div class="node para"><h3>Terminal ganglion</h3><p><strong>Usually near/in target organ</strong></p><p>Postganglionic cell body sits here.</p></div>
+    <div class="arrow"><div class="arrow-label">short postganglionic axon</div></div>
+    <div class="node para"><h3>Postganglionic parasympathetic neuron</h3><p><strong>Postsynaptic at ganglion</strong></p><p><strong>Presynaptic at target</strong></p><p><strong>Neurotransmitter:</strong> ACh</p></div>
+    <div class="arrow"><div class="arrow-label">ACh<br>Synapse #2</div></div>
+    <div class="node"><h3>Target organ</h3><p><strong>Postsynaptic at target</strong></p><p>Often “rest and digest” effects.</p></div>
+  </div></div>
+  <h2 class="section-title">Sympathetic Pathway: ACh → Usually NE</h2>
+  <div class="map"><div class="row">
+    <div class="node cns"><h3>Thoracic/lumbar spinal cord</h3><p><strong>CNS cell bodies:</strong> nuclei/gray matter regions</p><p><strong>Preganglionic sympathetic neuron begins here.</strong></p></div>
+    <div class="arrow"><div class="arrow-label">short preganglionic axon</div></div>
+    <div class="node symp"><h3>Preganglionic sympathetic neuron</h3><p><strong>Presynaptic at ganglion</strong></p><p><strong>Neurotransmitter:</strong> ACh</p></div>
+    <div class="arrow"><div class="arrow-label">ACh<br>Synapse #1</div></div>
+    <div class="node symp"><h3>Sympathetic ganglion</h3><p><strong>Examples:</strong> sympathetic chain or collateral ganglion</p><p>Postganglionic cell body sits here.</p></div>
+    <div class="arrow"><div class="arrow-label">long postganglionic axon</div></div>
+    <div class="node symp"><h3>Postganglionic sympathetic neuron</h3><p><strong>Postsynaptic at ganglion</strong></p><p><strong>Presynaptic at target</strong></p><p><strong>Usually releases:</strong> NE</p></div>
+    <div class="arrow"><div class="arrow-label">NE<br>Synapse #2</div></div>
+    <div class="node"><h3>Target organ</h3><p><strong>Postsynaptic at target</strong></p><p>Often “fight or flight” effects.</p></div>
+  </div></div>
+  <h2 class="section-title">Adrenal Medulla Exception: ACh → Epi/NE into Blood</h2>
+  <div class="map"><div class="row">
+    <div class="node cns"><h3>Thoracic/lumbar spinal cord</h3><p>Preganglionic sympathetic neuron starts in CNS.</p></div>
+    <div class="arrow"><div class="arrow-label">preganglionic axon</div></div>
+    <div class="node adrenal"><h3>Preganglionic sympathetic neuron</h3><p><strong>Presynaptic to adrenal medulla</strong></p><p><strong>Releases:</strong> ACh</p></div>
+    <div class="arrow"><div class="arrow-label">ACh</div></div>
+    <div class="node adrenal"><h3>Adrenal medulla</h3><p><strong>Modified sympathetic ganglion</strong></p><p>No ordinary postganglionic axon to one target.</p><p><strong>Releases:</strong> epinephrine + norepinephrine into blood</p></div>
+    <div class="arrow"><div class="arrow-label">bloodstream</div></div>
+    <div class="node"><h3>Many target organs</h3><p>Cells receive circulating epinephrine/NE through adrenergic receptors.</p></div>
+  </div></div>
+  <h2 class="section-title">Why One Neuron Can Be Both Post and Pre</h2>
+  <div class="mini-flow">Synapse #1:
+Preganglionic neuron  →  Postganglionic neuron
+      PRESYNAPTIC              POSTSYNAPTIC
+      releases ACh             receives ACh
+
+Synapse #2:
+Postganglionic neuron  →  Target organ
+      PRESYNAPTIC              POSTSYNAPTIC
+      releases ACh or NE       receives ACh or NE
+
+Therefore:
+The postganglionic neuron is POSTSYNAPTIC at the ganglion,
+but PRESYNAPTIC at the target organ.</div>
+  <div class="warning"><strong>Common mistake:</strong> “Sympathetic postsynaptic neurons send epinephrine.”<br><strong>Correction:</strong> Most sympathetic postganglionic neurons release <strong>norepinephrine</strong> at the target. Epinephrine mainly comes from the <strong>adrenal medulla</strong> and travels through the blood.</div>
+  <h2 class="section-title">Fast MCAT Summary Table</h2>
+  <table>
+    <tr><th>Pathway</th><th>Synapse #1: Preganglionic → Ganglion</th><th>Synapse #2: Postganglionic → Target</th><th>Ganglion location</th></tr>
+    <tr><td><strong>Parasympathetic</strong></td><td>ACh</td><td>ACh</td><td>Near or inside target organ</td></tr>
+    <tr><td><strong>Sympathetic</strong></td><td>ACh</td><td>Usually NE</td><td>Near spinal cord or prevertebral/collateral</td></tr>
+    <tr><td><strong>Adrenal medulla</strong></td><td>ACh to adrenal medulla</td><td>No ordinary postganglionic neuron; epinephrine/NE enter blood</td><td>Adrenal medulla acts like modified sympathetic ganglion</td></tr>
+  </table>
+  <h2 class="section-title">Final One-Line Rule</h2>
+  <div class="key-box"><h2>Pre/post-synaptic = role at a synapse. Preganglionic/postganglionic = position relative to a ganglion.</h2></div>
+</div>
+</body>
+</html>
