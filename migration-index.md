@@ -19,6 +19,13 @@ Structured repo migration tracker for legacy gists and MCAT study-system materia
 - Purpose: preserve the current operational CARS method, including controlled skipping, paragraph-job mapping, targeted rereading, answer-choice translation, whiteboard rules, and the next-practice experiment.
 - Source scope: synthesized from the May 15–16 Jack Westin reviews and the user's spoken strategy analysis; raw PDFs and transcripts remain in archive storage.
 
+### UWorld selective-reading CARS experiment
+
+- Status: Filed in repo
+- GitHub path: `practice-review/cars/2026-06-05__uworld-selective-reading-experiment.md`
+- Purpose: preserve the June 5 selective-reading hypothesis, first/last-paragraph emphasis, body-paragraph minimum, targeted vocabulary/name highlighting, retrieval protocol, timing observations, and AAMC transfer criteria without prematurely replacing the canonical strategy.
+- Source scope: synthesized from the June 5 UWorld CARS session and the user's spoken strategy analysis; raw copyrighted passage/question material remains outside the repository.
+
 ### UWorld verbatim transcription + running master DOCX workflow
 
 - Status: Filed in repo
