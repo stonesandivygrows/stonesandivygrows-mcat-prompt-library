@@ -12,11 +12,11 @@ Status: GitHub planning layer created before image generation.
 | Ch04 | Analyzing Organic Reactions | Created | Not generated | High |
 | Ch05 | Alcohols and Ethers | Created | Not generated | High |
 | Ch06 | Aldehydes and Ketones I | Created / audit needed | Previously generated | Audit |
-| Ch07 | Aldehydes and Ketones II: Enolates | Created / audit needed | Previously generated | Audit |
+| Ch07 | Aldehydes and Ketones II: Enolates | Created / rescue audit added | Previously generated | Audit |
 | Ch08 | Carboxylic Acids | Created / audit needed | Previously generated | Audit |
-| Ch09 | Carboxylic Acid Derivatives | Created / audit needed | Previously generated | Audit |
+| Ch09 | Carboxylic Acid Derivatives | Created / rescue audit added | Previously generated | Audit |
 | Ch10 | Nitrogen- and Phosphorus-Containing Compounds | Created | Not generated | High |
-| Ch11 | Spectroscopy | Created | Not generated | Medium |
+| Ch11 | Spectroscopy | Created / rescue audit added | Not generated | High |
 | Ch12 | Separations and Purifications | Created | Not generated | Medium |
 
 ## Build order
@@ -25,6 +25,24 @@ Status: GitHub planning layer created before image generation.
 2. Ch10: high biochemical overlap and transcript emphasis.
 3. Ch11–Ch12: lab / analysis chapters that need visual rescue.
 4. Ch06–Ch09: audit and standardization pass against the newer audio-follow style.
+
+## June 8, 2026 rescue-audit additions
+
+See:
+
+`2026-06-08__ch09-ch11-rescue-visual-audit.md`
+
+This audit adds targeted visual instructions for:
+
+- Ch07 kinetic vs thermodynamic product control
+- Ch09 acid-catalyzed amide hydrolysis and leaving-group logic
+- Ch11 IR, UV-Vis, NMR, and mass spectrometry comparison/correction visuals
+
+Related cleaned study notes:
+
+- `study-notes/organic-chemistry/carboxylic-acid-derivatives/amide-hydrolysis-nucleophilic-acyl-substitution.md`
+- `study-notes/organic-chemistry/spectroscopy/spectroscopy-and-mass-spectrometry-concept-map.md`
+- `study-notes/organic-chemistry/enolates/kinetic-vs-thermodynamic-product-control.md`
 
 ## Universal chapter file structure
 
