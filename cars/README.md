@@ -14,15 +14,19 @@ cars/
 ├── README.md                                  # Parent command center
 ├── analysis-prompts.md                        # Reusable analysis prompts
 ├── 01-strategy-garden/
-│   └── 3-layer-operational-autopsy.md         # Stable reading/autopsy rules
+│   ├── 3-layer-operational-autopsy.md
+│   ├── cars-operating-system-and-decision-tree.md
+│   ├── question-stem-translations-and-boundaries.md
+│   └── syntax-proper-nouns-quotes-and-punctuation-protocol.md
 ├── 02-pattern-reports/
-│   └── 2026-05__core-strategy-failures.md     # Cross-passage May diagnosis
+│   └── 2026-05__core-strategy-failures.md
 ├── 03-jack-westin-session-hubs/
 │   └── 2026/
 │       ├── 2026-05-15__may-15-16-session-hub.md
 │       └── 2026-05-15__may-15-16/
 │           └── doctors-as-educators.md
-├── 04-passage-autopsies/                      # Standalone passage library
+├── 04-passage-autopsies/
+│   └── question-by-question-game-tape-template.md
 └── 05-raw-transcripts-inbox/                  # Temporary cleanup queue
 ```
 
@@ -35,10 +39,11 @@ Empty lanes are created when the first durable file belongs there; raw source du
 Stable rules that should transfer across passages:
 
 - [3-Layer Operational Autopsy System](01-strategy-garden/3-layer-operational-autopsy.md)
-- question-type triggers
-- timing rules
-- syntax interruption rules
-- answer-choice comparison rules
+- [CARS Operating System and Decision Tree](01-strategy-garden/cars-operating-system-and-decision-tree.md)
+- [Question Stem Translations and Strategy Boundaries](01-strategy-garden/question-stem-translations-and-boundaries.md)
+- [Syntax, Proper Nouns, Quotes, and Punctuation Protocol](01-strategy-garden/syntax-proper-nouns-quotes-and-punctuation-protocol.md)
+
+The operating system is the live play-by-play plan. The stem guide selects the correct question strategy. The syntax protocol handles dense sentences, names, titles, quotations, and punctuation.
 
 A rule that applies only to one passage stays inside that passage autopsy.
 
@@ -60,9 +65,15 @@ Each dated practice block receives one parent hub. Individual passages are child
 - [May 15/16, 2026 Session Hub](03-jack-westin-session-hubs/2026/2026-05-15__may-15-16-session-hub.md)
   - [Doctors as Educators](03-jack-westin-session-hubs/2026/2026-05-15__may-15-16/doctors-as-educators.md)
 
+Use the **Jack Westin website date** as the canonical practice date, even when the audio review or local file was created later.
+
 ### 04 — Passage Autopsies
 
 Use this lane for clean, standalone passage autopsies that are not best housed only inside one dated session. Session-specific passage pages may be linked here later without duplicating their content.
+
+- [Question-by-Question CARS Game-Tape Template](04-passage-autopsies/question-by-question-game-tape-template.md)
+
+The game-tape template embeds enough question, answer-choice, reasoning, and passage context to remain understandable without reopening the source export.
 
 ### 05 — Raw Transcripts Inbox
 
@@ -74,9 +85,30 @@ Cleanup flow:
 
 ## Non-negotiable question autopsy
 
-Every missed, guessed, stuck, or unstable question uses this exact sequence:
+Every missed, guessed, stuck, or unstable question uses this sequence:
 
-**What Happened → Why → Fix Rule → Trigger → Strategy Status**
+**Context → What Happened → Why → Correct Route → Strategy That Belonged → Strategy That Did Not Belong → Fix Rule → Trigger → Strategy Status**
+
+Capture every audio-transcript question, note to self, future plan, confusion, strategy trial, and self-correction. Do not let these disappear into a broad summary.
+
+## Strategy-selection rule
+
+A major source of error is not lacking strategies but mixing strategies that answer different tasks.
+
+Before solving:
+
+1. Translate the stem.
+2. Identify the question type.
+3. Use one matching strategy.
+4. Escalate only if that strategy fails.
+
+Examples:
+
+- inference works forward
+- assumption works backward
+- analogy matches mechanism
+- function asks why something was included
+- detail uses targeted retrieval
 
 ## 3-Layer landmark key
 
