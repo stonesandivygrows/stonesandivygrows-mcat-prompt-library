@@ -1,21 +1,52 @@
 # Cursor Prompt — Physics & Math MCAT Hierarchy Maps
 
-Paste this into Cursor after reading `00_Global_Rules_and_Batching.md`.
+Paste this into Cursor after reading:
+
+```text
+00_Global_Rules_and_Batching.md
+08_WORKFLOW_AND_OUTPUT_PLAN.md
+09_SOURCE_BUNDLE_PROTOCOL.md
+```
 
 ## Correct Source Hierarchy
 
 ```text
 Primary basis = user's Anki deck/card groups
+Working structure = newest user-edited Physics note
 Verification/fill gaps = Kaplan Physics and Math
 Passage/trap framing = UWorld
 Coverage validator = AAMC outline
 ```
 
-Do not build the map from Kaplan first. Start from the relevant Anki cards, then use Kaplan/UWorld/AAMC to verify, correct, expand, or fill missing explanation.
+Do not build the map from Kaplan first. Start from the relevant Anki cards and preserve the newest user-edited note. Use Kaplan/UWorld/AAMC to verify, correct, expand, or fill missing explanation.
+
+## Existing-Note Preservation Mode
+
+When a current Physics note exists:
+
+```text
+Current note
+├── Treat as the working structure
+├── Preserve accurate wording and ordering
+├── Preserve user-created symbols and cross-links
+├── Do not rebuild the chapter from a blank template
+├── Audit before proposing changes
+├── Identify exact branch/lines affected
+├── Return a patch before applying it
+└── Never replace a newer note with an older generated version
+```
+
+Default permission level:
+
+```text
+Propose patch
+```
+
+Only apply a patch when explicitly instructed.
 
 ## Task
 
-Build the Physics/Math section of the MCAT hierarchy map system using Anki as the starting scaffold.
+Build or revise the Physics/Math section of the MCAT hierarchy map system using Anki as the content basis and the newest user-edited note as the working structure.
 
 ## Subject Folder
 
@@ -152,6 +183,20 @@ Acceleration
     └── More distance does not automatically mean more acceleration
 ```
 
+## Source Bundle
+
+For each Physics task, use only:
+
+```text
+├── newest current Physics note
+├── relevant Captain Hook/Anki cards
+├── relevant Kaplan Physics chapter/section
+├── optional UWorld Physics section
+└── optional AAMC coverage reference
+```
+
+Do not require every PDF for every task.
+
 ## Batching Protocol
 
 ```text
@@ -163,19 +208,37 @@ Each response must begin:
 
 ```text
 Batch: Physics / [Chapter] / [Branch]
-Scope: [top-level only OR expanded branch OR revision]
-Status: Draft
+Scope: audit only / proposed patch / expanded branch / revision
+Status: Draft / Needs Review / Reviewed / Final
 ```
+
+For an existing note, the first batch must be **audit only**.
+
+## Required Existing-Note Audit Output
+
+```text
+1. Keep unchanged
+2. Missing from Anki basis
+3. Needs Kaplan/UWorld verification
+4. Inaccurate or confusing wording
+5. Duplicated or misplaced nodes
+6. Exact proposed replacement branch or diff
+```
+
+Do not rewrite unrelated branches.
 
 Each response must end:
 
 ```text
 QC CHECK
+├── Newest user note preserved: pass / needs fix
 ├── Anki basis checked: pass / needs fix
 ├── Verification source checked: Kaplan / UWorld / AAMC / needs source check
 ├── Indentation: pass / needs fix
 ├── Units included where relevant: pass / needs fix
 ├── Duplications/conflicts removed: pass / needs fix
+├── Patch boundaries respected: pass / needs fix
+├── Commit approved: yes / no
 └── Next risk to audit: [specific issue]
 
 STOP POINT
@@ -184,10 +247,14 @@ Next suggested batch: [specific next branch]
 
 ## Chapter File Starter
 
-```markdown
+Use this only when no current note exists:
+
+````markdown
 # [Chapter Title]
 
-Basis: user's Anki deck/card group. Kaplan/UWorld/AAMC used to verify, correct, expand, and fill gaps.
+Status: Draft
+Basis: user's Anki deck/card group
+Verification: Kaplan/UWorld/AAMC as applicable
 
 ## Hierarchy Map
 
@@ -231,11 +298,15 @@ Basis: user's Anki deck/card group. Kaplan/UWorld/AAMC used to verify, correct, 
     └── Shortcut or anchor
 ```
 
+## Source/Conflict Notes
+
+- [Only unresolved source or placement issues]
+
 ## ▼ High-Yield Flashcard Review Layer
 
-- [Paste exact targeted Anki cards here after review]
-```
+- [Paste exact targeted Anki cards or references here after review]
+````
 
 ## Start Command
 
-Start by creating only the folder structure and empty skeletons. Do not fully expand any chapter until the relevant Anki card group is available.
+If a current note exists, begin with an audit of one named branch and propose a patch only. If no note exists, create only the folder/file skeleton. Do not fully expand a chapter until the relevant Anki card group is available.
