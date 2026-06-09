@@ -8,6 +8,7 @@ Reusable UWorld review workflows, autopsy documents, and durable correction note
 - [`uworld-mcat-science-practice-test-autopsy-prompt.md`](uworld-mcat-science-practice-test-autopsy-prompt.md) — reusable full science-autopsy prompt covering inventory, transcript mining, passage translation, question-by-question diagnosis, content repair, pacing, Anki, and completion auditing.
 - [`2026-03-12__uworld_mixed_test_1__planned_review_autopsy.md`](2026-03-12__uworld_mixed_test_1__planned_review_autopsy.md) — planned review autopsy and corrected lab-technique bridge for UWorld Mixed Test 1.
 - [`2026-04-26__uworld_test_12__completed_autopsy_summary.md`](2026-04-26__uworld_test_12__completed_autopsy_summary.md) — completed copyright-safe summary for all 30 questions, all passage blocks, final error patterns, durable corrections, and next-set operating rules.
+- [`2026-06-09__uworld_chemistry_test_3_id410735433__review_summary.md`](2026-06-09__uworld_chemistry_test_3_id410735433__review_summary.md) — completed copyright-safe review for the five-question Chemistry Test 3 set, including redox-agent labels, stoichiometry organization, and intermolecular-force classification.
 
 ## Status conventions
 
