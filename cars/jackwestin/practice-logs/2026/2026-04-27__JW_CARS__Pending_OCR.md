@@ -1,6 +1,6 @@
-# JW CARS — April 27, 2026 (Pending OCR)
+# JW CARS — April 27, 2026 (In progress)
 
-Status: **Pending transcription** (source PDFs appear screenshot-based; no selectable text).
+Status: **Raw export committed** (selectable text).
 
 ## Source files (uploaded in chat)
 - `04272026 Jack Westin Full Review Export.pdf`
@@ -8,7 +8,9 @@ Status: **Pending transcription** (source PDFs appear screenshot-based; no selec
 - `04272026 Jack Westin part 1.pdf`
 - `04272026 Jack Westin CARS part 2.pdf`
 
+## Raw export (verbatim)
+- `cars/jackwestin/practice-logs/2026/2026-04-27__JW_CARS__Full_Review_Export_raw.md`
+
 ## Next action
-- Prefer the “Full Review Export” / “Merged Full Review Export” for completeness.
-- Extract website test title/date from the PDF header (website date has priority).
-- Transcribe into the Full Template format (shared stimulus per passage + per-question blocks + full explanations).
+- Convert raw export into the Full Template structure (shared stimulus per passage + per-question blocks + full explanations).
+- Confirm website test title/date if present in the export UI.
