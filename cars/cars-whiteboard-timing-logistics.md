@@ -9,14 +9,28 @@ Use the whiteboard only to prevent timing disorientation and forgotten return qu
 For a short Jack Westin set such as **17 questions in about 30 minutes**, keep the board nearly blank.
 
 ```text
-S:          
-R:          
+Return:
 ```
 
-- `S` = skipped questions that must be revisited.
-- `R` = questions answered but worth reconsidering if time remains.
+Write only the number of any question that must be revisited. Do not write explanations, answer choices, or passage summaries.
 
-Write only the question number. Do not write explanations, answer choices, or passage summaries.
+Use separate categories only when they genuinely help:
+
+```text
+S:
+R:
+```
+
+- `S` = skipped questions that must be completed.
+- `R` = answered questions worth reconsidering only if time remains.
+
+A single `Return:` line is preferable when maintaining two categories creates extra friction.
+
+## Observed calibration
+
+On **June 9, 2026**, a 17-question Jack Westin set was completed in **29:44**. This supports using **about 30 minutes** as the practical time frame for a set of that size.
+
+Pace alone does not prove that the timing method is optimal; accuracy and the number of rushed or abandoned questions still determine whether the pace was productive. The whiteboard should therefore preserve orientation without creating a second task.
 
 ## Passage-start timestamp
 
@@ -45,7 +59,7 @@ Do not write `P1`, `P2`, full timestamps, colons, or seconds unless passage iden
 - Write only `@` plus the minute.
 - Return immediately to the screen.
 
-The timestamp is worthwhile only if it takes about one second. Exact timing is less important than avoiding complete loss of time awareness.
+The timestamp is worthwhile only if it takes about one second and prevents more timing confusion than it creates. Exact timing is less important than avoiding complete loss of time awareness.
 
 ## Strategy reference
 
@@ -75,8 +89,8 @@ Meaning:
 ## Do
 
 - Record the passage start using one whole-minute countdown value.
-- Write skipped question numbers immediately.
-- Distinguish true skips from lower-priority reconsiderations only when that distinction helps.
+- Write return-question numbers immediately.
+- Separate true skips from lower-priority reconsiderations only when that distinction helps.
 - Use the board when memory would otherwise fail.
 - Keep attention on the passage interface rather than the board.
 
@@ -96,6 +110,13 @@ Meaning:
 
 ```text
 @29
+Return: 6 14
+```
+
+### When skip priority matters
+
+```text
+@29
 S: 6 14
 R: 9
 ```
@@ -104,7 +125,7 @@ R: 9
 
 ```text
 @29 @19 @9
-S: 6 14
+Return: 6 14
 ```
 
 ## Decision rule
