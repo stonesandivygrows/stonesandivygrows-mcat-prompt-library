@@ -29,6 +29,9 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 
 ## Recently added study resources
 
+- `cars/strategy/syntax-interruption-and-targeted-reread-protocol.md`
+- `cars/reviews/jack-westin/2026-05-15-21q-cars-autopsy.md`
+- `cars/reviews/jack-westin/2026-05-16-12q-cars-autopsy.md`
 - `practice-review/uworld/uworld-verbatim-transcription-running-master-docx-workflow.md`
 - `study-notes/bio-biochem/biological-membranes/fluid-mosaic-model-and-membrane-proteins.md`
 - `study-notes/biology/reproduction/gametogenesis-fertilization-development-terminology.md`
