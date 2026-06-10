@@ -9,9 +9,34 @@
 (async () => {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+  function parseQuestionCountFromText(text) {
+    const matches = [...String(text || '').matchAll(/\b(\d{1,3})\s+of\s+(\d{1,3})\b/gi)]
+      .map(match => ({ current: Number(match[1]), total: Number(match[2]) }))
+      .filter(count => count.current >= 1 && count.total >= count.current && count.total <= 300);
+
+    if (!matches.length) return null;
+    return matches.sort((a, b) => b.total - a.total || a.current - b.current)[0];
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const selectors = [
+      '[aria-label*="question" i]',
+      '[class*="question" i]',
+      '[id*="question" i]',
+      '[class*="counter" i]',
+      '[class*="progress" i]',
+      '[id*="counter" i]',
+      '[id*="progress" i]'
+    ];
+
+    for (const selector of selectors) {
+      for (const el of document.querySelectorAll(selector)) {
+        const count = parseQuestionCountFromText(el.innerText || el.textContent || '');
+        if (count) return count;
+      }
+    }
+
+    return parseQuestionCountFromText(document.body.innerText);
   }
 
   function clickNext() {
@@ -399,6 +424,14 @@
     }
 
     current = newInfo.current;
+  }
+
+  if (questionsHTML.length !== total) {
+    alert(
+      `Export aborted: captured ${questionsHTML.length} of ${total} questions. ` +
+      'No PDF was generated because the export would be incomplete.'
+    );
+    return;
   }
 
   const testID = getTestID();
