@@ -153,6 +153,9 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (clicked) {
       current = 1;
       await sleep(800);
+    } else {
+      alert("Export aborted: could not navigate back to Question 1. No partial PDF was generated.");
+      return;
     }
   }
 
@@ -163,20 +166,38 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     if (q > 1) {
       const moved = await clickQuestionFromNav(q);
       if (!moved) {
-        console.warn(`Could not navigate to question ${q}. Stopping.`);
-        break;
+        alert(`Export aborted: could not navigate to question ${q}. No partial PDF was generated.`);
+        return;
       }
     }
 
+    const passageHTML = getPassageHTML();
     const qHTML = cleanClone(getMainContent()).outerHTML;
-    collected.push(`<div class="qblock" data-q="${q}">
-      <h2>Question ${q}</h2>
-      ${qHTML}
-    </div>`);
+    collected.push({ q, passageHTML, qHTML });
   }
 
-  // 4. Grab the passage (only once – from the first question page)
-  const passageHTML = getPassageHTML();
+  if (collected.length !== maxQuestions) {
+    alert(`Export aborted: captured ${collected.length} of ${maxQuestions} questions. No partial PDF was generated.`);
+    return;
+  }
+
+  function renderCollectedSections(items) {
+    let lastPassageHTML = null;
+
+    return items.map(item => {
+      const passageSection = item.passageHTML && item.passageHTML !== lastPassageHTML
+        ? `<div class="passage-section"><h2>Passage for Question ${item.q}</h2>${item.passageHTML}</div>`
+        : "";
+
+      if (item.passageHTML) lastPassageHTML = item.passageHTML;
+
+      return `${passageSection}
+        <div class="qblock" data-q="${item.q}">
+          <h2>Question ${item.q}</h2>
+          ${item.qHTML}
+        </div>`;
+    }).join("\n");
+  }
 
   // 5. Build the final export page
   const fullPage = `<!DOCTYPE html>
@@ -212,13 +233,17 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 <body>
   <h1>Jack Westin Full Export</h1>
   ${resultsHTML ? `<div class="results-section"><h2>Test Results</h2>${resultsHTML}</div>` : ""}
-  <div class="passage-section"><h2>Passage</h2>${passageHTML || "<p>Passage not detected.</p>"}</div>
-  ${collected.join("\n")}
+  ${renderCollectedSections(collected)}
   <script>setTimeout(() => window.print(), 900);</script>
 </body>
 </html>`;
 
   const w = window.open("", "JackWestinFullExport", "width=800,height=600");
+  if (!w) {
+    alert("Popup blocked. Allow popups for Jack Westin, then run the script again.");
+    return;
+  }
+
   w.document.write(fullPage);
   w.document.close();
   console.log(`Export complete – ${collected.length} questions collected. Print dialog opening...`);
@@ -234,9 +259,34 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
   // ---------- HELPERS ----------
+  function parseQuestionCountFromText(text) {
+    const matches = [...String(text || '').matchAll(/\b(\d{1,3})\s+of\s+(\d{1,3})\b/gi)]
+      .map(match => ({ current: Number(match[1]), total: Number(match[2]) }))
+      .filter(count => count.current >= 1 && count.total >= count.current && count.total <= 300);
+
+    if (!matches.length) return null;
+    return matches.sort((a, b) => b.total - a.total || a.current - b.current)[0];
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const selectors = [
+      '[aria-label*="question" i]',
+      '[class*="question" i]',
+      '[id*="question" i]',
+      '[class*="counter" i]',
+      '[class*="progress" i]',
+      '[id*="counter" i]',
+      '[id*="progress" i]'
+    ];
+
+    for (const selector of selectors) {
+      for (const el of document.querySelectorAll(selector)) {
+        const count = parseQuestionCountFromText(el.innerText || el.textContent || '');
+        if (count) return count;
+      }
+    }
+
+    return parseQuestionCountFromText(document.body.innerText);
   }
 
   function clickNext() {
@@ -367,6 +417,14 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
     current = newInfo.current;
   }
 
+  if (questionsHTML.length !== total) {
+    alert(
+      `Export aborted: captured ${questionsHTML.length} of ${total} questions. ` +
+      'No PDF was generated because the export would be incomplete.'
+    );
+    return;
+  }
+
   const dateStr = getTestDate();
   const site = 'UWorld';
   const subject = getSubject();
@@ -399,6 +457,11 @@ Consolidated from legacy gist export `7c6035811efedc42aac40a51bf98ead5-14cc96bac
 </html>`;
 
   const w = window.open('', '', 'width=800,height=600');
+  if (!w) {
+    alert('Popup blocked. Allow popups for UWorld, then run the script again.');
+    return;
+  }
+
   w.document.write(fullHTML);
   w.document.close();
   console.log(`✅ ${questionsHTML.length} questions exported. PDF will be named: ${docTitle}.pdf`);
