@@ -1,0 +1,23 @@
+/* ==UserStyle==
+@name           Jack Westin — Hide Explanation Videos
+@namespace      https://github.com/stonesandivygrows/stonesandivygrows-mcat-prompt-library
+@version        1.0.0
+@description    Hides Jack Westin explanation video players and video controls while preserving written passages, questions, answers, and explanations.
+@author         stonesandivygrows
+==/UserStyle== */
+
+@-moz-document domain("jackwestin.com") {
+  .solution-player-container,
+  .solution-player,
+  .solution-toggle-video-wrapper,
+  .passage-solution-player,
+  .watch-video-wrap,
+  .jw-video,
+  .react-player,
+  video,
+  iframe[src*="youtube"],
+  iframe[src*="vimeo"],
+  [class*="video-player"] {
+    display: none !important;
+  }
+}
