@@ -1,9 +1,45 @@
 (async () => {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+  function parseQuestionCounterText(text) {
+    const matches = [...String(text || '').matchAll(/(?:question\s*)?(\d+)\s*(?:of|\/)\s*(\d+)/gi)]
+      .map(match => ({
+        current: Number(match[1]),
+        total: Number(match[2]),
+        hasQuestionLabel: /question/i.test(match[0]),
+        index: match.index ?? 0
+      }))
+      .filter(match => (
+        Number.isInteger(match.current) &&
+        Number.isInteger(match.total) &&
+        match.current >= 1 &&
+        match.total >= match.current &&
+        match.total <= 300
+      ));
+
+    if (!matches.length) return null;
+
+    const labeledMatches = matches.filter(match => match.hasQuestionLabel);
+    const candidates = labeledMatches.length ? labeledMatches : matches;
+    candidates.sort((a, b) => b.total - a.total || a.index - b.index);
+
+    return { current: candidates[0].current, total: candidates[0].total };
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const counterSelectors = [
+      '[data-testid*="question" i]',
+      '[class*="question-count" i]',
+      '[class*="questionCount" i]',
+      '[class*="question-counter" i]',
+      '[aria-label*="question" i]'
+    ].join(', ');
+
+    const scopedText = [...document.querySelectorAll(counterSelectors)]
+      .map(el => [el.innerText, el.getAttribute('aria-label'), el.getAttribute('title')].filter(Boolean).join(' '))
+      .join('\n');
+
+    return parseQuestionCounterText(scopedText) || parseQuestionCounterText(document.body.innerText);
   }
 
   function clickNext() {
@@ -127,6 +163,7 @@
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let abortReason = '';
 
   while (current <= total) {
     console.log(`Collecting UWorld question ${current} of ${total}…`);
@@ -145,7 +182,8 @@
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found — stopping.');
+      abortReason = `Next button was not found after Question ${current} of ${total}.`;
+      console.warn(`${abortReason} Aborting export.`);
       break;
     }
 
@@ -156,10 +194,30 @@
       if (newInfo && newInfo.current !== current) break;
     }
     if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation became stuck — stopping.');
+      abortReason = `Navigation became stuck after Question ${current} of ${total}.`;
+      console.warn(`${abortReason} Aborting export.`);
+      break;
+    }
+    if (newInfo.total !== total) {
+      abortReason = `The visible question total changed from ${total} to ${newInfo.total}.`;
+      console.warn(`${abortReason} Aborting export.`);
+      break;
+    }
+    if (newInfo.current !== current + 1) {
+      abortReason = `Navigation jumped from Question ${current} to Question ${newInfo.current}.`;
+      console.warn(`${abortReason} Aborting export.`);
       break;
     }
     current = newInfo.current;
+  }
+
+  if (abortReason || questionsHTML.length !== total || current !== total) {
+    alert(
+      `${abortReason || 'The script did not collect every expected question.'} ` +
+      `Collected ${questionsHTML.length} of ${total} questions. No PDF was created; ` +
+      'refresh the review page, return to Question 1, and run the script again.'
+    );
+    return;
   }
 
   const testID = getTestID();
