@@ -1,9 +1,58 @@
 (async () => {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+  function parseQuestionCounts(text) {
+    if (!text) return [];
+
+    return [...text.matchAll(/(?:question\s*)?(\d+)\s*(?:of|\/)\s*(\d+)/gi)]
+      .map((match) => {
+        const current = Number(match[1]);
+        const total = Number(match[2]);
+        const before = text.slice(Math.max(0, match.index - 28), match.index);
+        const after = text.slice(match.index + match[0].length, match.index + match[0].length + 28);
+        const labelContext = `${before} ${match[0]}`;
+        const context = `${labelContext} ${after}`;
+        let score = 0;
+
+        if (/question/i.test(labelContext)) score += 100;
+        if (/\b(?:figure|fig\.?|image|table|slide|page)\s*$/i.test(before)) score -= 100;
+        score += Math.min(total, 300) / 1000;
+
+        return { current, total, score, context };
+      })
+      .filter(({ current, total }) => (
+        Number.isInteger(current) &&
+        Number.isInteger(total) &&
+        current >= 1 &&
+        total >= current &&
+        total <= 300
+      ));
+  }
+
+  function chooseQuestionCount(text, requireQuestionLabel = false) {
+    const candidates = parseQuestionCounts(text)
+      .filter((candidate) => !requireQuestionLabel || /question/i.test(candidate.context));
+
+    candidates.sort((a, b) => b.score - a.score || b.total - a.total);
+    return candidates[0] ? { current: candidates[0].current, total: candidates[0].total } : null;
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const scopedSelectors = [
+      '[aria-label*="question" i]',
+      '[class*="question" i]',
+      '[id*="question" i]',
+      '[class*="counter" i]',
+      '[class*="progress" i]'
+    ];
+    const scopedText = scopedSelectors
+      .flatMap((selector) => [...document.querySelectorAll(selector)])
+      .map((element) => (element.innerText || '').trim())
+      .filter((text) => text && text.length < 500)
+      .join('\n');
+    const scopedCount = chooseQuestionCount(scopedText, true);
+
+    return scopedCount || chooseQuestionCount(document.body.innerText);
   }
 
   function clickNext() {
@@ -127,6 +176,7 @@
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let abortReason = '';
 
   while (current <= total) {
     console.log(`Collecting UWorld question ${current} of ${total}…`);
@@ -145,7 +195,8 @@
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found — stopping.');
+      abortReason = `Next button not found after Question ${current} of ${total}.`;
+      console.warn(`${abortReason} Export stopped before creating a partial PDF.`);
       break;
     }
 
@@ -156,10 +207,28 @@
       if (newInfo && newInfo.current !== current) break;
     }
     if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation became stuck — stopping.');
+      abortReason = `Navigation became stuck after Question ${current} of ${total}.`;
+      console.warn(`${abortReason} Export stopped before creating a partial PDF.`);
+      break;
+    }
+    if (newInfo.total !== total) {
+      abortReason = `Question counter total changed from ${total} to ${newInfo.total}.`;
+      console.warn(`${abortReason} Export stopped before creating a partial PDF.`);
+      break;
+    }
+    if (newInfo.current !== current + 1) {
+      abortReason = `Expected Question ${current + 1} after Question ${current}, but reached Question ${newInfo.current}.`;
+      console.warn(`${abortReason} Export stopped before creating a partial PDF.`);
       break;
     }
     current = newInfo.current;
+  }
+
+  if (abortReason || questionsHTML.length !== total) {
+    const message = abortReason ||
+      `Only collected ${questionsHTML.length} of ${total} expected questions.`;
+    alert(`${message} No PDF was created because the export would be incomplete.`);
+    return;
   }
 
   const testID = getTestID();

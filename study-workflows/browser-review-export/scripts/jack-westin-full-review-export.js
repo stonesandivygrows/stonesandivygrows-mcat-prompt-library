@@ -68,8 +68,10 @@
     return (node?.innerText || '').replace(/\s+/g, ' ').trim();
   }
 
-  async function goToQuestion(index, expectedNumber) {
+  async function goToQuestion(index, expectedNumber, options = {}) {
+    const { allowSameContent = false } = options;
     const before = getCurrentQuestionNumber()?.current;
+    const beforeQuestionText = getVisibleText(document.querySelector('#question'));
     const rows = getNavigationRows();
     const row = rows[index];
     if (!row) return false;
@@ -83,9 +85,17 @@
 
     for (let attempt = 0; attempt < 30; attempt += 1) {
       await sleep(300);
-      const current = getCurrentQuestionNumber()?.current;
+      const info = getCurrentQuestionNumber();
+      const current = info?.current;
       const questionText = getVisibleText(document.querySelector('#question'));
-      if ((current === expectedNumber || current !== before) && questionText.length > 20) {
+      const contentChanged = questionText && questionText !== beforeQuestionText;
+      const expectedCounterLoaded = current === expectedNumber &&
+        (allowSameContent || current === before || contentChanged || !beforeQuestionText);
+      const unlabeledContentLoaded = !info &&
+        questionText.length > 20 &&
+        (allowSameContent || contentChanged || !beforeQuestionText);
+
+      if (questionText.length > 20 && (expectedCounterLoaded || unlabeledContentLoaded)) {
         await sleep(500);
         return true;
       }
@@ -93,7 +103,11 @@
 
     // Some JW builds update the content even when the counter selector is unusual.
     await sleep(1200);
-    return getVisibleText(document.querySelector('#question')).length > 20;
+    const fallbackInfo = getCurrentQuestionNumber();
+    const fallbackQuestionText = getVisibleText(document.querySelector('#question'));
+    return fallbackQuestionText.length > 20 &&
+      (allowSameContent || fallbackQuestionText !== beforeQuestionText || !beforeQuestionText) &&
+      (!fallbackInfo || fallbackInfo.current === expectedNumber);
   }
 
   const rows = getNavigationRows();
@@ -103,13 +117,6 @@
     );
     return;
   }
-
-  const outputWindow = window.open('', '_blank');
-  if (!outputWindow) {
-    alert('Chrome blocked the output window. Allow pop-ups for jackwestin.com, then run the script again.');
-    return;
-  }
-  outputWindow.document.write('<p style="font-family:Arial;padding:24px">Collecting Jack Westin questions…</p>');
 
   const originalQuestion = getCurrentQuestionNumber()?.current || 1;
   const baseURI = document.baseURI;
@@ -121,22 +128,24 @@
     const questionNumber = index + 1;
     console.log(`Collecting Jack Westin question ${questionNumber} of ${rows.length}…`);
 
-    const moved = await goToQuestion(index, questionNumber);
+    const moved = await goToQuestion(index, questionNumber, { allowSameContent: index === 0 });
     if (!moved) {
-      console.warn(`Question ${questionNumber} may not have loaded correctly.`);
+      alert(
+        `Export stopped at Question ${questionNumber} of ${rows.length}. ` +
+        'No PDF was created because the page did not load the expected question.'
+      );
+      return;
     }
 
     const passageNode = document.querySelector('#passage');
     const questionNode = document.querySelector('#question');
 
-    if (!questionNode) {
-      questionBlocks.push(`
-        <section class="question-block">
-          <h2>Question ${questionNumber} of ${rows.length}</h2>
-          <p><strong>Question content was not found.</strong></p>
-        </section>
-      `);
-      continue;
+    if (!questionNode || getVisibleText(questionNode).length <= 20) {
+      alert(
+        `Export stopped at Question ${questionNumber} of ${rows.length}. ` +
+        'No PDF was created because question content was missing.'
+      );
+      return;
     }
 
     const passageText = getVisibleText(passageNode);
@@ -215,6 +224,12 @@
   <script>setTimeout(() => window.print(), 1200);<\/script>
 </body>
 </html>`;
+
+  const outputWindow = window.open('', '_blank');
+  if (!outputWindow) {
+    alert('Chrome blocked the output window. Allow pop-ups for jackwestin.com, then run the script again.');
+    return;
+  }
 
   outputWindow.document.open();
   outputWindow.document.write(fullHTML);
