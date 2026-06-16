@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This is the canonical CARS timing and whiteboard system. Use one timing system only.
+This is the canonical CARS timing and whiteboard system. Use one global timing system, with one simple local safeguard inside each passage.
 
 > **The whiteboard is a dashboard, not a notebook.**
 
@@ -29,6 +29,46 @@ These are checkpoints, not exact deadlines.
 - **About 3–4 questions behind:** Reduce rereading and stop polishing 50/50 decisions.
 - **More than 4 questions behind:** Eliminate what you can, choose, flag, and move.
 - **Ahead:** Keep the time. Do not deliberately slow down.
+
+## Local passage safeguard: preserve one minute per question
+
+This is the earlier per-passage rule:
+
+> **Start answering once the timer leaves about one minute for every remaining question.**
+
+For a roughly 10-minute passage block:
+
+| Questions in passage | Begin questions by this elapsed minute at the latest | Equivalent time left in the passage block |
+|---:|---:|---:|
+| 5 questions | About **5:00 elapsed** | About **5:00 left** |
+| 6 questions | About **4:00 elapsed** | About **6:00 left** |
+| 7 questions | About **3:00 elapsed** | About **7:00 left** |
+
+Plain-English version:
+
+- **5Q passage:** do not still be reading after about minute 5.
+- **6Q passage:** do not still be reading after about minute 4.
+- **7Q passage:** do not still be reading after about minute 3.
+
+This is not a command to stop reading mid-sentence. It is a maximum-reading warning. Finish the sentence or paragraph, state the passage direction, and begin the questions.
+
+### Question-by-question countdown version
+
+Once questions begin, the remaining passage time can act as a simple check:
+
+- 7 minutes left → should be starting a 7-question set
+- 6 minutes left → should be around the next question
+- 5 minutes left → should have no more than about 5 questions remaining
+- continue at roughly one minute per remaining question
+
+Do not write this whole countdown on the whiteboard. Use it only when a passage read is running long.
+
+### Why this does not conflict with the global checkpoints
+
+- **Global checkpoints** tell you whether the whole section is on pace.
+- **The one-minute-per-question rule** prevents one passage read from consuming the time needed to answer its questions.
+
+The local rule is a rescue guardrail, not a second full timing system.
 
 ## Whiteboard setup
 
@@ -229,7 +269,7 @@ Do not sacrifice several later questions to rescue one current question.
 - ranking all passages by apparent difficulty
 - calculating a custom leave time for each passage
 - recording every passage start time
-- using both passage deadlines and question checkpoints
+- using multiple global timing systems
 - checking the clock every question
 - saving many reasoning questions for the end
 - leaving answers blank
@@ -237,6 +277,7 @@ Do not sacrifice several later questions to rescue one current question.
 ## Timing strategies to keep
 
 - question-number checkpoints
+- one-minute-per-remaining-question passage safeguard
 - minimal return list
 - targeted rereading
 - specific flag reasons
@@ -252,5 +293,5 @@ Do not sacrifice several later questions to rescue one current question.
 
 ```text
 CHECKPOINTS, NOT PASSAGE MATH
-TARGETED REREAD OR CHOOSE + MOVE
+LEAVE ≥ 1 MINUTE PER REMAINING QUESTION
 ```
