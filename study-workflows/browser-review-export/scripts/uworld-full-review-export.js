@@ -1,9 +1,52 @@
 (async () => {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+  function parseQuestionCounts(text) {
+    const counts = [];
+    const re = /((?:question|q(?:uestion)?\.?)\s*)?(\d+)\s*(?:of|\/)\s*(\d+)/ig;
+    let match;
+
+    while ((match = re.exec(text || ''))) {
+      const current = Number(match[2]);
+      const total = Number(match[3]);
+      if (!Number.isFinite(current) || !Number.isFinite(total)) continue;
+      if (current < 1 || total < current) continue;
+      counts.push({
+        current,
+        total,
+        labeled: Boolean(match[1])
+      });
+    }
+
+    return counts;
+  }
+
+  function chooseBestQuestionCount(counts) {
+    if (!counts.length) return null;
+    const labeledCounts = counts.filter(count => count.labeled);
+    const pool = labeledCounts.length ? labeledCounts : counts;
+
+    // UWorld pages can contain figure captions like "1 of 2"; the real
+    // question counter is the plausible count with the largest total.
+    return pool.reduce((best, count) => (
+      count.total > best.total || (count.total === best.total && count.current > best.current)
+        ? count
+        : best
+    ));
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const counterTexts = [
+      ...document.querySelectorAll(
+        '[aria-label*="question" i], [class*="counter" i], [id*="counter" i], ' +
+        '[class*="progress" i], [id*="progress" i], [class*="pagination" i], [id*="pagination" i]'
+      )
+    ].map(el => el.innerText || el.textContent || '');
+
+    const scopedCount = chooseBestQuestionCount(counterTexts.flatMap(parseQuestionCounts));
+    if (scopedCount) return scopedCount;
+
+    return chooseBestQuestionCount(parseQuestionCounts(document.body.innerText));
   }
 
   function clickNext() {
@@ -44,7 +87,7 @@
   // Clone the question content and remove height limits.
   function getQuestionHTML() {
     const center = document.getElementById('centerContent');
-    if (!center) return '<p>Question content not found.</p>';
+    if (!center) return null;
     const clone = center.cloneNode(true);
 
     clone.querySelectorAll('#pullovertab, #context-menu, .cdk-drag, .dot-container')
@@ -127,6 +170,7 @@
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let abortReason = '';
 
   while (current <= total) {
     console.log(`Collecting UWorld question ${current} of ${total}…`);
@@ -134,6 +178,11 @@
     await expandAllDiagrams();
 
     const content = getQuestionHTML();
+    if (!content) {
+      abortReason = `Question ${current} content was not found. No PDF was created.`;
+      break;
+    }
+
     const extraClass = current === 1 ? 'first-qblock' : '';
     questionsHTML.push(`
       <div class="qblock ${extraClass}">
@@ -145,7 +194,7 @@
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found — stopping.');
+      abortReason = `Next button was not found after Question ${current} of ${total}. No PDF was created.`;
       break;
     }
 
@@ -156,10 +205,31 @@
       if (newInfo && newInfo.current !== current) break;
     }
     if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation became stuck — stopping.');
+      abortReason = `Navigation became stuck after Question ${current} of ${total}. No PDF was created.`;
+      break;
+    }
+    if (newInfo.total !== total) {
+      abortReason = `Question total changed from ${total} to ${newInfo.total}. No PDF was created.`;
+      break;
+    }
+    if (newInfo.current !== current + 1) {
+      abortReason = `Navigation skipped from Question ${current} to Question ${newInfo.current}. No PDF was created.`;
       break;
     }
     current = newInfo.current;
+  }
+
+  if (abortReason) {
+    console.error(abortReason);
+    alert(abortReason);
+    return;
+  }
+
+  if (questionsHTML.length !== total || current !== total) {
+    const message = `Only collected ${questionsHTML.length} of ${total} questions. No PDF was created.`;
+    console.error(message);
+    alert(message);
+    return;
   }
 
   const testID = getTestID();

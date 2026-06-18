@@ -70,6 +70,7 @@
 
   async function goToQuestion(index, expectedNumber) {
     const before = getCurrentQuestionNumber()?.current;
+    const beforeText = getVisibleText(document.querySelector('#question'));
     const rows = getNavigationRows();
     const row = rows[index];
     if (!row) return false;
@@ -85,15 +86,29 @@
       await sleep(300);
       const current = getCurrentQuestionNumber()?.current;
       const questionText = getVisibleText(document.querySelector('#question'));
-      if ((current === expectedNumber || current !== before) && questionText.length > 20) {
+      if (questionText.length <= 20) continue;
+
+      if (current === expectedNumber) {
+        await sleep(500);
+        return true;
+      }
+
+      if (!current && questionText !== beforeText) {
         await sleep(500);
         return true;
       }
     }
 
-    // Some JW builds update the content even when the counter selector is unusual.
     await sleep(1200);
-    return getVisibleText(document.querySelector('#question')).length > 20;
+    const current = getCurrentQuestionNumber()?.current;
+    const questionText = getVisibleText(document.querySelector('#question'));
+
+    if (questionText.length <= 20) return false;
+    if (current === expectedNumber) return true;
+
+    // Some JW builds expose no reliable counter; in that case require changed
+    // content so a failed click cannot duplicate the previous question.
+    return !current && questionText !== beforeText;
   }
 
   const rows = getNavigationRows();
@@ -104,18 +119,12 @@
     return;
   }
 
-  const outputWindow = window.open('', '_blank');
-  if (!outputWindow) {
-    alert('Chrome blocked the output window. Allow pop-ups for jackwestin.com, then run the script again.');
-    return;
-  }
-  outputWindow.document.write('<p style="font-family:Arial;padding:24px">Collecting Jack Westin questions…</p>');
-
   const originalQuestion = getCurrentQuestionNumber()?.current || 1;
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionBlocks = [];
   let previousPassageText = '';
+  let abortReason = '';
 
   for (let index = 0; index < rows.length; index += 1) {
     const questionNumber = index + 1;
@@ -123,20 +132,16 @@
 
     const moved = await goToQuestion(index, questionNumber);
     if (!moved) {
-      console.warn(`Question ${questionNumber} may not have loaded correctly.`);
+      abortReason = `Question ${questionNumber} did not load expected content. No PDF was created.`;
+      break;
     }
 
     const passageNode = document.querySelector('#passage');
     const questionNode = document.querySelector('#question');
 
     if (!questionNode) {
-      questionBlocks.push(`
-        <section class="question-block">
-          <h2>Question ${questionNumber} of ${rows.length}</h2>
-          <p><strong>Question content was not found.</strong></p>
-        </section>
-      `);
-      continue;
+      abortReason = `Question ${questionNumber} content was not found. No PDF was created.`;
+      break;
     }
 
     const passageText = getVisibleText(passageNode);
@@ -155,9 +160,24 @@
     `);
   }
 
+  if (abortReason) {
+    console.error(abortReason);
+    alert(abortReason);
+    return;
+  }
+
+  if (questionBlocks.length !== rows.length) {
+    const message = `Only collected ${questionBlocks.length} of ${rows.length} Jack Westin questions. No PDF was created.`;
+    console.error(message);
+    alert(message);
+    return;
+  }
+
   // Return the live review page to the question that was open before export.
   const restoreIndex = Math.max(0, Math.min(rows.length - 1, originalQuestion - 1));
-  await goToQuestion(restoreIndex, originalQuestion);
+  if (!(await goToQuestion(restoreIndex, originalQuestion))) {
+    console.warn('The export was collected, but the review page could not be restored to the original question.');
+  }
 
   const date = new Date();
   const dateString = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
@@ -215,6 +235,12 @@
   <script>setTimeout(() => window.print(), 1200);<\/script>
 </body>
 </html>`;
+
+  const outputWindow = window.open('', '_blank');
+  if (!outputWindow) {
+    alert('Chrome blocked the output window. Allow pop-ups for jackwestin.com, then run the script again.');
+    return;
+  }
 
   outputWindow.document.open();
   outputWindow.document.write(fullHTML);
