@@ -70,6 +70,7 @@
 
   async function goToQuestion(index, expectedNumber) {
     const before = getCurrentQuestionNumber()?.current;
+    const beforeQuestionText = getVisibleText(document.querySelector('#question'));
     const rows = getNavigationRows();
     const row = rows[index];
     if (!row) return false;
@@ -83,9 +84,16 @@
 
     for (let attempt = 0; attempt < 30; attempt += 1) {
       await sleep(300);
-      const current = getCurrentQuestionNumber()?.current;
+      const currentInfo = getCurrentQuestionNumber();
+      const current = currentInfo?.current;
       const questionText = getVisibleText(document.querySelector('#question'));
-      if ((current === expectedNumber || current !== before) && questionText.length > 20) {
+      if (current === expectedNumber && questionText.length > 20) {
+        await sleep(500);
+        return true;
+      }
+      if (!currentInfo && before == null && questionText.length > 20 && (
+        expectedNumber === 1 || questionText !== beforeQuestionText
+      )) {
         await sleep(500);
         return true;
       }
@@ -93,7 +101,12 @@
 
     // Some JW builds update the content even when the counter selector is unusual.
     await sleep(1200);
-    return getVisibleText(document.querySelector('#question')).length > 20;
+    const currentInfo = getCurrentQuestionNumber();
+    const questionText = getVisibleText(document.querySelector('#question'));
+    if (currentInfo) {
+      return currentInfo.current === expectedNumber && questionText.length > 20;
+    }
+    return questionText.length > 20 && (expectedNumber === 1 || questionText !== beforeQuestionText);
   }
 
   const rows = getNavigationRows();
@@ -111,6 +124,14 @@
   }
   outputWindow.document.write('<p style="font-family:Arial;padding:24px">Collecting Jack Westin questions…</p>');
 
+  function abortExport(message) {
+    console.error(message);
+    alert(`${message} No PDF was created; refresh the review page and run the script again.`);
+    try {
+      outputWindow.close();
+    } catch (e) {}
+  }
+
   const originalQuestion = getCurrentQuestionNumber()?.current || 1;
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
@@ -123,20 +144,16 @@
 
     const moved = await goToQuestion(index, questionNumber);
     if (!moved) {
-      console.warn(`Question ${questionNumber} may not have loaded correctly.`);
+      abortExport(`The script could not load Jack Westin question ${questionNumber} of ${rows.length}.`);
+      return;
     }
 
     const passageNode = document.querySelector('#passage');
     const questionNode = document.querySelector('#question');
 
-    if (!questionNode) {
-      questionBlocks.push(`
-        <section class="question-block">
-          <h2>Question ${questionNumber} of ${rows.length}</h2>
-          <p><strong>Question content was not found.</strong></p>
-        </section>
-      `);
-      continue;
+    if (!questionNode || getVisibleText(questionNode).length <= 20) {
+      abortExport(`Question ${questionNumber} of ${rows.length} did not expose readable question content.`);
+      return;
     }
 
     const passageText = getVisibleText(passageNode);
