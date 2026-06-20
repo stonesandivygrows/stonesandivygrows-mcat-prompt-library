@@ -29,6 +29,7 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 
 ## Recently added study resources
 
+- [`practice-review/uworld/2026-06-20__uworld_test_5__ps_q1-10_review_guide.md`](practice-review/uworld/2026-06-20__uworld_test_5__ps_q1-10_review_guide.md) — Psych/Soc Q1–10 review guide covering JND vs absolute threshold, signal detection theory, graph significance caution, and feature detection vs parallel processing
 - [`study-workflows/browser-review-export/README.md`](study-workflows/browser-review-export/README.md) — beginner guide, video-hiding style, screenshot workflow, and JW/UWorld full-review export scripts
 - `cars/01-strategy-garden/cars-operating-system-and-decision-tree.md`
 - `cars/01-strategy-garden/question-stem-translations-and-boundaries.md`
