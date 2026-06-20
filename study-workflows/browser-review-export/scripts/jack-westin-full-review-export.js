@@ -68,8 +68,17 @@
     return (node?.innerText || '').replace(/\s+/g, ' ').trim();
   }
 
+  function abortExport(reason) {
+    const message = `Jack Westin export stopped without creating a PDF: ${reason}`;
+    console.error(message);
+    alert(message);
+  }
+
   async function goToQuestion(index, expectedNumber) {
     const before = getCurrentQuestionNumber()?.current;
+    const beforeQuestionText = getVisibleText(document.querySelector('#question'));
+    if (before === expectedNumber && beforeQuestionText.length > 20) return true;
+
     const rows = getNavigationRows();
     const row = rows[index];
     if (!row) return false;
@@ -85,15 +94,15 @@
       await sleep(300);
       const current = getCurrentQuestionNumber()?.current;
       const questionText = getVisibleText(document.querySelector('#question'));
-      if ((current === expectedNumber || current !== before) && questionText.length > 20) {
+      const counterReachedExpected = current === expectedNumber;
+      const unlabeledContentChanged = !current && questionText !== beforeQuestionText;
+
+      if ((counterReachedExpected || unlabeledContentChanged) && questionText.length > 20) {
         await sleep(500);
         return true;
       }
     }
-
-    // Some JW builds update the content even when the counter selector is unusual.
-    await sleep(1200);
-    return getVisibleText(document.querySelector('#question')).length > 20;
+    return false;
   }
 
   const rows = getNavigationRows();
@@ -103,13 +112,6 @@
     );
     return;
   }
-
-  const outputWindow = window.open('', '_blank');
-  if (!outputWindow) {
-    alert('Chrome blocked the output window. Allow pop-ups for jackwestin.com, then run the script again.');
-    return;
-  }
-  outputWindow.document.write('<p style="font-family:Arial;padding:24px">Collecting Jack Westin questions…</p>');
 
   const originalQuestion = getCurrentQuestionNumber()?.current || 1;
   const baseURI = document.baseURI;
@@ -123,20 +125,16 @@
 
     const moved = await goToQuestion(index, questionNumber);
     if (!moved) {
-      console.warn(`Question ${questionNumber} may not have loaded correctly.`);
+      abortExport(`question ${questionNumber} did not load new, verified content`);
+      return;
     }
 
     const passageNode = document.querySelector('#passage');
     const questionNode = document.querySelector('#question');
 
-    if (!questionNode) {
-      questionBlocks.push(`
-        <section class="question-block">
-          <h2>Question ${questionNumber} of ${rows.length}</h2>
-          <p><strong>Question content was not found.</strong></p>
-        </section>
-      `);
-      continue;
+    if (!questionNode || getVisibleText(questionNode).length <= 20) {
+      abortExport(`question ${questionNumber} content was not found`);
+      return;
     }
 
     const passageText = getVisibleText(passageNode);
@@ -158,6 +156,11 @@
   // Return the live review page to the question that was open before export.
   const restoreIndex = Math.max(0, Math.min(rows.length - 1, originalQuestion - 1));
   await goToQuestion(restoreIndex, originalQuestion);
+
+  if (questionBlocks.length !== rows.length) {
+    abortExport(`only ${questionBlocks.length} of ${rows.length} questions were collected`);
+    return;
+  }
 
   const date = new Date();
   const dateString = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
@@ -215,6 +218,12 @@
   <script>setTimeout(() => window.print(), 1200);<\/script>
 </body>
 </html>`;
+
+  const outputWindow = window.open('', '_blank');
+  if (!outputWindow) {
+    alert('Chrome blocked the output window. Allow pop-ups for jackwestin.com, then run the script again.');
+    return;
+  }
 
   outputWindow.document.open();
   outputWindow.document.write(fullHTML);

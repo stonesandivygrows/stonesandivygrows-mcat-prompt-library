@@ -1,9 +1,54 @@
 (async () => {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+  function parseQuestionCounts(text, requireQuestionLabel = false) {
+    const source = String(text || '');
+    const regex = requireQuestionLabel
+      ? /question\s*(\d+)\s*(?:of|\/)\s*(\d+)/gi
+      : /(?:question\s*)?(\d+)\s*(?:of|\/)\s*(\d+)/gi;
+
+    return [...source.matchAll(regex)]
+      .map(match => ({ current: Number(match[1]), total: Number(match[2]) }))
+      .filter(({ current, total }) =>
+        Number.isInteger(current) &&
+        Number.isInteger(total) &&
+        current >= 1 &&
+        total >= current &&
+        total <= 300
+      );
+  }
+
+  function chooseQuestionCount(matches) {
+    if (!matches.length) return null;
+    return [...matches].sort((a, b) => b.total - a.total || b.current - a.current)[0];
+  }
+
   function getQuestionCount() {
-    const m = document.body.innerText.match(/(\d+)\s+of\s+(\d+)/);
-    return m ? { current: Number(m[1]), total: Number(m[2]) } : null;
+    const scopedSelectors = [
+      '.question-count',
+      '.questionCounter',
+      '.question-counter',
+      '.pagecount',
+      '.pagecount-number',
+      '[class*="question-count"]',
+      '[class*="question_counter"]',
+      '[class*="questionCounter"]',
+      '[class*="pagecount"]',
+      '[aria-label*="question" i]',
+      '[data-testid*="question" i]'
+    ].join(', ');
+
+    const scopedMatches = [...document.querySelectorAll(scopedSelectors)]
+      .flatMap(el => parseQuestionCounts(`${el.innerText || ''} ${el.getAttribute?.('aria-label') || ''}`));
+    const scopedCount = chooseQuestionCount(scopedMatches);
+    if (scopedCount) return scopedCount;
+
+    const labelledBodyCount = chooseQuestionCount(parseQuestionCounts(document.body.innerText, true));
+    if (labelledBodyCount) return labelledBodyCount;
+
+    // Last resort for UWorld pages that display only "1 of 30"; choose the largest
+    // plausible total so small figure/table captions do not become the test count.
+    return chooseQuestionCount(parseQuestionCounts(document.body.innerText));
   }
 
   function clickNext() {
@@ -11,6 +56,18 @@
     if (!next) return false;
     next.click();
     return true;
+  }
+
+  function isMathLike(el) {
+    return !!el.closest?.(
+      '.MathJax, mjx-container, .katex, svg, math, [class*="math"], [class*="Math"], [id*="math"], [id*="Math"]'
+    );
+  }
+
+  function abortExport(reason) {
+    const message = `UWorld export stopped without creating a PDF: ${reason}`;
+    console.error(message);
+    alert(message);
   }
 
   // Preserve all styles and fonts.
@@ -51,8 +108,8 @@
       .forEach(e => e.remove());
 
     clone.querySelectorAll('*').forEach(el => {
+      if (isMathLike(el)) return;
       el.style.maxHeight = 'none';
-      el.style.height = 'auto';
       el.style.overflow = 'visible';
     });
     clone.style.maxHeight = 'none';
@@ -127,6 +184,7 @@
   const baseURI = document.baseURI;
   const headHTML = getHeadHTML(baseURI);
   const questionsHTML = [];
+  let abortReason = '';
 
   while (current <= total) {
     console.log(`Collecting UWorld question ${current} of ${total}…`);
@@ -145,7 +203,7 @@
     if (current === total) break;
 
     if (!clickNext()) {
-      console.warn('Next button not found — stopping.');
+      abortReason = `the Next button was not found after question ${current} of ${total}`;
       break;
     }
 
@@ -156,10 +214,23 @@
       if (newInfo && newInfo.current !== current) break;
     }
     if (!newInfo || newInfo.current === current) {
-      console.warn('Navigation became stuck — stopping.');
+      abortReason = `navigation became stuck after question ${current} of ${total}`;
+      break;
+    }
+    if (newInfo.total !== total) {
+      abortReason = `the detected total changed from ${total} to ${newInfo.total}`;
+      break;
+    }
+    if (newInfo.current !== current + 1) {
+      abortReason = `navigation skipped from question ${current} to question ${newInfo.current}`;
       break;
     }
     current = newInfo.current;
+  }
+
+  if (abortReason || questionsHTML.length !== total || current !== total) {
+    abortExport(abortReason || `only ${questionsHTML.length} of ${total} questions were collected`);
+    return;
   }
 
   const testID = getTestID();
@@ -179,9 +250,9 @@
     h1 { font-size:20pt; }
     .qblock { page-break-inside:avoid; margin-bottom:16px; }
     .qblock:not(.first-qblock) { page-break-before:always; }
-    * { overflow:visible !important; max-height:none !important; height:auto !important; }
+    * { overflow:visible !important; max-height:none !important; }
     #centerContent, #questionInformation, #questionAbstract, #answerContainer, #explanation-container {
-      max-height:none !important; height:auto !important; overflow:visible !important;
+      max-height:none !important; overflow:visible !important;
     }
     img { max-width:100%; }
     .modal, .popup, .dialog, [class*="popup"], [class*="modal"], [class*="dialog"] {
