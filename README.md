@@ -2,8 +2,26 @@
 
 Private repository for organizing MCAT study prompts, durable concept notes, and study workflows by tool and use case.
 
+## Current consolidation policy
+
+To reduce overwhelm, new study notes, review guides, and durable corrections should default to **running documents with dated entries** rather than new standalone files.
+
+Canonical running master:
+
+- [`running-documents/mcat-running-review-and-notes-master.md`](running-documents/mcat-running-review-and-notes-master.md) — cross-subject running review and notes master for C/P, B/B, P/S, CARS, workflows, and migration tracking
+
+Standalone files should be reserved for:
+
+- scripts, templates, and reusable prompts
+- printable exports such as Cornell HTML versions
+- large source/archive documents that should not be pasted into the running master
+- major finished guides that are intentionally kept as source references
+
+Older one-off files remain as archive/source until summarized into the running master.
+
 ## Folder structure
 
+- `running-documents/` — canonical running documents and consolidation hubs
 - `notebooklm/audio/` — chapter and lecture prompts for NotebookLM audio output
 - `notebooklm/visuals/` — visual-output and follow-along prompt templates
 - `notebooklm/behavioral-science/` — Khan Academy and Psych/Soc group prompts
@@ -29,6 +47,7 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 
 ## Recently added study resources
 
+- [`running-documents/mcat-running-review-and-notes-master.md`](running-documents/mcat-running-review-and-notes-master.md) — new cross-subject consolidation hub; future review notes should be appended here as dated entries instead of creating a new file by default
 - [`practice-review/uworld/2026-06-20__uworld_test_5__ps_q1-10_review_guide.md`](practice-review/uworld/2026-06-20__uworld_test_5__ps_q1-10_review_guide.md) — Psych/Soc Q1–10 review guide covering JND vs absolute threshold, signal detection theory, graph significance caution, and feature detection vs parallel processing
 - [`study-workflows/browser-review-export/README.md`](study-workflows/browser-review-export/README.md) — beginner guide, video-hiding style, screenshot workflow, and JW/UWorld full-review export scripts
 - `cars/01-strategy-garden/cars-operating-system-and-decision-tree.md`
@@ -49,4 +68,4 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 
 ## Migration status
 
-See `migration-index.md` for gist inventory and migration tracking.
+See `migration-index.md` for gist inventory and migration tracking. Going forward, the main running consolidation layer is [`running-documents/mcat-running-review-and-notes-master.md`](running-documents/mcat-running-review-and-notes-master.md). Older files should be summarized into that master before creating additional one-off study guides.
