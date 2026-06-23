@@ -4,7 +4,20 @@ Private repository for organizing MCAT study prompts, durable concept notes, and
 
 ## Current consolidation policy
 
-To reduce overwhelm, new study notes, review guides, and durable corrections should default to **running documents with dated entries** rather than new standalone files.
+To reduce overwhelm, **all MCAT study material from the full study period** should default to **running documents with dated entries** rather than new standalone files.
+
+This applies beyond full-length reviews. It includes:
+
+- full-length reviews
+- UWorld, AAMC, and Jack Westin question-set reviews
+- single-question autopsies
+- content notes and formulas
+- CARS strategy updates
+- P/S term repairs
+- B/B pathway and physiology notes
+- C/P equation and reasoning notes
+- whiteboard/timing/logistics systems
+- Anki, Notion, GitHub, and export workflow rules
 
 Canonical running master:
 
@@ -47,7 +60,7 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 
 ## Recently added study resources
 
-- [`running-documents/mcat-running-review-and-notes-master.md`](running-documents/mcat-running-review-and-notes-master.md) — new cross-subject consolidation hub; future review notes should be appended here as dated entries instead of creating a new file by default
+- [`running-documents/mcat-running-review-and-notes-master.md`](running-documents/mcat-running-review-and-notes-master.md) — cross-subject consolidation hub; future notes from all MCAT studying should be appended here or in a subject running document as dated entries instead of creating a new file by default
 - [`practice-review/uworld/2026-06-20__uworld_test_5__ps_q1-10_review_guide.md`](practice-review/uworld/2026-06-20__uworld_test_5__ps_q1-10_review_guide.md) — Psych/Soc Q1–10 review guide covering JND vs absolute threshold, signal detection theory, graph significance caution, and feature detection vs parallel processing
 - [`study-workflows/browser-review-export/README.md`](study-workflows/browser-review-export/README.md) — beginner guide, video-hiding style, screenshot workflow, and JW/UWorld full-review export scripts
 - `cars/01-strategy-garden/cars-operating-system-and-decision-tree.md`
