@@ -1,19 +1,131 @@
 # MCAT Running Review and Notes Master
 
 Created: 2026-06-23
-Purpose: reduce file sprawl by turning future notes, guides, test reviews, strategy updates, and durable misconceptions into entries inside running documents instead of creating a new standalone file for every session.
+Purpose: reduce file sprawl by turning **all MCAT learning** into running entries instead of creating a new standalone file for every session.
+
+This applies to the whole MCAT study period, not only full-length reviews.
+
+## Universal Scope
+
+Use this consolidation system for:
+
+```text
+full-length reviews
+UWorld/JW/AAMC question-set reviews
+single-question autopsies
+content notes
+formula notes
+mnemonics
+whiteboard/timing/logistics systems
+CARS strategy updates
+P/S term repairs
+B/B pathway and physiology notes
+C/P equation and reasoning notes
+Anki/Notion/GitHub workflow rules
+printable Cornell versions and print packs
+```
+
+The goal is to make the repo feel like a small number of living notebooks, not a pile of disconnected files.
+
+---
 
 ## Operating Rule Going Forward
 
 Default behavior:
 
 ```text
-New learning from a chat/session → append as a dated entry in this master document or another clearly named running document.
+New learning from any MCAT chat/session → append as a dated entry in the appropriate running document.
 New standalone files → only for templates, scripts, exports, major printable versions, or archival source documents.
-Old one-off guides → keep as archive/source until migrated into this master.
+Old one-off guides → keep as archive/source until migrated into a running document.
 ```
 
-This file becomes the main consolidation layer across subjects. Older files do not need to be deleted immediately. They should be treated as source material that gets summarized, linked, and eventually folded into the correct section here.
+This file is the main consolidation layer across subjects. Older files do not need to be deleted immediately. They should be treated as source material that gets summarized, linked, and eventually folded into the correct running section.
+
+---
+
+## Running Document Model
+
+Preferred structure:
+
+```text
+1 master index/running hub
++ a small number of subject running documents if the master gets too large
++ printable Cornell exports only when needed
+```
+
+Avoid:
+
+```text
+one new file per question
+one new file per minor correction
+one new file per chat unless it is a true source/archive artifact
+```
+
+Allowed standalone exceptions:
+
+```text
+scripts
+prompts/templates
+full export workflows
+printable Cornell HTML/PDF files
+large archival source files
+major finished public-facing guides
+```
+
+---
+
+## Consolidation in Parts
+
+### Part 1 — Lock the system
+
+Status: started.
+
+- Create running master.
+- Update README with default running-document rule.
+- Start folding new entries into running sections.
+
+### Part 2 — Consolidate active study rules
+
+Target sections:
+
+```text
+Workflow + Logistics Running Notes
+CARS Running Notes
+```
+
+Fold in whiteboard rules, timing, review workflows, export scripts, Notion/GitHub storage rules, and CARS operating strategies.
+
+### Part 3 — Consolidate science content notes
+
+Target sections:
+
+```text
+C/P Running Notes
+B/B Running Notes
+P/S Running Notes
+```
+
+Fold in durable concept explanations, recurring mistakes, formulas, pathways, definitions, and testable rules.
+
+### Part 4 — Consolidate practice/test reviews
+
+Target sections:
+
+```text
+C/P, B/B, P/S, and CARS running notes
+```
+
+Each practice session should become a dated entry with source links and mistake patterns. Detailed standalone files can remain as source/archive if already created.
+
+### Part 5 — Print packs
+
+Create printable Cornell versions only when needed:
+
+```text
+one printable file per subject, exam section, test block, or weekly review pack
+```
+
+Do not make a printable file for every tiny note unless it is specifically requested.
 
 ---
 
@@ -195,7 +307,18 @@ J/s = power
 
 ## Active consolidation target
 
-Fold older biochemistry/biology entries into this section rather than creating many small files.
+Fold all biochemistry/biology learning into this section rather than creating many small files.
+
+This includes:
+
+```text
+standalone biology content questions
+UWorld/AAMC B/B review mistakes
+pathways and physiology notes
+amino acid/protein/enzyme confusions
+genetics and molecular biology corrections
+lab technique rules
+```
 
 Priority sources to migrate later:
 
@@ -221,7 +344,19 @@ Print status: not printed / Cornell-ready / printed
 
 ## Active consolidation target
 
-Fold P/S term mistakes, experiment-design traps, and graph/significance reasoning into this section.
+Fold all P/S learning into this section rather than creating many small files.
+
+This includes:
+
+```text
+term definitions
+research design traps
+study validity/reliability notes
+social psychology distinctions
+learning/memory/perception examples
+statistics and graph reasoning
+AAMC/UWorld P/S review mistakes
+```
 
 Known source to migrate later:
 
@@ -241,7 +376,19 @@ Term or trap → personal wrong path → corrected definition → example → st
 
 ## Active consolidation target
 
-CARS has enough strategy material that it should be consolidated into running entries rather than scattered one-off autopsies.
+CARS strategy, passage reviews, and question-pattern notes should be consolidated into running entries rather than scattered one-off autopsies.
+
+This includes:
+
+```text
+Jack Westin sessions
+AAMC CARS review
+UWorld CARS review
+strategy experiments
+timing/whiteboard rules
+answer-choice trap patterns
+passage-type patterns
+```
 
 Known source folders/files to fold into running form later:
 
@@ -264,7 +411,21 @@ Passage/date → strategy tested → what worked → what failed → timing note
 
 ## Active consolidation target
 
-This section should absorb whiteboard strategies, review workflow rules, export scripts, naming conventions, Anki routing, and GitHub/Notion storage rules.
+This section should absorb all study-system rules, not just FL review logistics.
+
+This includes:
+
+```text
+whiteboard strategies
+timing breakdowns
+review workflow rules
+export scripts
+prompt rules
+naming conventions
+Anki routing
+Notion/GitHub/Drive storage rules
+print/Cornell formatting rules
+```
 
 Known source folders/files to consolidate later:
 
@@ -276,7 +437,7 @@ anki/
 naming-rules/
 ```
 
-Current rule:
+Current storage rule:
 
 ```text
 GitHub = clean, durable, versioned notes/prompts/workflows
@@ -335,12 +496,12 @@ printable Cornell version: yes
 # Future Entry Template
 
 ```text
-## YYYY-MM-DD — [Subject] [Source/Test] [Topic]
+## YYYY-MM-DD — [Subject] [Source/Test/Chat] [Topic]
 
 Source/link:
 
 Cue / Trigger:
-- What wording, concept, graph, formula, or answer choice caused the issue?
+- What wording, concept, graph, formula, answer choice, term, or study habit caused the issue?
 
 Wrong Path:
 - What was the tempting but wrong reasoning?
@@ -349,9 +510,7 @@ Correction:
 - What is the correct concept and why?
 
 MCAT Anchor:
-```text
-One-line rule or formula.
-```
+- One-line rule or formula.
 
 Print/Cornell Status:
 - Not converted / Cornell-ready / printable HTML made
