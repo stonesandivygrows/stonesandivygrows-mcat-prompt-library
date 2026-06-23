@@ -2,18 +2,8 @@
 
 ## Purpose
 
-This is a clean, non-personal master guide for MCAT CARS. It is organized around two things:
-
 1. **Things CARS repeatedly does** — recurring passage, question, and answer-choice patterns.
 2. **Strategies to try** — practical tools for reading, timing, answering, and reviewing.
-
-It is written as a shareable study guide, but it does **not** include personal identifying details, private reflections, or raw copyrighted passage/question blocks.
-
-The central rule is:
-
-> **CARS is not about sounding smart. It is about answering the exact question using the passage's exact logic.**
-
----
 
 # Quick Table of Contents
 
