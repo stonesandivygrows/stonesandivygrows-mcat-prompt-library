@@ -13,9 +13,12 @@ The organization combines two requirements:
 cars/
 ├── README.md                                  # Parent command center
 ├── analysis-prompts.md                        # Reusable analysis prompts
+├── master-guides/
+│   └── cars-master-guide-for-online-sharing.md
 ├── 01-strategy-garden/
 │   ├── 3-layer-operational-autopsy.md
 │   ├── cars-operating-system-and-decision-tree.md
+│   ├── cars-timing-whiteboard-and-skipping-protocol.md
 │   ├── question-stem-translations-and-boundaries.md
 │   └── syntax-proper-nouns-quotes-and-punctuation-protocol.md
 ├── 02-pattern-reports/
@@ -34,16 +37,25 @@ Empty lanes are created when the first durable file belongs there; raw source du
 
 ## Navigation
 
+### Master Guides
+
+Shareable, polished versions of the CARS system belong here:
+
+- [CARS Master Guide for Online Sharing](master-guides/cars-master-guide-for-online-sharing.md)
+
+The master guide is written for outside readers. It should stay free of raw commercial passage text, private transcript details, and overly personalized notes.
+
 ### 01 — Strategy Garden
 
 Stable rules that should transfer across passages:
 
 - [3-Layer Operational Autopsy System](01-strategy-garden/3-layer-operational-autopsy.md)
 - [CARS Operating System and Decision Tree](01-strategy-garden/cars-operating-system-and-decision-tree.md)
+- [CARS Timing, Whiteboard, and Skipping Protocol](01-strategy-garden/cars-timing-whiteboard-and-skipping-protocol.md)
 - [Question Stem Translations and Strategy Boundaries](01-strategy-garden/question-stem-translations-and-boundaries.md)
 - [Syntax, Proper Nouns, Quotes, and Punctuation Protocol](01-strategy-garden/syntax-proper-nouns-quotes-and-punctuation-protocol.md)
 
-The operating system is the live play-by-play plan. The stem guide selects the correct question strategy. The syntax protocol handles dense sentences, names, titles, quotations, and punctuation.
+The operating system is the live play-by-play plan. The timing file is the canonical whiteboard and pacing page. The stem guide selects the correct question strategy. The syntax protocol handles dense sentences, names, titles, quotations, and punctuation.
 
 A rule that applies only to one passage stays inside that passage autopsy.
 
