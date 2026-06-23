@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AAMC CP Passage 9 Review — Cornell Notes</title>
+  <style>
+    :root {
+      --cue-width: 28%;
+      --notes-width: 72%;
+      --border: #222;
+      --muted: #555;
+      --shade: #f5f5f5;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    @page {
+      margin: 0.5in;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 10.5pt;
+      line-height: 1.35;
+      color: #111;
+      background: white;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    header {
+      border: 1.5px solid var(--border);
+      padding: 0.6rem 0.75rem;
+      margin-bottom: 0.45rem;
+      break-inside: avoid;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .meta {
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+    }
+
+    .cornell {
+      display: grid;
+      grid-template-columns: var(--cue-width) var(--notes-width);
+      border-left: 1.5px solid var(--border);
+      border-right: 1.5px solid var(--border);
+      border-top: 1.5px solid var(--border);
+      margin-bottom: 0.45rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .cue, .notes {
+      padding: 0.45rem 0.55rem;
+      border-bottom: 1.5px solid var(--border);
+      min-height: 2.2rem;
+    }
+
+    .cue {
+      border-right: 1.5px solid var(--border);
+      background: var(--shade);
+      font-weight: 700;
+    }
+
+    .cue small {
+      display: block;
+      font-weight: 500;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .notes p {
+      margin: 0 0 0.35rem 0;
+    }
+
+    .notes p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin: 0.1rem 0 0.25rem 1.1rem;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.12rem 0;
+    }
+
+    code, pre {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+    }
+
+    pre {
+      margin: 0.25rem 0;
+      padding: 0.35rem 0.45rem;
+      border: 1px solid #aaa;
+      background: #fafafa;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .summary {
+      border: 1.5px solid var(--border);
+      padding: 0.55rem 0.7rem;
+      margin-top: 0.45rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .summary h2 {
+      margin: 0 0 0.35rem 0;
+      font-size: 1rem;
+    }
+
+    .print-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0.4rem 0 0.6rem 0;
+    }
+
+    @media screen {
+      body {
+        background: #e8e8e8;
+        padding: 1rem;
+      }
+      .page {
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      }
+    }
+
+    @media print {
+      body {
+        font-size: 10pt;
+      }
+      .page {
+        width: 100%;
+      }
+      .print-note {
+        display: none;
+      }
+      header, .cornell, .summary {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      a::after {
+        content: "";
+      }
+    }
+
+    @media (max-width: 650px) {
+      .cornell {
+        grid-template-columns: 1fr;
+      }
+      .cue {
+        border-right: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>AAMC CP Passage 9 Review — Cornell Notes</h1>
+      <div class="meta">
+        <span>Date added: 2026-06-23</span>
+        <span>Format: Cornell notes</span>
+        <span>Print setup: no fixed paper size; choose Letter, A4, etc. in print dialog</span>
+      </div>
+    </header>
+
+    <p class="print-note">Print tip: use the browser print dialog and choose any paper size. This file does not force a page size; it uses percentage-based Cornell columns and print margins.</p>
+
+    <section class="cornell">
+      <div class="cue">Session scope<small>What was reviewed?</small></div>
+      <div class="notes">
+        <p>This sheet includes only the topics actively discussed. Questions not brought up were treated as understood.</p>
+        <ul>
+          <li>Catalytic converters and heterogeneous catalysis</li>
+          <li>Homogeneous catalyst separation vs enzyme/product release</li>
+          <li>Surface area and reaction rate</li>
+          <li>Circuit current and resistance</li>
+          <li>Metal-acid redox reactions and hydrogen gas evolution</li>
+          <li>Reduction potentials for Al vs Zn</li>
+          <li>Power units including ft·lb/s</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Catalytic converter<small>What is it?</small></div>
+      <div class="notes">
+        <p>A catalytic converter is the car exhaust component that uses a solid catalyst to convert toxic exhaust gases into less harmful gases.</p>
+        <pre>CO → CO2
+hydrocarbons → CO2 + H2O
+NO → N2</pre>
+        <p>MCAT translation: catalytic converter = heterogeneous catalysis because the catalyst is solid while exhaust reactants are gases.</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Unwanted sulfur reaction<small>Why mention SO2/SO3?</small></div>
+      <div class="notes">
+        <pre>SO2 → SO3
+SO3 + H2O → H2SO4</pre>
+        <p>This is an unwanted side reaction. It shows that catalysts can speed desired reactions but may also allow side reactions.</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Homogeneous catalyst not separated<small>Why contamination?</small></div>
+      <div class="notes">
+        <p>If a homogeneous catalyst cannot be separated from products at the end of a reaction, the reaction already occurred. The problem is purification.</p>
+        <pre>reactants + catalyst → product + catalyst still mixed in</pre>
+        <p>Therefore, the product is contaminated by catalyst. This does not mean the reaction failed to occur.</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Released vs separated<small>Key language trap</small></div>
+      <div class="notes">
+        <p><strong>Released</strong> = molecule leaves a binding site during the mechanism.</p>
+        <pre>E + S → ES → EP → E + P</pre>
+        <p>If product is not released, enzyme turnover decreases.</p>
+        <p><strong>Separated</strong> = lab purification after the reaction mixture already exists.</p>
+        <pre>product + catalyst mixed together → need purification</pre>
+        <p>Not released = mechanism/turnover issue. Not separated = purification/contamination issue.</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Surface area and rate<small>Is there an equation?</small></div>
+      <div class="notes">
+        <p>For solid reactants or solid catalysts, the MCAT idea is usually conceptual, not a formal rate-law equation.</p>
+        <pre>more exposed surface area → more active sites/collisions → faster reaction rate
+rate ∝ surface area</pre>
+        <p>For catalytic converters: more porous beads/surface = more gas molecules can contact active sites at once.</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Current in circuit<small>Main equation</small></div>
+      <div class="notes">
+        <pre>I = V/R</pre>
+        <p>To increase current, increase voltage or decrease resistance. In the discussed question, replacing the bulb with lower resistance directly increased current.</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Wire diameter<small>Why smaller is worse?</small></div>
+      <div class="notes">
+        <pre>R = ρL/A</pre>
+        <p>Smaller diameter means smaller cross-sectional area <code>A</code>.</p>
+        <pre>smaller diameter → smaller A → larger R → smaller I</pre>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Wire temperature<small>Why hotter is worse?</small></div>
+      <div class="notes">
+        <p>For most metal wires:</p>
+        <pre>higher temperature → more atomic vibration → more electron collisions → higher resistance → lower current</pre>
+        <p>Computer overheating is related but not identical. Computers mainly slow by thermal throttling: CPU/GPU lowers speed/voltage to avoid damage.</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Ion concentration in cell<small>Why C was wrong?</small></div>
+      <div class="notes">
+        <p>In an electrochemical cell, ions in solution participate in redox and help sustain charge transfer.</p>
+        <pre>Y^m+ + electrons → Y(s)</pre>
+        <p>Lower ion concentration usually weakens the cell’s ability to sustain current or changes the cell voltage. It does not directly reduce external circuit resistance.</p>
+        <pre>E = E° − (RT/nF) ln Q</pre>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Metal + acid<small>What does H2 evolves mean?</small></div>
+      <div class="notes">
+        <p><strong>Evolves</strong> means gas is produced/released/bubbles out.</p>
+        <pre>metal + acid → metal cation + H2 gas</pre>
+        <p>For zinc:</p>
+        <pre>Zn(s) + 2H+(aq) → Zn2+(aq) + H2(g)</pre>
+        <p>Metal is oxidized. H+ is reduced.</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Al in HCl<small>Answer pattern</small></div>
+      <div class="notes">
+        <pre>2Al(s) + 6H+(aq) → 2Al3+(aq) + 3H2(g)</pre>
+        <p>Half-reactions:</p>
+        <pre>Al(s) → Al3+(aq) + 3e−      oxidation
+2H+(aq) + 2e− → H2(g)       reduction</pre>
+        <p>Correct answer logic: Yes; Al is oxidized and H+(aq) is reduced.</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Was passage needed?<small>Passage camouflage</small></div>
+      <div class="notes">
+        <p>Mostly no. This was close to a content/discrete-style question hidden inside a passage.</p>
+        <pre>metal + HCl → metal oxidized + H+ reduced → H2 gas</pre>
+        <p>The passage only provided extra support if it showed Al reducing Zn2+ to Zn(s).</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Al vs Zn evidence<small>Why supportive?</small></div>
+      <div class="notes">
+        <pre>Al(s) + Zn2+(aq) → Al3+(aq) + Zn(s)</pre>
+        <p>If Zn(s) forms, Zn2+ gained electrons and was reduced. Those electrons came from Al, so Al was oxidized.</p>
+        <pre>Al donates electrons → Al is oxidized → Al is a strong reducing agent → Al can reduce H+ to H2</pre>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Reduction potentials<small>Zn vs Al</small></div>
+      <div class="notes">
+        <p>If Al reduces Zn2+, then Zn2+/Zn has the higher reduction potential.</p>
+        <pre>Ecell = Ered(cathode) − Ered(anode)
+Ered(Zn2+/Zn) &gt; Ered(Al3+/Al)</pre>
+        <p>Approximate values:</p>
+        <pre>Zn2+/Zn:  Ered ≈ −0.76 V
+Al3+/Al:  Ered ≈ −1.66 V</pre>
+        <p>Higher Ered = wants electrons more = gets reduced. Lower Ered = gives electrons more easily = gets oxidized.</p>
+      </div>
+    </section>
+
+    <section class="cornell">
+      <div class="cue">Power units<small>Why ft·lb/s counts</small></div>
+      <div class="notes">
+        <p>Power is energy or work per time.</p>
+        <pre>P = W/t = E/t
+watt = J/s</pre>
+        <p>Work/energy can be force × distance:</p>
+        <pre>J = N·m
+ft·lb = foot-pound = work/energy
+ft·lb/s = work/time = power</pre>
+        <p>Trap: <code>ft·lb</code> alone is energy/work; <code>ft·lb/s</code> is power.</p>
+      </div>
+    </section>
+
+    <section class="summary">
+      <h2>Summary</h2>
+      <pre>Catalytic converter = solid heterogeneous catalyst in car exhaust.
+Homogeneous catalyst not separated after reaction = contaminated product.
+Not released = active site/turnover problem; not separated = purification problem.
+Surface area ↑ → active sites/collisions ↑ → rate ↑.
+I = V/R; R = ρL/A.
+Thin wire → R ↑ → I ↓.
+Hot metal wire → R ↑ → I ↓.
+Lower bulb resistance → I ↑.
+Metal + acid → metal oxidized + H+ reduced → H2 evolves.
+Evolves = gas bubbles out/forms.
+If Al reduces Zn2+, Zn has higher Ered and Al is easier to oxidize.
+Power = energy/time = J/s = ft·lb/s.</pre>
+    </section>
+  </main>
+</body>
+</html>
