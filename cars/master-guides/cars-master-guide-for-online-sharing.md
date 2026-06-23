@@ -1,45 +1,59 @@
-# CARS Master Guide: A Plain-English Operating System for MCAT CARS
+# CARS Master Guide: Strategies to Try + Patterns to Notice
 
-## What this guide is
+## Purpose
 
-This is a practical CARS guide built from repeated passage review, missed-question autopsies, timing experiments, and strategy testing.
+This is a clean, non-personal master guide for MCAT CARS. It is organized around two things:
 
-It is not a secret formula and it is not a replacement for practice. It is a way to make CARS less chaotic by turning the section into a set of repeatable decisions:
+1. **Things CARS repeatedly does** — recurring passage, question, and answer-choice patterns.
+2. **Strategies to try** — practical tools for reading, timing, answering, and reviewing.
 
-1. Read for the author's argument.
-2. Identify what each paragraph is doing.
-3. Translate the question stem.
-4. Pick the strategy that matches that question type.
-5. Compare answer choices by job, scope, and support.
-6. Move when the path is gone.
+It is written as a shareable study guide, but it does **not** include personal identifying details, private reflections, or raw copyrighted passage/question blocks.
 
-The biggest lesson is this:
+The central rule is:
 
 > **CARS is not about sounding smart. It is about answering the exact question using the passage's exact logic.**
 
 ---
 
-# Part 1 — The Core CARS Mindset
+# Quick Table of Contents
 
-## 1. Do not read for memory. Read for structure.
+1. Core CARS mindset
+2. Things CARS keeps doing
+3. Passage-reading strategies to try
+4. Dense sentence and punctuation strategies
+5. Names, titles, quotes, dates, and places
+6. Question-stem translations
+7. Strategy boundaries by question type
+8. Answer-choice trap patterns
+9. Timing, whiteboard, and skipping strategy
+10. What to stop / keep / test
+11. Review method
+12. Example bank
+13. Two-minute pre-practice card
 
-The first read is not supposed to make you remember every detail.
+---
 
-The goal is to know:
+# 1. Core CARS Mindset
 
-- what the author is talking about;
-- what problem, debate, or contrast is being introduced;
-- what each paragraph is doing;
+## 1.1 Read for structure, not memory
+
+The first read is not supposed to create perfect recall.
+
+A useful first read tells you:
+
+- what the author is discussing;
+- what debate, problem, or contrast is being introduced;
+- what each paragraph does;
 - where examples, objections, and conclusions live;
 - what the author's final direction is.
 
-A good first read creates a rough map, not a transcript.
+A good passage read creates a rough map, not a transcript.
 
 Ask after each paragraph:
 
 > **What job did this paragraph perform?**
 
-Useful labels:
+Useful paragraph labels:
 
 - setup
 - claim
@@ -51,238 +65,298 @@ Useful labels:
 - consequence
 - conclusion
 
-Do not force a fancy label. A rough label is enough.
-
-## 2. Topic is not enough.
+## 1.2 Topic is not enough
 
 A common wrong-answer trap is choosing an answer because it mentions the same topic as the passage.
 
-But CARS often tests the relationship, not the topic.
+CARS often tests the **relationship**, not the topic.
 
 Example:
 
-- Passage idea: physical action affects mental performance.
-- Trap answer: knowing about the body affects intelligence.
-- Better answer: running affects academic performance.
+- Passage idea: physical activity improves mental performance.
+- Trap answer: knowing about the body improves intelligence.
+- Better answer: exercise improves test performance.
 
-Both mention mind/body, but only one preserves the actual relationship.
+Both mention body/mind, but only one preserves the original relationship.
 
 > **Do not pick by topic. Pick by job.**
 
-## 3. The boring answer is often right.
+## 1.3 The boring answer is often right
 
-CARS wrong answers often sound:
+Wrong answers often sound:
 
+- deeper;
+- broader;
 - more philosophical;
 - more dramatic;
 - more morally attractive;
-- more intellectual;
 - more familiar from real life.
 
-The correct answer is often narrower and more text-bound.
+Correct answers are often narrower and more passage-bound.
 
-Before choosing the impressive answer, ask:
+Before choosing an impressive answer, ask:
 
-> **Did the passage actually support this, or does it just sound like something the author might believe?**
+> **Did the passage actually support this, or does it just sound reasonable?**
 
-## 4. Stay inside the author's world.
+## 1.4 Stay inside the author's world
 
-You do not need to agree with the author. You need to understand the author's reasoning.
+CARS asks what the author, passage, or argument supports.
 
 Do not answer from:
 
 - outside knowledge;
-- your opinion;
+- personal opinion;
 - what seems true in real life;
 - what would be morally best;
-- what would make sense in another class.
+- what another course taught.
 
 Answer from the passage.
 
 ---
 
-# Part 2 — How to Read the Passage
+# 2. Things CARS Keeps Doing
 
-## Step 1 — Reset before the passage
+## 2.1 CARS hides the thesis behind setup
 
-Before starting:
+The opening paragraph may introduce the topic, but it is not always the author's final claim.
 
-- release the previous passage;
-- keep your mouth closed if reading aloud slows you down;
-- use light finger tapping only if it helps visual tracking;
-- do not scan the entire section and rank all passages;
-- do not build a full plan before you begin.
+Watch for passages that start with:
 
-Start in order unless you have a very specific reason not to.
+- historical background;
+- old theory;
+- popular misconception;
+- general issue;
+- example;
+- quoted opinion.
 
-## Step 2 — Notice the number of questions
+Then the author shifts toward the real point.
 
-The number of questions gives timing context.
+**Notice:** The first thing introduced may be what the author later complicates or rejects.
 
-Do not turn it into complicated math.
+## 2.2 CARS tests relationship more than subject
 
-Use the local safeguard:
+Two choices can discuss the same subject, but only one preserves the passage's logic.
 
-| Passage size | Start questions by, at latest |
-|---:|---:|
-| 5 questions | about 5:00 elapsed |
-| 6 questions | about 4:00 elapsed |
-| 7 questions | about 3:00 elapsed |
+Common relationships:
 
-This is not an order to stop mid-sentence. It is a warning that reading is taking too long.
+- cause → effect
+- example → claim
+- old view → corrected view
+- objection → response
+- appearance → reality
+- individual case → broader principle
+- evidence → conclusion
+- physical action → mental outcome
+- definition → application
 
-## Step 3 — Read the title and source lightly
+**Notice:** A topic match is not enough.
 
-Use the title and source for quick orientation:
+## 2.3 CARS uses examples as tools
 
-- topic;
-- field;
-- possible tone;
-- historical period;
-- whether it seems like criticism, defense, review, or explanation.
+Examples usually do a job:
 
-Do not overanalyze the title.
+- support a claim;
+- show a contrast;
+- introduce a problem;
+- illustrate an author's attitude;
+- provide historical background;
+- serve as evidence;
+- weaken a prior view.
 
-## Step 4 — Read paragraph 1 carefully
+**Notice:** When a question asks why an example is mentioned, do not summarize the example. Identify its function.
 
-Paragraph 1 often gives the issue, debate, or setup.
+## 2.4 CARS uses scope traps
 
-Ask:
+Wrong answers often make the passage bigger, stronger, or more absolute than it was.
 
-- What is the topic?
-- Is there an old view or problem?
-- Is the author already agreeing or disagreeing?
-- Is this setup or thesis?
+| Passage says | Trap answer says |
+|---|---|
+| can | must / should / always |
+| some | all |
+| may | certainly |
+| suggests | proves |
+| influences | determines |
+| related to | caused by |
+| under certain conditions | in every situation |
+| different | inferior or superior |
+| effect | intention |
 
-Important: paragraph 1 is not always the thesis. It may only introduce the conflict.
+**Notice:** If an answer sounds right but stronger, broader, or more universal, check it carefully.
 
-## Step 5 — Read each paragraph for role
+## 2.5 CARS uses question wording to switch the task
 
-After each paragraph, ask:
+Small stem words matter:
 
-> **What did this paragraph do for the argument?**
+- **according to** = direct support
+- **suggests** = what the passage points toward
+- **implies** = one supported step
+- **assumes** = hidden bridge
+- **function** = why included
+- **least / except / not** = reverse the task
+- **most analogous** = same relationship
 
-Examples:
+**Notice:** The same passage sentence can be used differently depending on the stem.
 
-- introduced an old theory;
-- gave a counterexample;
-- criticized a popular belief;
-- explained why an assumption fails;
-- gave evidence;
-- shifted from history to author's view;
-- stated the conclusion.
+## 2.6 CARS rewards staying conservative
 
-A short mental label is enough.
+When choosing between two answers, the correct one often:
 
-## Step 6 — Do not panic when one paragraph is confusing
+- adds less;
+- stays closer;
+- has softer wording;
+- preserves the relationship;
+- avoids outside assumptions;
+- answers the exact stem.
 
-If a paragraph feels unclear, do not immediately reread the whole thing.
-
-Ask:
-
-1. Who is speaking?
-2. Is this positive, negative, or neutral?
-3. Is this old view, new view, example, objection, or response?
-4. Does the author agree?
-
-If still unclear, give it a rough label such as **setup**, **example**, or **criticism** and continue.
-
-Later paragraphs often clarify earlier ones.
-
-## Step 7 — Before questions, state the passage direction
-
-Use this template:
-
-> **The author uses ___ to argue/show/criticize ___ because ___.**
-
-This does not need to be perfect. It just keeps you from entering the questions with no map.
+**Notice:** Do not upgrade the passage.
 
 ---
 
-# Part 3 — Dense Sentence Survival
+# 3. Passage-Reading Strategies to Try
 
-Some passages feel hard because the ideas are hard. Other passages feel hard because the sentence structure is overloaded.
+## Strategy 1 — Paragraph job labels
 
-Dense sentences often include:
+After each paragraph, mentally label the paragraph's job.
 
-- em dashes;
-- commas;
-- parentheses;
-- quotes;
-- names;
-- book titles;
-- dates;
-- long modifiers;
-- appositives;
-- decorative examples.
+Do not write a full map unless absolutely necessary.
+
+Example:
+
+```text
+P1 = setup / old view
+P2 = problem with old view
+P3 = evidence
+P4 = author's corrected claim
+```
+
+This helps when questions ask about function, author agreement, main idea, or paragraph role.
+
+## Strategy 2 — Passage direction sentence
+
+Before answering questions, state the passage in one rough sentence:
+
+> **The author uses ___ to argue/show/criticize ___ because ___.**
+
+Example:
+
+> The author uses historical examples to criticize the idea that artistic change comes from one simple cause.
+
+It does not need to be elegant. It only needs to prevent answer choices from controlling the passage interpretation.
+
+## Strategy 3 — Setup versus thesis check
+
+After reading the passage, ask:
+
+> **Was the opening the author's claim, or just the setup?**
+
+Many main-idea traps summarize the first paragraph instead of the author's final point.
+
+## Strategy 4 — Speaker tracking
+
+Passages often contain multiple voices:
+
+- author;
+- critic;
+- historian;
+- scientist;
+- philosopher;
+- old theory;
+- new theory;
+- quoted person.
+
+Ask:
+
+> **Who is speaking, and does the author agree?**
+
+Do not automatically treat a quoted person as the author.
+
+## Strategy 5 — One rough map, not perfect memory
+
+The first read should answer:
+
+- where is the old view?
+- where is the author's view?
+- where are examples?
+- where is the contrast?
+- where is the conclusion?
+
+Do not try to memorize every detail.
+
+---
+
+# 4. Dense Sentence and Punctuation Strategies
+
+Dense passages often feel hard because of syntax, not because the underlying idea is impossible.
 
 The rule:
 
 > **Find the sentence spine first. Add details back only when they change meaning.**
 
-## Sentence-spine method
+## Strategy 1 — Subject → verb → core claim
 
 When a sentence feels unreadable:
 
 1. Find the subject.
 2. Find the main verb.
 3. State the core claim.
-4. Temporarily remove interruptions.
-5. Preserve logical hinge words.
-6. Reinsert only what changes the meaning.
+4. Remove interruptions temporarily.
+5. Keep logical hinge words.
+6. Add details back only if they matter.
+
+Example sentence:
+
+> The critic's argument — though influential among early scholars — fails to explain the later evidence.
+
+First-pass spine:
+
+> The critic's argument fails to explain the later evidence.
+
+Add-back:
+
+> It was influential among early scholars.
+
+The em dash does not replace the main claim.
+
+## Strategy 2 — Em dash removal
+
+Em dashes often contain:
+
+- an aside;
+- an explanation;
+- a qualification;
+- a description.
+
+First pass:
+
+- lift out the dash material;
+- read the core sentence;
+- add the dash material back if it changes tone, scope, or logic.
+
+## Strategy 3 — Parentheses as temporary extras
+
+Parentheses often give:
+
+- examples;
+- translations;
+- dates;
+- definitions;
+- side notes.
+
+Keep parenthetical material if it defines a key term. Otherwise, defer it until needed.
+
+## Strategy 4 — Comma phrase check
+
+Commas may separate descriptions, lists, or dependent clauses.
 
 Ask:
 
-- Who or what is this about?
-- What are they doing or claiming?
-- Why does this sentence matter?
-
-## Punctuation translations
-
-### Em dash
-
-Usually an interruption, aside, or explanation.
-
-First pass: remove it, read the core sentence, then add it back if needed.
-
-### Parentheses
-
-Usually extra information, translation, or example.
-
-Keep it if it defines a key term. Otherwise, it can usually wait.
-
-### Commas
-
-Commas may separate descriptions, lists, or clauses.
+> **Is this comma phrase just describing a nearby noun, or does it change the logic?**
 
 Do not treat every comma as a new idea.
 
-Ask whether the comma phrase simply describes the noun before it.
+## Strategy 5 — Logical hinge words cannot be skipped
 
-### Colon
-
-The second part usually explains, defines, or lists what came before.
-
-### Semicolon
-
-A semicolon links two complete but related ideas.
-
-Ask how the second idea explains, contrasts with, or develops the first.
-
-### Quotation marks
-
-A quote is not automatically the author's belief.
-
-Ask:
-
-1. Who is speaking?
-2. Does the author agree, disagree, mock, qualify, or simply report?
-3. Why was this quote included?
-4. What claim does it support?
-
-## Logical hinge words: do not skip these
-
-You can skim decorative details, but not logic words.
+Decorative details can wait. Logic words cannot.
 
 Always notice:
 
@@ -308,7 +382,7 @@ Always notice:
 
 ---
 
-# Part 4 — Names, Titles, Dates, and Quotes
+# 5. Names, Titles, Quotes, Dates, and Places
 
 ## Names are labels
 
@@ -333,11 +407,11 @@ Remember:
 - idea attached to the person;
 - whether the author agrees.
 
-Do not waste working memory on spelling unless the question asks about that person directly.
+Do not spend working memory on spelling unless the question asks about that person directly.
 
-## Book and article titles are clues
+## Titles are clues
 
-A title may reveal:
+Book, article, and artwork titles may reveal:
 
 - topic;
 - tone;
@@ -349,9 +423,9 @@ Treat titles as orientation, not homework.
 
 Ask:
 
-- What subject does this title point toward?
+- What subject does the title point toward?
 - Does it sound approving, critical, alarmed, or neutral?
-- Is the title itself part of the argument or just a source label?
+- Is the title part of the argument or just source information?
 
 ## Dates and places usually give placement
 
@@ -362,7 +436,7 @@ Usually remember only:
 - one region compared with another;
 - historical setup vs modern example.
 
-Exact dates and places matter only if the question asks for them.
+Exact dates and place names matter only if the question targets them.
 
 ## Quotes have jobs
 
@@ -383,7 +457,7 @@ For any quote, ask:
 
 ---
 
-# Part 5 — Question Stem Translations
+# 6. Question-Stem Translations
 
 Before reading answer choices, translate the stem.
 
@@ -391,7 +465,7 @@ Complete this sentence:
 
 > **This question wants the answer that ___.**
 
-Do not classify a question from one keyword before reading the whole stem.
+Do not classify a question from one keyword before finishing the stem.
 
 ## Suggests
 
@@ -401,9 +475,9 @@ Plain English:
 
 Use:
 
-- small supported inference;
+- a small supported inference;
 - passage direction;
-- answer with the least extra assumption.
+- least extra assumption.
 
 Do not use:
 
@@ -445,7 +519,7 @@ Do not use:
 
 - “what follows from this?”
 - merely relevant facts;
-- a strengthening fact that is not required.
+- strengthening facts that are not required.
 
 ## Quick distinction
 
@@ -467,17 +541,17 @@ Use exact line retrieval and nearby context.
 
 Plain English:
 
-> **What is supported by the passage, maybe with a small inference?**
+> **What is supported by the passage, possibly with a small inference?**
 
 Stay close.
 
-## Why does the author mention / role / function
+## Why mention / role / function
 
 Plain English:
 
 > **Why did the author include this here?**
 
-Do not only summarize the sentence. Explain its job.
+Do not merely summarize the target sentence. Explain its job.
 
 ## Most likely agree
 
@@ -485,7 +559,7 @@ Plain English:
 
 > **Which answer best matches the author's view?**
 
-Match author stance, passage direction, and relationship.
+Match stance, direction, and relationship.
 
 ## Strengthen
 
@@ -521,11 +595,11 @@ Reverse the task before judging choices.
 
 ---
 
-# Part 6 — Strategy Selector
+# 7. Strategy Boundaries by Question Type
 
 Use the right tool for the question.
 
-| Question type | Use | Do not use |
+| Question type | Strategy to use | Strategy not to use |
 |---|---|---|
 | Main idea | Passage-wide direction and final payoff | One vivid detail |
 | Detail | Exact line and local context | Broad theme alone |
@@ -538,88 +612,75 @@ Use the right tool for the question.
 | Vocabulary | Local meaning in context | Dictionary meaning alone |
 | EXCEPT/least | Reverse the task | Answering the positive version |
 
-The point is not to know many strategies. The point is to know which strategy belongs.
+The goal is not to collect many strategies. The goal is to know which strategy belongs.
 
 > **Wrong strategy selection can make a question feel impossible even when the passage was understood.**
 
 ---
 
-# Part 7 — Answer Choice Rules
+# 8. Answer-Choice Trap Patterns
 
-## Rule 1: Answer the exact stem
+## Trap 1 — Right topic, wrong job
 
-Before choosing, ask:
+An answer can mention the same subject but perform the wrong logical role.
 
-- Is this about the passage or one paragraph?
-- Is it asking for the author or the argument?
-- Is it asking support or challenge?
-- Is it asking most or least?
-- Is it asking direct text or inference?
+Example:
 
-## Rule 2: Compare verbs
+- Question asks why the author mentions an old theory.
+- Trap answer explains what the old theory says.
+- Better answer explains that the old theory sets up the author's later correction.
 
-Two answers may use similar nouns but different verbs.
+## Trap 2 — Stronger than the passage
 
-The verb often reveals the trap.
+Wrong answers often turn soft passage wording into hard claims.
 
-Example differences:
+Example:
 
-- influences vs determines;
-- supports vs proves;
-- can vs should;
-- explains vs causes;
-- challenges vs qualifies;
-- obscured vs intentionally destroyed.
+- Passage: “This may influence later interpretation.”
+- Trap: “This determines all later interpretation.”
 
-## Rule 3: Control scope
+## Trap 3 — True but not answering the question
 
-Watch for scope upgrades.
+An answer can be true according to the passage but still not answer the stem.
 
-| Passage says | Trap answer says |
-|---|---|
-| can | must / should / always |
-| some | all |
-| may | certainly |
-| influences | fully determines |
-| different | inferior or superior |
-| under similar conditions | every situation |
-| effect | intention |
+Example:
 
-## Rule 4: Avoid outside knowledge
+- Stem asks for the author's reason for including a quote.
+- Trap answer accurately states the quote's content.
+- Better answer states the quote's function.
 
-If the answer requires real-world knowledge that the passage did not provide, be suspicious.
+## Trap 4 — Real-life plausible but unsupported
 
-The answer can be true in real life and still wrong for CARS.
+An answer can make sense outside the passage and still be wrong.
 
-## Rule 5: When stuck between two answers
+Example:
 
-Ask in this order:
+- Passage discusses one artist's reputation changing over time.
+- Trap answer makes a general claim about how all art markets work.
 
-1. Which answer actually answers the full stem?
-2. Which answer is closer to the author's actual claim?
-3. Which answer is narrower?
-4. Which answer adds fewer assumptions?
-5. Which answer preserves the author's relationship?
-6. Which answer avoids turning a possibility into certainty?
+## Trap 5 — Scope shift
 
-## Rule 6: Change answers only for a concrete reason
+Wrong answers may change:
 
-Change only if you find:
+- one group into all groups;
+- one time period into all time;
+- one example into universal truth;
+- influence into causation;
+- effect into intention.
 
-- a missed negative word;
-- a stem misread;
-- a scope mismatch;
-- reversed direction;
-- direct contradiction;
-- clearer mechanism match.
+## Trap 6 — Direction reversal
 
-Do not change because of discomfort alone.
+Watch for reversals:
 
-> **Discomfort is not evidence.**
+- cause and effect flipped;
+- author view and critic view switched;
+- example treated as thesis;
+- old theory treated as final conclusion;
+- support treated as challenge.
 
 ---
 
-# Part 8 — Timing and Whiteboard
+# 9. Timing, Whiteboard, and Skipping Strategy
 
 ## Section-wide checkpoints
 
@@ -665,7 +726,9 @@ Optional symbols:
 / = guessed or no clear path
 ```
 
-## Whiteboard rules
+## Whiteboard rule
+
+> **The whiteboard is a dashboard, not a notebook.**
 
 Write only:
 
@@ -710,13 +773,9 @@ A targeted reread has a purpose:
 - confirm a known paragraph;
 - recover an analogy mechanism.
 
-A luxury reread is rereading because you feel uncomfortable.
+A luxury reread is rereading because the answer feels uncomfortable.
 
 When behind, eliminate luxury rereads first. Do not eliminate careful stem reading.
-
----
-
-# Part 9 — Skipping and Flagging
 
 ## Safe to return later
 
@@ -751,20 +810,156 @@ Flag when there is a concrete future action:
 
 Do not flag just because a question felt hard.
 
-## If no path appears
+---
 
-1. Reread the stem once.
-2. Identify the question type.
-3. Eliminate what clearly fails.
-4. Choose the best remaining answer.
-5. Flag only if returning could help.
-6. Move.
+# 10. Strategies to Try
 
-Do not let one question eat the next question's time.
+## Reading strategies to try
+
+### Try: Paragraph-job labels
+
+Use one short label per paragraph.
+
+Best for:
+
+- main idea;
+- function;
+- author agreement;
+- passage organization.
+
+Avoid turning it into a written map unless absolutely necessary.
+
+### Try: Passage direction sentence
+
+Before questions, state the author's direction in one sentence.
+
+Best for:
+
+- main idea;
+- inference;
+- author agreement;
+- 50/50 questions.
+
+### Try: Sentence-spine reading
+
+Use subject → verb → core claim when syntax is dense.
+
+Best for:
+
+- em dashes;
+- parentheticals;
+- comma-heavy sentences;
+- modifier confusion.
+
+### Try: Speaker tracking
+
+Label who believes what.
+
+Best for:
+
+- quoted passages;
+- philosophy passages;
+- criticism passages;
+- old theory/new theory passages.
+
+## Question strategies to try
+
+### Try: Stem → job → choices
+
+Read the full stem, translate it, then inspect answer choices.
+
+Best for:
+
+- preventing wrong-strategy selection;
+- avoiding topic matching;
+- handling reverse stems.
+
+### Try: One-strategy rule
+
+Pick one strategy based on the stem.
+
+Best for:
+
+- avoiding strategy overload;
+- preventing inference/assumption confusion;
+- staying calm during hard questions.
+
+### Try: Relationship matching
+
+Before answer choices, state the relationship that must be preserved.
+
+Best for:
+
+- analogy;
+- application;
+- inference;
+- new information.
+
+### Try: Scope check
+
+Ask how far the answer goes.
+
+Best for:
+
+- abstract passages;
+- universal/valid/always/never language;
+- broad philosophical answer choices.
+
+## Timing strategies to try
+
+### Try: Question-number checkpoints
+
+Use section-level checkpoints instead of passage-by-passage subtraction.
+
+Best for:
+
+- reducing timing math;
+- preventing panic;
+- knowing when to reduce rereads.
+
+### Try: One-minute-per-question safeguard
+
+Start questions by leaving about one minute per remaining question.
+
+Best for:
+
+- preventing over-reading;
+- keeping question time protected.
+
+### Try: Minimal return list
+
+Write only questions with a real return plan.
+
+Best for:
+
+- stopping endless flagging;
+- preserving time;
+- preventing end-of-section chaos.
+
+## Review strategies to try
+
+### Try: Game-tape review
+
+For each missed, guessed, or unstable question, record:
+
+- what the question asked;
+- what the answer needed to do;
+- what strategy belonged;
+- what strategy did not belong;
+- why the trap answer felt attractive;
+- one-line rule.
+
+Best for:
+
+- seeing repeated patterns;
+- turning mistakes into rules;
+- avoiding vague review notes.
 
 ---
 
-# Part 10 — What to Stop Doing
+# 11. Strategies to Stop / Keep / Test
+
+## Stop doing
 
 Stop:
 
@@ -781,9 +976,7 @@ Stop:
 - saving many reasoning questions for the end;
 - changing answers from discomfort alone.
 
----
-
-# Part 11 — What to Keep Doing
+## Keep doing
 
 Keep:
 
@@ -794,26 +987,39 @@ Keep:
 - treating titles as topic/tone clues;
 - finding sentence spines in dense prose;
 - translating stems into plain English;
-- selecting the strategy by question type;
+- selecting strategy by question type;
 - matching relationships, not topics;
 - using targeted rereading;
 - writing only returnable question numbers;
 - checking global timing checkpoints;
 - leaving at least one minute per remaining question.
 
+## Test carefully
+
+Test only one or two strategy changes at a time.
+
+Possible strategies to test:
+
+- very limited answer-choice preview only for obvious main-idea first questions;
+- brief passage-exit check for reverse stems and misclicks;
+- light finger tracking only if it improves focus without slowing reading;
+- one short passage anchor on the whiteboard for unusually abstract passages.
+
+Do not test many new systems in one practice block.
+
 ---
 
-# Part 12 — Practice Review Method
+# 12. Practice Review Method
 
-A CARS review should not just say “I missed inference questions.”
+A useful CARS review should not only say “missed inference question.”
 
 For each missed, guessed, or unstable question, ask:
 
 1. What did the question ask?
-2. What did I think it asked?
+2. What did the answer need to do?
 3. What did the passage actually support?
-4. What answer did I choose?
-5. Why did that answer feel attractive?
+4. Why did the chosen answer feel attractive?
+5. Was the issue reading, stem translation, strategy selection, answer comparison, or timing?
 6. What strategy belonged here?
 7. What strategy would not work here?
 8. What is the one-line fix?
@@ -825,7 +1031,7 @@ Question __ — short label
 Result:
 Question type:
 Plain-English task:
-What I thought:
+What happened:
 Where it broke:
 Correct route:
 Strategy that belonged:
@@ -834,11 +1040,145 @@ Trap answer:
 One-line rule:
 ```
 
-The review should recreate enough context that you can understand the lesson later without reopening the whole passage.
+The review should include enough context to understand the lesson later without reopening the whole passage.
 
 ---
 
-# Part 13 — The Full Test-Day Flow
+# 13. Example Bank
+
+These are invented/paraphrased examples designed to show strategy use without relying on raw test material.
+
+## Example 1 — Right topic, wrong job
+
+Passage pattern:
+
+> An author describes a painting style that became popular not because critics understood it, but because museums later reframed its value.
+
+Question:
+
+> Why does the author mention early critics?
+
+Wrong approach:
+
+> Pick the answer that says early critics misunderstood the paintings.
+
+Why that can fail:
+
+> That may be true, but the question asks why the author mentions them.
+
+Better approach:
+
+> The early critics create contrast with later museum interpretation.
+
+One-line rule:
+
+> **Function questions ask why included, not merely what happened.**
+
+## Example 2 — Suggests versus assumes
+
+Passage pattern:
+
+> The author argues that a reform helped some communities because it gave local leaders more control over implementation.
+
+Suggests question:
+
+> The passage suggests that local control was important because...
+
+Correct approach:
+
+> Ask what the passage points toward.
+
+Assumption question:
+
+> The author's argument assumes that local leaders...
+
+Correct approach:
+
+> Ask what must be true for the reasoning to work.
+
+One-line rule:
+
+> **Suggests moves forward. Assumes moves backward.**
+
+## Example 3 — Dense sentence spine
+
+Sentence:
+
+> The historian's claim — though repeated in several influential accounts — does not explain the evidence discovered later.
+
+Spine:
+
+> The historian's claim does not explain the later evidence.
+
+Add-back:
+
+> The claim was repeated in influential accounts.
+
+One-line rule:
+
+> **Remove the interruption first; restore it only if it changes meaning.**
+
+## Example 4 — Analogy relationship
+
+Passage relationship:
+
+> A teacher first gives direct instructions, but the student only truly learns after practicing independently.
+
+Wrong analogy:
+
+> A person watches a video explaining a skill.
+
+Better analogy:
+
+> A person reads instructions, then learns by doing the task.
+
+One-line rule:
+
+> **Analogy questions match the relationship, not the topic.**
+
+## Example 5 — Scope trap
+
+Passage claim:
+
+> This method can help researchers understand one kind of social behavior.
+
+Trap answer:
+
+> This method proves how all social behavior works.
+
+Why wrong:
+
+> The answer turns can into proves and one kind into all.
+
+One-line rule:
+
+> **Watch for scope upgrades.**
+
+## Example 6 — Quote speaker trap
+
+Passage pattern:
+
+> The author quotes a critic, then explains why the critic's conclusion was incomplete.
+
+Question:
+
+> The quoted statement is used primarily to...
+
+Wrong approach:
+
+> Treat the quote as the author's final view.
+
+Better approach:
+
+> Identify the quote as a view the author later qualifies.
+
+One-line rule:
+
+> **A quote needs a speaker and a job.**
+
+---
+
+# 14. Full Test-Day Flow
 
 ## Before reading
 
@@ -852,8 +1192,8 @@ The review should recreate enough context that you can understand the lesson lat
 5. Read paragraph 1 for setup.
 6. Read each paragraph for job.
 7. Compress names into roles.
-8. Treat quotes as evidence with a speaker and a purpose.
-9. For dense sentences, find subject → verb → core claim.
+8. Treat quotes as speaker + purpose.
+9. For dense sentences, find subject → verb → claim.
 10. Preserve hinge words.
 11. State the passage direction.
 
@@ -878,9 +1218,7 @@ The review should recreate enough context that you can understand the lesson lat
 
 ---
 
-# Part 14 — Two-Minute CARS Card
-
-Read this before practice:
+# 15. Two-Minute Pre-Practice Card
 
 ```text
 READ FOR JOBS, NOT DETAILS.
@@ -902,7 +1240,7 @@ DISCOMFORT IS NOT EVIDENCE.
 
 ---
 
-# Final summary
+# Final Summary
 
 CARS improves when the process becomes simpler, not when the strategy list becomes longer.
 
@@ -910,4 +1248,4 @@ The master rule is:
 
 > **Read for the author's argument, translate the question, select the right tool, and choose the answer that does the exact job with the least extra assumption.**
 
-Everything else is support for that rule.
+Everything else supports that rule.
