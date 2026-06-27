@@ -56,6 +56,47 @@ A comma may separate:
 
 Do not treat every comma as a new idea. Check whether the material between commas only describes a nearby noun.
 
+### Missing or unintuitive punctuation
+
+Do not assume CARS punctuation will make the sentence easy to read. This is especially important for Jack Westin exports, copied passages, OCR text, screenshots, or older prose where commas may be missing, sparse, or visually unhelpful.
+
+When punctuation is not clarifying, use grammar structure first:
+
+1. Find the subject.
+2. Find the main verb.
+3. Find the core complement or object.
+4. Preserve parallel constructions.
+5. Treat punctuation as secondary evidence, not the source of meaning.
+
+Example pattern:
+
+```text
+not a popular but a literary idea
+= not a popular [idea], but a literary idea
+```
+
+This is not overreading. It is restoring the repeated noun implied by the parallel grammar.
+
+For a question asking where something "originated," privilege the phrase directly attached to the origin signal:
+
+```text
+In origin + subject + was + not X but Y
+```
+
+Example skeleton:
+
+```text
+In origin, the agrarian myth was not a popular [idea], but a literary idea.
+```
+
+CARS answer move:
+
+```text
+origin = literary idea = in literature
+```
+
+Do not let a later appositive, social group, or descriptive phrase override the main sentence spine. If the sentence later says the idea was "a preoccupation of the upper classes," that describes who held or cared about the idea. It does not change the grammatical origin from literary to social-class origin unless the sentence gives a new main verb or direct origin claim.
+
 ### Colon
 
 The material after the colon usually:
@@ -105,6 +146,35 @@ Always notice words that change direction, certainty, comparison, or scope:
 - while
 
 A decorative interruption may be deferred. A logical hinge may not.
+
+### Parallel contrast patterns
+
+When a sentence uses a parallel contrast, preserve the repeated grammar even if one repeated word is omitted.
+
+Common patterns:
+
+```text
+not X but Y
+not only X but also Y
+either X or Y
+neither X nor Y
+more X than Y
+less X than Y
+```
+
+If the sentence says:
+
+```text
+not a popular but a literary idea
+```
+
+read it as:
+
+```text
+not a popular idea, but a literary idea
+```
+
+The omitted word is not a new inference. It is the noun required by the parallel structure.
 
 ## Names
 
@@ -201,6 +271,8 @@ Use full sentence breakdown when:
 - a comparison is unclear
 - the answer choices reverse cause and effect
 - removing the interruption changes the meaning
+- punctuation is missing, unintuitive, or not clarifying the structure
+- a parallel construction omits a repeated noun or phrase
 
 Do not fully diagram every difficult sentence during the first read.
 
@@ -212,6 +284,8 @@ Do not fully diagram every difficult sentence during the first read.
 - **Em dash:** remove interruption first
 - **Parentheses:** usually extra
 - **Comma phrase:** check whether it only describes a noun
+- **Bad punctuation:** trust grammar spine before punctuation
+- **Parallel contrast:** restore omitted repeated words
 - **Colon:** explanation follows
 - **Semicolon:** linked complete ideas
 - **Hinge word:** never skip
@@ -219,4 +293,4 @@ Do not fully diagram every difficult sentence during the first read.
 
 ## Operational summary
 
-> **Subject → verb → core claim. Names become roles. Quotes need a speaker and a job. Titles give clues, not homework.**
+> **Subject → verb → core claim. Names become roles. Quotes need a speaker and a job. Titles give clues, not homework. If punctuation is not clarifying, preserve the grammar spine and parallel structure first.**
