@@ -46,6 +46,52 @@ Always notice words that change direction, scope, certainty, or comparison:
 
 A removable interruption may be deferred. A logical hinge cannot.
 
+## Do not depend on punctuation being helpful
+
+Do not assume passage punctuation will be intuitive, complete, or visually clarifying. In Jack Westin exports, screenshots, copied text, OCR, or older prose, punctuation may be missing or may not separate the sentence in the way a modern reader expects.
+
+When punctuation fails, use grammar structure before rereading the whole sentence:
+
+```text
+subject → main verb → complement/object → logical hinge → modifier/appositive
+```
+
+This matters most when the question target is tied to a phrase such as:
+
+```text
+in origin
+in contrast
+not X but Y
+not only X but also Y
+rather than
+```
+
+### Parallel-grammar repair
+
+If a sentence says:
+
+```text
+not a popular but a literary idea
+```
+
+read the omitted repeated noun back into the sentence:
+
+```text
+not a popular [idea], but a literary idea
+```
+
+That is not overreading. It is restoring the grammar required by the parallel construction.
+
+CARS shortcut:
+
+```text
+Question asks: originated where?
+Passage says: In origin + subject + was + not popular [idea] but literary idea
+Answer move: origin = literary idea = in literature
+```
+
+Do not let an appositive or description after the core phrase steal the answer. A later phrase such as "a preoccupation of the upper classes" describes who cared about the idea; it does not replace the origin category unless the sentence creates a new main claim.
+
 ## Core-first example
 
 Original structure:
@@ -150,9 +196,10 @@ Change an answer only when there is a concrete reason:
 - a scope mismatch
 - direct contradiction from the passage
 - a clearer mechanism match
+- restored parallel grammar that changes the sentence spine
 
 Discomfort alone is not evidence.
 
 ## Operational summary
 
-> Core claim first. Logical hinge always. Modifier second. Reread with a target. Match scope and mechanism.
+> Core claim first. Logical hinge always. Modifier second. Do not depend on punctuation being helpful. Preserve parallel grammar. Reread with a target. Match scope and mechanism.
