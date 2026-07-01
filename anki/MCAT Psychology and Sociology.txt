@@ -1,0 +1,48 @@
+#separator:tab
+#html:true
+"<div id=""kard"">
+    <div id=""text""><span class=""cloze"" data-cloze=""&lt;b&gt;Hypnotic&#x20;induction&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is&nbsp;a series of <span class=""cloze-inactive"" data-ordinal=""2""><i>small tasks</i></span> that leads an individual to enter a state of <span class=""cloze-inactive"" data-ordinal=""3""><u><i>higher suggestibility</i></u></span> during hypnosis.</div>
+
+    <div>&nbsp;</div>
+    <div id=""question-audio"">[sound:hypertts-82660f4f7be3aeb36dbf95bde8f621260343e805af7363820ed930b2.mp3]</div>
+</div>"	"<div id=""kard"">
+    <div id=""text""><span class=""cloze"" data-ordinal=""1""><b>Hypnotic induction</b></span> is&nbsp;a series of <span class=""cloze-inactive"" data-ordinal=""2""><i>small tasks</i></span> that leads an individual to enter a state of <span class=""cloze-inactive"" data-ordinal=""3""><u><i>higher suggestibility</i></u></span> during hypnosis.</div>
+
+    
+    <div>&nbsp;</div>
+    <div id=""extra"">- e.g., Allowing one's hand to float upward<div><br></div><div>- The process <b>depends on</b> one's <b>hypnotic susceptibility</b> (the degree to which an individual is able to enter into hypnosis)</div></div>
+    
+
+    
+    <div>&nbsp;</div>
+    <div id=""text-audio"">[sound:hypertts-091819e5a54ddf060fdfb1a83c6bfb5d4d900b0618cc7e82be64ec1d.mp3]</div>
+    
+
+    
+    <div>&nbsp;</div>
+    <div id=""extra-audio"">[sound:hypertts-e52b2eeea247c3a8dd2f63c492257d1daaaf74b6f5aa0e353c5ba7c9.mp3]</div>
+    
+</div>"
+"<div id=""kard"">
+    <div id=""text""> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div><span class=""cloze"" data-cloze=""&lt;b&gt;Freebase&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is a highly <i>concentrated </i>form of&nbsp;<span class=""cloze-inactive"" data-ordinal=""2"">cocaine</span>, prepared by treating cocaine with <u>ether</u> and <u>ammonia</u>; ingested by smoking.<br></div><div><div><div><div><div> </div> </div> </div></div></div> </div> </div> </div></div> </div> </div> </div></div> </div> </div> </div></div> </div> </div> </div></div>
+
+    <div>&nbsp;</div>
+    <div id=""question-audio"">[sound:hypertts-9b009797d477e82f224426871a491e05659a9bf7f9dd30a27c0d27f5.mp3]</div>
+</div>"	"<div id=""kard"">
+    <div id=""text""> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div> <div><span class=""cloze"" data-ordinal=""1""><b>Freebase</b></span> is a highly <i>concentrated </i>form of&nbsp;<span class=""cloze-inactive"" data-ordinal=""2"">cocaine</span>, prepared by treating cocaine with <u>ether</u> and <u>ammonia</u>; ingested by smoking.<br></div><div><div><div><div><div> </div> </div> </div></div></div> </div> </div> </div></div> </div> </div> </div></div> </div> </div> </div></div> </div> </div> </div></div>
+
+    
+    <div>&nbsp;</div>
+    <div id=""extra"">-&nbsp;Although purer than&nbsp;crack&nbsp;cocaine, its effects are similar<div><br></div><div><img src=""main-qimg-2fa426062a72b2c565d95ec73e61aa8d.png""><br></div></div>
+    
+
+    
+    <div>&nbsp;</div>
+    <div id=""text-audio"">[sound:hypertts-716e98bc71e73856e3e62451458b5e7bf57adfe9de29934f5c3be756.mp3]</div>
+    
+
+    
+    <div>&nbsp;</div>
+    <div id=""extra-audio"">[sound:hypertts-a490ac0a4a82e24a21f44930aef7bf1d8041f943faab6eda4257d168.mp3]</div>
+    
+</div>"

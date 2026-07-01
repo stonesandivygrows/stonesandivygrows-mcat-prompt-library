@@ -1,0 +1,1378 @@
+#separator:tab
+#html:true
+"<div>A <span class=""cloze"" data-cloze=""&lt;b&gt;confounding&#x20;variable&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> in an experiment is a 3<sup>rd</sup> variable that could potentially <i>relate</i> to <span class=""cloze-inactive"" data-ordinal=""3""><i>either</i> the <u>independent</u> or&nbsp;<u>dependent</u></span> variable(s) in an experiment.<br></div>"	"<div>A <span class=""cloze"" data-ordinal=""1""><b>confounding variable</b></span> in an experiment is a 3<sup>rd</sup> variable that could potentially <i>relate</i> to <span class=""cloze-inactive"" data-ordinal=""3""><i>either</i> the <u>independent</u> or&nbsp;<u>dependent</u></span> variable(s) in an experiment.<br></div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Like a factor that was failed to be considered by the researchers.</div>"
+"<b style="""">Confounding errors</b> are only made <span class=""cloze"" data-cloze=""&lt;i&gt;after&lt;&#x2F;i&gt;"" data-ordinal=""1"">[...]</span> the experiment is finished."	"<b style="""">Confounding errors</b> are only made <span class=""cloze"" data-ordinal=""1""><i>after</i></span> the experiment is finished.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Incorrectly draws conclusions between variables</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Ecological&#x20;validity&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is whether or not the <span class=""cloze-inactive"" data-ordinal=""2""><i><u>experimental design</u></i></span> of a study <span class=""cloze-inactive"" data-ordinal=""2"">represents the <i>real</i> world</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Ecological validity</b></span> is whether or not the <span class=""cloze-inactive"" data-ordinal=""2""><i><u>experimental design</u></i></span> of a study <span class=""cloze-inactive"" data-ordinal=""2"">represents the <i>real</i> world</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>That was a major problem for <b><u>Solomon Asch's</u></b> line conformity experiment. How could a line drawn on a board be representative of conformity in the real world?</div><div><br></div><div><img src=""psychology-asch-1951.png""><br></div></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Ecological validity</b></span> is whether or not the <span class=""cloze"" data-cloze=""&lt;i&gt;&lt;u&gt;experimental&#x20;design&lt;&#x2F;u&gt;&lt;&#x2F;i&gt;"" data-ordinal=""2"">[...]</span> of a study <span class=""cloze"" data-cloze=""represents&#x20;the&#x20;&lt;i&gt;real&lt;&#x2F;i&gt;&#x20;world"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Ecological validity</b></span> is whether or not the <span class=""cloze"" data-ordinal=""2""><i><u>experimental design</u></i></span> of a study <span class=""cloze"" data-ordinal=""2"">represents the <i>real</i> world</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>That was a major problem for <b><u>Solomon Asch's</u></b> line conformity experiment. How could a line drawn on a board be representative of conformity in the real world?</div><div><br></div><div><img src=""psychology-asch-1951.png""><br></div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;External&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>validity</b> is concerned with <span class=""cloze-inactive"" data-ordinal=""2""><u>generalizability</u></span> - whether or not the experiment is applicable to <i>other</i> situations."	"<span class=""cloze"" data-ordinal=""1""><b>External</b></span> <b>validity</b> is concerned with <span class=""cloze-inactive"" data-ordinal=""2""><u>generalizability</u></span> - whether or not the experiment is applicable to <i>other</i> situations.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>As internal validity increases (stricter experimental design), external validity decreases (less similar to the real world).<br></div><div><br></div><img src=""6f93b616f915b4d5936612122fab1c83.png""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>External</b></span> <b>validity</b> is concerned with <span class=""cloze"" data-cloze=""&lt;u&gt;generalizability&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> - whether or not the experiment is applicable to <i>other</i> situations."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>External</b></span> <b>validity</b> is concerned with <span class=""cloze"" data-ordinal=""2""><u>generalizability</u></span> - whether or not the experiment is applicable to <i>other</i> situations.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>As internal validity increases (stricter experimental design), external validity decreases (less similar to the real world).<br></div><div><br></div><img src=""6f93b616f915b4d5936612122fab1c83.png""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Internal&lt;&#x2F;b&gt;"" data-ordinal=""1"">[internal/external]</span> <b>validity</b> is concerned with <u>causality</u>&nbsp;- whether or not the observed results <i>accurately</i> describe reality."	"<span class=""cloze"" data-ordinal=""1""><b>Internal</b></span> <b>validity</b> is concerned with <u>causality</u>&nbsp;- whether or not the observed results <i>accurately</i> describe reality.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>As internal validity increases (stricter experimental design), external validity decreases (less similar to the real world).</div><div><br></div><img src=""6f93b616f915b4d5936612122fab1c83.png""></div>"
+"An <b>r-value</b> <i>below</i> <span class=""cloze-inactive"" data-ordinal=""2"">0.1</span> indicates <span class=""cloze"" data-cloze=""&lt;i&gt;no&lt;&#x2F;i&gt;&#x20;correlation"" data-ordinal=""1"">[...]</span>."	"An <b>r-value</b> <i>below</i> <span class=""cloze-inactive"" data-ordinal=""2"">0.1</span> indicates <span class=""cloze"" data-ordinal=""1""><i>no</i> correlation</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""02215b7dcc158f20ded5cad0711ad815.png""><br></div></div>"
+"An <b>r-value</b> <i>below</i> <span class=""cloze"" data-cloze=""0&#x2E;1"" data-ordinal=""2"">[#]</span> indicates <span class=""cloze-inactive"" data-ordinal=""1""><i>no</i> correlation</span>."	"An <b>r-value</b> <i>below</i> <span class=""cloze"" data-ordinal=""2"">0.1</span> indicates <span class=""cloze-inactive"" data-ordinal=""1""><i>no</i> correlation</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""02215b7dcc158f20ded5cad0711ad815.png""><br></div></div>"
+"An <b>r-value</b> between&nbsp;0.3-0.49 indicates a <span class=""cloze"" data-cloze=""&lt;i&gt;moderate&lt;&#x2F;i&gt;&amp;nbsp&#x3B;correlation"" data-ordinal=""1"">[...]</span>."	"An <b>r-value</b> between&nbsp;0.3-0.49 indicates a <span class=""cloze"" data-ordinal=""1""><i>moderate</i>&nbsp;correlation</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""02215b7dcc158f20ded5cad0711ad815.png""><br></div></div>"
+"An <b>r-value</b> between&nbsp;0.5-1.0 indicates a <span class=""cloze"" data-cloze=""&lt;i&gt;strong&lt;&#x2F;i&gt;&amp;nbsp&#x3B;correlation"" data-ordinal=""1"">[...]</span>."	"An <b>r-value</b> between&nbsp;0.5-1.0 indicates a <span class=""cloze"" data-ordinal=""1""><i>strong</i>&nbsp;correlation</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""02215b7dcc158f20ded5cad0711ad815.png""><br></div></div>"
+"As the <b>internal validity</b> of a study <span class=""cloze"" data-cloze=""&lt;i&gt;increases&lt;&#x2F;i&gt;"" data-ordinal=""1"">[increases/decreases]</span>, the <b>external validity</b>&nbsp;<span class=""cloze-inactive"" data-ordinal=""2""><i>decreases</i></span>."	"As the <b>internal validity</b> of a study <span class=""cloze"" data-ordinal=""1""><i>increases</i></span>, the <b>external validity</b>&nbsp;<span class=""cloze-inactive"" data-ordinal=""2""><i>decreases</i></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>As the experiment becomes more tightly controlled, the less it represents the real world.</div><div><br></div><img src=""6f93b616f915b4d5936612122fab1c83.png""></div>"
+"As the <b>internal validity</b> of a study <span class=""cloze-inactive"" data-ordinal=""1""><i>increases</i></span>, the <b>external validity</b>&nbsp;<span class=""cloze"" data-cloze=""&lt;i&gt;decreases&lt;&#x2F;i&gt;"" data-ordinal=""2"">[increases/decreases]</span>."	"As the <b>internal validity</b> of a study <span class=""cloze-inactive"" data-ordinal=""1""><i>increases</i></span>, the <b>external validity</b>&nbsp;<span class=""cloze"" data-ordinal=""2""><i>decreases</i></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>As the experiment becomes more tightly controlled, the less it represents the real world.</div><div><br></div><img src=""6f93b616f915b4d5936612122fab1c83.png""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Cross&#x2D;sectional&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>studies</b> are those where data is collected at <span class=""cloze-inactive"" data-ordinal=""2"">only <i>one instance</i> in time</span> - usually used to determine the <u>prevalence</u> of things in populations."	"<span class=""cloze"" data-ordinal=""1""><b>Cross-sectional</b></span> <b>studies</b> are those where data is collected at <span class=""cloze-inactive"" data-ordinal=""2"">only <i>one instance</i> in time</span> - usually used to determine the <u>prevalence</u> of things in populations.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Assesses data between <u>multiple different groups</u> at one single point in time.</div><div><br></div><img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Cross-sectional</b></span> <b>studies</b> are those where data is collected at <span class=""cloze"" data-cloze=""only&#x20;&lt;i&gt;one&#x20;instance&lt;&#x2F;i&gt;&#x20;in&#x20;time"" data-ordinal=""2"">[...]</span> - usually used to determine the <u>prevalence</u> of things in populations."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Cross-sectional</b></span> <b>studies</b> are those where data is collected at <span class=""cloze"" data-ordinal=""2"">only <i>one instance</i> in time</span> - usually used to determine the <u>prevalence</u> of things in populations.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Assesses data between <u>multiple different groups</u> at one single point in time.</div><div><br></div><img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Longitudinal&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>studies</b> are those where data is collected at <span class=""cloze-inactive"" data-ordinal=""2""><i>multiple</i> different points in time</span> - usually used to assess <u>outcomes/risk factors</u>."	"<span class=""cloze"" data-ordinal=""1""><b>Longitudinal</b></span> <b>studies</b> are those where data is collected at <span class=""cloze-inactive"" data-ordinal=""2""><i>multiple</i> different points in time</span> - usually used to assess <u>outcomes/risk factors</u>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Longitudinal</b></span> <b>studies</b> are those where data is collected at <span class=""cloze"" data-cloze=""&lt;i&gt;multiple&lt;&#x2F;i&gt;&#x20;different&#x20;points&#x20;in&#x20;time"" data-ordinal=""2"">[...]</span> - usually used to assess <u>outcomes/risk factors</u>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Longitudinal</b></span> <b>studies</b> are those where data is collected at <span class=""cloze"" data-ordinal=""2""><i>multiple</i> different points in time</span> - usually used to assess <u>outcomes/risk factors</u>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Randomized&#x20;control&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>studies</b> are those where participants are <span class=""cloze-inactive"" data-ordinal=""2"">placed <i>randomly</i> into treatment &amp; control groups</span> - used to determine the <u>efficacy</u> of different treatments."	"<span class=""cloze"" data-ordinal=""1""><b>Randomized control</b></span> <b>studies</b> are those where participants are <span class=""cloze-inactive"" data-ordinal=""2"">placed <i>randomly</i> into treatment &amp; control groups</span> - used to determine the <u>efficacy</u> of different treatments.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Randomized control</b></span> <b>studies</b> are those where participants are <span class=""cloze"" data-cloze=""placed&#x20;&lt;i&gt;randomly&lt;&#x2F;i&gt;&#x20;into&#x20;treatment&#x20;&amp;amp&#x3B;&#x20;control&#x20;groups"" data-ordinal=""2"">[...]</span> - used to determine the <u>efficacy</u> of different treatments."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Randomized control</b></span> <b>studies</b> are those where participants are <span class=""cloze"" data-ordinal=""2"">placed <i>randomly</i> into treatment &amp; control groups</span> - used to determine the <u>efficacy</u> of different treatments.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<div><span class=""cloze"" data-cloze=""&lt;b&gt;Randomized&#x20;control&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>studies</b>&nbsp;are used to <i>assess</i> the <u>efficacy</u> of different treatments on patients.<br></div>"	"<div><span class=""cloze"" data-ordinal=""1""><b>Randomized control</b></span> <b>studies</b>&nbsp;are used to <i>assess</i> the <u>efficacy</u> of different treatments on patients.<br></div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<div><span class=""cloze"" data-cloze=""&lt;b&gt;Cross&#x2D;sectional&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>studies</b>&nbsp;are used to determine the <i>prevalence</i> of conditions in a population.<br></div>"	"<div><span class=""cloze"" data-ordinal=""1""><b>Cross-sectional</b></span> <b>studies</b>&nbsp;are used to determine the <i>prevalence</i> of conditions in a population.<br></div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Data is collected at only one single point in time.</div><div><br></div><img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<div><span class=""cloze"" data-cloze=""&lt;b&gt;Longitudinal&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>studies</b>&nbsp;are used to assess risk factors or patient outcomes following treatments.<br></div>"	"<div><span class=""cloze"" data-ordinal=""1""><b>Longitudinal</b></span> <b>studies</b>&nbsp;are used to assess risk factors or patient outcomes following treatments.<br></div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<div><span class=""cloze"" data-cloze=""&lt;b&gt;Case&#x2D;control&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>studies</b>&nbsp;are when researchers gather information from individuals with a <u>particular condition</u> and <i>compare</i> that data to individuals <i>without</i> the condition.<br></div>"	"<div><span class=""cloze"" data-ordinal=""1""><b>Case-control</b></span> <b>studies</b>&nbsp;are when researchers gather information from individuals with a <u>particular condition</u> and <i>compare</i> that data to individuals <i>without</i> the condition.<br></div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<div><span class=""cloze"" data-cloze=""&lt;b&gt;Case&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>studies</b> are ones where <i>detailed</i> information is gathered about one individual or a few select individuals.&nbsp;</div>"	"<div><span class=""cloze"" data-ordinal=""1""><b>Case</b></span> <b>studies</b> are ones where <i>detailed</i> information is gathered about one individual or a few select individuals.&nbsp;</div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"
+<div id=""io-header""></div>
+<div id=""io-wrapper"">
+  <div id=""io-overlay""><img src=""c6ed3304f7294c8483359c5a9d6e7ca2-ao-1-Q.svg""></div>
+  <div id=""io-original""><img src=""BoxWhisker.png""></div>
+</div>
+<div id=""io-footer""></div>
+
+<script>
+// Prevent original image from loading before mask
+aFade = 50, qFade = 0;
+var mask = document.querySelector('#io-overlay>img');
+function loaded() {
+    var original = document.querySelector('#io-original');
+    original.style.visibility = ""visible"";
+}
+if (mask === null || mask.complete) {
+    loaded();
+} else {
+    mask.addEventListener('load', loaded);
+}
+</script>
+
+"	"
+<div id=""io-header""></div>
+<div id=""io-wrapper"">
+  <div id=""io-overlay""><img src=""c6ed3304f7294c8483359c5a9d6e7ca2-ao-1-A.svg""></div>
+  <div id=""io-original""><img src=""BoxWhisker.png""></div>
+</div>
+
+<button id=""io-revl-btn"" onclick=""toggle();"">Toggle Masks</button>
+<div id=""io-extra-wrapper"">
+  <div id=""io-extra"">
+    
+    
+    
+    
+  </div>
+</div>
+
+<script>
+// Toggle answer mask on clicking the image
+var toggle = function() {
+  var amask = document.getElementById('io-overlay');
+  if (amask.style.display === 'block' || amask.style.display === '')
+    amask.style.display = 'none';
+  else
+    amask.style.display = 'block'
+}
+
+// Prevent original image from loading before mask
+aFade = 50, qFade = 0;
+var mask = document.querySelector('#io-overlay>img');
+function loaded() {
+    var original = document.querySelector('#io-original');
+    original.style.visibility = ""visible"";
+}
+if (mask === null || mask.complete) {
+    loaded();
+} else {
+    mask.addEventListener('load', loaded);
+}
+</script>
+
+"
+"
+<div id=""io-header""></div>
+<div id=""io-wrapper"">
+  <div id=""io-overlay""><img src=""c6ed3304f7294c8483359c5a9d6e7ca2-ao-2-Q.svg"" /></div>
+  <div id=""io-original""><img src=""BoxWhisker.png"" /></div>
+</div>
+<div id=""io-footer""></div>
+
+<script>
+// Prevent original image from loading before mask
+aFade = 50, qFade = 0;
+var mask = document.querySelector('#io-overlay>img');
+function loaded() {
+    var original = document.querySelector('#io-original');
+    original.style.visibility = ""visible"";
+}
+if (mask === null || mask.complete) {
+    loaded();
+} else {
+    mask.addEventListener('load', loaded);
+}
+</script>
+
+"	"
+<div id=""io-header""></div>
+<div id=""io-wrapper"">
+  <div id=""io-overlay""><img src=""c6ed3304f7294c8483359c5a9d6e7ca2-ao-2-A.svg"" /></div>
+  <div id=""io-original""><img src=""BoxWhisker.png"" /></div>
+</div>
+
+<button id=""io-revl-btn"" onclick=""toggle();"">Toggle Masks</button>
+<div id=""io-extra-wrapper"">
+  <div id=""io-extra"">
+    
+    
+    
+    
+  </div>
+</div>
+
+<script>
+// Toggle answer mask on clicking the image
+var toggle = function() {
+  var amask = document.getElementById('io-overlay');
+  if (amask.style.display === 'block' || amask.style.display === '')
+    amask.style.display = 'none';
+  else
+    amask.style.display = 'block'
+}
+
+// Prevent original image from loading before mask
+aFade = 50, qFade = 0;
+var mask = document.querySelector('#io-overlay>img');
+function loaded() {
+    var original = document.querySelector('#io-original');
+    original.style.visibility = ""visible"";
+}
+if (mask === null || mask.complete) {
+    loaded();
+} else {
+    mask.addEventListener('load', loaded);
+}
+</script>
+
+"
+"
+<div id=""io-header""></div>
+<div id=""io-wrapper"">
+  <div id=""io-overlay""><img src=""c6ed3304f7294c8483359c5a9d6e7ca2-ao-3-Q.svg"" /></div>
+  <div id=""io-original""><img src=""BoxWhisker.png"" /></div>
+</div>
+<div id=""io-footer""></div>
+
+<script>
+// Prevent original image from loading before mask
+aFade = 50, qFade = 0;
+var mask = document.querySelector('#io-overlay>img');
+function loaded() {
+    var original = document.querySelector('#io-original');
+    original.style.visibility = ""visible"";
+}
+if (mask === null || mask.complete) {
+    loaded();
+} else {
+    mask.addEventListener('load', loaded);
+}
+</script>
+
+"	"
+<div id=""io-header""></div>
+<div id=""io-wrapper"">
+  <div id=""io-overlay""><img src=""c6ed3304f7294c8483359c5a9d6e7ca2-ao-3-A.svg"" /></div>
+  <div id=""io-original""><img src=""BoxWhisker.png"" /></div>
+</div>
+
+<button id=""io-revl-btn"" onclick=""toggle();"">Toggle Masks</button>
+<div id=""io-extra-wrapper"">
+  <div id=""io-extra"">
+    
+    
+    
+    
+  </div>
+</div>
+
+<script>
+// Toggle answer mask on clicking the image
+var toggle = function() {
+  var amask = document.getElementById('io-overlay');
+  if (amask.style.display === 'block' || amask.style.display === '')
+    amask.style.display = 'none';
+  else
+    amask.style.display = 'block'
+}
+
+// Prevent original image from loading before mask
+aFade = 50, qFade = 0;
+var mask = document.querySelector('#io-overlay>img');
+function loaded() {
+    var original = document.querySelector('#io-original');
+    original.style.visibility = ""visible"";
+}
+if (mask === null || mask.complete) {
+    loaded();
+} else {
+    mask.addEventListener('load', loaded);
+}
+</script>
+
+"
+"
+<div id=""io-header""></div>
+<div id=""io-wrapper"">
+  <div id=""io-overlay""><img src=""c6ed3304f7294c8483359c5a9d6e7ca2-ao-4-Q.svg"" /></div>
+  <div id=""io-original""><img src=""BoxWhisker.png"" /></div>
+</div>
+<div id=""io-footer""></div>
+
+<script>
+// Prevent original image from loading before mask
+aFade = 50, qFade = 0;
+var mask = document.querySelector('#io-overlay>img');
+function loaded() {
+    var original = document.querySelector('#io-original');
+    original.style.visibility = ""visible"";
+}
+if (mask === null || mask.complete) {
+    loaded();
+} else {
+    mask.addEventListener('load', loaded);
+}
+</script>
+
+"	"
+<div id=""io-header""></div>
+<div id=""io-wrapper"">
+  <div id=""io-overlay""><img src=""c6ed3304f7294c8483359c5a9d6e7ca2-ao-4-A.svg"" /></div>
+  <div id=""io-original""><img src=""BoxWhisker.png"" /></div>
+</div>
+
+<button id=""io-revl-btn"" onclick=""toggle();"">Toggle Masks</button>
+<div id=""io-extra-wrapper"">
+  <div id=""io-extra"">
+    
+    
+    
+    
+  </div>
+</div>
+
+<script>
+// Toggle answer mask on clicking the image
+var toggle = function() {
+  var amask = document.getElementById('io-overlay');
+  if (amask.style.display === 'block' || amask.style.display === '')
+    amask.style.display = 'none';
+  else
+    amask.style.display = 'block'
+}
+
+// Prevent original image from loading before mask
+aFade = 50, qFade = 0;
+var mask = document.querySelector('#io-overlay>img');
+function loaded() {
+    var original = document.querySelector('#io-original');
+    original.style.visibility = ""visible"";
+}
+if (mask === null || mask.complete) {
+    loaded();
+} else {
+    mask.addEventListener('load', loaded);
+}
+</script>
+
+"
+"<span class=""cloze"" data-cloze=""Validity"" data-ordinal=""1"">[validity/reliability]</span> refers to the <i>accuracy </i>of a study in terms of showing reality."	"<span class=""cloze"" data-ordinal=""1"">Validity</span> refers to the <i>accuracy </i>of a study in terms of showing reality.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""9ae66cb463add9802ad9dfeffc443156.png""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Reliability&lt;&#x2F;b&gt;"" data-ordinal=""1"">[validity/reliability]</span> refers to the ability of a test to <span class=""cloze-inactive"" data-ordinal=""2"">produce <i>similar results</i> every single time</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Reliability</b></span> refers to the ability of a test to <span class=""cloze-inactive"" data-ordinal=""2"">produce <i>similar results</i> every single time</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""9ae66cb463add9802ad9dfeffc443156.png""><br></div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Precision&lt;&#x2F;b&gt;"" data-ordinal=""1"">[accuracy/precision]</span> is analogous to <u>reliability</u> - if you perform a procedure multiple times, you should get <i>similar </i>results."	"<span class=""cloze"" data-ordinal=""1""><b>Precision</b></span> is analogous to <u>reliability</u> - if you perform a procedure multiple times, you should get <i>similar </i>results.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""31aff19dabe1693e90fa832e6b9b9d48.png""><div><br></div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Accuracy&lt;&#x2F;b&gt;"" data-ordinal=""1"">[accuracy/precision]</span> is analogous to <u>validity</u> - the results you get from a procedure should <i>reflect reality</i>."	"<span class=""cloze"" data-ordinal=""1""><b>Accuracy</b></span> is analogous to <u>validity</u> - the results you get from a procedure should <i>reflect reality</i>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""31aff19dabe1693e90fa832e6b9b9d48.png""><div><br></div></div>"
+"The <span class=""cloze-inactive"" data-ordinal=""2""><b>social desirability bias</b></span> happens when participants in a study&nbsp;<span class=""cloze"" data-cloze=""&lt;i&gt;overemphasize&amp;nbsp&#x3B;&lt;&#x2F;i&gt;positive&#x20;traits"" data-ordinal=""1"">[...]</span> &amp;&nbsp;<span class=""cloze"" data-cloze=""&lt;i&gt;downplay&amp;nbsp&#x3B;&lt;&#x2F;i&gt;negative&#x20;traits"" data-ordinal=""1"">[...]</span> to researchers."	"The <span class=""cloze-inactive"" data-ordinal=""2""><b>social desirability bias</b></span> happens when participants in a study&nbsp;<span class=""cloze"" data-ordinal=""1""><i>overemphasize&nbsp;</i>positive traits</span> &amp;&nbsp;<span class=""cloze"" data-ordinal=""1""><i>downplay&nbsp;</i>negative traits</span> to researchers.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Ex: in a sleep study, participants don't tell the researchers that they were out the entire night before partying.<br></div><div><br></div><img src=""paste-7bd1dbd7cbf624c10bbbd507c49239beed872010.jpg""></div>"
+"The <span class=""cloze"" data-cloze=""&lt;b&gt;social&#x20;desirability&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""2"">[bias]</span> happens when participants in a study&nbsp;<span class=""cloze-inactive"" data-ordinal=""1""><i>overemphasize&nbsp;</i>positive traits</span> &amp;&nbsp;<span class=""cloze-inactive"" data-ordinal=""1""><i>downplay&nbsp;</i>negative traits</span> to researchers."	"The <span class=""cloze"" data-ordinal=""2""><b>social desirability bias</b></span> happens when participants in a study&nbsp;<span class=""cloze-inactive"" data-ordinal=""1""><i>overemphasize&nbsp;</i>positive traits</span> &amp;&nbsp;<span class=""cloze-inactive"" data-ordinal=""1""><i>downplay&nbsp;</i>negative traits</span> to researchers.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Ex: in a sleep study, participants don't tell the researchers that they were out the entire night before partying.<br></div><div><br></div><img src=""paste-7bd1dbd7cbf624c10bbbd507c49239beed872010.jpg""></div>"
+"The <span class=""cloze"" data-cloze=""&lt;b&gt;mental&#x20;set&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[bias]</span> is a bias where people tend to prefer <span class=""cloze-inactive"" data-ordinal=""2""><i>old</i> methods</span> that have worked for them in the past."	"The <span class=""cloze"" data-ordinal=""1""><b>mental set bias</b></span> is a bias where people tend to prefer <span class=""cloze-inactive"" data-ordinal=""2""><i>old</i> methods</span> that have worked for them in the past.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""I made paper flashcards for biology classes before, so I'll continue making paper flashcards for this new class.""</div>"
+"The <span class=""cloze-inactive"" data-ordinal=""1""><b>mental set bias</b></span> is a bias where people tend to prefer <span class=""cloze"" data-cloze=""&lt;i&gt;old&lt;&#x2F;i&gt;&#x20;methods"" data-ordinal=""2"">[...]</span> that have worked for them in the past."	"The <span class=""cloze-inactive"" data-ordinal=""1""><b>mental set bias</b></span> is a bias where people tend to prefer <span class=""cloze"" data-ordinal=""2""><i>old</i> methods</span> that have worked for them in the past.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""I made paper flashcards for biology classes before, so I'll continue making paper flashcards for this new class.""</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Operationalizing&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>a variable</b> is when researchers take a variable that <u><i>isn't</i> directly measurable</u> (like ""fatigue"") and <span class=""cloze-inactive"" data-ordinal=""2""><i>make</i> it measurable</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Operationalizing</b></span> <b>a variable</b> is when researchers take a variable that <u><i>isn't</i> directly measurable</u> (like ""fatigue"") and <span class=""cloze-inactive"" data-ordinal=""2""><i>make</i> it measurable</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+I.e. finding ways to quantify it.</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Operationalizing</b></span> <b>a variable</b> is when researchers take a variable that <u><i>isn't</i> directly measurable</u> (like ""fatigue"") and <span class=""cloze"" data-cloze=""&lt;i&gt;make&lt;&#x2F;i&gt;&#x20;it&#x20;measurable"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Operationalizing</b></span> <b>a variable</b> is when researchers take a variable that <u><i>isn't</i> directly measurable</u> (like ""fatigue"") and <span class=""cloze"" data-ordinal=""2""><i>make</i> it measurable</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+I.e. finding ways to quantify it.</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Sample&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is when a study's participant sample <i>is not</i> <span class=""cloze-inactive"" data-ordinal=""2"">represenatative of the real world</span> - occurring when researchers select participants non-randomly."	"<span class=""cloze"" data-ordinal=""1""><b>Sample bias</b></span> is when a study's participant sample <i>is not</i> <span class=""cloze-inactive"" data-ordinal=""2"">represenatative of the real world</span> - occurring when researchers select participants non-randomly.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Happens when researchers choose specific participants (non-randomly).</div><div><br></div><img src=""paste-9a566dd222e73520dbe81354ea31fdae4c1b9555.jpg""></div>"
+"A <span class=""cloze"" data-cloze=""&lt;b&gt;mixed&#x20;methods&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>study</b> is one that uses <i>both</i> <span class=""cloze-inactive"" data-ordinal=""2""><u>quantitative</u></span> &amp; <span class=""cloze-inactive"" data-ordinal=""2""><u>qualitative</u></span> approaches to collecting data."	"A <span class=""cloze"" data-ordinal=""1""><b>mixed methods</b></span> <b>study</b> is one that uses <i>both</i> <span class=""cloze-inactive"" data-ordinal=""2""><u>quantitative</u></span> &amp; <span class=""cloze-inactive"" data-ordinal=""2""><u>qualitative</u></span> approaches to collecting data.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-b6283c13ce4bae8207bdf590fdd5c4130de11fcd.jpg""></div>"
+"A <span class=""cloze-inactive"" data-ordinal=""1""><b>mixed methods</b></span> <b>study</b> is one that uses <i>both</i> <span class=""cloze"" data-cloze=""&lt;u&gt;quantitative&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> &amp; <span class=""cloze"" data-cloze=""&lt;u&gt;qualitative&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> approaches to collecting data."	"A <span class=""cloze-inactive"" data-ordinal=""1""><b>mixed methods</b></span> <b>study</b> is one that uses <i>both</i> <span class=""cloze"" data-ordinal=""2""><u>quantitative</u></span> &amp; <span class=""cloze"" data-ordinal=""2""><u>qualitative</u></span> approaches to collecting data.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-b6283c13ce4bae8207bdf590fdd5c4130de11fcd.jpg""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Sample bias</b></span> is when a study's participant sample <i>is not</i> <span class=""cloze"" data-cloze=""represenatative&#x20;of&#x20;the&#x20;real&#x20;world"" data-ordinal=""2"">[...]</span> - occurring when researchers select participants non-randomly."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Sample bias</b></span> is when a study's participant sample <i>is not</i> <span class=""cloze"" data-ordinal=""2"">represenatative of the real world</span> - occurring when researchers select participants non-randomly.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Happens when researchers choose specific participants (non-randomly).</div><div><br></div><img src=""paste-9a566dd222e73520dbe81354ea31fdae4c1b9555.jpg""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""2""><b>Convenience sampling</b></span> is a method of sampling where researchers pick participants for a study because they were <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;easy&lt;&#x2F;i&gt;&#x20;to&#x20;access&lt;&#x2F;u&gt;"" data-ordinal=""1"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""2""><b>Convenience sampling</b></span> is a method of sampling where researchers pick participants for a study because they were <span class=""cloze"" data-ordinal=""1""><u><i>easy</i> to access</u></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Ex: participants live close by.</div><div><br></div><img src=""paste-da8a30b3d73192f18c6840bdfb0db0e8ae2f9980.jpg""><div><br></div><div><img src=""paste-9a566dd222e73520dbe81354ea31fdae4c1b9555.jpg""><br></div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Convenience&#x20;sampling&lt;&#x2F;b&gt;"" data-ordinal=""2"">[...]</span> is a method of sampling where researchers pick participants for a study because they were <span class=""cloze-inactive"" data-ordinal=""1""><u><i>easy</i> to access</u></span>."	"<span class=""cloze"" data-ordinal=""2""><b>Convenience sampling</b></span> is a method of sampling where researchers pick participants for a study because they were <span class=""cloze-inactive"" data-ordinal=""1""><u><i>easy</i> to access</u></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Ex: participants live close by.</div><div><br></div><img src=""paste-da8a30b3d73192f18c6840bdfb0db0e8ae2f9980.jpg""><div><br></div><div><img src=""paste-9a566dd222e73520dbe81354ea31fdae4c1b9555.jpg""><br></div></div>"
+"The <span class=""cloze"" data-cloze=""&lt;b&gt;question&#x2D;order&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span>&nbsp;is when experimenters instill a bias in a subject's response by asking them <u>questions in <i>specific</i> orders</u>."	"The <span class=""cloze"" data-ordinal=""1""><b>question-order bias</b></span>&nbsp;is when experimenters instill a bias in a subject's response by asking them <u>questions in <i>specific</i> orders</u>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-a479c9148de3d069a05009b83fbd2235c3ee27a8.jpg""></div>"
+"When the <b>p-value</b> is <span class=""cloze-inactive"" data-ordinal=""2""><i>less</i></span>&nbsp;than 0.05, you <span class=""cloze"" data-cloze=""&lt;u&gt;reject&lt;&#x2F;u&gt;"" data-ordinal=""1"">[...]</span> the <span class=""cloze"" data-cloze=""&lt;i&gt;false&lt;&#x2F;i&gt;"" data-ordinal=""1"">[true/false]</span> null hypothesis to conclude that there <i>is</i> a real difference."	"When the <b>p-value</b> is <span class=""cloze-inactive"" data-ordinal=""2""><i>less</i></span>&nbsp;than 0.05, you <span class=""cloze"" data-ordinal=""1""><u>reject</u></span> the <span class=""cloze"" data-ordinal=""1""><i>false</i></span> null hypothesis to conclude that there <i>is</i> a real difference.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>If you rejected a true null hypothesis, that would indicate a false positive.</div><div><br></div><img src=""paste-2ccb1bf6b9ec0a9cb127cda7f6b5df28341a7b73.jpg""></div>"
+"When the <b>p-value</b> is <span class=""cloze"" data-cloze=""&lt;i&gt;less&lt;&#x2F;i&gt;"" data-ordinal=""2"">[less/greater]</span>&nbsp;than 0.05, you <span class=""cloze-inactive"" data-ordinal=""1""><u>reject</u></span> the <span class=""cloze-inactive"" data-ordinal=""1""><i>false</i></span> null hypothesis to conclude that there <i>is</i> a real difference."	"When the <b>p-value</b> is <span class=""cloze"" data-ordinal=""2""><i>less</i></span>&nbsp;than 0.05, you <span class=""cloze-inactive"" data-ordinal=""1""><u>reject</u></span> the <span class=""cloze-inactive"" data-ordinal=""1""><i>false</i></span> null hypothesis to conclude that there <i>is</i> a real difference.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>If you rejected a true null hypothesis, that would indicate a false positive.</div><div><br></div><img src=""paste-2ccb1bf6b9ec0a9cb127cda7f6b5df28341a7b73.jpg""></div>"
+"When the <b>p-value</b> is <span class=""cloze-inactive"" data-ordinal=""2""><i>greater</i></span>&nbsp;than 0.05, you <span class=""cloze"" data-cloze=""&lt;u&gt;fail&#x20;to&amp;nbsp&#x3B;reject&lt;&#x2F;u&gt;"" data-ordinal=""1"">[...]</span> the <span class=""cloze"" data-cloze=""&lt;i&gt;true&lt;&#x2F;i&gt;"" data-ordinal=""1"">[true/false]</span> null hypothesis to conclude that there <i>is no</i>&nbsp;difference."	"When the <b>p-value</b> is <span class=""cloze-inactive"" data-ordinal=""2""><i>greater</i></span>&nbsp;than 0.05, you <span class=""cloze"" data-ordinal=""1""><u>fail to&nbsp;reject</u></span> the <span class=""cloze"" data-ordinal=""1""><i>true</i></span> null hypothesis to conclude that there <i>is no</i>&nbsp;difference.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>If you rejected a false null hypothesis, that would indicate a false negative.</div><div><br></div><img src=""paste-2ccb1bf6b9ec0a9cb127cda7f6b5df28341a7b73.jpg""></div>"
+"When the <b>p-value</b> is <span class=""cloze"" data-cloze=""&lt;i&gt;greater&lt;&#x2F;i&gt;"" data-ordinal=""2"">[less/greater]</span>&nbsp;than 0.05, you <span class=""cloze-inactive"" data-ordinal=""1""><u>fail to&nbsp;reject</u></span> the <span class=""cloze-inactive"" data-ordinal=""1""><i>true</i></span> null hypothesis to conclude that there <i>is no</i>&nbsp;difference."	"When the <b>p-value</b> is <span class=""cloze"" data-ordinal=""2""><i>greater</i></span>&nbsp;than 0.05, you <span class=""cloze-inactive"" data-ordinal=""1""><u>fail to&nbsp;reject</u></span> the <span class=""cloze-inactive"" data-ordinal=""1""><i>true</i></span> null hypothesis to conclude that there <i>is no</i>&nbsp;difference.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>If you rejected a false null hypothesis, that would indicate a false negative.</div><div><br></div><img src=""paste-2ccb1bf6b9ec0a9cb127cda7f6b5df28341a7b73.jpg""></div>"
+"When the <b>p-value</b> is <span class=""cloze-inactive"" data-ordinal=""2""><i>greater</i></span>&nbsp;than 0.05, you <span class=""cloze"" data-cloze=""&lt;u&gt;fail&#x20;to&amp;nbsp&#x3B;reject&lt;&#x2F;u&gt;"" data-ordinal=""1"">[...]</span> the <span class=""cloze"" data-cloze=""&lt;i&gt;false&lt;&#x2F;i&gt;"" data-ordinal=""1"">[true/false]</span> null hypothesis to make a <b>false-negative</b>&nbsp;error."	"When the <b>p-value</b> is <span class=""cloze-inactive"" data-ordinal=""2""><i>greater</i></span>&nbsp;than 0.05, you <span class=""cloze"" data-ordinal=""1""><u>fail to&nbsp;reject</u></span> the <span class=""cloze"" data-ordinal=""1""><i>false</i></span> null hypothesis to make a <b>false-negative</b>&nbsp;error.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>If you rejected a false null hypothesis, that would indicate a false negative.</div><div><br></div><img src=""paste-2ccb1bf6b9ec0a9cb127cda7f6b5df28341a7b73.jpg""></div>"
+"When the <b>p-value</b> is <span class=""cloze"" data-cloze=""&lt;i&gt;greater&lt;&#x2F;i&gt;"" data-ordinal=""2"">[less/greater]</span>&nbsp;than 0.05, you <span class=""cloze-inactive"" data-ordinal=""1""><u>fail to&nbsp;reject</u></span> the <span class=""cloze-inactive"" data-ordinal=""1""><i>false</i></span> null hypothesis to make a <b>false-negative</b>&nbsp;error."	"When the <b>p-value</b> is <span class=""cloze"" data-ordinal=""2""><i>greater</i></span>&nbsp;than 0.05, you <span class=""cloze-inactive"" data-ordinal=""1""><u>fail to&nbsp;reject</u></span> the <span class=""cloze-inactive"" data-ordinal=""1""><i>false</i></span> null hypothesis to make a <b>false-negative</b>&nbsp;error.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>If you rejected a false null hypothesis, that would indicate a false negative.</div><div><br></div><img src=""paste-2ccb1bf6b9ec0a9cb127cda7f6b5df28341a7b73.jpg""></div>"
+"When the <b>p-value</b> is <span class=""cloze-inactive"" data-ordinal=""2""><i>less</i></span>&nbsp;than 0.05, you <span class=""cloze"" data-cloze=""&lt;u&gt;reject&lt;&#x2F;u&gt;"" data-ordinal=""1"">[...]</span> the <span class=""cloze"" data-cloze=""&lt;i&gt;true&lt;&#x2F;i&gt;"" data-ordinal=""1"">[true/false]</span> null hypothesis to make a <b>false-positive</b>&nbsp;error."	"When the <b>p-value</b> is <span class=""cloze-inactive"" data-ordinal=""2""><i>less</i></span>&nbsp;than 0.05, you <span class=""cloze"" data-ordinal=""1""><u>reject</u></span> the <span class=""cloze"" data-ordinal=""1""><i>true</i></span> null hypothesis to make a <b>false-positive</b>&nbsp;error.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""paste-2ccb1bf6b9ec0a9cb127cda7f6b5df28341a7b73.jpg""><br></div></div>"
+"When the <b>p-value</b> is <span class=""cloze"" data-cloze=""&lt;i&gt;less&lt;&#x2F;i&gt;"" data-ordinal=""2"">[less/greater]</span>&nbsp;than 0.05, you <span class=""cloze-inactive"" data-ordinal=""1""><u>reject</u></span> the <span class=""cloze-inactive"" data-ordinal=""1""><i>true</i></span> null hypothesis to make a <b>false-positive</b>&nbsp;error."	"When the <b>p-value</b> is <span class=""cloze"" data-ordinal=""2""><i>less</i></span>&nbsp;than 0.05, you <span class=""cloze-inactive"" data-ordinal=""1""><u>reject</u></span> the <span class=""cloze-inactive"" data-ordinal=""1""><i>true</i></span> null hypothesis to make a <b>false-positive</b>&nbsp;error.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""paste-2ccb1bf6b9ec0a9cb127cda7f6b5df28341a7b73.jpg""><br></div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Dose&#x2D;dependent&#x20;resposes&lt;&#x2F;b&gt;"" data-ordinal=""1"">[correlations/dose-dependent]</span> provide <span class=""cloze-inactive"" data-ordinal=""2""><i>better</i></span> <u>evidence</u> for the relationship between a drug &amp; its response than a <span class=""cloze"" data-cloze=""correlation"" data-ordinal=""1"">[correlations/dose-dependent]</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Dose-dependent resposes</b></span> provide <span class=""cloze-inactive"" data-ordinal=""2""><i>better</i></span> <u>evidence</u> for the relationship between a drug &amp; its response than a <span class=""cloze"" data-ordinal=""1"">correlation</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Dose-dependent resposes</b></span> provide <span class=""cloze"" data-cloze=""&lt;i&gt;better&lt;&#x2F;i&gt;"" data-ordinal=""2"">[worse/better]</span> <u>evidence</u> for the relationship between a drug &amp; its response than a <span class=""cloze-inactive"" data-ordinal=""1"">correlation</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Dose-dependent resposes</b></span> provide <span class=""cloze"" data-ordinal=""2""><i>better</i></span> <u>evidence</u> for the relationship between a drug &amp; its response than a <span class=""cloze-inactive"" data-ordinal=""1"">correlation</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Correlations&lt;&#x2F;b&gt;"" data-ordinal=""1"">[correlations/dose-dependent]</span> provide <span class=""cloze-inactive"" data-ordinal=""2""><i>worse</i></span> <u>evidence</u> for the relationship between a drug &amp; its response than a <span class=""cloze"" data-cloze=""dose&#x2D;dependent&#x20;relationship"" data-ordinal=""1"">[correlations/dose-dependent]</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Correlations</b></span> provide <span class=""cloze-inactive"" data-ordinal=""2""><i>worse</i></span> <u>evidence</u> for the relationship between a drug &amp; its response than a <span class=""cloze"" data-ordinal=""1"">dose-dependent relationship</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Correlations</b></span> provide <span class=""cloze"" data-cloze=""&lt;i&gt;worse&lt;&#x2F;i&gt;"" data-ordinal=""2"">[worse/better]</span> <u>evidence</u> for the relationship between a drug &amp; its response than a <span class=""cloze-inactive"" data-ordinal=""1"">dose-dependent relationship</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Correlations</b></span> provide <span class=""cloze"" data-ordinal=""2""><i>worse</i></span> <u>evidence</u> for the relationship between a drug &amp; its response than a <span class=""cloze-inactive"" data-ordinal=""1"">dose-dependent relationship</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"A drug proven to be effective in rat models <span class=""cloze"" data-cloze=""&lt;i&gt;does&#x20;not&lt;&#x2F;i&gt;&#x20;&lt;i&gt;necessarily&lt;&#x2F;i&gt;"" data-ordinal=""1"">[does/does not]</span> mean it can be used with humans right away."	"A drug proven to be effective in rat models <span class=""cloze"" data-ordinal=""1""><i>does not</i> <i>necessarily</i></span> mean it can be used with humans right away.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Rat models are useful to study off of, but only prior to human trials (human trials still need to be done).</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Specific&#x20;real&#x20;area&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[bias]</span> is a type of sample bias introduced when researchers study <span class=""cloze-inactive"" data-ordinal=""2""><u>participants from one <i>specific</i> area</u></span> - <i>omitting</i> people from other backgrounds."	"<span class=""cloze"" data-ordinal=""1""><b>Specific real area bias</b></span> is a type of sample bias introduced when researchers study <span class=""cloze-inactive"" data-ordinal=""2""><u>participants from one <i>specific</i> area</u></span> - <i>omitting</i> people from other backgrounds.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>If psychologists only studied participants from inner cities, the answers the receive to a questionnaire might be different than those not in an inner city.</div><div><br></div><img src=""paste-a6e93ba841dd7f7444af12af94d9cea3ea9aee3d.jpg""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Specific real area bias</b></span> is a type of sample bias introduced when researchers study <span class=""cloze"" data-cloze=""&lt;u&gt;participants&#x20;from&#x20;one&#x20;&lt;i&gt;specific&lt;&#x2F;i&gt;&#x20;area&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> - <i>omitting</i> people from other backgrounds."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Specific real area bias</b></span> is a type of sample bias introduced when researchers study <span class=""cloze"" data-ordinal=""2""><u>participants from one <i>specific</i> area</u></span> - <i>omitting</i> people from other backgrounds.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>If psychologists only studied participants from inner cities, the answers the receive to a questionnaire might be different than those not in an inner city.</div><div><br></div><img src=""paste-a6e93ba841dd7f7444af12af94d9cea3ea9aee3d.jpg""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Berkson&#x27;s&#x20;fallacy&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is when researchers <span class=""cloze-inactive"" data-ordinal=""2""><u>choose individuals from the <i>same setting</i></u></span> to act as both <span class=""cloze-inactive"" data-ordinal=""2"">control</span> &amp; <span class=""cloze-inactive"" data-ordinal=""2"">observational</span> groups in a study."	"<span class=""cloze"" data-ordinal=""1""><b>Berkson's fallacy</b></span> is when researchers <span class=""cloze-inactive"" data-ordinal=""2""><u>choose individuals from the <i>same setting</i></u></span> to act as both <span class=""cloze-inactive"" data-ordinal=""2"">control</span> &amp; <span class=""cloze-inactive"" data-ordinal=""2"">observational</span> groups in a study.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+The subculture at a hospital is different than other subcultures - it's not representative of the real population.<div><br></div><div><img src=""paste-541a34a0b30be921383fc0530997a3632ea2b340.jpg""><br></div></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Berkson's fallacy</b></span> is when researchers <span class=""cloze"" data-cloze=""&lt;u&gt;choose&#x20;individuals&#x20;from&#x20;the&#x20;&lt;i&gt;same&#x20;setting&lt;&#x2F;i&gt;&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> to act as both <span class=""cloze"" data-cloze=""control"" data-ordinal=""2"">[...]</span> &amp; <span class=""cloze"" data-cloze=""observational"" data-ordinal=""2"">[...]</span> groups in a study."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Berkson's fallacy</b></span> is when researchers <span class=""cloze"" data-ordinal=""2""><u>choose individuals from the <i>same setting</i></u></span> to act as both <span class=""cloze"" data-ordinal=""2"">control</span> &amp; <span class=""cloze"" data-ordinal=""2"">observational</span> groups in a study.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+The subculture at a hospital is different than other subcultures - it's not representative of the real population.<div><br></div><div><img src=""paste-541a34a0b30be921383fc0530997a3632ea2b340.jpg""><br></div></div>"
+"A <span class=""cloze"" data-cloze=""&lt;b&gt;within&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span><b>-subjects</b> design in an experiment is when measurements are taken of <span class=""cloze-inactive"" data-ordinal=""2""><u><i>the same</i> individuals</u></span> over a period of time."	"A <span class=""cloze"" data-ordinal=""1""><b>within</b></span><b>-subjects</b> design in an experiment is when measurements are taken of <span class=""cloze-inactive"" data-ordinal=""2""><u><i>the same</i> individuals</u></span> over a period of time.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"A <span class=""cloze-inactive"" data-ordinal=""1""><b>within</b></span><b>-subjects</b> design in an experiment is when measurements are taken of <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;the&#x20;same&lt;&#x2F;i&gt;&#x20;individuals&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> over a period of time."	"A <span class=""cloze-inactive"" data-ordinal=""1""><b>within</b></span><b>-subjects</b> design in an experiment is when measurements are taken of <span class=""cloze"" data-ordinal=""2""><u><i>the same</i> individuals</u></span> over a period of time.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"A <span class=""cloze"" data-cloze=""&lt;b&gt;between&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span><b>-subjects</b> design in an experiment is when measurements are taken <span class=""cloze-inactive"" data-ordinal=""2""><u><i>between</i> different groups of people</u></span> assigned to different conditions (control vs. experimental)."	"A <span class=""cloze"" data-ordinal=""1""><b>between</b></span><b>-subjects</b> design in an experiment is when measurements are taken <span class=""cloze-inactive"" data-ordinal=""2""><u><i>between</i> different groups of people</u></span> assigned to different conditions (control vs. experimental).
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"A <span class=""cloze-inactive"" data-ordinal=""1""><b>between</b></span><b>-subjects</b> design in an experiment is when measurements are taken <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;between&lt;&#x2F;i&gt;&#x20;different&#x20;groups&#x20;of&#x20;people&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> assigned to different conditions (control vs. experimental)."	"A <span class=""cloze-inactive"" data-ordinal=""1""><b>between</b></span><b>-subjects</b> design in an experiment is when measurements are taken <span class=""cloze"" data-ordinal=""2""><u><i>between</i> different groups of people</u></span> assigned to different conditions (control vs. experimental).
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"An experiment that uses <i>both</i> <u>within-group</u> design &amp; <u>between-group</u> design is considered a <span class=""cloze"" data-cloze=""&lt;b&gt;mixed&#x20;methods&lt;&#x2F;b&gt;"" data-ordinal=""1"">[quant./qual./mixed]</span> study."	"An experiment that uses <i>both</i> <u>within-group</u> design &amp; <u>between-group</u> design is considered a <span class=""cloze"" data-ordinal=""1""><b>mixed methods</b></span> study.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-b6283c13ce4bae8207bdf590fdd5c4130de11fcd.jpg""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""2""><b>Predictor</b></span> <b>variables</b> are similar to independent variables but are used for <span class=""cloze"" data-cloze=""&lt;u&gt;correlations&lt;&#x2F;u&gt;"" data-ordinal=""1"">[...]</span> instead."	"<span class=""cloze-inactive"" data-ordinal=""2""><b>Predictor</b></span> <b>variables</b> are similar to independent variables but are used for <span class=""cloze"" data-ordinal=""1""><u>correlations</u></span> instead.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+- Independent variables cause changes in the dependent variable.&nbsp;<div>-&nbsp;<b>Correlations</b> <u>cannot prove causation</u>, so they're instead called predictor &amp; criteron variables.</div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Predictor&lt;&#x2F;b&gt;"" data-ordinal=""2"">[...]</span> <b>variables</b> are similar to independent variables but are used for <span class=""cloze-inactive"" data-ordinal=""1""><u>correlations</u></span> instead."	"<span class=""cloze"" data-ordinal=""2""><b>Predictor</b></span> <b>variables</b> are similar to independent variables but are used for <span class=""cloze-inactive"" data-ordinal=""1""><u>correlations</u></span> instead.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+- Independent variables cause changes in the dependent variable.&nbsp;<div>-&nbsp;<b>Correlations</b> <u>cannot prove causation</u>, so they're instead called predictor &amp; criteron variables.</div></div>"
+"<span class=""cloze-inactive"" data-ordinal=""2""><b>Criterion</b></span> <b>variables</b> are <i>similar</i> to dependent variables but are used for <span class=""cloze"" data-cloze=""&lt;u&gt;correlations&lt;&#x2F;u&gt;"" data-ordinal=""1"">[...]</span> instead."	"<span class=""cloze-inactive"" data-ordinal=""2""><b>Criterion</b></span> <b>variables</b> are <i>similar</i> to dependent variables but are used for <span class=""cloze"" data-ordinal=""1""><u>correlations</u></span> instead.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+- Independent variables cause changes in the dependent variable.&nbsp;<div>-&nbsp;<b>Correlations</b> <u>cannot prove causation</u>, so they're instead called predictor &amp; criteron variables.</div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Criterion&lt;&#x2F;b&gt;"" data-ordinal=""2"">[...]</span> <b>variables</b> are <i>similar</i> to dependent variables but are used for <span class=""cloze-inactive"" data-ordinal=""1""><u>correlations</u></span> instead."	"<span class=""cloze"" data-ordinal=""2""><b>Criterion</b></span> <b>variables</b> are <i>similar</i> to dependent variables but are used for <span class=""cloze-inactive"" data-ordinal=""1""><u>correlations</u></span> instead.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+- Independent variables cause changes in the dependent variable.&nbsp;<div>-&nbsp;<b>Correlations</b> <u>cannot prove causation</u>, so they're instead called predictor &amp; criteron variables.</div></div>"
+"Adding a new <b>independent</b> <b>variable</b> to an experiment <span class=""cloze"" data-cloze=""&lt;i&gt;does&#x20;not&lt;&#x2F;i&gt;"" data-ordinal=""1"">[does/does not]</span> require that you find a new way to <u>measure it</u>."	"Adding a new <b>independent</b> <b>variable</b> to an experiment <span class=""cloze"" data-ordinal=""1""><i>does not</i></span> require that you find a new way to <u>measure it</u>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Dependent</b> <b>variables</b> are the things that need to get measured - not independent variables.<div>- Independent variables only need to be manipulated in a study.</div></div>"
+"Having a new <b>dependent</b> <b>variable</b> in an experiment <span class=""cloze"" data-cloze=""&lt;i&gt;does&lt;&#x2F;i&gt;"" data-ordinal=""1"">[does/does not]</span> require that you find a new way to <u>measure it</u>."	"Having a new <b>dependent</b> <b>variable</b> in an experiment <span class=""cloze"" data-ordinal=""1""><i>does</i></span> require that you find a new way to <u>measure it</u>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Dependent</b> <b>variables</b> are the things that need to get measured - not independent variables.<div>- Independent variables only need to be manipulated in a study.</div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Convergent&#x20;validity&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is when <u>two different methods</u> of measuring something are related to each other, and <span class=""cloze-inactive"" data-ordinal=""2"">confirm <i>each other's</i> validity</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Convergent validity</b></span> is when <u>two different methods</u> of measuring something are related to each other, and <span class=""cloze-inactive"" data-ordinal=""2"">confirm <i>each other's</i> validity</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Convergent validity</b></span> is when <u>two different methods</u> of measuring something are related to each other, and <span class=""cloze"" data-cloze=""confirm&#x20;&lt;i&gt;each&#x20;other&#x27;s&lt;&#x2F;i&gt;&#x20;validity"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Convergent validity</b></span> is when <u>two different methods</u> of measuring something are related to each other, and <span class=""cloze"" data-ordinal=""2"">confirm <i>each other's</i> validity</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze-inactive"" data-ordinal=""2""><b>Cross-sequential studies</b></span> are studies that combine the aspects of <span class=""cloze-inactive"" data-ordinal=""3""><u>cross-sectional</u></span> studies with <span class=""cloze-inactive"" data-ordinal=""3""><u>longitudinal</u></span> studies - following <span class=""cloze"" data-cloze=""&lt;i&gt;multiple&lt;&#x2F;i&gt;&#x20;different&#x20;groups&#x20;over&#x20;time"" data-ordinal=""1"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""2""><b>Cross-sequential studies</b></span> are studies that combine the aspects of <span class=""cloze-inactive"" data-ordinal=""3""><u>cross-sectional</u></span> studies with <span class=""cloze-inactive"" data-ordinal=""3""><u>longitudinal</u></span> studies - following <span class=""cloze"" data-ordinal=""1""><i>multiple</i> different groups over time</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- <b>Cross-sequential</b>: follows multiple different groups of people over time.</div><div>- <b>Cross-sectional</b>: look at multiple different groups at a single point in time.</div><div>- <b>Longitudinal</b>: follow one group of people over a long period of time.</div><div><br></div><img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Cross&#x2D;sequential&#x20;studies&lt;&#x2F;b&gt;"" data-ordinal=""2"">[...]</span> are studies that combine the aspects of <span class=""cloze-inactive"" data-ordinal=""3""><u>cross-sectional</u></span> studies with <span class=""cloze-inactive"" data-ordinal=""3""><u>longitudinal</u></span> studies - following <span class=""cloze-inactive"" data-ordinal=""1""><i>multiple</i> different groups over time</span>."	"<span class=""cloze"" data-ordinal=""2""><b>Cross-sequential studies</b></span> are studies that combine the aspects of <span class=""cloze-inactive"" data-ordinal=""3""><u>cross-sectional</u></span> studies with <span class=""cloze-inactive"" data-ordinal=""3""><u>longitudinal</u></span> studies - following <span class=""cloze-inactive"" data-ordinal=""1""><i>multiple</i> different groups over time</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- <b>Cross-sequential</b>: follows multiple different groups of people over time.</div><div>- <b>Cross-sectional</b>: look at multiple different groups at a single point in time.</div><div>- <b>Longitudinal</b>: follow one group of people over a long period of time.</div><div><br></div><img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""2""><b>Cross-sequential studies</b></span> are studies that combine the aspects of <span class=""cloze"" data-cloze=""&lt;u&gt;cross&#x2D;sectional&lt;&#x2F;u&gt;"" data-ordinal=""3"">[...]</span> studies with <span class=""cloze"" data-cloze=""&lt;u&gt;longitudinal&lt;&#x2F;u&gt;"" data-ordinal=""3"">[...]</span> studies - following <span class=""cloze-inactive"" data-ordinal=""1""><i>multiple</i> different groups over time</span>."	"<span class=""cloze-inactive"" data-ordinal=""2""><b>Cross-sequential studies</b></span> are studies that combine the aspects of <span class=""cloze"" data-ordinal=""3""><u>cross-sectional</u></span> studies with <span class=""cloze"" data-ordinal=""3""><u>longitudinal</u></span> studies - following <span class=""cloze-inactive"" data-ordinal=""1""><i>multiple</i> different groups over time</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- <b>Cross-sequential</b>: follows multiple different groups of people over time.</div><div>- <b>Cross-sectional</b>: look at multiple different groups at a single point in time.</div><div>- <b>Longitudinal</b>: follow one group of people over a long period of time.</div><div><br></div><img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Applied&#x20;research&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is a type of research aimed at answering&nbsp;<u>practical problems</u>, like <i>why</i> certain things happen."	"<span class=""cloze"" data-ordinal=""1""><b>Applied research</b></span> is a type of research aimed at answering&nbsp;<u>practical problems</u>, like <i>why</i> certain things happen.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Participant&#x20;observation&amp;nbsp&#x3B;&lt;&#x2F;b&gt;&lt;b&gt;studies&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> are studies where researchers <span class=""cloze-inactive"" data-ordinal=""2""><u>actively participate</u>&nbsp;with the group</span> they're studying."	"<span class=""cloze"" data-ordinal=""1""><b>Participant observation&nbsp;</b><b>studies</b></span> are studies where researchers <span class=""cloze-inactive"" data-ordinal=""2""><u>actively participate</u>&nbsp;with the group</span> they're studying.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+- <b>Participant observation</b> → researcher participates in the activity without hiding their identity.<div>- <b>Embedded field study</b> → research participates in the activity while pretending to be a participant.</div></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Participant observation&nbsp;</b><b>studies</b></span> are studies where researchers <span class=""cloze"" data-cloze=""&lt;u&gt;actively&#x20;participate&lt;&#x2F;u&gt;&amp;nbsp&#x3B;with&#x20;the&#x20;group"" data-ordinal=""2"">[...]</span> they're studying."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Participant observation&nbsp;</b><b>studies</b></span> are studies where researchers <span class=""cloze"" data-ordinal=""2""><u>actively participate</u>&nbsp;with the group</span> they're studying.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+- <b>Participant observation</b> → researcher participates in the activity without hiding their identity.<div>- <b>Embedded field study</b> → research participates in the activity while pretending to be a participant.</div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Regression&#x20;to&#x20;the&#x20;mean&lt;&#x2F;b&gt;"" data-ordinal=""1"">[phenomenon]</span> refers to a situation when the <i>first</i> measurement in an experiment is <span class=""cloze-inactive"" data-ordinal=""2"">extreme</span> - resulting in the <i>second</i> measurement being <span class=""cloze-inactive"" data-ordinal=""2"">close to that established mean</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Regression to the mean</b></span> refers to a situation when the <i>first</i> measurement in an experiment is <span class=""cloze-inactive"" data-ordinal=""2"">extreme</span> - resulting in the <i>second</i> measurement being <span class=""cloze-inactive"" data-ordinal=""2"">close to that established mean</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Regression to the mean</b></span> refers to a situation when the <i>first</i> measurement in an experiment is <span class=""cloze"" data-cloze=""extreme"" data-ordinal=""2"">[...]</span> - resulting in the <i>second</i> measurement being <span class=""cloze"" data-cloze=""close&#x20;to&#x20;that&#x20;established&#x20;mean"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Regression to the mean</b></span> refers to a situation when the <i>first</i> measurement in an experiment is <span class=""cloze"" data-ordinal=""2"">extreme</span> - resulting in the <i>second</i> measurement being <span class=""cloze"" data-ordinal=""2"">close to that established mean</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Inter&#x2D;rater&#x20;reliability&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is when results are shown to be <i>reliable</i> after <span class=""cloze-inactive"" data-ordinal=""2"">two <i>different</i> researchers <u>get the same measurement</u></span>."	"<span class=""cloze"" data-ordinal=""1""><b>Inter-rater reliability</b></span> is when results are shown to be <i>reliable</i> after <span class=""cloze-inactive"" data-ordinal=""2"">two <i>different</i> researchers <u>get the same measurement</u></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""9ae66cb463add9802ad9dfeffc443156.png""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Inter-rater reliability</b></span> is when results are shown to be <i>reliable</i> after <span class=""cloze"" data-cloze=""two&#x20;&lt;i&gt;different&lt;&#x2F;i&gt;&#x20;researchers&#x20;&lt;u&gt;get&#x20;the&#x20;same&#x20;measurement&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Inter-rater reliability</b></span> is when results are shown to be <i>reliable</i> after <span class=""cloze"" data-ordinal=""2"">two <i>different</i> researchers <u>get the same measurement</u></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""9ae66cb463add9802ad9dfeffc443156.png""></div>"
+"A <span class=""cloze"" data-cloze=""&lt;b&gt;quasi&#x2D;experimental&#x20;study&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is an experimental study that <span class=""cloze-inactive"" data-ordinal=""2""><u><i>lacks</i> random assignment</u></span> - describing an effect on <span class=""cloze-inactive"" data-ordinal=""2"">one particular cohort</span>."	"A <span class=""cloze"" data-ordinal=""1""><b>quasi-experimental study</b></span> is an experimental study that <span class=""cloze-inactive"" data-ordinal=""2""><u><i>lacks</i> random assignment</u></span> - describing an effect on <span class=""cloze-inactive"" data-ordinal=""2"">one particular cohort</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"A <span class=""cloze-inactive"" data-ordinal=""1""><b>quasi-experimental study</b></span> is an experimental study that <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;lacks&lt;&#x2F;i&gt;&#x20;random&#x20;assignment&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> - describing an effect on <span class=""cloze"" data-cloze=""one&#x20;particular&#x20;cohort"" data-ordinal=""2"">[...]</span>."	"A <span class=""cloze-inactive"" data-ordinal=""1""><b>quasi-experimental study</b></span> is an experimental study that <span class=""cloze"" data-ordinal=""2""><u><i>lacks</i> random assignment</u></span> - describing an effect on <span class=""cloze"" data-ordinal=""2"">one particular cohort</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Attrition&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[bias]</span> is when participants <span class=""cloze-inactive"" data-ordinal=""2""><i>drop out</i> of studies early</span>, resulting in slightly skewed data."	"<span class=""cloze"" data-ordinal=""1""><b>Attrition bias</b></span> is when participants <span class=""cloze-inactive"" data-ordinal=""2""><i>drop out</i> of studies early</span>, resulting in slightly skewed data.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Attrition bias</b></span> is when participants <span class=""cloze"" data-cloze=""&lt;i&gt;drop&#x20;out&lt;&#x2F;i&gt;&#x20;of&#x20;studies&#x20;early"" data-ordinal=""2"">[...]</span>, resulting in slightly skewed data."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Attrition bias</b></span> is when participants <span class=""cloze"" data-ordinal=""2""><i>drop out</i> of studies early</span>, resulting in slightly skewed data.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"In participant observation studies, <span class=""cloze"" data-cloze=""&lt;b&gt;reactivity&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> describes the effect of the researcher in <span class=""cloze-inactive"" data-ordinal=""2""><i>influencing</i> <u>participant behavior</u></span>."	"In participant observation studies, <span class=""cloze"" data-ordinal=""1""><b>reactivity</b></span> describes the effect of the researcher in <span class=""cloze-inactive"" data-ordinal=""2""><i>influencing</i> <u>participant behavior</u></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<b>Participant observation</b> studies are when researchers get involved in the activities of the group they're studying.</div>"
+"In participant observation studies, <span class=""cloze-inactive"" data-ordinal=""1""><b>reactivity</b></span> describes the effect of the researcher in <span class=""cloze"" data-cloze=""&lt;i&gt;influencing&lt;&#x2F;i&gt;&#x20;&lt;u&gt;participant&#x20;behavior&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span>."	"In participant observation studies, <span class=""cloze-inactive"" data-ordinal=""1""><b>reactivity</b></span> describes the effect of the researcher in <span class=""cloze"" data-ordinal=""2""><i>influencing</i> <u>participant behavior</u></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<b>Participant observation</b> studies are when researchers get involved in the activities of the group they're studying.</div>"
+"In participant observation studies, <span class=""cloze"" data-cloze=""&lt;b&gt;embedded&#x20;field&#x20;studies&lt;&#x2F;b&gt;"" data-ordinal=""1"">[studies]</span> are studies where the researchers <span class=""cloze-inactive"" data-ordinal=""2""><u><i>pretend</i> to be participants</u></span> - not revealing their actual identities."	"In participant observation studies, <span class=""cloze"" data-ordinal=""1""><b>embedded field studies</b></span> are studies where the researchers <span class=""cloze-inactive"" data-ordinal=""2""><u><i>pretend</i> to be participants</u></span> - not revealing their actual identities.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Participant observation</b> studies are when researchers get involved in the activities of the group they're studying.</div>"
+"In participant observation studies, <span class=""cloze-inactive"" data-ordinal=""1""><b>embedded field studies</b></span> are studies where the researchers <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;pretend&lt;&#x2F;i&gt;&#x20;to&#x20;be&#x20;participants&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> - not revealing their actual identities."	"In participant observation studies, <span class=""cloze-inactive"" data-ordinal=""1""><b>embedded field studies</b></span> are studies where the researchers <span class=""cloze"" data-ordinal=""2""><u><i>pretend</i> to be participants</u></span> - not revealing their actual identities.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Participant observation</b> studies are when researchers get involved in the activities of the group they're studying.</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Mediator&#x20;variables&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> in experiments explain <span class=""cloze-inactive"" data-ordinal=""2"">how the IV <i>causes</i> the DV</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Mediator variables</b></span> in experiments explain <span class=""cloze-inactive"" data-ordinal=""2"">how the IV <i>causes</i> the DV</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- IV → mediator → DV.</div><div>-&nbsp;<b>IV</b> &amp; <b>DV</b>: independent variable; dependent variable.</div><div><br></div><div><img src=""paste-a9ccc1e865c6f3b8e8bcdc706be38a724d535d68.jpg""><br></div></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Mediator variables</b></span> in experiments explain <span class=""cloze"" data-cloze=""how&#x20;the&#x20;IV&#x20;&lt;i&gt;causes&lt;&#x2F;i&gt;&#x20;the&#x20;DV"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Mediator variables</b></span> in experiments explain <span class=""cloze"" data-ordinal=""2"">how the IV <i>causes</i> the DV</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- IV → mediator → DV.</div><div>-&nbsp;<b>IV</b> &amp; <b>DV</b>: independent variable; dependent variable.</div><div><br></div><div><img src=""paste-a9ccc1e865c6f3b8e8bcdc706be38a724d535d68.jpg""><br></div></div>"
+"Fluctuations in the <span class=""cloze"" data-cloze=""&lt;i&gt;independent&lt;&#x2F;i&gt;"" data-ordinal=""1"">[independent/dependent]</span> variable can account for <u>fluctuations</u> in the <b>mediator variable</b>."	"Fluctuations in the <span class=""cloze"" data-ordinal=""1""><i>independent</i></span> variable can account for <u>fluctuations</u> in the <b>mediator variable</b>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>The dependent variable has no affect on the mediator variable.</div><div><br></div><div><img src=""paste-a9ccc1e865c6f3b8e8bcdc706be38a724d535d68.jpg""><br></div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Moderator&#x20;variables&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> in experiments explain the <span class=""cloze-inactive"" data-ordinal=""2""><i>strength</i> of the IV's relationship to the DV</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Moderator variables</b></span> in experiments explain the <span class=""cloze-inactive"" data-ordinal=""2""><i>strength</i> of the IV's relationship to the DV</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<u>Does not</u> demonstrate a <b>causal</b> relationship between the IV and DV.</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Moderator variables</b></span> in experiments explain the <span class=""cloze"" data-cloze=""&lt;i&gt;strength&lt;&#x2F;i&gt;&#x20;of&#x20;the&#x20;IV&#x27;s&#x20;relationship&#x20;to&#x20;the&#x20;DV"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Moderator variables</b></span> in experiments explain the <span class=""cloze"" data-ordinal=""2""><i>strength</i> of the IV's relationship to the DV</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<u>Does not</u> demonstrate a <b>causal</b> relationship between the IV and DV.</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Illusory&#x20;correlations&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is when you <i>perceive</i> a correlation to exist between two variables, when there really isn't."	"<span class=""cloze"" data-ordinal=""1""><b>Illusory correlations</b></span> is when you <i>perceive</i> a correlation to exist between two variables, when there really isn't.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""paste-be124bae31fcb982b9664d3027817454d242e0fe.jpg""><br></div></div>"
+"The <span class=""cloze"" data-cloze=""&lt;b&gt;disconfirmation&#x20;principle&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> says that when a <span class=""cloze-inactive"" data-ordinal=""2""><u>possible solution</u> to a problem <i>fails</i> during testing</span>, the solution should be <span class=""cloze-inactive"" data-ordinal=""2"">discarded</span>."	"The <span class=""cloze"" data-ordinal=""1""><b>disconfirmation principle</b></span> says that when a <span class=""cloze-inactive"" data-ordinal=""2""><u>possible solution</u> to a problem <i>fails</i> during testing</span>, the solution should be <span class=""cloze-inactive"" data-ordinal=""2"">discarded</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""Well that didn't work. Let's try something else.""</div>"
+"The <span class=""cloze-inactive"" data-ordinal=""1""><b>disconfirmation principle</b></span> says that when a <span class=""cloze"" data-cloze=""&lt;u&gt;possible&#x20;solution&lt;&#x2F;u&gt;&#x20;to&#x20;a&#x20;problem&#x20;&lt;i&gt;fails&lt;&#x2F;i&gt;&#x20;during&#x20;testing"" data-ordinal=""2"">[...]</span>, the solution should be <span class=""cloze"" data-cloze=""discarded"" data-ordinal=""2"">[...]</span>."	"The <span class=""cloze-inactive"" data-ordinal=""1""><b>disconfirmation principle</b></span> says that when a <span class=""cloze"" data-ordinal=""2""><u>possible solution</u> to a problem <i>fails</i> during testing</span>, the solution should be <span class=""cloze"" data-ordinal=""2"">discarded</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""Well that didn't work. Let's try something else.""</div>"
+"In an experiment, <span class=""cloze"" data-cloze=""&lt;b&gt;positive&lt;&#x2F;b&gt;"" data-ordinal=""1"">[+/-]</span> <b>controls</b> are controls that are not exposed to the experimental treatment but&nbsp;<i>are</i>&nbsp;expected to&nbsp;<span class=""cloze-inactive"" data-ordinal=""2"">produce an <i>expected</i> effect</span>."	"In an experiment, <span class=""cloze"" data-ordinal=""1""><b>positive</b></span> <b>controls</b> are controls that are not exposed to the experimental treatment but&nbsp;<i>are</i>&nbsp;expected to&nbsp;<span class=""cloze-inactive"" data-ordinal=""2"">produce an <i>expected</i> effect</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Adding a known inhibitor to a sample is a positive control.</div>"
+"In an experiment, <span class=""cloze-inactive"" data-ordinal=""1""><b>positive</b></span> <b>controls</b> are controls that are not exposed to the experimental treatment but&nbsp;<i>are</i>&nbsp;expected to&nbsp;<span class=""cloze"" data-cloze=""produce&#x20;an&#x20;&lt;i&gt;expected&lt;&#x2F;i&gt;&#x20;effect"" data-ordinal=""2"">[...]</span>."	"In an experiment, <span class=""cloze-inactive"" data-ordinal=""1""><b>positive</b></span> <b>controls</b> are controls that are not exposed to the experimental treatment but&nbsp;<i>are</i>&nbsp;expected to&nbsp;<span class=""cloze"" data-ordinal=""2"">produce an <i>expected</i> effect</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Adding a known inhibitor to a sample is a positive control.</div>"
+"In an experiment, <span class=""cloze"" data-cloze=""&lt;b&gt;negative&lt;&#x2F;b&gt;"" data-ordinal=""1"">[+/-]</span> <b>controls</b> are controls that confirm that an <span class=""cloze-inactive"" data-ordinal=""2""><i>unexpected</i> effect <i>did not</i> occur</span>."	"In an experiment, <span class=""cloze"" data-ordinal=""1""><b>negative</b></span> <b>controls</b> are controls that confirm that an <span class=""cloze-inactive"" data-ordinal=""2""><i>unexpected</i> effect <i>did not</i> occur</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""This nucleotide shouldn't get degraded, so if ___ is present/absent, it should confirm that this was in fact not degraded.""</div>"
+"In an experiment, <span class=""cloze-inactive"" data-ordinal=""1""><b>negative</b></span> <b>controls</b> are controls that confirm that an <span class=""cloze"" data-cloze=""&lt;i&gt;unexpected&lt;&#x2F;i&gt;&#x20;effect&#x20;&lt;i&gt;did&#x20;not&lt;&#x2F;i&gt;&#x20;occur"" data-ordinal=""2"">[...]</span>."	"In an experiment, <span class=""cloze-inactive"" data-ordinal=""1""><b>negative</b></span> <b>controls</b> are controls that confirm that an <span class=""cloze"" data-ordinal=""2""><i>unexpected</i> effect <i>did not</i> occur</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""This nucleotide shouldn't get degraded, so if ___ is present/absent, it should confirm that this was in fact not degraded.""</div>"
+"You can <i>only</i> assume two things have a <u>positive/negative correlation</u> when the passage <span class=""cloze"" data-cloze=""&lt;i&gt;explicitly&lt;&#x2F;i&gt;&#x20;&lt;i&gt;mentions&lt;&#x2F;i&gt;&amp;nbsp&#x3B;there&#x20;being&#x20;a&#x20;correlation"" data-ordinal=""1"">[...]</span>."	"You can <i>only</i> assume two things have a <u>positive/negative correlation</u> when the passage <span class=""cloze"" data-ordinal=""1""><i>explicitly</i> <i>mentions</i>&nbsp;there being a correlation</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Happy and sad music are NOT negatively correlated, because there's <u>no mention of a correlation in the first place</u>.</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;r&lt;sup&gt;2&lt;&#x2F;sup&gt;&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> explains the <span class=""cloze-inactive"" data-ordinal=""2""><u>variance</u> in one variable <i>due</i> <i>to</i> <i>another</i> variable</span>, which can be <i>calculated</i> by <span class=""cloze-inactive"" data-ordinal=""2"">squaring the correlation (r)</span>."	"<span class=""cloze"" data-ordinal=""1""><b>r<sup>2</sup></b></span> explains the <span class=""cloze-inactive"" data-ordinal=""2""><u>variance</u> in one variable <i>due</i> <i>to</i> <i>another</i> variable</span>, which can be <i>calculated</i> by <span class=""cloze-inactive"" data-ordinal=""2"">squaring the correlation (r)</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-140015afa830b2b3e02e60b61f612e388a9fe9b3.jpg""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>r<sup>2</sup></b></span> explains the <span class=""cloze"" data-cloze=""&lt;u&gt;variance&lt;&#x2F;u&gt;&#x20;in&#x20;one&#x20;variable&#x20;&lt;i&gt;due&lt;&#x2F;i&gt;&#x20;&lt;i&gt;to&lt;&#x2F;i&gt;&#x20;&lt;i&gt;another&lt;&#x2F;i&gt;&#x20;variable"" data-ordinal=""2"">[...]</span>, which can be <i>calculated</i> by <span class=""cloze"" data-cloze=""squaring&#x20;the&#x20;correlation&#x20;&#x28;r&#x29;"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>r<sup>2</sup></b></span> explains the <span class=""cloze"" data-ordinal=""2""><u>variance</u> in one variable <i>due</i> <i>to</i> <i>another</i> variable</span>, which can be <i>calculated</i> by <span class=""cloze"" data-ordinal=""2"">squaring the correlation (r)</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-140015afa830b2b3e02e60b61f612e388a9fe9b3.jpg""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;t&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>values</b> describe the difference between an <span class=""cloze-inactive"" data-ordinal=""2""><i>observed</i> sample size</span> and the <span class=""cloze-inactive"" data-ordinal=""2""><i>hypothesized</i> population size</span>."	"<span class=""cloze"" data-ordinal=""1""><b>t</b></span> <b>values</b> describe the difference between an <span class=""cloze-inactive"" data-ordinal=""2""><i>observed</i> sample size</span> and the <span class=""cloze-inactive"" data-ordinal=""2""><i>hypothesized</i> population size</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Helps you assess whether or not the sample size you chose was large enough.</div><div><br></div><img src=""paste-25d1dd856e4d1cc6e075a23b8ed5f34509b0879a.jpg""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>t</b></span> <b>values</b> describe the difference between an <span class=""cloze"" data-cloze=""&lt;i&gt;observed&lt;&#x2F;i&gt;&#x20;sample&#x20;size"" data-ordinal=""2"">[...]</span> and the <span class=""cloze"" data-cloze=""&lt;i&gt;hypothesized&lt;&#x2F;i&gt;&#x20;population&#x20;size"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>t</b></span> <b>values</b> describe the difference between an <span class=""cloze"" data-ordinal=""2""><i>observed</i> sample size</span> and the <span class=""cloze"" data-ordinal=""2""><i>hypothesized</i> population size</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Helps you assess whether or not the sample size you chose was large enough.</div><div><br></div><img src=""paste-25d1dd856e4d1cc6e075a23b8ed5f34509b0879a.jpg""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Subjective&lt;&#x2F;b&gt;"" data-ordinal=""1"">[objective/subjective]</span><b>&nbsp;measurement</b>&nbsp;is how experimenters measure <u>what people say</u> (questionairres) - requiring interpretation."	"<span class=""cloze"" data-ordinal=""1""><b>Subjective</b></span><b>&nbsp;measurement</b>&nbsp;is how experimenters measure <u>what people say</u> (questionairres) - requiring interpretation.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Objective&lt;&#x2F;b&gt;"" data-ordinal=""1"">[objective/subjective]</span><b>&nbsp;measurement</b>&nbsp;is how experimenters measure&nbsp;<u>objective data</u>&nbsp;(numbers)."	"<span class=""cloze"" data-ordinal=""1""><b>Objective</b></span><b>&nbsp;measurement</b>&nbsp;is how experimenters measure&nbsp;<u>objective data</u>&nbsp;(numbers).
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Face&#x20;validity&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is the degree to which an <u>experiment</u> sounds effective to the <span class=""cloze-inactive"" data-ordinal=""2""><i>participants</i> it's being given to</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Face validity</b></span> is the degree to which an <u>experiment</u> sounds effective to the <span class=""cloze-inactive"" data-ordinal=""2""><i>participants</i> it's being given to</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""This sounds like a very interesting experiment!"" - participant</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Face validity</b></span> is the degree to which an <u>experiment</u> sounds effective to the <span class=""cloze"" data-cloze=""&lt;i&gt;participants&lt;&#x2F;i&gt;&#x20;it&#x27;s&#x20;being&#x20;given&#x20;to"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Face validity</b></span> is the degree to which an <u>experiment</u> sounds effective to the <span class=""cloze"" data-ordinal=""2""><i>participants</i> it's being given to</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""This sounds like a very interesting experiment!"" - participant</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Parallel&#x20;forms&#x20;reliability&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is when an instrument is shown to be reliable after the results between <span class=""cloze-inactive"" data-ordinal=""2""><u>alternate versions</u> of the instrument</span> are shown to be <span class=""cloze-inactive"" data-ordinal=""2""><i>correlated</i></span>."	"<span class=""cloze"" data-ordinal=""1""><b>Parallel forms reliability</b></span> is when an instrument is shown to be reliable after the results between <span class=""cloze-inactive"" data-ordinal=""2""><u>alternate versions</u> of the instrument</span> are shown to be <span class=""cloze-inactive"" data-ordinal=""2""><i>correlated</i></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+2 similar versions of a questionairre are given and show a correlation.</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Parallel forms reliability</b></span> is when an instrument is shown to be reliable after the results between <span class=""cloze"" data-cloze=""&lt;u&gt;alternate&#x20;versions&lt;&#x2F;u&gt;&#x20;of&#x20;the&#x20;instrument"" data-ordinal=""2"">[...]</span> are shown to be <span class=""cloze"" data-cloze=""&lt;i&gt;correlated&lt;&#x2F;i&gt;"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Parallel forms reliability</b></span> is when an instrument is shown to be reliable after the results between <span class=""cloze"" data-ordinal=""2""><u>alternate versions</u> of the instrument</span> are shown to be <span class=""cloze"" data-ordinal=""2""><i>correlated</i></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+2 similar versions of a questionairre are given and show a correlation.</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Matched&#x20;pairs&#x20;studies&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> are studies where participants are <span class=""cloze-inactive"" data-ordinal=""2""><u>paired together</u></span> based on a <span class=""cloze-inactive"" data-ordinal=""2""><i>shared</i> characteristic</span> and are then randomly assigned to <i>different</i> treatments."	"<span class=""cloze"" data-ordinal=""1""><b>Matched pairs studies</b></span> are studies where participants are <span class=""cloze-inactive"" data-ordinal=""2""><u>paired together</u></span> based on a <span class=""cloze-inactive"" data-ordinal=""2""><i>shared</i> characteristic</span> and are then randomly assigned to <i>different</i> treatments.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Used to control for potential <u>confounding variables</u>.</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Matched pairs studies</b></span> are studies where participants are <span class=""cloze"" data-cloze=""&lt;u&gt;paired&#x20;together&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> based on a <span class=""cloze"" data-cloze=""&lt;i&gt;shared&lt;&#x2F;i&gt;&#x20;characteristic"" data-ordinal=""2"">[...]</span> and are then randomly assigned to <i>different</i> treatments."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Matched pairs studies</b></span> are studies where participants are <span class=""cloze"" data-ordinal=""2""><u>paired together</u></span> based on a <span class=""cloze"" data-ordinal=""2""><i>shared</i> characteristic</span> and are then randomly assigned to <i>different</i> treatments.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Used to control for potential <u>confounding variables</u>.</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Reporting&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[bias]</span> is when researchers <span class=""cloze-inactive"" data-ordinal=""2""><u>selectively <i>withold</i> information</u></span> in their reports about the <span class=""cloze-inactive"" data-ordinal=""2"">experiment's design</span> or the backgrounds of the participants."	"<span class=""cloze"" data-ordinal=""1""><b>Reporting bias</b></span> is when researchers <span class=""cloze-inactive"" data-ordinal=""2""><u>selectively <i>withold</i> information</u></span> in their reports about the <span class=""cloze-inactive"" data-ordinal=""2"">experiment's design</span> or the backgrounds of the participants.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Ex: not disclosing that a participant had a history of smoking in a study on cancer development.</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Reporting bias</b></span> is when researchers <span class=""cloze"" data-cloze=""&lt;u&gt;selectively&#x20;&lt;i&gt;withold&lt;&#x2F;i&gt;&#x20;information&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> in their reports about the <span class=""cloze"" data-cloze=""experiment&#x27;s&#x20;design"" data-ordinal=""2"">[...]</span> or the backgrounds of the participants."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Reporting bias</b></span> is when researchers <span class=""cloze"" data-ordinal=""2""><u>selectively <i>withold</i> information</u></span> in their reports about the <span class=""cloze"" data-ordinal=""2"">experiment's design</span> or the backgrounds of the participants.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Ex: not disclosing that a participant had a history of smoking in a study on cancer development.</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Natural&#x20;experiments&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> are studies where researchers investigate the <i>effects</i> of <span class=""cloze-inactive"" data-ordinal=""2"">something&nbsp;<i>outside</i> of the experimenter's control</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Natural experiments</b></span> are studies where researchers investigate the <i>effects</i> of <span class=""cloze-inactive"" data-ordinal=""2"">something&nbsp;<i>outside</i> of the experimenter's control</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Ex: how did this earthquake affect the religiosity of the people effected?</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Natural experiments</b></span> are studies where researchers investigate the <i>effects</i> of <span class=""cloze"" data-cloze=""something&amp;nbsp&#x3B;&lt;i&gt;outside&lt;&#x2F;i&gt;&#x20;of&#x20;the&#x20;experimenter&#x27;s&#x20;control"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Natural experiments</b></span> are studies where researchers investigate the <i>effects</i> of <span class=""cloze"" data-ordinal=""2"">something&nbsp;<i>outside</i> of the experimenter's control</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Ex: how did this earthquake affect the religiosity of the people effected?</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Snowball sampling</b></span> is a method of sampling where participants <span class=""cloze"" data-cloze=""recruit&#x20;their&#x20;&lt;u&gt;family&#x20;and&#x20;friends&#x20;to&#x20;participate&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> in the study as well - introducing possible <u>sampling bias</u>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Snowball sampling</b></span> is a method of sampling where participants <span class=""cloze"" data-ordinal=""2"">recruit their <u>family and friends to participate</u></span> in the study as well - introducing possible <u>sampling bias</u>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-7df5df6a7ba593d6f42bc255d69ce71696ca659e.jpg""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Snowball&#x20;sampling&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is a method of sampling where participants <span class=""cloze-inactive"" data-ordinal=""2"">recruit their <u>family and friends to participate</u></span> in the study as well - introducing possible <u>sampling bias</u>."	"<span class=""cloze"" data-ordinal=""1""><b>Snowball sampling</b></span> is a method of sampling where participants <span class=""cloze-inactive"" data-ordinal=""2"">recruit their <u>family and friends to participate</u></span> in the study as well - introducing possible <u>sampling bias</u>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-7df5df6a7ba593d6f42bc255d69ce71696ca659e.jpg""></div>"
+"Having to <i>exclude</i> <span class=""cloze"" data-cloze=""10&#x25;&#x20;or&#x20;more"" data-ordinal=""1"">[amount]</span> data samples from a <u>sample</u> in a study <span class=""cloze-inactive"" data-ordinal=""2""><i>does</i></span> limit the validity of the study."	"Having to <i>exclude</i> <span class=""cloze"" data-ordinal=""1"">10% or more</span> data samples from a <u>sample</u> in a study <span class=""cloze-inactive"" data-ordinal=""2""><i>does</i></span> limit the validity of the study.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""We looked at 5,000 medical records but had to exclude 600 of them"" → limited in its validity since it exceeds 10%.</div>"
+"Having to <i>exclude</i> <span class=""cloze-inactive"" data-ordinal=""1"">10% or more</span> data samples from a <u>sample</u> in a study <span class=""cloze"" data-cloze=""&lt;i&gt;does&lt;&#x2F;i&gt;"" data-ordinal=""2"">[does/does not]</span> limit the validity of the study."	"Having to <i>exclude</i> <span class=""cloze-inactive"" data-ordinal=""1"">10% or more</span> data samples from a <u>sample</u> in a study <span class=""cloze"" data-ordinal=""2""><i>does</i></span> limit the validity of the study.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""We looked at 5,000 medical records but had to exclude 600 of them"" → limited in its validity since it exceeds 10%.</div>"
+"<div>Is there a significant difference between 1:1 and 5:1? Why or why not?</div><div><br></div><div><span class=""cloze"" data-cloze=""No&#x2C;&#x20;because&#x20;the&#x20;&quot;significance&#x20;lines&quot;&#x20;do&#x20;not&#x20;indicate&#x20;there&#x27;s&#x20;a&#x20;significant&#x20;difference&#x2E;&#x20;If&#x20;there&#x20;was&#x2C;&#x20;there&#x27;d&#x20;be&#x20;a&#x20;line&#x20;connecting&#x20;&lt;i&gt;only&lt;&#x2F;i&gt;&#x20;the&#x20;two&#x2E;"" data-ordinal=""1"">[...]</span></div><div><br></div><img src=""paste-b32dd9748629d3c04250ecc32a5d0247bd08c4ce.jpg"">"	"<div>Is there a significant difference between 1:1 and 5:1? Why or why not?</div><div><br></div><div><span class=""cloze"" data-ordinal=""1"">No, because the ""significance lines"" do not indicate there's a significant difference. If there was, there'd be a line connecting <i>only</i> the two.</span></div><div><br></div><img src=""paste-b32dd9748629d3c04250ecc32a5d0247bd08c4ce.jpg"">
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-cbced9075e063682f10f34477e369fb57583ac41.jpg""></div>"
+"<div>The top ""significance bar"" with *** shows that there's a significant difference between <span class=""cloze"" data-cloze=""0&#x3A;1&#x20;and&#x20;10&#x3A;1"" data-ordinal=""1"">[treatment groups]</span>.</div><div><br></div><img src=""paste-b32dd9748629d3c04250ecc32a5d0247bd08c4ce.jpg"">"	"<div>The top ""significance bar"" with *** shows that there's a significant difference between <span class=""cloze"" data-ordinal=""1"">0:1 and 10:1</span>.</div><div><br></div><img src=""paste-b32dd9748629d3c04250ecc32a5d0247bd08c4ce.jpg"">
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>Do not ""fill in the middle"" groups - it's only between the groups on the two ends!</div><div><br></div><img src=""paste-cbced9075e063682f10f34477e369fb57583ac41.jpg""></div>"
+"<div>A <span class=""cloze-inactive"" data-ordinal=""1""><b>confounding variable</b></span> in an experiment is a 3<sup>rd</sup> variable that could potentially <i>relate</i> to <span class=""cloze"" data-cloze=""&lt;i&gt;either&lt;&#x2F;i&gt;&#x20;the&#x20;&lt;u&gt;independent&lt;&#x2F;u&gt;&#x20;or&amp;nbsp&#x3B;&lt;u&gt;dependent&lt;&#x2F;u&gt;"" data-ordinal=""3"">[independent/dependent/either]</span> variable(s) in an experiment.<br></div>"	"<div>A <span class=""cloze-inactive"" data-ordinal=""1""><b>confounding variable</b></span> in an experiment is a 3<sup>rd</sup> variable that could potentially <i>relate</i> to <span class=""cloze"" data-ordinal=""3""><i>either</i> the <u>independent</u> or&nbsp;<u>dependent</u></span> variable(s) in an experiment.<br></div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Like a factor that was failed to be considered by the researchers.</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Mediating</b></span> <b>variables</b> in an experiment <span class=""cloze"" data-cloze=""&lt;i&gt;can&lt;&#x2F;i&gt;"" data-ordinal=""2"">[can/cannot]</span> demonstrate <u>causal relationships</u> between the IV and DV."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Mediating</b></span> <b>variables</b> in an experiment <span class=""cloze"" data-ordinal=""2""><i>can</i></span> demonstrate <u>causal relationships</u> between the IV and DV.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Moderator </b>variables: explain the <i>strength</i>&nbsp;of the IV's relationship to the DV.<div>- <b>Mediator </b>variables: IV → mediator → DV.</div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Mediating&lt;&#x2F;b&gt;"" data-ordinal=""1"">[moderating/mediating]</span> <b>variables</b> in an experiment <span class=""cloze-inactive"" data-ordinal=""2""><i>can</i></span> demonstrate <u>causal relationships</u> between the IV and DV."	"<span class=""cloze"" data-ordinal=""1""><b>Mediating</b></span> <b>variables</b> in an experiment <span class=""cloze-inactive"" data-ordinal=""2""><i>can</i></span> demonstrate <u>causal relationships</u> between the IV and DV.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Moderator </b>variables: explain the <i>strength</i>&nbsp;of the IV's relationship to the DV.<div>- <b>Mediator </b>variables: IV → mediator → DV.</div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Moderating&lt;&#x2F;b&gt;"" data-ordinal=""1"">[moderating/mediating]</span> <b>variables</b> in an experiment <span class=""cloze-inactive"" data-ordinal=""2""><i>cannot</i></span> demonstrate <u>causal relationships</u> between the IV and DV."	"<span class=""cloze"" data-ordinal=""1""><b>Moderating</b></span> <b>variables</b> in an experiment <span class=""cloze-inactive"" data-ordinal=""2""><i>cannot</i></span> demonstrate <u>causal relationships</u> between the IV and DV.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Moderator </b>variables: explain the <i>strength</i>&nbsp;of the IV's relationship to the DV.<div>- <b>Mediator </b>variables: IV → mediator → DV.</div></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Moderating</b></span> <b>variables</b> in an experiment <span class=""cloze"" data-cloze=""&lt;i&gt;cannot&lt;&#x2F;i&gt;"" data-ordinal=""2"">[can/cannot]</span> demonstrate <u>causal relationships</u> between the IV and DV."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Moderating</b></span> <b>variables</b> in an experiment <span class=""cloze"" data-ordinal=""2""><i>cannot</i></span> demonstrate <u>causal relationships</u> between the IV and DV.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Moderator </b>variables: explain the <i>strength</i>&nbsp;of the IV's relationship to the DV.<div>- <b>Mediator </b>variables: IV → mediator → DV.</div></div>"
+"<b>Confounding variables</b> <span class=""cloze"" data-cloze=""&lt;i&gt;cannot&lt;&#x2F;i&gt;"" data-ordinal=""1"">[can/cannot]</span> explain <u>causal relationships</u> between the IV and DV."	"<b>Confounding variables</b> <span class=""cloze"" data-ordinal=""1""><i>cannot</i></span> explain <u>causal relationships</u> between the IV and DV.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Moderator </b>variables: explain the <i>strength</i>&nbsp;of the IV's relationship to the DV.<div>- <b>Mediator </b>variables: IV → mediator → DV.</div><div>- <b>Confounding</b> variable: variable that might be related to the IV and DV but does not influence any causal relationship.</div></div>"
+"Difference between 'incidence' &amp; 'prevalence'...<div><br></div><div><b>Incidence</b>: describes the number of <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;only&lt;&#x2F;i&gt;&#x20;new&#x20;cases&lt;&#x2F;u&gt;&#x20;of&#x20;something"" data-ordinal=""1"">[...]</span>&nbsp;in a population</div><div><b>Prevalence</b>: describes the number of <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;both&lt;&#x2F;i&gt;&#x20;new&#x20;&amp;amp&#x3B;&#x20;old&#x20;cases&lt;&#x2F;u&gt;&#x20;of&#x20;something"" data-ordinal=""1"">[...]</span> in a population.</div>"	"Difference between 'incidence' &amp; 'prevalence'...<div><br></div><div><b>Incidence</b>: describes the number of <span class=""cloze"" data-ordinal=""1""><u><i>only</i> new cases</u> of something</span>&nbsp;in a population</div><div><b>Prevalence</b>: describes the number of <span class=""cloze"" data-ordinal=""1""><u><i>both</i> new &amp; old cases</u> of something</span> in a population.</div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"Difference between 'incidence' &amp; 'prevalence'...<div><br></div><div><b>Prevalence</b>: describes the number of <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;both&lt;&#x2F;i&gt;&amp;nbsp&#x3B;new&#x20;&amp;amp&#x3B;&#x20;old&#x20;cases&lt;&#x2F;u&gt;&amp;nbsp&#x3B;of&#x20;something"" data-ordinal=""1"">[...]</span> in a population.<b><br></b></div><div><b>Incidence</b>: describes the number of <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;only&lt;&#x2F;i&gt;&#x20;new&#x20;cases&lt;&#x2F;u&gt;&#x20;of&#x20;something"" data-ordinal=""1"">[...]</span>&nbsp;in a population</div>"	"Difference between 'incidence' &amp; 'prevalence'...<div><br></div><div><b>Prevalence</b>: describes the number of <span class=""cloze"" data-ordinal=""1""><u><i>both</i>&nbsp;new &amp; old cases</u>&nbsp;of something</span> in a population.<b><br></b></div><div><b>Incidence</b>: describes the number of <span class=""cloze"" data-ordinal=""1""><u><i>only</i> new cases</u> of something</span>&nbsp;in a population</div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""6418faec09d7602f232c617ef842c346.png""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Construct&#x20;validity&lt;&#x2F;b&gt;"" data-ordinal=""1"">[validity]</span> is the degree to which an experiment <span class=""cloze-inactive"" data-ordinal=""2"">measures what it <i>claims</i> it measures</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Construct validity</b></span> is the degree to which an experiment <span class=""cloze-inactive"" data-ordinal=""2"">measures what it <i>claims</i> it measures</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""We found that ___ causes ___!""</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Construct validity</b></span> is the degree to which an experiment <span class=""cloze"" data-cloze=""measures&#x20;what&#x20;it&#x20;&lt;i&gt;claims&lt;&#x2F;i&gt;&#x20;it&#x20;measures"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Construct validity</b></span> is the degree to which an experiment <span class=""cloze"" data-ordinal=""2"">measures what it <i>claims</i> it measures</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+""We found that ___ causes ___!""</div>"
+"The <i>only</i> studies that use <u>control groups</u> are <span class=""cloze"" data-cloze=""true&#x20;experimental"" data-ordinal=""1"">[type]</span> studies."	"The <i>only</i> studies that use <u>control groups</u> are <span class=""cloze"" data-ordinal=""1"">true experimental</span> studies.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+If a study lacks an independent &amp; dependent variable, it will NOT have a control either!</div>"
+"The use of <u>focus groups</u> in a study to describe their unique experiences with something is an example of <span class=""cloze"" data-cloze=""qualitative"" data-ordinal=""1"">[...]</span> research."	"The use of <u>focus groups</u> in a study to describe their unique experiences with something is an example of <span class=""cloze"" data-ordinal=""1"">qualitative</span> research.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Case-studies focus on one particular person - not an entire group.</div>"
+"The <span class=""cloze-inactive"" data-ordinal=""1""><b>IC<sub>50</sub></b></span>&nbsp;of an enzyme inhibitor represents the <span class=""cloze"" data-cloze=""&lt;i&gt;minumum&lt;&#x2F;i&gt;&#x20;concentration&#x20;of&#x20;the&#x20;inhibitor"" data-ordinal=""2"">[...]</span>&nbsp;needed to <span class=""cloze"" data-cloze=""inhibit&#x20;50&#x25;"" data-ordinal=""2"">[...]</span> of the enzymes."	"The <span class=""cloze-inactive"" data-ordinal=""1""><b>IC<sub>50</sub></b></span>&nbsp;of an enzyme inhibitor represents the <span class=""cloze"" data-ordinal=""2""><i>minumum</i> concentration of the inhibitor</span>&nbsp;needed to <span class=""cloze"" data-ordinal=""2"">inhibit 50%</span> of the enzymes.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- A <u>low</u> IC<sub>50</sub> represents a <u>more</u> effective inhibitor (smaller concentration is needed for sufficient inhibition).</div><div>- The most effective pH range is 1.5-3.7, because it has the lowest IC<sub>50</sub>.</div><div><br></div><img src=""paste-162e7a2a7780e2dcd7e6a1709ad3dda3c5c6d707.jpg""></div>"
+"The <span class=""cloze"" data-cloze=""&lt;b&gt;IC&lt;sub&gt;50&lt;&#x2F;sub&gt;&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span>&nbsp;of an enzyme inhibitor represents the <span class=""cloze-inactive"" data-ordinal=""2""><i>minumum</i> concentration of the inhibitor</span>&nbsp;needed to <span class=""cloze-inactive"" data-ordinal=""2"">inhibit 50%</span> of the enzymes."	"The <span class=""cloze"" data-ordinal=""1""><b>IC<sub>50</sub></b></span>&nbsp;of an enzyme inhibitor represents the <span class=""cloze-inactive"" data-ordinal=""2""><i>minumum</i> concentration of the inhibitor</span>&nbsp;needed to <span class=""cloze-inactive"" data-ordinal=""2"">inhibit 50%</span> of the enzymes.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- A <u>low</u> IC<sub>50</sub> represents a <u>more</u> effective inhibitor (smaller concentration is needed for sufficient inhibition).</div><div>- The most effective pH range is 1.5-3.7, because it has the lowest IC<sub>50</sub>.</div><div><br></div><img src=""paste-162e7a2a7780e2dcd7e6a1709ad3dda3c5c6d707.jpg""></div>"
+"For an enzyme inhibitor, a <span class=""cloze-inactive"" data-ordinal=""1""><i>low</i></span> <b>IC<sub>50</sub></b> represents a <span class=""cloze"" data-cloze=""&lt;i&gt;more&lt;&#x2F;i&gt;"" data-ordinal=""2"">[less/more]</span> <u>effective inhbitor</u>, since it means a <span class=""cloze-inactive"" data-ordinal=""3""><i>smaller</i> concentration of the inhibitor is required</span> for inhibition to be achieved."	"For an enzyme inhibitor, a <span class=""cloze-inactive"" data-ordinal=""1""><i>low</i></span> <b>IC<sub>50</sub></b> represents a <span class=""cloze"" data-ordinal=""2""><i>more</i></span> <u>effective inhbitor</u>, since it means a <span class=""cloze-inactive"" data-ordinal=""3""><i>smaller</i> concentration of the inhibitor is required</span> for inhibition to be achieved.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- A <u>low</u> IC<sub>50</sub> represents a <u>more</u> effective inhibitor (smaller concentration is needed for sufficient inhibition).</div><div>- The most effective pH range is 1.5-3.7, because it has the lowest IC<sub>50</sub>.</div><div><br></div><img src=""paste-162e7a2a7780e2dcd7e6a1709ad3dda3c5c6d707.jpg""></div>"
+"For an enzyme inhibitor, a <span class=""cloze"" data-cloze=""&lt;i&gt;low&lt;&#x2F;i&gt;"" data-ordinal=""1"">[low/high]</span> <b>IC<sub>50</sub></b> represents a <span class=""cloze-inactive"" data-ordinal=""2""><i>more</i></span> <u>effective inhbitor</u>, since it means a <span class=""cloze-inactive"" data-ordinal=""3""><i>smaller</i> concentration of the inhibitor is required</span> for inhibition to be achieved."	"For an enzyme inhibitor, a <span class=""cloze"" data-ordinal=""1""><i>low</i></span> <b>IC<sub>50</sub></b> represents a <span class=""cloze-inactive"" data-ordinal=""2""><i>more</i></span> <u>effective inhbitor</u>, since it means a <span class=""cloze-inactive"" data-ordinal=""3""><i>smaller</i> concentration of the inhibitor is required</span> for inhibition to be achieved.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- A <u>low</u> IC<sub>50</sub> represents a <u>more</u> effective inhibitor (smaller concentration is needed for sufficient inhibition).</div><div>- The most effective pH range is 1.5-3.7, because it has the lowest IC<sub>50</sub>.</div><div><br></div><img src=""paste-162e7a2a7780e2dcd7e6a1709ad3dda3c5c6d707.jpg""></div>"
+"For an enzyme inhibitor, a <span class=""cloze-inactive"" data-ordinal=""1""><i>low</i></span> <b>IC<sub>50</sub></b> represents a <span class=""cloze-inactive"" data-ordinal=""2""><i>more</i></span> <u>effective inhbitor</u>, since it means a <span class=""cloze"" data-cloze=""&lt;i&gt;smaller&lt;&#x2F;i&gt;&#x20;concentration&#x20;of&#x20;the&#x20;inhibitor&#x20;is&#x20;required"" data-ordinal=""3"">[...]</span> for inhibition to be achieved."	"For an enzyme inhibitor, a <span class=""cloze-inactive"" data-ordinal=""1""><i>low</i></span> <b>IC<sub>50</sub></b> represents a <span class=""cloze-inactive"" data-ordinal=""2""><i>more</i></span> <u>effective inhbitor</u>, since it means a <span class=""cloze"" data-ordinal=""3""><i>smaller</i> concentration of the inhibitor is required</span> for inhibition to be achieved.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- A <u>low</u> IC<sub>50</sub> represents a <u>more</u> effective inhibitor (smaller concentration is needed for sufficient inhibition).</div><div>- The most effective pH range is 1.5-3.7, because it has the lowest IC<sub>50</sub>.</div><div><br></div><img src=""paste-162e7a2a7780e2dcd7e6a1709ad3dda3c5c6d707.jpg""></div>"
+"For an enzyme inhibitor, a <span class=""cloze"" data-cloze=""&lt;i&gt;high&lt;&#x2F;i&gt;"" data-ordinal=""1"">[low/high]</span> <b>IC<sub>50</sub></b> represents a <span class=""cloze-inactive"" data-ordinal=""2""><i>less</i></span> <u>effective inhbitor</u>, since it means a <span class=""cloze-inactive"" data-ordinal=""3""><i>greater</i> concentration of the inhibitor</span> is required for inhibition to be achieved."	"For an enzyme inhibitor, a <span class=""cloze"" data-ordinal=""1""><i>high</i></span> <b>IC<sub>50</sub></b> represents a <span class=""cloze-inactive"" data-ordinal=""2""><i>less</i></span> <u>effective inhbitor</u>, since it means a <span class=""cloze-inactive"" data-ordinal=""3""><i>greater</i> concentration of the inhibitor</span> is required for inhibition to be achieved.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- A <u>low</u> IC<sub>50</sub> represents a <u>more</u> effective inhibitor (smaller concentration is needed for sufficient inhibition).</div><div>- The most effective pH range is 1.5-3.7, because it has the lowest IC<sub>50</sub>.</div><div><br></div><img src=""paste-162e7a2a7780e2dcd7e6a1709ad3dda3c5c6d707.jpg""></div>"
+"For an enzyme inhibitor, a <span class=""cloze-inactive"" data-ordinal=""1""><i>high</i></span> <b>IC<sub>50</sub></b> represents a <span class=""cloze"" data-cloze=""&lt;i&gt;less&lt;&#x2F;i&gt;"" data-ordinal=""2"">[less/more]</span> <u>effective inhbitor</u>, since it means a <span class=""cloze-inactive"" data-ordinal=""3""><i>greater</i> concentration of the inhibitor</span> is required for inhibition to be achieved."	"For an enzyme inhibitor, a <span class=""cloze-inactive"" data-ordinal=""1""><i>high</i></span> <b>IC<sub>50</sub></b> represents a <span class=""cloze"" data-ordinal=""2""><i>less</i></span> <u>effective inhbitor</u>, since it means a <span class=""cloze-inactive"" data-ordinal=""3""><i>greater</i> concentration of the inhibitor</span> is required for inhibition to be achieved.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- A <u>low</u> IC<sub>50</sub> represents a <u>more</u> effective inhibitor (smaller concentration is needed for sufficient inhibition).</div><div>- The most effective pH range is 1.5-3.7, because it has the lowest IC<sub>50</sub>.</div><div><br></div><img src=""paste-162e7a2a7780e2dcd7e6a1709ad3dda3c5c6d707.jpg""></div>"
+"For an enzyme inhibitor, a <span class=""cloze-inactive"" data-ordinal=""1""><i>high</i></span> <b>IC<sub>50</sub></b> represents a <span class=""cloze-inactive"" data-ordinal=""2""><i>less</i></span> <u>effective inhbitor</u>, since it means a <span class=""cloze"" data-cloze=""&lt;i&gt;greater&lt;&#x2F;i&gt;&#x20;concentration&#x20;of&#x20;the&#x20;inhibitor"" data-ordinal=""3"">[...]</span> is required for inhibition to be achieved."	"For an enzyme inhibitor, a <span class=""cloze-inactive"" data-ordinal=""1""><i>high</i></span> <b>IC<sub>50</sub></b> represents a <span class=""cloze-inactive"" data-ordinal=""2""><i>less</i></span> <u>effective inhbitor</u>, since it means a <span class=""cloze"" data-ordinal=""3""><i>greater</i> concentration of the inhibitor</span> is required for inhibition to be achieved.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- A <u>low</u> IC<sub>50</sub> represents a <u>more</u> effective inhibitor (smaller concentration is needed for sufficient inhibition).</div><div>- The most effective pH range is 1.5-3.7, because it has the lowest IC<sub>50</sub>.</div><div><br></div><img src=""paste-162e7a2a7780e2dcd7e6a1709ad3dda3c5c6d707.jpg""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Researcher bias</b></span> is a type of bias where the <span class=""cloze"" data-cloze=""&lt;u&gt;study&#x27;s&#x20;design&#x20;&lt;i&gt;itself&lt;&#x2F;i&gt;&#x20;is&#x20;biased&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Researcher bias</b></span> is a type of bias where the <span class=""cloze"" data-ordinal=""2""><u>study's design <i>itself</i> is biased</u></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Researcher&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[bias]</span> is a type of bias where the <span class=""cloze-inactive"" data-ordinal=""2""><u>study's design <i>itself</i> is biased</u></span>."	"<span class=""cloze"" data-ordinal=""1""><b>Researcher bias</b></span> is a type of bias where the <span class=""cloze-inactive"" data-ordinal=""2""><u>study's design <i>itself</i> is biased</u></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"The <span class=""cloze-inactive"" data-ordinal=""1""><b>test-retest bias</b></span> is when participants <span class=""cloze"" data-cloze=""&lt;u&gt;take&#x20;the&#x20;same&#x20;test&lt;&#x2F;u&gt;&#x20;&lt;i&gt;over&#x20;and&#x20;over&lt;&#x2F;i&gt;&#x20;again"" data-ordinal=""2"">[...]</span> - affecting their responses over time."	"The <span class=""cloze-inactive"" data-ordinal=""1""><b>test-retest bias</b></span> is when participants <span class=""cloze"" data-ordinal=""2""><u>take the same test</u> <i>over and over</i> again</span> - affecting their responses over time.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"The <span class=""cloze"" data-cloze=""&lt;b&gt;test&#x2D;retest&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[bias]</span> is when participants <span class=""cloze-inactive"" data-ordinal=""2""><u>take the same test</u> <i>over and over</i> again</span> - affecting their responses over time."	"The <span class=""cloze"" data-ordinal=""1""><b>test-retest bias</b></span> is when participants <span class=""cloze-inactive"" data-ordinal=""2""><u>take the same test</u> <i>over and over</i> again</span> - affecting their responses over time.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Content</b></span> <b>validity</b> is the extent to which a study comprehensively accounts for <span class=""cloze"" data-cloze=""all&#x20;the&#x20;&lt;u&gt;various&#x20;aspects&#x20;of&#x20;the&#x20;phenomenon&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> it's investigating."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Content</b></span> <b>validity</b> is the extent to which a study comprehensively accounts for <span class=""cloze"" data-ordinal=""2"">all the <u>various aspects of the phenomenon</u></span> it's investigating.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""paste-38c3acf12ebc33f44ac2cc2d84e435a9808d9c59.jpg""><br></div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Content&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>validity</b> is the extent to which a study comprehensively accounts for <span class=""cloze-inactive"" data-ordinal=""2"">all the <u>various aspects of the phenomenon</u></span> it's investigating."	"<span class=""cloze"" data-ordinal=""1""><b>Content</b></span> <b>validity</b> is the extent to which a study comprehensively accounts for <span class=""cloze-inactive"" data-ordinal=""2"">all the <u>various aspects of the phenomenon</u></span> it's investigating.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""paste-38c3acf12ebc33f44ac2cc2d84e435a9808d9c59.jpg""><br></div></div>"
+"Adding a <u><i>known</i> inhibitor</u> to an enzyme would act as a <span class=""cloze"" data-cloze=""&lt;b&gt;positive&lt;&#x2F;b&gt;"" data-ordinal=""1"">[+/-]</span> <b>control</b> in a study."	"Adding a <u><i>known</i> inhibitor</u> to an enzyme would act as a <span class=""cloze"" data-ordinal=""1""><b>positive</b></span> <b>control</b> in a study.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Positive controls</b> signal that an expected effect did occur.&nbsp;<div>- In this case, you'd expect the enzyme to be inhibited (i.e. expecting an expected effect to occur).</div></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Quasi&#x2D;independent&#x20;variables&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> are independent variables that are <span class=""cloze-inactive"" data-ordinal=""2""><u><i>inherent</i> to the individual</u> being studied</span> - traits that <span class=""cloze-inactive"" data-ordinal=""2""><i>cannot</i></span> be manipulated."	"<span class=""cloze"" data-ordinal=""1""><b>Quasi-independent variables</b></span> are independent variables that are <span class=""cloze-inactive"" data-ordinal=""2""><u><i>inherent</i> to the individual</u> being studied</span> - traits that <span class=""cloze-inactive"" data-ordinal=""2""><i>cannot</i></span> be manipulated.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Quasi-independent variables</b></span> are independent variables that are <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;inherent&lt;&#x2F;i&gt;&#x20;to&#x20;the&#x20;individual&lt;&#x2F;u&gt;&#x20;being&#x20;studied"" data-ordinal=""2"">[...]</span> - traits that <span class=""cloze"" data-cloze=""&lt;i&gt;cannot&lt;&#x2F;i&gt;"" data-ordinal=""2"">[can/cannot]</span> be manipulated."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Quasi-independent variables</b></span> are independent variables that are <span class=""cloze"" data-ordinal=""2""><u><i>inherent</i> to the individual</u> being studied</span> - traits that <span class=""cloze"" data-ordinal=""2""><i>cannot</i></span> be manipulated.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"In medical ethics, you <span class=""cloze"" data-cloze=""&lt;i&gt;can&lt;&#x2F;i&gt;"" data-ordinal=""1"">[can/cannot]</span> give potentially harmful drugs to healthy patients, so long as they <span class=""cloze"" data-cloze=""sign&#x20;an&#x20;informed&#x20;consent"" data-ordinal=""1"">[...]</span>."	"In medical ethics, you <span class=""cloze"" data-ordinal=""1""><i>can</i></span> give potentially harmful drugs to healthy patients, so long as they <span class=""cloze"" data-ordinal=""1"">sign an informed consent</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Rater bias</b></span> is when researchers have a tendency to <span class=""cloze"" data-cloze=""rate&#x20;in&#x20;the&#x20;&lt;i&gt;middle&lt;&#x2F;i&gt;&#x20;of&#x20;a&#x20;scale"" data-ordinal=""2"">[...]</span> of whatever they're measuring."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Rater bias</b></span> is when researchers have a tendency to <span class=""cloze"" data-ordinal=""2"">rate in the <i>middle</i> of a scale</span> of whatever they're measuring.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Rater&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[bias]</span> is when researchers have a tendency to <span class=""cloze-inactive"" data-ordinal=""2"">rate in the <i>middle</i> of a scale</span> of whatever they're measuring."	"<span class=""cloze"" data-ordinal=""1""><b>Rater bias</b></span> is when researchers have a tendency to <span class=""cloze-inactive"" data-ordinal=""2"">rate in the <i>middle</i> of a scale</span> of whatever they're measuring.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"A(n) <span class=""cloze-inactive"" data-ordinal=""1""><b>independent samples t-test</b></span> is used to <span class=""cloze"" data-cloze=""&lt;u&gt;compare&#x20;the&#x20;averages&lt;&#x2F;u&gt;&#x20;of&#x20;two&#x20;&lt;i&gt;different&lt;&#x2F;i&gt;&#x20;groups"" data-ordinal=""2"">[...]</span>."	"A(n) <span class=""cloze-inactive"" data-ordinal=""1""><b>independent samples t-test</b></span> is used to <span class=""cloze"" data-ordinal=""2""><u>compare the averages</u> of two <i>different</i> groups</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""Screen-Shot-2020-02-03-at-9.39.36-PM.png""></div>"
+"A(n) <span class=""cloze"" data-cloze=""&lt;b&gt;independent&#x20;samples&#x20;t&#x2D;test&lt;&#x2F;b&gt;"" data-ordinal=""1"">[test]</span> is used to <span class=""cloze-inactive"" data-ordinal=""2""><u>compare the averages</u> of two <i>different</i> groups</span>."	"A(n) <span class=""cloze"" data-ordinal=""1""><b>independent samples t-test</b></span> is used to <span class=""cloze-inactive"" data-ordinal=""2""><u>compare the averages</u> of two <i>different</i> groups</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""Screen-Shot-2020-02-03-at-9.39.36-PM.png""></div>"
+"A(n) <span class=""cloze-inactive"" data-ordinal=""1""><b>paired samples t-test</b></span> is used to tell if the <span class=""cloze"" data-cloze=""&lt;i&gt;difference&lt;&#x2F;i&gt;&#x20;in&#x20;averages&#x20;is&amp;nbsp&#x3B;&lt;u&gt;zero&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> between two portions of <span class=""cloze"" data-cloze=""the&#x20;&lt;i&gt;same&lt;&#x2F;i&gt;"" data-ordinal=""2"">[different/the same]</span> group."	"A(n) <span class=""cloze-inactive"" data-ordinal=""1""><b>paired samples t-test</b></span> is used to tell if the <span class=""cloze"" data-ordinal=""2""><i>difference</i> in averages is&nbsp;<u>zero</u></span> between two portions of <span class=""cloze"" data-ordinal=""2"">the <i>same</i></span> group.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""outlier_boxplot.png""></div>"
+"A(n) <span class=""cloze"" data-cloze=""&lt;b&gt;paired&#x20;samples&#x20;t&#x2D;test&lt;&#x2F;b&gt;"" data-ordinal=""1"">[test]</span> is used to tell if the <span class=""cloze-inactive"" data-ordinal=""2""><i>difference</i> in averages is&nbsp;<u>zero</u></span> between two portions of <span class=""cloze-inactive"" data-ordinal=""2"">the <i>same</i></span> group."	"A(n) <span class=""cloze"" data-ordinal=""1""><b>paired samples t-test</b></span> is used to tell if the <span class=""cloze-inactive"" data-ordinal=""2""><i>difference</i> in averages is&nbsp;<u>zero</u></span> between two portions of <span class=""cloze-inactive"" data-ordinal=""2"">the <i>same</i></span> group.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""outlier_boxplot.png""></div>"
+"In a study, <span class=""cloze"" data-cloze=""&lt;b&gt;operationally&#x20;defining&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> a variable is the <span class=""cloze-inactive"" data-ordinal=""2""><u>procedure</u></span> an experimenter uses to <span class=""cloze-inactive"" data-ordinal=""2"">measure a variable</span>."	"In a study, <span class=""cloze"" data-ordinal=""1""><b>operationally defining</b></span> a variable is the <span class=""cloze-inactive"" data-ordinal=""2""><u>procedure</u></span> an experimenter uses to <span class=""cloze-inactive"" data-ordinal=""2"">measure a variable</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Ex: to <b>operationally define</b> <u>motivation</u>, experimenters will deprive animals of food for extended periods of time.</div>"
+"In a study, <span class=""cloze-inactive"" data-ordinal=""1""><b>operationally defining</b></span> a variable is the <span class=""cloze"" data-cloze=""&lt;u&gt;procedure&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span> an experimenter uses to <span class=""cloze"" data-cloze=""measure&#x20;a&#x20;variable"" data-ordinal=""2"">[...]</span>."	"In a study, <span class=""cloze-inactive"" data-ordinal=""1""><b>operationally defining</b></span> a variable is the <span class=""cloze"" data-ordinal=""2""><u>procedure</u></span> an experimenter uses to <span class=""cloze"" data-ordinal=""2"">measure a variable</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Ex: to <b>operationally define</b> <u>motivation</u>, experimenters will deprive animals of food for extended periods of time.</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Reliability</b></span> refers to the ability of a test to <span class=""cloze"" data-cloze=""produce&#x20;&lt;i&gt;similar&#x20;results&lt;&#x2F;i&gt;&#x20;every&#x20;single&#x20;time"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Reliability</b></span> refers to the ability of a test to <span class=""cloze"" data-ordinal=""2"">produce <i>similar results</i> every single time</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div><img src=""9ae66cb463add9802ad9dfeffc443156.png""><br></div></div>"
+"A <span class=""cloze"" data-cloze=""&lt;b&gt;direct&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> <b>relationship</b> is when one variable <span class=""cloze-inactive"" data-ordinal=""2""><i>increases</i></span>, the other variable <i>increases</i>, or as one variable <span class=""cloze-inactive"" data-ordinal=""2""><i>decreases</i></span>, the other variable <i>decreases</i>."	"A <span class=""cloze"" data-ordinal=""1""><b>direct</b></span> <b>relationship</b> is when one variable <span class=""cloze-inactive"" data-ordinal=""2""><i>increases</i></span>, the other variable <i>increases</i>, or as one variable <span class=""cloze-inactive"" data-ordinal=""2""><i>decreases</i></span>, the other variable <i>decreases</i>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+If one variable increases &amp; the other decreases, that is NOT a direct relationship - that'd be an inverse relationship.</div>"
+"A <span class=""cloze-inactive"" data-ordinal=""1""><b>direct</b></span> <b>relationship</b> is when one variable <span class=""cloze"" data-cloze=""&lt;i&gt;increases&lt;&#x2F;i&gt;"" data-ordinal=""2"">[increases/decreases]</span>, the other variable <i>increases</i>, or as one variable <span class=""cloze"" data-cloze=""&lt;i&gt;decreases&lt;&#x2F;i&gt;"" data-ordinal=""2"">[increases/decreases]</span>, the other variable <i>decreases</i>."	"A <span class=""cloze-inactive"" data-ordinal=""1""><b>direct</b></span> <b>relationship</b> is when one variable <span class=""cloze"" data-ordinal=""2""><i>increases</i></span>, the other variable <i>increases</i>, or as one variable <span class=""cloze"" data-ordinal=""2""><i>decreases</i></span>, the other variable <i>decreases</i>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+If one variable increases &amp; the other decreases, that is NOT a direct relationship - that'd be an inverse relationship.</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Counterbalancing</b></span> is when researchers present task X to half of the participants <i>before</i> task Y &amp; task Y <i>before</i> task X to the <i>other</i> half of the participants in order to <span class=""cloze"" data-cloze=""control&#x20;for&#x20;the&#x20;effect&#x20;of&#x20;the&#x20;&lt;u&gt;&lt;i&gt;order&lt;&#x2F;i&gt;&#x20;of&#x20;task&#x20;presentation&lt;&#x2F;u&gt;"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Counterbalancing</b></span> is when researchers present task X to half of the participants <i>before</i> task Y &amp; task Y <i>before</i> task X to the <i>other</i> half of the participants in order to <span class=""cloze"" data-ordinal=""2"">control for the effect of the <u><i>order</i> of task presentation</u></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""counterbalanced-measures-design-2x2.jpg""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Counterbalancing&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is when researchers present task X to half of the participants <i>before</i> task Y &amp; task Y <i>before</i> task X to the <i>other</i> half of the participants in order to <span class=""cloze-inactive"" data-ordinal=""2"">control for the effect of the <u><i>order</i> of task presentation</u></span>."	"<span class=""cloze"" data-ordinal=""1""><b>Counterbalancing</b></span> is when researchers present task X to half of the participants <i>before</i> task Y &amp; task Y <i>before</i> task X to the <i>other</i> half of the participants in order to <span class=""cloze-inactive"" data-ordinal=""2"">control for the effect of the <u><i>order</i> of task presentation</u></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""counterbalanced-measures-design-2x2.jpg""></div>"
+"Difference between <u>participant observation studies</u> &amp; <u>embedded field studies</u>...<div><br></div><div><b>Participant observation</b>: researcher <span class=""cloze"" data-cloze=""participates&#x20;in&#x20;the&#x20;activity&#x20;&lt;i&gt;without&lt;&#x2F;i&gt;&#x20;hiding&#x20;their&#x20;identity"" data-ordinal=""1"">[...]</span>.</div><div><b>Embedded field study</b>: research <span class=""cloze"" data-cloze=""&lt;i&gt;pretends&lt;&#x2F;i&gt;&#x20;to&#x20;be&#x20;a&#x20;participant"" data-ordinal=""1"">[...]</span>.</div>"	"Difference between <u>participant observation studies</u> &amp; <u>embedded field studies</u>...<div><br></div><div><b>Participant observation</b>: researcher <span class=""cloze"" data-ordinal=""1"">participates in the activity <i>without</i> hiding their identity</span>.</div><div><b>Embedded field study</b>: research <span class=""cloze"" data-ordinal=""1""><i>pretends</i> to be a participant</span>.</div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Participant observation</b>&nbsp;→ researcher participates in the activity without hiding their identity.<div>-&nbsp;<b>Embedded field study</b>&nbsp;→ research participates in the activity while pretending to be a participant.</div></div>"
+"Difference between <u>participant observation studies</u> &amp; <u>embedded field studies</u>...<div><br></div><div><b>Embedded field study</b>: research <span class=""cloze"" data-cloze=""&lt;i&gt;pretends&lt;&#x2F;i&gt;&#x20;to&#x20;be&#x20;a&#x20;participant"" data-ordinal=""1"">[...]</span>.</div><div><b>Participant observation</b>: researcher <span class=""cloze"" data-cloze=""participates&#x20;in&#x20;the&#x20;activity&amp;nbsp&#x3B;&lt;i&gt;without&lt;&#x2F;i&gt;&amp;nbsp&#x3B;hiding&#x20;their&#x20;identity"" data-ordinal=""1"">[...]</span>.<br></div>"	"Difference between <u>participant observation studies</u> &amp; <u>embedded field studies</u>...<div><br></div><div><b>Embedded field study</b>: research <span class=""cloze"" data-ordinal=""1""><i>pretends</i> to be a participant</span>.</div><div><b>Participant observation</b>: researcher <span class=""cloze"" data-ordinal=""1"">participates in the activity&nbsp;<i>without</i>&nbsp;hiding their identity</span>.<br></div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+-&nbsp;<b>Participant observation</b>&nbsp;→ researcher participates in the activity without hiding their identity.<div>-&nbsp;<b>Embedded field study</b>&nbsp;→ research participates in the activity while pretending to be a participant.</div></div>"
+"What should you do for this type of question?<div><br></div><div>""Which of the following would provide the best evidence that ___ <i>causes</i> ___?""</div><div><br></div><div><span class=""cloze"" data-cloze=""Ask&#x20;yourself&#x20;if&#x20;there&#x20;could&#x20;be&#x20;&lt;i&gt;other&lt;&#x2F;i&gt;&#x20;possible&#x20;causes&#x20;or&#x20;confounding&#x20;variables&#x20;for&#x20;each&#x20;of&#x20;the&#x20;answer&#x20;choices&#x20;that&#x20;could&#x20;complicate&#x20;a&#x20;causal&#x20;relationship&#x2E;&#x20;&lt;u&gt;Choose&#x20;the&#x20;answer&#x20;that&#x20;has&#x20;the&#x20;fewest&#x20;number&#x20;of&#x20;possible&#x20;alternative&#x20;explanations&lt;&#x2F;u&gt;&#x2E;"" data-ordinal=""1"">[...]</span><br></div>"	"What should you do for this type of question?<div><br></div><div>""Which of the following would provide the best evidence that ___ <i>causes</i> ___?""</div><div><br></div><div><span class=""cloze"" data-ordinal=""1"">Ask yourself if there could be <i>other</i> possible causes or confounding variables for each of the answer choices that could complicate a causal relationship. <u>Choose the answer that has the fewest number of possible alternative explanations</u>.</span><br></div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"When researchers <u>operationalize</u> variables in order to determine a <span class=""cloze"" data-cloze=""cause&#x20;and&#x20;effect&amp;nbsp&#x3B;relationship"" data-ordinal=""1"">[...]</span>, that operationalized variable <i>must</i> be able to be <span class=""cloze-inactive"" data-ordinal=""2"">manipulated experimentally</span>."	"When researchers <u>operationalize</u> variables in order to determine a <span class=""cloze"" data-ordinal=""1"">cause and effect&nbsp;relationship</span>, that operationalized variable <i>must</i> be able to be <span class=""cloze-inactive"" data-ordinal=""2"">manipulated experimentally</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"When researchers <u>operationalize</u> variables in order to determine a <span class=""cloze-inactive"" data-ordinal=""1"">cause and effect&nbsp;relationship</span>, that operationalized variable <i>must</i> be able to be <span class=""cloze"" data-cloze=""manipulated&#x20;experimentally"" data-ordinal=""2"">[...]</span>."	"When researchers <u>operationalize</u> variables in order to determine a <span class=""cloze-inactive"" data-ordinal=""1"">cause and effect&nbsp;relationship</span>, that operationalized variable <i>must</i> be able to be <span class=""cloze"" data-ordinal=""2"">manipulated experimentally</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Voluntary response bias</b></span> is the bias that occurs when individuals <span class=""cloze"" data-cloze=""&lt;u&gt;&lt;i&gt;choose&lt;&#x2F;i&gt;&#x20;to&#x20;participate&lt;&#x2F;u&gt;&#x20;in&#x20;some&#x20;studies&#x20;&lt;i&gt;over&lt;&#x2F;i&gt;&#x20;others"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Voluntary response bias</b></span> is the bias that occurs when individuals <span class=""cloze"" data-ordinal=""2""><u><i>choose</i> to participate</u> in some studies <i>over</i> others</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-af2e0436f3bb617c96867fed9275f0d714c1ff31.jpg""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Voluntary&#x20;response&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[bias]</span> is the bias that occurs when individuals <span class=""cloze-inactive"" data-ordinal=""2""><u><i>choose</i> to participate</u> in some studies <i>over</i> others</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Voluntary response bias</b></span> is the bias that occurs when individuals <span class=""cloze-inactive"" data-ordinal=""2""><u><i>choose</i> to participate</u> in some studies <i>over</i> others</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-af2e0436f3bb617c96867fed9275f0d714c1ff31.jpg""></div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Response&#x20;bias&lt;&#x2F;b&gt;"" data-ordinal=""1"">[bias]</span> is the tendency for a person to answer questions on a <u>survey</u> <i>untruthfully</i>."	"<span class=""cloze"" data-ordinal=""1""><b>Response bias</b></span> is the tendency for a person to answer questions on a <u>survey</u> <i>untruthfully</i>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-af2e0436f3bb617c96867fed9275f0d714c1ff31.jpg""></div>"
+"<div><b>Bar graphs</b> <span class=""cloze"" data-cloze=""&lt;i&gt;are&#x20;not&lt;&#x2F;i&gt;"" data-ordinal=""1"">[are/are not]</span>&nbsp;<u>correlational</u>, because correlations must be on a <span class=""cloze"" data-cloze=""&lt;i&gt;continuous&lt;&#x2F;i&gt;&#x20;scale"" data-ordinal=""1"">[...]</span> as opposed to being discrete data points.</div><div><br></div><img src=""paste-75fa9384052d4be12b08ceb7af2b8e02e4b5131b.jpg"">"	"<div><b>Bar graphs</b> <span class=""cloze"" data-ordinal=""1""><i>are not</i></span>&nbsp;<u>correlational</u>, because correlations must be on a <span class=""cloze"" data-ordinal=""1""><i>continuous</i> scale</span> as opposed to being discrete data points.</div><div><br></div><img src=""paste-75fa9384052d4be12b08ceb7af2b8e02e4b5131b.jpg"">
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<div>- Bar graphs represent discrete data points that aren't on a continuous scale.</div></div>"
+"If you're told a data set has a <b>p-value</b> of 0.001, you <span class=""cloze"" data-cloze=""&lt;i&gt;cannot&lt;&#x2F;i&gt;"" data-ordinal=""1"">[can/cannot]</span> assume it has a strong <u>correlation</u>, because <span class=""cloze"" data-cloze=""p&#x2D;values&#x20;&lt;i&gt;are&#x20;not&lt;&#x2F;i&gt;&#x20;correlational"" data-ordinal=""1"">[...]</span>."	"If you're told a data set has a <b>p-value</b> of 0.001, you <span class=""cloze"" data-ordinal=""1""><i>cannot</i></span> assume it has a strong <u>correlation</u>, because <span class=""cloze"" data-ordinal=""1"">p-values <i>are not</i> correlational</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+In order for something to be <b>correlational</b>, it must be on a <u>continuous scale</u>. The word correlation (or an r-value) will be given in the passage if there is in fact a correlation.</div>"
+"Enzymes that are <i>adhered</i> to the walls of <b>test tubes</b> have <span class=""cloze"" data-cloze=""&lt;i&gt;lower&lt;&#x2F;i&gt;"" data-ordinal=""1"">[lower/greater/equal]</span> <u>activities</u> than those that are free to float in solution, because the enzyme's <span class=""cloze"" data-cloze=""surface&#x20;area&#x20;available&#x20;to&#x20;the&#x20;substrate&#x20;is&#x20;&lt;i&gt;reduced&lt;&#x2F;i&gt;"" data-ordinal=""1"">[...]</span>."	"Enzymes that are <i>adhered</i> to the walls of <b>test tubes</b> have <span class=""cloze"" data-ordinal=""1""><i>lower</i></span> <u>activities</u> than those that are free to float in solution, because the enzyme's <span class=""cloze"" data-ordinal=""1"">surface area available to the substrate is <i>reduced</i></span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+This is because the amount of surface area of the enzyme available to the substrate is reduced.</div>"
+"<div>What should you look for as an <i>indication</i> of each substitution's effect on the enzyme's <b>catalysis</b>, <b>conformational stability</b>, and <b>substrate affinity</b>?</div><div><br></div><div>- <u>Catalysis</u>: <span class=""cloze"" data-cloze=""k&lt;sub&gt;cat&lt;&#x2F;sub&gt;&#x20;&#x2D;&#x20;did&#x20;it&#x20;go&#x20;up&#x20;or&#x20;down&#x3F;"" data-ordinal=""1"">[...]</span></div><div>- <u>Conformational stability</u>: <span class=""cloze"" data-cloze=""T&lt;sub&gt;m&lt;&#x2F;sub&gt;&#x20;&#x2D;&#x20;did&#x20;it&#x20;go&#x20;up&#x20;or&#x20;down&#x3F;"" data-ordinal=""1"">[...]</span></div><div>- <u>Substrate affinity</u>: <span class=""cloze"" data-cloze=""K&lt;sub&gt;m&lt;&#x2F;sub&gt;&#x20;&#x2D;&#x20;did&#x20;it&#x20;go&#x20;up&#x20;or&#x20;down&#x3F;"" data-ordinal=""1"">[...]</span></div><div><br></div><img src=""paste-0bee8d00aa9d2bf280b606aac033d278e36bf6d9.jpg"">"	"<div>What should you look for as an <i>indication</i> of each substitution's effect on the enzyme's <b>catalysis</b>, <b>conformational stability</b>, and <b>substrate affinity</b>?</div><div><br></div><div>- <u>Catalysis</u>: <span class=""cloze"" data-ordinal=""1"">k<sub>cat</sub> - did it go up or down?</span></div><div>- <u>Conformational stability</u>: <span class=""cloze"" data-ordinal=""1"">T<sub>m</sub> - did it go up or down?</span></div><div>- <u>Substrate affinity</u>: <span class=""cloze"" data-ordinal=""1"">K<sub>m</sub> - did it go up or down?</span></div><div><br></div><img src=""paste-0bee8d00aa9d2bf280b606aac033d278e36bf6d9.jpg"">
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"""Which experiment would best link the results of experiments 1 and 2 to show...?""<div><br></div><div><span class=""cloze"" data-cloze=""Look&#x20;at&#x20;the&#x20;&lt;i&gt;conclusion&lt;&#x2F;i&gt;&#x20;of&#x20;experiment&#x20;1&#x20;and&#x20;try&#x20;to&#x20;find&#x20;how&#x20;it&#x20;could&#x20;relate&#x20;to&#x20;the&#x20;&lt;i&gt;conclusion&lt;&#x2F;i&gt;&#x20;of&#x20;experiment&#x20;2&#x2E;"" data-ordinal=""1"">[what should you do?]</span><br></div>"	"""Which experiment would best link the results of experiments 1 and 2 to show...?""<div><br></div><div><span class=""cloze"" data-ordinal=""1"">Look at the <i>conclusion</i> of experiment 1 and try to find how it could relate to the <i>conclusion</i> of experiment 2.</span><br></div>
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"If compound 1 was said to <span class=""cloze"" data-cloze=""&lt;i&gt;sensitize&lt;&#x2F;i&gt;"" data-ordinal=""1"">[...]</span> the cell to compound 2, the most <i>effective</i> drug administration would be <span class=""cloze-inactive"" data-ordinal=""2"">compound 1 <i>followed by</i> compound 2</span>."	"If compound 1 was said to <span class=""cloze"" data-ordinal=""1""><i>sensitize</i></span> the cell to compound 2, the most <i>effective</i> drug administration would be <span class=""cloze-inactive"" data-ordinal=""2"">compound 1 <i>followed by</i> compound 2</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-09a416f847e132267696545beae4d8d4892377b8.jpg""></div>"
+"If compound 1 was said to <span class=""cloze-inactive"" data-ordinal=""1""><i>sensitize</i></span> the cell to compound 2, the most <i>effective</i> drug administration would be <span class=""cloze"" data-cloze=""compound&#x20;1&#x20;&lt;i&gt;followed&#x20;by&lt;&#x2F;i&gt;&#x20;compound&#x20;2"" data-ordinal=""2"">[...]</span>."	"If compound 1 was said to <span class=""cloze-inactive"" data-ordinal=""1""><i>sensitize</i></span> the cell to compound 2, the most <i>effective</i> drug administration would be <span class=""cloze"" data-ordinal=""2"">compound 1 <i>followed by</i> compound 2</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+<img src=""paste-09a416f847e132267696545beae4d8d4892377b8.jpg""></div>"
+"<span class=""cloze-inactive"" data-ordinal=""1""><b>Public verifiability</b></span> is when&nbsp;scientists <span class=""cloze"" data-cloze=""attempt&#x20;to&#x20;&lt;u&gt;replicate&#x20;the&#x20;findings&lt;&#x2F;u&gt;&amp;nbsp&#x3B;of&amp;nbsp&#x3B;&lt;i&gt;other&lt;&#x2F;i&gt;&amp;nbsp&#x3B;scientists"" data-ordinal=""2"">[...]</span>."	"<span class=""cloze-inactive"" data-ordinal=""1""><b>Public verifiability</b></span> is when&nbsp;scientists <span class=""cloze"" data-ordinal=""2"">attempt to <u>replicate the findings</u>&nbsp;of&nbsp;<i>other</i>&nbsp;scientists</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"<span class=""cloze"" data-cloze=""&lt;b&gt;Public&#x20;verifiability&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> is when&nbsp;scientists <span class=""cloze-inactive"" data-ordinal=""2"">attempt to <u>replicate the findings</u>&nbsp;of&nbsp;<i>other</i>&nbsp;scientists</span>."	"<span class=""cloze"" data-ordinal=""1""><b>Public verifiability</b></span> is when&nbsp;scientists <span class=""cloze-inactive"" data-ordinal=""2"">attempt to <u>replicate the findings</u>&nbsp;of&nbsp;<i>other</i>&nbsp;scientists</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+</div>"
+"The <span class=""cloze-inactive"" data-ordinal=""1""><b>response rate</b></span> of a study is essentially the <span class=""cloze"" data-cloze=""portion&#x20;of&#x20;people&#x20;that&#x20;&lt;i&gt;responded&lt;&#x2F;i&gt;&#x20;to&#x20;the&#x20;survey"" data-ordinal=""2"">[...]</span>."	"The <span class=""cloze-inactive"" data-ordinal=""1""><b>response rate</b></span> of a study is essentially the <span class=""cloze"" data-ordinal=""2"">portion of people that <i>responded</i> to the survey</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Response rate = (number that responded) / (number of people in the original sample)</div>"
+"The <span class=""cloze"" data-cloze=""&lt;b&gt;response&#x20;rate&lt;&#x2F;b&gt;"" data-ordinal=""1"">[...]</span> of a study is essentially the <span class=""cloze-inactive"" data-ordinal=""2"">portion of people that <i>responded</i> to the survey</span>."	"The <span class=""cloze"" data-ordinal=""1""><b>response rate</b></span> of a study is essentially the <span class=""cloze-inactive"" data-ordinal=""2"">portion of people that <i>responded</i> to the survey</span>.
+<hr>
+
+<div style=""font-style:italic;color:gray;"">
+
+Response rate = (number that responded) / (number of people in the original sample)</div>"
