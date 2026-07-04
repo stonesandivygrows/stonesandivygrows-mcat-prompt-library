@@ -305,6 +305,52 @@ J/s = power
 
 # B/B Running Notes
 
+## 2026-07-03 — Anki Deck Review: Alcohol Chain Length and Water Solubility
+
+Source/link:
+
+```text
+Aiden/Aidan-style Anki deck card: “Short-chain alcohols are more soluble in water than long-chain alcohols.”
+Chat review: corrected reasoning about EDG/conjugate-acid stabilization vs ordinary water solubility.
+```
+
+Cue / Trigger:
+
+- The card said short-chain alcohols are more water-soluble than long-chain alcohols.
+- Tempting reasoning: longer alkyl chains are stronger electron-donating groups, which could stabilize the conjugate acid’s positive charge and seem to increase solubility.
+
+Wrong Path:
+
+- EDG/conjugate-acid stabilization is real chemistry, but it answers an acid/base stability question, not the main solubility question for neutral alcohols.
+- Do not predict ordinary water solubility by asking which conjugate acid is more stabilized.
+
+Correction:
+
+- Alcohol water solubility mainly depends on the balance between the polar **–OH** group and the nonpolar hydrocarbon chain.
+- The **–OH** group can hydrogen bond with water, which favors solubility.
+- As carbon chain length increases, the hydrocarbon portion becomes larger and more hydrophobic.
+- For alcohols with the same number of **–OH** groups, the polar part stays similar while the nonpolar part grows, so water solubility decreases.
+
+MCAT Anchor:
+
+```text
+Same number of –OH groups: longer carbon chain → more hydrophobic character → lower water solubility.
+```
+
+Anki wording to keep/update:
+
+```text
+Short-chain alcohols are more soluble in water than long-chain alcohols because their polar –OH group contributes more strongly relative to the small hydrocarbon chain. As chain length increases, hydrophobic character increases, decreasing water solubility.
+```
+
+Print/Cornell Status:
+
+- Not converted.
+
+Archive Note:
+
+- No separate file needed; folded directly into the running master.
+
 ## Active consolidation target
 
 Fold all biochemistry/biology learning into this section rather than creating many small files.
