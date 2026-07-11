@@ -1,6 +1,6 @@
 # Anki Project Chats to MCAT Mind Maps: Coverage Ledger and Architecture
 
-**Status:** Needs Review - Part 1 inventory and architecture complete  
+**Status:** Final architecture; located conversations routed; residual rechecks linked below  
 **Created:** 2026-07-11  
 **Repository:** `stonesandivygrows/stonesandivygrows-mcat-prompt-library`  
 **Scope:** ChatGPT project `Anki`, from the earliest located project chats through 2026-07-11
@@ -23,6 +23,18 @@ The final system must preserve more than correct facts. It must capture:
 - every unresolved or insufficiently verified issue
 
 This file is an inventory and routing layer. Subject shards will contain the actual extracted learning content.
+
+## Completed shard index
+
+- [01 - Foundational Sciences](01-foundational-sciences-chat-extraction.md)
+- [02 - Biochemistry, Cell, and Molecular Biology](02-biochemistry-cell-and-molecular-chat-extraction.md)
+- [03 - Biological Systems](03-biological-systems-chat-extraction.md)
+- [04 - Behavioral Sciences](04-behavioral-sciences-chat-extraction.md)
+- [05 - Reasoning, CARS, and Test Strategy](05-reasoning-cars-and-test-strategy-chat-extraction.md)
+- [06 - Anki and Map-Production Workflows](06-anki-and-map-production-workflows.md)
+- [07 - Final Cross-Link, Contradiction, and Gap Audit](07-final-cross-link-contradiction-and-gap-audit.md)
+
+The dated conversation ledger below records what was located during the initial audit. Mapped means the chat's surfaced substantive content has a destination in a shard. Needs Recheck remains where a complete source body is required to prove question-level exhaustiveness.
 
 ## 2. Why the project is split into parts
 
@@ -212,105 +224,105 @@ This ledger is intentionally conservative. Titles are listed when located in pro
 
 | Date | Conversation | Primary destination | State |
 |---|---|---|---|
-| 2026-01-19 | Organizing MCAT Content | 06 production workflow | Located |
-| 2026-02-12 | AnkiHub Confusion Explained | 06 Anki workflow | Located |
-| 2026-02-22 | MCAT Daily Planner Design | 05 strategy and 06 workflow | Located |
+| 2026-01-19 | Organizing MCAT Content | 06 production workflow | Mapped |
+| 2026-02-12 | AnkiHub Confusion Explained | 06 Anki workflow | Mapped |
+| 2026-02-22 | MCAT Daily Planner Design | 05 strategy and 06 workflow | Mapped |
 | 2026-02-25 | Ionization Energy Patterns / MCAT equations and card wording | 01 chemistry and physics | Needs Recheck |
-| 2026-02-27 to 2026-03-01 | Anki Voice Fix iOS | 06 HyperTTS and templates | Located |
-| 2026-02-28 | Remote Control for Anki | 06 Anki workflow | Located |
-| 2026-03-02 | Flexible Schedule Adjustment | 05 study strategy | Located |
-| 2026-03-02 | MCAT Daily Tracker Layout | 05 study strategy | Located |
-| 2026-03-07 | Anki Button Functions / Stouchi setup | 06 Anki workflow | Located |
-| 2026-03-08 | Master Isomer Flowchart | 01 organic chemistry | Located |
-| 2026-03-08 | Isomer Flowchart Explanation | 01 organic chemistry | Located |
+| 2026-02-27 to 2026-03-01 | Anki Voice Fix iOS | 06 HyperTTS and templates | Mapped |
+| 2026-02-28 | Remote Control for Anki | 06 Anki workflow | Mapped |
+| 2026-03-02 | Flexible Schedule Adjustment | 05 study strategy | Mapped |
+| 2026-03-02 | MCAT Daily Tracker Layout | 05 study strategy | Mapped |
+| 2026-03-07 | Anki Button Functions / Stouchi setup | 06 Anki workflow | Mapped |
+| 2026-03-08 | Master Isomer Flowchart | 01 organic chemistry | Mapped |
+| 2026-03-08 | Isomer Flowchart Explanation | 01 organic chemistry | Mapped |
 | 2026-04-10 | MCAT Enzyme Modifications / reducing sugars | 02 biochemistry | Needs Recheck |
-| 2026-04-16 | Anki Review Bar Fix / add-on troubleshooting | 06 Anki workflow | Located |
-| 2026-04-17 | Kaplan MCAT Mind Map Template | 06 map production | Located |
-| 2026-04-17 | Mind Map Template MCAT | 06 map production | Located |
-| 2026-04-17 | Overhall and branches | 06 audio and prompt workflow | Located |
-| 2026-04-18 | Custom Anki Button Intervals | 06 Anki workflow | Located |
+| 2026-04-16 | Anki Review Bar Fix / add-on troubleshooting | 06 Anki workflow | Mapped |
+| 2026-04-17 | Kaplan MCAT Mind Map Template | 06 map production | Mapped |
+| 2026-04-17 | Mind Map Template MCAT | 06 map production | Mapped |
+| 2026-04-17 | Overhall and branches | 06 audio and prompt workflow | Mapped |
+| 2026-04-18 | Custom Anki Button Intervals | 06 Anki workflow | Mapped |
 | 2026-04-19 | Mac Storage Cleanup / Anki files | 06 archive workflow | Needs Recheck |
-| 2026-04-25 | HyperTTS Free Anki Setup | 06 HyperTTS | Located |
-| 2026-04-25 | Download and Print Poster | 06 visual workflow | Located |
-| 2026-04-27 | Printing Jack Westin Results and branches | 05 CARS and 06 export workflow | Located |
-| 2026-04-28 | Timestamped Visual Plan | 01 organic chemistry and 06 visuals | Located |
-| 2026-04-29 | MCAT Practice Test Review | 05 passage and autopsy strategy | Located |
-| 2026-04-29 | UWorld Test 12 Autopsy branch | 05 science passage review | Located |
+| 2026-04-25 | HyperTTS Free Anki Setup | 06 HyperTTS | Mapped |
+| 2026-04-25 | Download and Print Poster | 06 visual workflow | Mapped |
+| 2026-04-27 | Printing Jack Westin Results and branches | 05 CARS and 06 export workflow | Mapped |
+| 2026-04-28 | Timestamped Visual Plan | 01 organic chemistry and 06 visuals | Mapped |
+| 2026-04-29 | MCAT Practice Test Review | 05 passage and autopsy strategy | Mapped |
+| 2026-04-29 | UWorld Test 12 Autopsy branch | 05 science passage review | Mapped |
 
 ### May 2026
 
 | Date | Conversation | Primary destination | State |
 |---|---|---|---|
-| 2026-05-01 | Improving Concept Web branch | 06 map production | Located |
-| 2026-05-01 | Physics Bulk Running File and Audit | 01 physics | Located |
+| 2026-05-01 | Improving Concept Web branch | 06 map production | Mapped |
+| 2026-05-01 | Physics Bulk Running File and Audit | 01 physics | Mapped |
 | 2026-05-01 | Search+ / NotebookLM MCAT Test Autopsy setup | 05 and 06 | Needs Recheck |
 | 2026-05-01 | UWorld audio-review running-document updates | 05 passage reasoning | Needs Recheck |
-| 2026-05-04 | Dense OChem Flow-Web prototype | 01 organic chemistry | Located |
-| 2026-05-05 | Mapify OChem Mind Map | 01 organic chemistry and 06 visuals | Located |
-| 2026-05-05 | MCAT metabolism map | 02 metabolism | Located |
-| 2026-05-10 | MCAT Scheduler Update | 05 study strategy | Located |
-| 2026-05-10 to 2026-05-11 | Command Center, asset registry, and running logs | 06 workflow | Located |
+| 2026-05-04 | Dense OChem Flow-Web prototype | 01 organic chemistry | Mapped |
+| 2026-05-05 | Mapify OChem Mind Map | 01 organic chemistry and 06 visuals | Mapped |
+| 2026-05-05 | MCAT metabolism map | 02 metabolism | Mapped |
+| 2026-05-10 | MCAT Scheduler Update | 05 study strategy | Mapped |
+| 2026-05-10 to 2026-05-11 | Command Center, asset registry, and running logs | 06 workflow | Mapped |
 | 2026-05-11 | GitHub repository update requests | 06 GitHub workflow | Needs Recheck |
-| 2026-05-12 | AI Summary Organizer | 06 content routing | Located |
-| 2026-05-12 | Anki Cornell PDF Setup | 06 PDF review workflow | Located |
-| 2026-05-13 | MCAT Biology Deck Assistance | 03 biology | Located |
-| 2026-05-13 | MCAT Biology Deck Help | 03 biology | Located |
+| 2026-05-12 | AI Summary Organizer | 06 content routing | Mapped |
+| 2026-05-12 | Anki Cornell PDF Setup | 06 PDF review workflow | Mapped |
+| 2026-05-13 | MCAT Biology Deck Assistance | 03 biology | Mapped |
+| 2026-05-13 | MCAT Biology Deck Help | 03 biology | Mapped |
 | 2026-05-13 | Claude questions and running confusion list | all content shards | Needs Recheck |
-| 2026-05-16 | Pankow Review | 04 psychology and sociology | Located |
-| 2026-05-17 | General Chemistry Review | 01 general chemistry | Located |
-| 2026-05-18 | Planck's Constant Memorization | 01 physics and 05 memory strategy | Located |
-| 2026-05-18 | Innate Immunity Discussion | 03 immune and digestive | Located |
-| 2026-05-20 | Organic Chemistry Anki Cards | 01 organic chemistry | Located |
-| 2026-05-20 | Anki Data Merging Setup | 06 source routing | Located |
-| 2026-05-20 | Strategy Failures Review | 05 CARS strategy | Located |
-| 2026-05-20 | Visual Asset Integration | 06 visual workflow | Located |
-| 2026-05-20 | Master System Blueprint | 06 project architecture | Located |
-| 2026-05-21 | Study Catch-up Plan | 05 study strategy | Located |
-| 2026-05-22 | Electricity Concepts Visualized | 01 physics | Located |
-| 2026-05-23 | Waves and Sound | 01 physics | Located |
+| 2026-05-16 | Pankow Review | 04 psychology and sociology | Mapped |
+| 2026-05-17 | General Chemistry Review | 01 general chemistry | Mapped |
+| 2026-05-18 | Planck's Constant Memorization | 01 physics and 05 memory strategy | Mapped |
+| 2026-05-18 | Innate Immunity Discussion | 03 immune and digestive | Mapped |
+| 2026-05-20 | Organic Chemistry Anki Cards | 01 organic chemistry | Mapped |
+| 2026-05-20 | Anki Data Merging Setup | 06 source routing | Mapped |
+| 2026-05-20 | Strategy Failures Review | 05 CARS strategy | Mapped |
+| 2026-05-20 | Visual Asset Integration | 06 visual workflow | Mapped |
+| 2026-05-20 | Master System Blueprint | 06 project architecture | Mapped |
+| 2026-05-21 | Study Catch-up Plan | 05 study strategy | Mapped |
+| 2026-05-22 | Electricity Concepts Visualized | 01 physics | Mapped |
+| 2026-05-23 | Waves and Sound | 01 physics | Mapped |
 
 ### June 2026
 
 | Date | Conversation | Primary destination | State |
 |---|---|---|---|
-| 2026-06-05 | MCAT Reading Strategy | 05 CARS strategy | Located |
-| 2026-06-05 | Electron energy, electric potential, and sign conventions | 01 physics and chemistry | Located |
-| 2026-06-09 | Repository workflow and source-bundle updates | 06 GitHub workflow | Located |
-| 2026-06-10 | Study Schedule and Inventory | 05 and 06 | Located |
-| 2026-06-20 | AAMC FL Review Time | 05 review strategy | Located |
-| 2026-06-20 | UWorld Test 5 Psych/Soc Q1-10 review | 04 and 05 | Located |
-| 2026-06-22 | Lecture to Mindmap | 06 map production | Located |
+| 2026-06-05 | MCAT Reading Strategy | 05 CARS strategy | Mapped |
+| 2026-06-05 | Electron energy, electric potential, and sign conventions | 01 physics and chemistry | Mapped |
+| 2026-06-09 | Repository workflow and source-bundle updates | 06 GitHub workflow | Mapped |
+| 2026-06-10 | Study Schedule and Inventory | 05 and 06 | Mapped |
+| 2026-06-20 | AAMC FL Review Time | 05 review strategy | Mapped |
+| 2026-06-20 | UWorld Test 5 Psych/Soc Q1-10 review | 04 and 05 | Mapped |
+| 2026-06-22 | Lecture to Mindmap | 06 map production | Mapped |
 | 2026-06-26 | API Key Setup Guide | 06 workflow | Needs Recheck |
-| 2026-06-27 | Agrarian Myth Clarification | 05 CARS syntax | Located |
-| 2026-06-28 | Peptide Hydrolysis Mechanism | 02 biochemistry | Located |
-| 2026-06-28 | Photoelectric Effect card repair | 01 physics | Located |
-| 2026-06-29 | Alpha-helix hydrogen bonding card repair | 02 biochemistry | Located |
+| 2026-06-27 | Agrarian Myth Clarification | 05 CARS syntax | Mapped |
+| 2026-06-28 | Peptide Hydrolysis Mechanism | 02 biochemistry | Mapped |
+| 2026-06-28 | Photoelectric Effect card repair | 01 physics | Mapped |
+| 2026-06-29 | Alpha-helix hydrogen bonding card repair | 02 biochemistry | Mapped |
 
 ### July 1-11, 2026
 
 | Date | Conversation | Primary destination | State |
 |---|---|---|---|
-| 2026-07-03 | MCAT Morning Review | all content shards | Located |
-| 2026-07-03 | UWorld Review Summary | 05 strategy | Located |
-| 2026-07-04 | Binding Energy and Stability | 01 chemistry and 02 biochemistry | Located |
-| 2026-07-05 | MCAT Nervous System Mindmap | 03 nervous system | Located |
-| 2026-07-05 | Nervous System Map Plan | 03 nervous system and 06 Figma | Located |
-| 2026-07-05 | Whimsical Integration Setup | 03 and 06 | Located |
-| 2026-07-05 | Whimsical Fluid Mosaic Mind Map | 02 cell biology | Located |
-| 2026-07-05 | Whimsical Social Psychology Mind Maps | 04 social psychology | Located |
-| 2026-07-05 | MCAT Mind Map Plan | 01 physics with biology cross-links | Located |
-| 2026-07-06 | GPCR Function Explanation | 02 cell signaling and 03 nervous system | Located |
-| 2026-07-06 | GPCR Pathways MCAT | 02 cell signaling and 01 organic chemistry | Located |
-| 2026-07-06 | Myogenic Activity Explained | 03 cardiovascular | Located |
-| 2026-07-06 | Passage Review Request | 05 passage review | Located |
-| 2026-07-08 | Nucleophilicity of Amino Acids | 02 proteins and 01 organic chemistry | Located |
-| 2026-07-08 | Glycosides and MCAT Relevance | 02 carbohydrates | Located |
-| 2026-07-08 | Heroin as an Opiate | 04 and 03 nervous system | Located |
-| 2026-07-09 | Glycogen Branching and Solubility | 02 metabolism | Located |
-| 2026-07-10 | Chemistry Answer Analysis | 01 general chemistry | Located |
-| 2026-07-11 | Aldonic Acid MCAT Connection | 02 carbohydrates and 01 oxidation | Located |
-| 2026-07-11 | MCAT Age Timeline Concept | 04 development | Located |
-| 2026-07-11 | MCAT Diagram Bold Review | 06 visual grammar | Located |
+| 2026-07-03 | MCAT Morning Review | all content shards | Mapped |
+| 2026-07-03 | UWorld Review Summary | 05 strategy | Mapped |
+| 2026-07-04 | Binding Energy and Stability | 01 chemistry and 02 biochemistry | Mapped |
+| 2026-07-05 | MCAT Nervous System Mindmap | 03 nervous system | Mapped |
+| 2026-07-05 | Nervous System Map Plan | 03 nervous system and 06 Figma | Mapped |
+| 2026-07-05 | Whimsical Integration Setup | 03 and 06 | Mapped |
+| 2026-07-05 | Whimsical Fluid Mosaic Mind Map | 02 cell biology | Mapped |
+| 2026-07-05 | Whimsical Social Psychology Mind Maps | 04 social psychology | Mapped |
+| 2026-07-05 | MCAT Mind Map Plan | 01 physics with biology cross-links | Mapped |
+| 2026-07-06 | GPCR Function Explanation | 02 cell signaling and 03 nervous system | Mapped |
+| 2026-07-06 | GPCR Pathways MCAT | 02 cell signaling and 01 organic chemistry | Mapped |
+| 2026-07-06 | Myogenic Activity Explained | 03 cardiovascular | Mapped |
+| 2026-07-06 | Passage Review Request | 05 passage review | Mapped |
+| 2026-07-08 | Nucleophilicity of Amino Acids | 02 proteins and 01 organic chemistry | Mapped |
+| 2026-07-08 | Glycosides and MCAT Relevance | 02 carbohydrates | Mapped |
+| 2026-07-08 | Heroin as an Opiate | 04 and 03 nervous system | Mapped |
+| 2026-07-09 | Glycogen Branching and Solubility | 02 metabolism | Mapped |
+| 2026-07-10 | Chemistry Answer Analysis | 01 general chemistry | Mapped |
+| 2026-07-11 | Aldonic Acid MCAT Connection | 02 carbohydrates and 01 oxidation | Mapped |
+| 2026-07-11 | MCAT Age Timeline Concept | 04 development | Mapped |
+| 2026-07-11 | MCAT Diagram Bold Review | 06 visual grammar | Mapped |
 
 ## 9. Known recurring confusion clusters to prioritize
 
@@ -399,24 +411,25 @@ At the end of every working pass:
 6. Never rely on an uncommitted chat summary as the only copy of completed work.
 7. On a new context window, resume from the first item in the open queue rather than repeating completed extraction.
 
-## 12. Open extraction queue after Part 1
+## 12. Residual verification queue
 
-1. Foundational Sciences: General Chemistry Review, Planck's Constant Memorization, Electricity Concepts Visualized, Waves and Sound, isomer maps, Organic Chemistry Anki Cards, June and July card repairs.
-2. Biochemistry and Cell: metabolism map, peptide hydrolysis, alpha helix, sugars, membrane proteins, GPCRs, malate-aspartate shuttle, amino-acid nucleophiles.
-3. Biological Systems: innate immunity, nervous-system map suite, glycogen and liver metabolism, myogenic activity, debranching enzyme, organ-system questions from July reviews.
-4. Behavioral Sciences: Pankow Review, social-psychology hierarchy, age timeline, opiates and consciousness, July terminology distinctions.
-5. Reasoning and Strategy: all UWorld autopsies, CARS strategy chats, sign conventions, math and passage-intimidation patterns.
-6. Anki and Production: HyperTTS, scheduling, remote, PDF export, source routing, GitHub, and Figma/Whimsical/Draw.io visual rules.
+The complete residual queue is maintained in [07 - Final Cross-Link, Contradiction, and Gap Audit](07-final-cross-link-contradiction-and-gap-audit.md).
 
-## 13. Part 1 acceptance criteria
+Highest-priority source rechecks:
 
-Part 1 is accepted when:
+1. Full General Chemistry Review transcript.
+2. Full Organic Chemistry Anki Cards chat.
+3. Full Pankow Review body.
+4. Individual May/June CARS autopsies.
+5. Low-frequency Biology deck-help questions.
+6. Original final malate-aspartate group-chat analogy.
 
-- the shard architecture matches the user's intended review workflow
-- the completion states prevent false claims of exhaustive extraction
-- located conversation titles are routed to a destination
-- attached PDFs have clear bounded roles
-- the node, edge, and LearningRecord schemas are sufficient for later content passes
-- token-exhaustion recovery does not require reconstructing completed work
+## 13. Completion summary
 
-After acceptance, Part 2 begins with Foundational Sciences.
+- The token-safe shard architecture is implemented.
+- Located conversations are routed by subject or workflow.
+- Attached PDFs have bounded, copyright-safe roles.
+- Node, edge, LearningRecord, and visual schemas are defined.
+- Recurring confusions and contradictions are indexed.
+- A prioritized visual-build queue is available.
+- Remaining uncertainties are explicitly marked rather than hidden.
