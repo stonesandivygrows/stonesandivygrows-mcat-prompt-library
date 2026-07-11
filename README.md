@@ -43,6 +43,7 @@ Older one-off files remain as archive/source until summarized into the running m
 - `cars/` — CARS-specific prompts, decision trees, review frameworks, pattern reports, and passage autopsies
 - `practice-review/uworld/` — UWorld transcription workflows, review autopsies, and durable correction notes
 - `study-notes/` — durable MCAT concept explanations, misconception repairs, and cross-topic connections
+  - [`study-notes/mcat-mind-maps/00-anki-project-chat-coverage-and-map-architecture.md`](study-notes/mcat-mind-maps/00-anki-project-chat-coverage-and-map-architecture.md) — master index for the project-wide chat-to-mind-map architecture, subject shards, cross-links, corrections, and verification queue
 - `study-workflows/` — reusable review methods, study procedures, and active-recall systems
 - `anki/` — Anki export storage, routing, extraction, and chapter-layer protocols
 - `naming-rules/` — transcript title and naming conventions
