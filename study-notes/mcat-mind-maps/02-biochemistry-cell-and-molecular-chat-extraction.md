@@ -184,6 +184,68 @@ Enzyme-versus-reaction rule:
 | What is an aldonic acid? | Oxidation of an aldose aldehyde to a carboxylic acid gives an aldonic acid, such as glucose to gluconic acid. |
 | Pyranose/furanose was mixed with aldonic acid. | Pyranose/furanose describes ring size; aldonic acid describes oxidation state. |
 
+### Standalone mind-map branch: **Aldonic acid and MCAT relevance**
+
+- **Aldonic acid**
+  - **Definition**
+    - formed when the **C1 aldehyde of an aldose** is oxidized to a **carboxylic acid**
+    - general change: **R-CHO → R-COOH**
+    - example: **glucose → gluconic acid**
+  - **Where C1 comes from**
+    - in an aldose, **C1 is the carbonyl carbon**
+    - after ring formation, C1 becomes the **anomeric carbon**
+    - a **free anomeric carbon** can return to the open-chain aldehyde form
+  - **Why the MCAT cares**
+    - connects **carbohydrate structure** to **oxidation-reduction**
+    - explains why many sugars are **reducing sugars**
+    - tests whether the student can identify the **oxidized carbon** and the **oxidation product**
+  - **Reducing-sugar logic**
+    - free anomeric carbon
+      - allows **ring opening**
+      - exposes the **aldehyde**
+      - aldehyde is **oxidized**
+      - **aldonic acid** forms
+    - because the sugar is oxidized, the testing reagent is **reduced**
+  - **Common qualitative tests**
+    - **Benedict's or Fehling's reagent**
+      - **Cu²⁺ is reduced to Cu₂O**
+      - positive test produces a colored precipitate
+    - **Tollens' reagent**
+      - **Ag⁺ is reduced to Ag(s)**
+      - positive test produces a silver mirror
+  - **Carbohydrate oxidation comparison**
+    - **C1 oxidized**
+      - aldehyde → carboxylic acid
+      - product = **aldonic acid**
+    - **C6 oxidized**
+      - primary alcohol → carboxylic acid
+      - product = **uronic acid**
+    - **C1 and C6 oxidized**
+      - both ends become carboxylic acids
+      - product = **aldaric acid**
+  - **Glycosidic-bond connection**
+    - **free anomeric carbon**
+      - can open
+      - creates a **reducing end**
+    - **anomeric carbon locked in a glycosidic acetal**
+      - cannot readily open
+      - that center is **nonreducing**
+    - position on the page does **not** determine reducing versus nonreducing
+  - **MCAT traps**
+    - **aldonic acid ≠ aldose**
+      - aldose is the starting sugar
+      - aldonic acid is its oxidation product
+    - **aldonic acid ≠ pyranose or furanose**
+      - aldonic acid describes **oxidation state**
+      - pyranose/furanose describes **ring size**
+    - **reducing sugar does not mean the sugar is reduced**
+      - it means the sugar **reduces another substance**
+      - the sugar itself is **oxidized**
+    - **reducing end ≠ right side of every drawing**
+      - identity depends on a **free anomeric carbon**, not orientation
+  - **Rapid-recall chain**
+    - **free anomeric C1 → ring opens → aldehyde appears → sugar is oxidized → aldonic acid forms → reagent is reduced**
+
 ## 8. Glycogen architecture and metabolism
 
 ### Why branching increases solubility
