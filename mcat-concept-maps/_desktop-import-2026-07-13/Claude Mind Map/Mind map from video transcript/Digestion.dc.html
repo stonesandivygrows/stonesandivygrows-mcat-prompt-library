@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>html,body{margin:0;padding:0;background:#fff;}</style>
+</helmet>
+<div style="position:relative;width:2580px;height:1100px;background:#fff;font-family:Verdana,Geneva,sans-serif;">
+  <div style="position:absolute;left:40px;top:8px;font-size:11px;font-weight:700;color:#9aa3ad;letter-spacing:.08em;">B/B &middot; MCAT BIOLOGY</div>
+  <svg width="2580" height="1100" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none;">
+    <defs>
+      <marker id="aSp" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><path d="M0,0.5 L8,3.5 L0,6.5z" fill="#235c34"></path></marker>
+      <marker id="aCb" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#3d8a52"></path></marker>
+      <marker id="aPr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#b5722a"></path></marker>
+      <marker id="aFt" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#9a8420"></path></marker>
+    </defs>
+    <sc-for list="{{ bands }}" as="b" hint-placeholder-count="6">
+      <rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" rx="{{ b.rx }}" fill="{{ b.fill }}"></rect>
+    </sc-for>
+    <sc-for list="{{ edges }}" as="e" hint-placeholder-count="20">
+      <path d="{{ e.d }}" fill="none" stroke="{{ e.stroke }}" stroke-width="{{ e.sw }}" stroke-dasharray="{{ e.dash }}" marker-end="{{ e.me }}"></path>
+    </sc-for>
+    <sc-for list="{{ rects }}" as="r" hint-placeholder-count="40">
+      <rect x="{{ r.x }}" y="{{ r.y }}" width="{{ r.w }}" height="{{ r.h }}" rx="{{ r.rx }}" fill="{{ r.fill }}" stroke="{{ r.stroke }}" stroke-width="{{ r.sw }}" stroke-dasharray="{{ r.dash }}"></rect>
+    </sc-for>
+    <sc-for list="{{ polys }}" as="p" hint-placeholder-count="8">
+      <polygon points="{{ p.points }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}"></polygon>
+    </sc-for>
+  </svg>
+  <sc-for list="{{ nds }}" as="n" hint-placeholder-count="40">
+    <div style="{{ n.style }}">
+      <sc-for list="{{ n.lines }}" as="ln" hint-placeholder-count="4">
+        <div style="{{ ln.s }}">{{ ln.t }}</div>
+      </sc-for>
+    </div>
+  </sc-for>
+  <sc-for list="{{ lbls }}" as="l" hint-placeholder-count="10">
+    <div style="{{ l.style }}">{{ l.text }}</div>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:2580,&quot;height&quot;:1100}}">
+class Component extends DCLogic {
+  renderVals() {
+    const TH = {
+      hG:   {f:'#2e6b3e', s:'#1d4a29', tc:'#fff',    sh:'rect'},
+      st:   {f:'#3d8a52', s:'#235c34', tc:'#fff',    sh:'rect'},
+      stF:  {f:'#235c34', s:'#143a22', tc:'#fff',    sh:'rect'},
+      carbH:{f:'#2e7d46', s:'#1d4a2c', tc:'#fff',    sh:'rect'},
+      carb: {f:'#e6f4ea', s:'#5a9a6e', tc:'#1e3a26', sh:'rect'},
+      protH:{f:'#b5722a', s:'#7a4a18', tc:'#fff',    sh:'rect'},
+      prot: {f:'#faecd4', s:'#c79a52', tc:'#4a3414', sh:'rect'},
+      fatH: {f:'#9a8420', s:'#665614', tc:'#fff',    sh:'rect'},
+      fat:  {f:'#fbf4d2', s:'#c7b452', tc:'#4a4014', sh:'rect'},
+      fate: {f:'#dbeee3', s:'#3d8a62', tc:'#143a26', sh:'rect'},
+      accH: {f:'#3d8a72', s:'#235c48', tc:'#fff',    sh:'rect'},
+      acc:  {f:'#d6ede0', s:'#4d9a78', tc:'#143a2a', sh:'hex'},
+      hormH:{f:'#6a8a4d', s:'#46602f', tc:'#fff',    sh:'rect'},
+      horm: {f:'#eef3e2', s:'#8aa86a', tc:'#3a4a26', sh:'rect'},
+      nt:   {f:'#ffffff', s:'#c9b97a', tc:'#5a4e2a', sh:'note'},
+    };
+
+    // [id, x, y, w, h, theme, [[text, weight, size], ...]]
+    const N = [
+      ['title', 700, 34, 1180, 48, 'hG', [['DIGESTION \u2014 How a Burger Is Digested & Metabolized', 800, 16]]],
+
+      // ── GI STATIONS (spine) ──
+      ['stM', 330, 112, 250, 58, 'st',  [['MOUTH', 800, 14]]],
+      ['stS', 610, 112, 250, 58, 'st',  [['STOMACH', 800, 14]]],
+      ['stI', 890, 112, 600, 58, 'st',  [['SMALL INTESTINE', 800, 14], ['duodenum \u2192 jejunum \u2192 ileum', 400, 9]]],
+      ['stA', 1520, 112, 470, 58, 'st', [['ABSORPTION', 800, 13], ['(enterocyte / brush border)', 400, 8.5]]],
+      ['stF', 2020, 112, 490, 58, 'stF',[['METABOLIC FATE', 800, 13]]],
+
+      // ── CARBOHYDRATE track ──
+      ['cL', 40, 192, 250, 120, 'carbH', [['CARBOHYDRATES', 800, 13], ['starch & sugars', 400, 9]]],
+      ['cM', 330, 192, 250, 120, 'carb', [['Salivary \u03b1-amylase (ptyalin)', 700, 9.3], ['from salivary glands', 400, 8.5], ['starch \u2192 maltose + \u03b1-dextrins', 500, 9]]],
+      ['cS', 610, 192, 250, 120, 'carb', [['No carb digestion', 700, 9.5], ['low pH inactivates amylase', 400, 8.5]]],
+      ['cI', 890, 192, 600, 120, 'carb', [['Pancreatic \u03b1-amylase \u2192 disaccharides', 500, 9], ['Brush-border enzymes:', 700, 9], ['maltase \u00b7 sucrase \u00b7 lactase \u00b7 isomaltase', 400, 8.7], ['\u2192 glucose, fructose, galactose', 500, 9]]],
+      ['cA', 1520, 192, 470, 120, 'carb', [['Glucose & galactose: SGLT1', 700, 9], ['(Na\u207a symport \u2014 secondary active)', 400, 8.5], ['Fructose: GLUT5 (facilitated)', 500, 8.7], ['exit basolateral via GLUT2', 400, 8.5]]],
+      ['cF', 2020, 192, 490, 120, 'fate', [['Glucose \u2192 glycolysis', 700, 9.5], ['\u2192 see Glucose & Metabolism maps', 400, 8.7], ['excess \u2192 glycogen / fat', 500, 9]]],
+
+      // ── PROTEIN track ──
+      ['pL', 40, 342, 250, 120, 'protH', [['PROTEINS', 800, 13], ['the patty', 400, 9]]],
+      ['pM', 330, 342, 250, 120, 'prot', [['Mechanical only', 700, 9.5], ['(no protein enzyme in mouth)', 400, 8.5]]],
+      ['pS', 610, 342, 250, 120, 'prot', [['Pepsin (from pepsinogen,', 700, 9], ['activated by HCl)', 400, 8.5], ['chief cells \u2192 pepsinogen', 400, 8.5], ['parietal cells \u2192 HCl + intrinsic factor', 400, 8.3], ['\u2192 smaller peptides', 500, 9]]],
+      ['pI', 890, 342, 600, 120, 'prot', [['Pancreatic zymogens: trypsin, chymotrypsin,', 500, 8.8], ['carboxypeptidase, elastase', 400, 8.7], ['enteropeptidase \u2192 trypsin \u2192 activates the rest', 400, 8.7], ['Brush border: amino-/dipeptidases \u2192 amino acids', 500, 9]]],
+      ['pA', 1520, 342, 470, 120, 'prot', [['Amino acids: Na\u207a-coupled', 700, 9], ['secondary active transport', 400, 8.5], ['Di-/tripeptides: PepT1 (H\u207a-coupled)', 500, 8.7]]],
+      ['pF', 2020, 342, 490, 120, 'fate', [['Amino acids \u2192 protein synthesis', 700, 9.5], ['carbon skeletons \u2192 gluconeogenesis', 400, 8.7], ['/ ketogenesis \u00b7 amino group \u2192 urea', 400, 8.7]]],
+
+      // ── FAT track ──
+      ['fL', 40, 492, 250, 120, 'fatH', [['FATS / LIPIDS', 800, 13], ['the grease', 400, 9]]],
+      ['fM', 330, 492, 250, 120, 'fat', [['Lingual lipase (minor)', 700, 9.5], ['from salivary glands', 400, 8.5]]],
+      ['fS', 610, 492, 250, 120, 'fat', [['Gastric lipase (minor)', 700, 9.5], ['churning \u2192 emulsion droplets', 400, 8.5]]],
+      ['fI', 890, 492, 600, 120, 'fat', [['Bile salts (liver \u2192 gallbladder) emulsify', 500, 9], ['fat \u2192 micelles (\u2191 surface area)', 400, 8.7], ['Pancreatic lipase + colipase \u2192', 700, 9], ['monoglycerides + free fatty acids', 400, 8.7]]],
+      ['fA', 1520, 492, 470, 120, 'fat', [['Micelles \u2192 FFAs/MAGs diffuse in \u2192', 500, 8.8], ['re-esterified to TAG \u2192 chylomicrons', 400, 8.7], ['\u2192 exit into LACTEALS (lymph)', 700, 9]]],
+      ['fF', 2020, 492, 490, 120, 'fate', [['Chylomicrons \u2192 lymph \u2192 blood', 700, 9.3], ['adipose (storage) / muscle (\u03b2-oxidation)', 400, 8.7], ['LPL releases FFAs at tissues', 400, 8.7]]],
+
+      // ── ACCESSORY ORGANS ──
+      ['aL',  40, 656, 250, 100, 'accH', [['ACCESSORY', 800, 12], ['ORGANS', 800, 12]]],
+      ['aSal', 330, 652, 250, 104, 'acc', [['Salivary glands', 700, 10], ['amylase, lingual lipase,', 400, 8.4], ['mucus, lysozyme', 400, 8.4]]],
+      ['aLiv', 610, 652, 250, 104, 'acc', [['Liver', 700, 11], ['produces bile', 400, 8.7], ['(emulsifies fat)', 400, 8.5]]],
+      ['aGall', 890, 652, 270, 104, 'acc', [['Gallbladder', 700, 10.5], ['stores & concentrates bile;', 400, 8.3], ['releases on CCK', 400, 8.5]]],
+      ['aPanc', 1190, 652, 300, 104, 'acc', [['Pancreas (exocrine)', 700, 10], ['enzymes + HCO\u2083\u207b', 400, 8.5], ['(neutralizes acidic chyme);', 400, 8.4], ['endocrine: insulin / glucagon', 400, 8.3]]],
+
+      ['lgI', 1520, 652, 470, 104, 'nt', [['LARGE INTESTINE (colon)', 700, 9.5], ['absorbs water & electrolytes;', 400, 8.7], ['gut flora make vitamin K & biotin;', 400, 8.7], ['forms & compacts feces', 400, 8.7]]],
+      ['link', 2020, 652, 490, 268, 'nt', [['CONNECTS TO YOUR OTHER MAPS', 700, 10], ['\u00b7 Glucose \u2192 Glucose Transport / Glycolysis', 400, 9], ['\u00b7 Glucose \u2192 Metabolism Rules (redox, ETC)', 400, 9], ['\u00b7 Amino acids \u2192 protein synthesis', 400, 9], ['\u00b7 Fatty acids \u2192 \u03b2-oxidation / storage', 400, 9], ['\u00b7 Pancreas/insulin \u2192 Endocrine map', 400, 9]]],
+
+      // ── GI HORMONES ──
+      ['hL', 40, 812, 250, 134, 'hormH', [['GI', 800, 12], ['HORMONES', 800, 12]]],
+      ['hGas', 330, 812, 250, 134, 'horm', [['GASTRIN', 700, 9.5], ['G-cells (stomach)', 400, 8.5], ['trigger: peptides, distension', 400, 8.3], ['\u2191 HCl \u00b7 \u2191 gastric motility', 400, 8.5]]],
+      ['hSec', 610, 812, 250, 134, 'horm', [['SECRETIN', 700, 9.5], ['S-cells (duodenum)', 400, 8.5], ['trigger: acidic chyme (\u2193 pH)', 400, 8.3], ['\u2191 pancreatic HCO\u2083\u207b \u00b7 \u2193 acid', 400, 8.5]]],
+      ['hCCK', 890, 812, 290, 134, 'horm', [['CCK', 700, 9.5], ['I-cells (duodenum)', 400, 8.5], ['trigger: fats & amino acids', 400, 8.3], ['\u2191 pancreatic enzymes \u00b7 gallbladder', 400, 8.5], ['contraction \u00b7 \u2193 gastric emptying', 400, 8.5]]],
+      ['hGIP', 1200, 812, 290, 134, 'horm', [['GIP', 700, 9.5], ['K-cells (duodenum)', 400, 8.5], ['trigger: glucose & fat', 400, 8.3], ['incretin: \u2191 insulin release', 400, 8.5]]],
+    ];
+
+    const dict = {}, rects = [], polys = [], nds = [];
+    N.forEach(([id, x, y, w, h, tk, lns]) => {
+      const T = TH[tk]; dict[id] = {x, y, w, h};
+      const sw = tk === 'nt' ? 1.2 : 1.4;
+      const da = tk === 'nt' ? '5 3' : '';
+      if (T.sh === 'rect') rects.push({x, y, w, h, rx:7, fill:T.f, stroke:T.s, sw, dash:da});
+      else if (T.sh === 'note') rects.push({x, y, w, h, rx:0, fill:T.f, stroke:T.s, sw, dash:da});
+      else if (T.sh === 'hex') { const i = Math.min(16, h/2); polys.push({points:`${x+i},${y} ${x+w-i},${y} ${x+w},${y+h/2} ${x+w-i},${y+h} ${x+i},${y+h} ${x},${y+h/2}`, fill:T.f, stroke:T.s, sw:1.4}); }
+      nds.push({
+        style:`position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1px 6px;color:${T.tc};pointer-events:none;`,
+        lines: lns.map(([t, fw, fs]) => ({t, s:`font-weight:${fw};font-size:${fs}px;line-height:1.3;`}))
+      });
+    });
+
+    const ET = {
+      sp: {stroke:'#235c34', sw:2.4, dash:'', me:'url(#aSp)'},
+      cb: {stroke:'#3d8a52', sw:1.5, dash:'', me:'url(#aCb)'},
+      pr: {stroke:'#b5722a', sw:1.5, dash:'', me:'url(#aPr)'},
+      ft: {stroke:'#9a8420', sw:1.5, dash:'', me:'url(#aFt)'},
+    };
+    const ED = [
+      // spine
+      ['stM','stS','sp'], ['stS','stI','sp'], ['stI','stA','sp'], ['stA','stF','sp'],
+      // carb progression
+      ['cM','cS','cb'], ['cS','cI','cb'], ['cI','cA','cb'], ['cA','cF','cb'],
+      // protein progression
+      ['pM','pS','pr'], ['pS','pI','pr'], ['pI','pA','pr'], ['pA','pF','pr'],
+      // fat progression
+      ['fM','fS','ft'], ['fS','fI','ft'], ['fI','fA','ft'], ['fA','fF','ft'],
+    ];
+    const edges = [];
+    ED.forEach(([fi, ti, tp]) => {
+      const A = dict[fi], B = dict[ti]; if (!A || !B) return;
+      const sx = A.x + A.w, sy = A.y + A.h/2, ex = B.x, ey = B.y + B.h/2;
+      const T = ET[tp];
+      edges.push({d:`M${sx},${sy}L${ex},${ey}`, stroke:T.stroke, sw:T.sw, dash:T.dash, me:T.me});
+    });
+
+    // background row bands
+    const bands = [
+      {x:18, y:184, w:2524, h:136, rx:10, fill:'#eef7f0'},
+      {x:18, y:334, w:2524, h:136, rx:10, fill:'#fbf3e6'},
+      {x:18, y:484, w:2524, h:136, rx:10, fill:'#fbf8e6'},
+      {x:18, y:642, w:1482, h:124, rx:10, fill:'#eaf5ee'},
+      {x:18, y:802, w:1482, h:154, rx:10, fill:'#eef7f0'},
+    ];
+
+    const lbls = [];
+    const bt = (t, x, y) => lbls.push({text:t, style:`position:absolute;left:${x}px;top:${y}px;font-size:11px;font-weight:800;color:#2e6b3e;letter-spacing:.05em;`});
+
+    // legend
+    let ly = 990;
+    lbls.push({text:'LEGEND', style:`position:absolute;left:42px;top:${ly}px;font-size:11px;font-weight:800;color:#1d4a29;letter-spacing:.06em;`});
+    [
+      ['\u25ac\u25ac\u25ac  GI tract spine (mouth \u2192 colon)', '#235c34', 220],
+      ['\u2192  green = carbohydrate track', '#3d8a52', 600],
+      ['\u2192  amber = protein track', '#b5722a', 960],
+      ['\u2192  gold = fat track', '#9a8420', 1280],
+      ['\u2b22 accessory organ      \u250c\u2504\u2510 note', '#3d8a72', 1560],
+    ].forEach(([t, c, x]) => lbls.push({text:t, style:`position:absolute;left:${x}px;top:${ly}px;font-size:9.5px;font-weight:600;color:${c};white-space:nowrap;`}));
+    lbls.push({text:'Facts per Kaplan / UWorld / Jack Westin', style:`position:absolute;left:1980px;top:${ly}px;font-size:9px;font-weight:600;color:#8a7a5a;`});
+
+    return {bands, edges, rects, polys, nds, lbls};
+  }
+}
+</script>
+</body>
+</html>

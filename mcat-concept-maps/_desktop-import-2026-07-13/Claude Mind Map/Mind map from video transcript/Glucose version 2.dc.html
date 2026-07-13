@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<style>
+html,body{margin:0;padding:0;background:#fff;}
+</style>
+</helmet>
+<div style="position:relative;width:3000px;height:1500px;background:#fff;font-family:Verdana,Geneva,sans-serif;">
+  <div style="position:absolute;left:40px;top:4px;font-size:10px;font-weight:700;color:#9aa3ad;letter-spacing:.08em;">B/B · MCAT BIOCHEMISTRY</div>
+  <svg width="3000" height="1500" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none;">
+    <defs>
+      <marker id="aB" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#555"></path></marker>
+      <marker id="aG" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#1a6b42"></path></marker>
+      <marker id="aR" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#c0392b"></path></marker>
+      <marker id="aGy" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#999"></path></marker>
+      <marker id="bR" markerWidth="4" markerHeight="12" refX="2" refY="6" orient="auto"><rect x="0" y="0" width="4" height="12" rx="1" fill="#c0392b"></rect></marker>
+    </defs>
+    <sc-for list="{{ bands }}" as="b" hint-placeholder-count="5">
+      <rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" rx="{{ b.rx }}" fill="{{ b.fill }}"></rect>
+    </sc-for>
+    <sc-for list="{{ edges }}" as="e" hint-placeholder-count="40">
+      <path d="{{ e.d }}" fill="none" stroke="{{ e.stroke }}" stroke-width="{{ e.sw }}" stroke-dasharray="{{ e.dash }}" marker-end="{{ e.me }}"></path>
+    </sc-for>
+    <sc-for list="{{ rects }}" as="r" hint-placeholder-count="60">
+      <rect x="{{ r.x }}" y="{{ r.y }}" width="{{ r.w }}" height="{{ r.h }}" rx="{{ r.rx }}" fill="{{ r.fill }}" stroke="{{ r.stroke }}" stroke-width="{{ r.sw }}" stroke-dasharray="{{ r.dash }}"></rect>
+    </sc-for>
+    <sc-for list="{{ polys }}" as="p" hint-placeholder-count="20">
+      <polygon points="{{ p.points }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}"></polygon>
+    </sc-for>
+  </svg>
+  <sc-for list="{{ nds }}" as="n" hint-placeholder-count="60">
+    <div style="{{ n.style }}">
+      <sc-for list="{{ n.lines }}" as="ln" hint-placeholder-count="2">
+        <div style="{{ ln.s }}">{{ ln.t }}</div>
+      </sc-for>
+    </div>
+  </sc-for>
+  <sc-for list="{{ lbls }}" as="l" hint-placeholder-count="20">
+    <div style="{{ l.style }}">{{ l.text }}</div>
+  </sc-for>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:3000,&quot;height&quot;:1200}}">
+
+class Component extends DCLogic {
+  renderVals() {
+    const TH={
+      hB:{f:'#1a3a5c',s:'#1a3a5c',tc:'#fff',sh:'banner'},
+      hG:{f:'#1a5c3a',s:'#1a5c3a',tc:'#fff',sh:'banner'},
+      hR:{f:'#6b2020',s:'#6b2020',tc:'#fff',sh:'banner'},
+      mB:{f:'#4a86c8',s:'#2d5a8e',tc:'#fff',sh:'pill'},
+      mG:{f:'#2d8f5e',s:'#1a6b42',tc:'#fff',sh:'pill'},
+      cn:{f:'#5b9bd5',s:'#2d5a8e',tc:'#fff',sh:'rect'},
+      lc:{f:'#f0c75e',s:'#9e7c1a',tc:'#3d3520',sh:'hex'},
+      ez:{f:'#fff',s:'#4a7da8',tc:'#1a3a5c',sh:'para'},
+      ds:{f:'#d45d5d',s:'#9a3030',tc:'#fff',sh:'diamond'},
+      nt:{f:'#ffffff',s:'#c9b97a',tc:'#5a4e2a',sh:'note'},
+      oc:{f:'#c43e3e',s:'#8a2020',tc:'#fff',sh:'oct'},
+      rg:{f:'#e8d5a3',s:'#9e8745',tc:'#4a3d1a',sh:'pill'}
+    };
+    const N=[
+      // ═══ TRANSPORT ═══
+      ['hTR',200,30,275,44,'hB',[['GLUCOSE TRANSPORT',800,14]]],
+      ['glu',265,120,148,46,'mB',[['Glucose',700,13]]],
+      // GLUT-2 branch
+      ['g2',80,230,138,40,'cn',[['GLUT-2',700,12]]],
+      ['nG2',80,280,138,50,'nt',[['Low affinity · high Km',600,8.5],['Insulin-INDEPENDENT',700,8.5]]],
+      ['liv',40,370,128,44,'lc',[['Liver',700,11]]],
+      ['bce',190,370,148,44,'lc',[['β-cells (pancreas)',700,10]]],
+      // Glucokinase
+      ['gk',265,230,168,40,'ez',[['Glucokinase',700,11]]],
+      ['nGK',265,280,168,42,'nt',[['Very high Km',600,8.5],['glucose sensor in pancreas',400,8]]],
+      // GLUT-4 branch
+      ['g4',465,230,138,40,'cn',[['GLUT-4',700,12]]],
+      ['nG4',465,280,138,50,'nt',[['Insulin-DEPENDENT',700,8.5],['Km ≈ blood [glucose]',600,8.5]]],
+      ['adi',465,370,178,44,'lc',[['Adipose + Muscle',700,11]]],
+      // Insulin
+      ['ins',465,460,142,46,'mB',[['Insulin',700,13]]],
+      ['nI1',465,512,168,50,'nt',[['Peptide hormone',600,8.5],['RTK · Tyr kinase receptor',600,8.5],['inserts GLUT-4 into membrane',400,8]]],
+      // ═══ DIABETES ═══
+      ['hDM',200,640,260,44,'hR',[['DIABETES MELLITUS',800,14]]],
+      // T1D
+      ['t1d',80,750,198,100,'ds',[['Type 1 DM',700,12],['autoimmune',400,10]]],
+      ['nT1a',40,870,238,28,'nt',[['β-cells destroyed → no insulin',600,9]]],
+      ['nT1b',40,904,238,28,'nt',[['GLUT-4 works but cells starve',600,9]]],
+      ['nT1c',40,938,238,36,'nt',[['Crisis: DKA',700,10],['diabetic ketoacidosis',400,8.5]]],
+      ['nT1d',40,980,238,24,'nt',[['Blood sugar 700–900',600,9]]],
+      // T2D
+      ['t2d',370,750,198,100,'ds',[['Type 2 DM',700,12],['insulin resistance',400,10]]],
+      ['nT2a',350,870,238,28,'nt',[['Insulin insensitivity',600,9]]],
+      ['nT2b',350,904,238,28,'nt',[['GLUT-4 won\'t respond',600,9]]],
+      ['nT2c',350,938,238,28,'nt',[['Treat w/ metformin (early)',600,9]]],
+      ['nT2d',350,972,238,36,'nt',[['Crisis: HHS',700,10],['hyperosmolar hyperglycemic',400,8.5]]],
+      // Cross-refs
+      ['xI1',80,1020,190,22,'nt',[['see → Insulin (Transport)',700,8]]],
+      ['xI2',370,1020,190,22,'nt',[['see → Insulin (Transport)',700,8]]],
+      // ═══ GLYCOLYSIS ═══
+      ['hGL',1200,30,218,44,'hG',[['GLYCOLYSIS',800,14]]],
+      // Steps — left column (intermediates), right column (enzymes)
+      ['mGu',1220,120,170,40,'mG',[['Glucose',700,12]]],
+      ['eHK',1480,120,180,38,'ez',[['Hexokinase',700,10],['ATP → ADP',400,9]]],
+      ['oHK',1700,128,102,26,'oc',[['IRREVERSIBLE',700,7]]],
+
+      ['mG6',1220,210,170,40,'mG',[['Glucose-6-P',700,11]]],
+      ['ePI',1480,210,200,28,'ez',[['Phosphoglucose isomerase',600,9]]],
+
+      ['mF6',1220,300,170,40,'mG',[['Fructose-6-P',700,11]]],
+      ['ePF',1480,300,200,44,'ez',[['PFK-1 ★ rate-limiting',700,10],['ATP → ADP',400,9]]],
+      ['oPF',1700,308,102,26,'oc',[['IRREVERSIBLE',700,7]]],
+
+      ['mF1',1220,400,170,40,'mG',[['Fructose-1,6-BP',700,11]]],
+      ['eAl',1480,400,170,28,'ez',[['Aldolase',700,10]]],
+
+      ['mGA',1220,490,170,40,'mG',[['GAP (G3P)',700,11]]],
+      ['nDH',1220,536,200,24,'nt',[['Aldolase splits → GAP + DHAP · ×2',600,8]]],
+      ['eGA',1480,490,180,38,'ez',[['GAPDH',700,10],['NAD⁺ + Pi → NADH',400,9]]],
+
+      ['m13',1220,600,170,40,'mG',[['1,3-BPG',700,11]]],
+      ['ePG',1480,600,200,34,'ez',[['PG kinase → ATP',700,10],['(substrate-level)',400,8]]],
+
+      ['m3P',1220,690,170,40,'mG',[['3-PG',700,11]]],
+      ['ePM',1480,690,170,28,'ez',[['PG mutase',600,10]]],
+
+      ['m2P',1220,770,170,40,'mG',[['2-PG',700,11]]],
+      ['eEn',1480,770,170,28,'ez',[['Enolase · −H₂O',600,10]]],
+
+      ['mPE',1220,850,170,40,'mG',[['PEP',700,11]]],
+      ['ePK',1480,850,180,38,'ez',[['Pyruvate kinase',700,10],['→ ATP',400,9]]],
+      ['oPK',1700,858,102,26,'oc',[['IRREVERSIBLE',700,7]]],
+
+      ['mPY',1220,940,190,44,'mG',[['Pyruvate (×2)',700,11]]],
+
+      ['mLA',1000,940,160,44,'mG',[['Lactate',700,11]]],
+      ['nAN',980,992,200,40,'nt',[['Anaerobic → regenerates NAD⁺',700,9],['no O₂ → ETC off → lactate',400,8]]],
+
+      // PFK-1 regulators
+      ['rLb',1850,270,120,22,'nt',[['PFK-1 Regulators',700,8.5]]],
+      ['rAT',1850,300,100,26,'rg',[['ATP ⊝',700,10]]],
+      ['rCI',1850,332,100,26,'rg',[['Citrate ⊝',700,10]]],
+      ['rAM',1850,364,100,26,'rg',[['AMP ⊕',700,10]]],
+      ['rF2',1850,396,120,26,'rg',[['F-2,6-BP ⊕',700,10]]],
+      ['nBF',2000,310,278,98,'nt',[['Bifunctional enzyme',700,10],['PFK-2 ↔ F-2,6-BPase',600,9],['↑ insulin → PFK-2 → glycolysis',400,9],['↑ glucagon → BPase → GNG',400,9]]],
+
+      // Investment/Payoff labels
+      ['nIN',1120,120,68,22,'nt',[['INVESTMENT',700,7.5]]],
+      ['nPO',1120,600,68,22,'nt',[['PAYOFF',700,7.5]]],
+
+      // Output
+      ['nNT',1220,1020,238,36,'nt',[['NET: +2 ATP  +2 NADH  +2 pyruvate',700,9.5]]]
+    ];
+    /* ── BUILD SHAPES + TEXT ── */
+    const dict={},rects=[],polys=[],nds=[];
+    N.forEach(([id,x,y,w,h,tk,lns])=>{
+      const T=TH[tk]; dict[id]={x,y,w,h};
+      const sw=(tk==='nt')?1.2:(tk.startsWith('h'))?0:1.5;
+      const da=tk==='nt'?'5 3':'';
+      if(T.sh==='pill') rects.push({x,y,w,h,rx:h/2,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='rect') rects.push({x,y,w,h,rx:5,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='banner') rects.push({x,y,w,h,rx:0,fill:T.f,stroke:T.f,sw:0,dash:''});
+      else if(T.sh==='note') rects.push({x,y,w,h,rx:0,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='oct'){const c=Math.min(8,w/5,h/3);polys.push({points:`${x+c},${y} ${x+w-c},${y} ${x+w},${y+c} ${x+w},${y+h-c} ${x+w-c},${y+h} ${x+c},${y+h} ${x},${y+h-c} ${x},${y+c}`,fill:T.f,stroke:T.s,sw:1.5});}
+      else if(T.sh==='hex'){const i=Math.min(14,h/2);polys.push({points:`${x+i},${y} ${x+w-i},${y} ${x+w},${y+h/2} ${x+w-i},${y+h} ${x+i},${y+h} ${x},${y+h/2}`,fill:T.f,stroke:T.s,sw:1.5});}
+      else if(T.sh==='diamond') polys.push({points:`${x+w/2},${y} ${x+w},${y+h/2} ${x+w/2},${y+h} ${x},${y+h/2}`,fill:T.f,stroke:T.s,sw:1.5});
+      else if(T.sh==='para'){const s=10;polys.push({points:`${x+s},${y} ${x+w},${y} ${x+w-s},${y+h} ${x},${y+h}`,fill:T.f,stroke:T.s,sw:1.2});}
+      nds.push({
+        style:`position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1px 3px;color:${T.tc};pointer-events:none;`,
+        lines:lns.map(([t,fw,fs])=>({t,s:`font-weight:${fw};font-size:${fs}px;line-height:1.3;`}))
+      });
+    });
+    /* ── EDGES ── */
+    const ET={
+      f:{stroke:'#555',sw:1.3,dash:'',me:'url(#aB)'},
+      g:{stroke:'#1a6b42',sw:1.3,dash:'',me:'url(#aG)'},
+      a:{stroke:'#27ae60',sw:1.3,dash:'7 5',me:'url(#aG)'},
+      i:{stroke:'#c0392b',sw:1.3,dash:'7 5',me:'url(#bR)'},
+      s:{stroke:'#999',sw:1,dash:'4 4',me:'url(#aGy)'},
+      r:{stroke:'#c0392b',sw:1.3,dash:'',me:'url(#aR)'}
+    };
+    // dir: omit=down, 'r'=right, 'l'=left
+    const ED=[
+      // Transport
+      ['glu','g2','f',null],['glu','gk','f'],['glu','g4','f'],
+      ['g2','liv','f'],['g2','bce','f'],
+      ['g4','adi','f'],['adi','ins','f'],
+      ['ins','g4','a',null,'l'],
+      // Diabetes
+      ['hDM','t1d','r'],['hDM','t2d','r'],
+      // Glycolysis — vertical chain
+      ['mGu','mG6','g'],['mG6','mF6','g'],['mF6','mF1','g'],
+      ['mF1','mGA','g'],['mGA','m13','g'],['m13','m3P','g'],
+      ['m3P','m2P','g'],['m2P','mPE','g'],['mPE','mPY','g'],
+      // Enzyme associations (right arrows)
+      ['mGu','eHK','f',null,'r'],['mG6','ePI','f',null,'r'],
+      ['mF6','ePF','f',null,'r'],['mF1','eAl','f',null,'r'],
+      ['mGA','eGA','f',null,'r'],['m13','ePG','f',null,'r'],
+      ['m3P','ePM','f',null,'r'],['m2P','eEn','f',null,'r'],
+      ['mPE','ePK','f',null,'r'],
+      // Irreversible markers
+      ['eHK','oHK','r',null,'r'],['ePF','oPF','r',null,'r'],['ePK','oPK','r',null,'r'],
+      // Pyruvate → Lactate
+      ['mPY','mLA','f',null,'l'],
+      // PFK regulators
+      ['rF2','nBF','s',null,'r'],
+      // Output
+      ['mPY','nNT','s']
+    ];
+    const edges=[],lbls=[];
+    ED.forEach(([fi,ti,tp,lbl,dir])=>{
+      const A=dict[fi],B=dict[ti]; if(!A||!B) return;
+      let sx,sy,ex,ey;
+      if(dir==='r'){sx=A.x+A.w;sy=A.y+A.h/2;ex=B.x;ey=B.y+B.h/2;}
+      else if(dir==='l'){sx=A.x;sy=A.y+A.h/2;ex=B.x+B.w;ey=B.y+B.h/2;}
+      else{sx=A.x+A.w/2;sy=A.y+A.h;ex=B.x+B.w/2;ey=B.y;}
+      const d=`M${sx},${sy}L${ex},${ey}`;
+      const t=ET[tp];
+      edges.push({d,stroke:t.stroke,sw:t.sw,dash:t.dash,me:t.me});
+      if(lbl){
+        const lx=(sx+ex)/2,ly=(sy+ey)/2;
+        lbls.push({text:lbl,style:`position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);background:#fff;border:1px solid #ddd;border-radius:3px;padding:1px 5px;font-size:7.5px;font-weight:600;color:#666;white-space:nowrap;`});
+      }
+    });
+    /* ── BANDS ── */
+    const bands=[
+      {x:18,y:18,w:680,h:560,rx:12,fill:'#e8f0fa'},
+      {x:18,y:620,w:680,h:440,rx:12,fill:'#fae8e8'},
+      {x:985,y:18,w:1325,h:1060,rx:12,fill:'#e8f5ec'},
+      {x:18,y:1080,w:2292,h:60,rx:10,fill:'#f5f3ed'}
+    ];
+    [
+      ['LEGEND',800,11,'#3d3520',42,1095,'.06em'],
+      ['⬭ molecule     ▭ concept     ⬡ location     ◆ disease     ▱ enzyme     ⬣ irreversible     ┈┈ note',600,9,'#5a4e2a',130,1095,''],
+      ['Blue = Transport     Red = Diabetes     Green = Glycolysis',600,9,'#5a4e2a',130,1115,'']
+    ].forEach(([t,fw,fs,c,x,y,ls])=>lbls.push({text:t,style:`position:absolute;left:${x}px;top:${y}px;font-weight:${fw};font-size:${fs}px;color:${c};white-space:nowrap;${ls?'letter-spacing:'+ls+';':''}`}));
+    return {bands,edges,rects,polys,nds,lbls};
+  }
+}
+
+</script>
+</body>
+</html>

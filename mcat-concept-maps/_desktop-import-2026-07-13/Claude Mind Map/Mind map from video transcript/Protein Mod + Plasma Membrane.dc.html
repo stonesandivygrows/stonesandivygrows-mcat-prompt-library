@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<style>
+html,body{margin:0;padding:0;background:#fff;}
+</style>
+</helmet>
+<div style="position:relative;width:3200px;height:1400px;background:#fff;font-family:Verdana,Geneva,sans-serif;">
+  <div style="position:absolute;left:40px;top:4px;font-size:10px;font-weight:700;color:#9aa3ad;letter-spacing:.08em;">B/B · MCAT BIOCHEMISTRY</div>
+  <svg width="3200" height="1400" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none;">
+    <defs>
+      <marker id="aB" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#555"></path></marker>
+      <marker id="aP" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#5a3d82"></path></marker>
+      <marker id="aT" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#1a6b6b"></path></marker>
+      <marker id="aGy" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#999"></path></marker>
+    </defs>
+    <sc-for list="{{ bands }}" as="b" hint-placeholder-count="4">
+      <rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" rx="{{ b.rx }}" fill="{{ b.fill }}"></rect>
+    </sc-for>
+    <sc-for list="{{ edges }}" as="e" hint-placeholder-count="50">
+      <path d="{{ e.d }}" fill="none" stroke="{{ e.stroke }}" stroke-width="{{ e.sw }}" stroke-dasharray="{{ e.dash }}" marker-end="{{ e.me }}"></path>
+    </sc-for>
+    <sc-for list="{{ rects }}" as="r" hint-placeholder-count="70">
+      <rect x="{{ r.x }}" y="{{ r.y }}" width="{{ r.w }}" height="{{ r.h }}" rx="{{ r.rx }}" fill="{{ r.fill }}" stroke="{{ r.stroke }}" stroke-width="{{ r.sw }}" stroke-dasharray="{{ r.dash }}"></rect>
+    </sc-for>
+    <sc-for list="{{ polys }}" as="p" hint-placeholder-count="20">
+      <polygon points="{{ p.points }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}"></polygon>
+    </sc-for>
+  </svg>
+  <sc-for list="{{ nds }}" as="n" hint-placeholder-count="80">
+    <div style="{{ n.style }}">
+      <sc-for list="{{ n.lines }}" as="ln" hint-placeholder-count="2">
+        <div style="{{ ln.s }}">{{ ln.t }}</div>
+      </sc-for>
+    </div>
+  </sc-for>
+  <sc-for list="{{ lbls }}" as="l" hint-placeholder-count="20">
+    <div style="{{ l.style }}">{{ l.text }}</div>
+  </sc-for>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:3200,&quot;height&quot;:1200}}">
+
+class Component extends DCLogic {
+  renderVals() {
+    const TH={
+      hP:{f:'#4a2d6b',s:'#4a2d6b',tc:'#fff',sh:'banner'},
+      hM:{f:'#1a5c5c',s:'#1a5c5c',tc:'#fff',sh:'banner'},
+      cat:{f:'#7b5ea7',s:'#5a3d82',tc:'#fff',sh:'pill'},
+      sub:{f:'#a78bce',s:'#7b5ea7',tc:'#fff',sh:'rect'},
+      ne:{f:'#e8a87c',s:'#c47a4e',tc:'#3d2510',sh:'para'},
+      nt:{f:'#ffffff',s:'#c9b97a',tc:'#5a4e2a',sh:'note'},
+      mc:{f:'#2d8f8f',s:'#1a6b6b',tc:'#fff',sh:'pill'},
+      mp:{f:'#5bb5b5',s:'#2d8f8f',tc:'#fff',sh:'rect'},
+      ds:{f:'#d45d5d',s:'#9a3030',tc:'#fff',sh:'diamond'},
+      oc:{f:'#c43e3e',s:'#8a2020',tc:'#fff',sh:'oct'},
+      rg:{f:'#e8d5a3',s:'#9e8745',tc:'#4a3d1a',sh:'pill'},
+      tr:{f:'#3a7a7a',s:'#1a5c5c',tc:'#fff',sh:'hex'},
+      cy:{f:'#6bcece',s:'#3a9a9a',tc:'#1a3d3d',sh:'rect'}
+    };
+    const N=[
+      // ═══ PROTEIN MODIFICATION ═══
+      ['hPM',280,30,340,44,'hP',[['PROTEIN MODIFICATION',800,14]]],
+      ['nPM',280,80,340,22,'nt',[['post-translational modifications (PTMs)',600,8.5]]],
+      // Level 1
+      ['enz',180,150,160,40,'cat',[['Enzymatic',700,12]]],
+      ['nen',580,150,190,40,'ne',[['Non-Enzymatic',700,12]]],
+      // Enzymatic children — spread out
+      ['pho',40,260,150,44,'sub',[['Phosphorylation',700,10]]],
+      ['nPh',40,310,150,50,'nt',[['Kinase ↔ Phosphatase',600,8.5],['PO₄ on Ser/Thr/Tyr',400,8],['on/off switch · signaling',400,8]]],
+
+      ['gly',220,260,150,44,'sub',[['Glycosylation',700,10]]],
+      ['nGl',220,310,150,58,'nt',[['Glycosyltransferases',600,8.5],['sugar on Asn (N)',400,8],['or Ser/Thr (O)',400,8],['folding · recognition tag',400,8]]],
+
+      ['lip',40,420,150,44,'sub',[['Lipidation',700,10]]],
+      ['nLi',40,470,150,50,'nt',[['prenyl/palmitoyl/GPI',600,8.5],['anchors protein',400,8],['to membrane',400,8]]],
+
+      ['ubi',220,420,150,44,'sub',[['Ubiquitination',700,10]]],
+      ['nUb',220,470,150,58,'nt',[['E1-E2-E3 ligase cascade',600,8.5],['ubiquitin tag on Lys',400,8],['flags for proteasome',400,8],['→ breakdown',400,8]]],
+
+      ['ace',40,580,150,44,'sub',[['Acetylation',700,10]]],
+      ['nAc',40,630,150,58,'nt',[['Acetyltransferase',600,8.5],['acetyl-CoA on Lys',400,8],['neutralizes + charge',400,8],['histones → epigenetics',400,8]]],
+
+      ['met',220,580,150,44,'sub',[['Methylation',700,10]]],
+      ['nMe',220,630,150,50,'nt',[['Methyltransferase (SAM)',600,8.5],['methyl on Lys/Arg',400,8],['activate/repress genes',400,8]]],
+
+      ['pro',130,740,172,44,'sub',[['Proteolytic Cleavage',700,9]]],
+      ['nPr',130,790,172,36,'nt',[['removes peptide segments',600,8.5],['zymogen → active enzyme',400,8]]],
+
+      // Non-enzymatic children
+      ['gca',480,260,150,44,'ne',[['Glycation',700,10]]],
+      ['nGc',480,310,150,58,'nt',[['spontaneous sugar on Lys',600,8.5],['NOT enzyme-driven',700,8],['HbA1c = glucose marker',400,8],['linked to aging',400,8]]],
+
+      ['dsb',670,260,150,44,'ne',[['Disulfide Bond',700,10]]],
+      ['nDs',670,310,150,58,'nt',[['two Cys → S–S bond',600,8.5],['spontaneous oxidation',400,8],['stabilizes 3D structure',400,8]]],
+
+      ['dea',480,420,150,44,'ne',[['Deamination',700,10]]],
+      ['nDe',480,470,150,50,'nt',[['Asn→Asp · Gln→Glu',600,8.5],['spontaneous hydrolysis',400,8],['alters folding · aging',400,8]]],
+
+      ['oxi',670,420,150,44,'ne',[['Oxidation',700,10]]],
+      ['nOx',670,470,150,42,'nt',[['ROS modifies Met/Cys',600,8.5],['side chain damage',400,8],['linked to aging',400,8]]],
+
+      ['iso',575,570,148,44,'ne',[['Isomerization',700,10]]],
+      ['nIs',575,620,148,42,'nt',[['L→D or cis/trans Pro',600,8.5],['spontaneous',400,8],['alters folding kinetics',400,8]]],
+
+      // Key Distinction
+      ['kd',120,870,680,58,'ds',[['KEY DISTINCTION',800,11],['Enzymatic: specific · regulated · reversible → signaling',400,9],['Non-enzymatic: spontaneous · irreversible · accumulates → damage/aging',400,9]]],
+
+      // ═══ PLASMA MEMBRANE ═══
+      ['hPL',1750,30,330,44,'hM',[['PLASMA MEMBRANE',800,14]]],
+      ['nPL',1750,80,330,22,'nt',[['fluid mosaic model',600,9]]],
+      // Level 1
+      ['flu',1500,150,140,40,'mc',[['« Fluid »',700,12]]],
+      ['mos',2060,150,140,40,'mc',[['« Mosaic »',700,12]]],
+
+      // Fluid children
+      ['mov',1400,250,160,36,'mp',[['Movement',700,11]]],
+      ['lat',1340,340,160,36,'mp',[['Lateral Diffusion',700,9]]],
+      ['nLa',1340,382,160,28,'nt',[['unrestricted · spontaneous',600,8.5]]],
+      ['atf',1530,340,160,36,'mp',[['ATP-Driven Flip',700,9]]],
+      ['nAt',1530,382,160,28,'nt',[['moves lipid btwn leaflets',600,8.5]]],
+
+      ['fRg',1400,460,180,36,'mp',[['Fluidity Regulation',700,10]]],
+      ['tUp',1300,550,170,48,'nt',[['Temp ↑ → Rigid',700,9],['more saturated FAs',400,8],['more cholesterol',400,8]]],
+      ['tDn',1510,550,170,48,'nt',[['Temp ↓ → Fluid',700,9],['unsaturated FAs',400,8],['kinks prevent packing',400,8]]],
+      ['cho',1400,620,180,28,'nt',[['Cholesterol = fluidity buffer',600,8.5]]],
+
+      // Mosaic children
+      ['sem',1900,250,170,36,'mp',[['Semipermeable',700,10]]],
+      ['yes',1840,340,140,36,'tr',[['Passes Freely',700,9]]],
+      ['nYe',1840,382,140,36,'nt',[['uncharged · small',600,8.5],['nonpolar (O₂, CO₂)',400,8]]],
+      ['no',2020,340,140,36,'oc',[['Needs Help',700,9]]],
+      ['nNo',2020,382,140,42,'nt',[['charged · large',600,8.5],['polar · ions',400,8],['glucose · H₂O',400,8]]],
+
+      ['sel',2200,250,200,36,'mp',[['Selective Transport',700,10]]],
+      ['cha',2080,340,120,36,'cy',[['Channels',700,9]]],
+      ['nCh',2080,382,120,28,'nt',[['Na⁺/K⁺ · aquaporins',600,8]]],
+      ['car',2220,340,120,36,'cy',[['Carriers',700,9]]],
+      ['nCa',2220,382,120,28,'nt',[['transporters',600,8]]],
+      ['pum',2360,340,110,36,'cy',[['Pumps',700,9]]],
+      ['nPu',2360,382,110,28,'nt',[['Na⁺/K⁺ ATPase',600,8]]],
+      ['rec',2490,340,120,36,'cy',[['Receptors',700,9]]],
+      ['nRe',2490,382,120,28,'nt',[['GPCRs',600,8]]],
+
+      // Membrane Proteins
+      ['mpr',1900,470,200,36,'mp',[['Membrane Proteins',700,10]]],
+      ['itm',1840,560,172,48,'mp',[['Integral /',700,9],['Transmembrane',700,9]]],
+      ['nIt',1840,614,172,50,'nt',[['α-helix or β-barrel',600,8.5],['embedded · hydrophobic',400,8],['permanent anchoring',400,8]]],
+      ['per',2060,560,148,48,'mp',[['Peripheral',700,9]]],
+      ['nPe',2060,614,148,42,'nt',[['associated surfaces',600,8.5],['loosely attached',400,8],['removable',400,8]]],
+
+      // Membrane Carbs
+      ['mcb',2300,470,180,36,'mp',[['Membrane Carbs',700,10]]],
+      ['glp',2250,560,120,36,'rg',[['Glycolipid',700,9]]],
+      ['gpr',2400,560,130,36,'rg',[['Glycoprotein',700,9]]],
+      ['nMc',2250,602,280,28,'nt',[['exterior face only → cell recognition',600,8.5]]],
+
+      // CAMs
+      ['cam',2600,470,160,36,'mp',[['CAMs',700,11]]],
+      ['cad',2520,560,110,44,'cy',[['Cadherin',700,9]]],
+      ['nCd',2520,610,110,36,'nt',[['Ca²⁺ dependent',600,8],['cell-cell cohesion',400,8]]],
+      ['int',2650,560,110,44,'cy',[['Integrin',700,9]]],
+      ['nIn',2650,610,110,36,'nt',[['α,β subunits',600,8],['binds ECM',400,8]]],
+      ['slc',2780,560,110,44,'cy',[['Selectin',700,9]]],
+      ['nSl',2780,610,110,36,'nt',[['binds carbs',600,8],['immunity',400,8]]],
+
+      // Phospholipid bilayer
+      ['plb',1900,710,200,36,'mc',[['Phospholipid Bilayer',700,10]]],
+      ['gpl',1800,800,148,36,'rg',[['Glycerophospholipid',700,8]]],
+      ['sph',1970,800,140,36,'rg',[['Sphingomyelin',700,8]]],
+      ['chl',2130,800,120,36,'rg',[['Cholesterol',700,9]]],
+      ['nPl',1800,842,450,28,'nt',[['glycerol-based · sphingosine-based · sterol (no FA tails)',600,8.5]]],
+
+      // Cytoskeleton
+      ['csk',1900,920,260,36,'mc',[['Cytoskeleton (anchors membrane)',700,9]]],
+      ['mic',1780,1010,138,44,'cy',[['Microfilaments',700,9]]],
+      ['nMi',1780,1060,138,36,'nt',[['Actin · thin filaments',600,8.5],['contractile ring',400,8]]],
+      ['mtb',1950,1010,138,44,'cy',[['Microtubules',700,9]]],
+      ['nMt',1950,1060,138,42,'nt',[['Tubulin (α/β)',600,8.5],['centrosome · spindle',400,8],['flagella',400,8]]],
+      ['imf',2120,1010,148,44,'cy',[['Intermediate',700,9],['Filaments',700,9]]],
+      ['nIm',2120,1060,148,36,'nt',[['Keratin · desmin',600,8.5],['tensile strength',400,8]]]
+    ];
+    /* ── BUILD SHAPES + TEXT ── */
+    const dict={},rects=[],polys=[],nds=[];
+    N.forEach(([id,x,y,w,h,tk,lns])=>{
+      const T=TH[tk]; dict[id]={x,y,w,h};
+      const sw=(tk==='nt')?1.2:(tk.startsWith('h'))?0:1.5;
+      const da=tk==='nt'?'5 3':'';
+      if(T.sh==='pill') rects.push({x,y,w,h,rx:h/2,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='rect') rects.push({x,y,w,h,rx:5,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='banner') rects.push({x,y,w,h,rx:2,fill:T.f,stroke:T.f,sw:0,dash:''});
+      else if(T.sh==='note') rects.push({x,y,w,h,rx:14,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='oct'){const c=Math.min(8,w/5,h/3);polys.push({points:`${x+c},${y} ${x+w-c},${y} ${x+w},${y+c} ${x+w},${y+h-c} ${x+w-c},${y+h} ${x+c},${y+h} ${x},${y+h-c} ${x},${y+c}`,fill:T.f,stroke:T.s,sw:1.5});}
+      else if(T.sh==='hex'){const i=Math.min(14,h/2);polys.push({points:`${x+i},${y} ${x+w-i},${y} ${x+w},${y+h/2} ${x+w-i},${y+h} ${x+i},${y+h} ${x},${y+h/2}`,fill:T.f,stroke:T.s,sw:1.5});}
+      else if(T.sh==='diamond') polys.push({points:`${x+w/2},${y} ${x+w},${y+h/2} ${x+w/2},${y+h} ${x},${y+h/2}`,fill:T.f,stroke:T.s,sw:1.5});
+      else if(T.sh==='para'){const s=10;polys.push({points:`${x+s},${y} ${x+w},${y} ${x+w-s},${y+h} ${x},${y+h}`,fill:T.f,stroke:T.s,sw:1.2});}
+      nds.push({
+        style:`position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1px 3px;color:${T.tc};pointer-events:none;`,
+        lines:lns.map(([t,fw,fs])=>({t,s:`font-weight:${fw};font-size:${fs}px;line-height:1.3;`}))
+      });
+    });
+    /* ── EDGES ── */
+    const ET={
+      f:{stroke:'#555',sw:1.3,dash:'',me:'url(#aB)'},
+      p:{stroke:'#5a3d82',sw:1.3,dash:'',me:'url(#aP)'},
+      t:{stroke:'#1a6b6b',sw:1.3,dash:'',me:'url(#aT)'},
+      s:{stroke:'#999',sw:1,dash:'4 4',me:'url(#aGy)'}
+    };
+    const ED=[
+      // Protein Mod
+      ['hPM','enz','p'],['hPM','nen','p'],
+      ['enz','pho','p'],['enz','gly','p'],
+      ['enz','lip','p'],['enz','ubi','p'],
+      ['enz','ace','p'],['enz','met','p'],
+      ['enz','pro','p'],
+      ['nen','gca','p'],['nen','dsb','p'],
+      ['nen','dea','p'],['nen','oxi','p'],
+      ['nen','iso','p'],
+      // Plasma Membrane
+      ['hPL','flu','t'],['hPL','mos','t'],
+      ['flu','mov','t'],['mov','lat','t'],['mov','atf','t'],
+      ['flu','fRg','t'],['fRg','tUp','t'],['fRg','tDn','t'],
+      ['mos','sem','t'],['mos','sel','t',null,'r'],
+      ['sem','yes','t'],['sem','no','t'],
+      ['sel','cha','t'],['sel','car','t'],['sel','pum','t'],['sel','rec','t'],
+      ['mos','mpr','t'],['mpr','itm','t'],['mpr','per','t'],
+      ['mos','mcb','t',null,'r'],['mcb','glp','t'],['mcb','gpr','t'],
+      ['mos','cam','t',null,'r'],['cam','cad','t'],['cam','int','t'],['cam','slc','t'],
+      ['mos','plb','t'],['plb','gpl','t'],['plb','sph','t'],['plb','chl','t'],
+      ['plb','csk','t'],['csk','mic','t'],['csk','mtb','t'],['csk','imf','t']
+    ];
+    const edges=[],lbls=[];
+    ED.forEach(([fi,ti,tp,lbl,dir])=>{
+      const A=dict[fi],B=dict[ti]; if(!A||!B) return;
+      let sx,sy,ex,ey;
+      if(dir==='r'){sx=A.x+A.w;sy=A.y+A.h/2;ex=B.x;ey=B.y+B.h/2;}
+      else if(dir==='l'){sx=A.x;sy=A.y+A.h/2;ex=B.x+B.w;ey=B.y+B.h/2;}
+      else{sx=A.x+A.w/2;sy=A.y+A.h;ex=B.x+B.w/2;ey=B.y;}
+      const d=`M${sx},${sy}L${ex},${ey}`;
+      const t=ET[tp];
+      edges.push({d,stroke:t.stroke,sw:t.sw,dash:t.dash,me:t.me});
+      if(lbl){
+        const lx=(sx+ex)/2,ly=(sy+ey)/2;
+        lbls.push({text:lbl,style:`position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);background:#fff;border:1px solid #ddd;border-radius:3px;padding:1px 5px;font-size:7.5px;font-weight:600;color:#666;white-space:nowrap;`});
+      }
+    });
+    /* ── BANDS ── */
+    const bands=[
+      {x:18,y:18,w:860,h:930,rx:12,fill:'#f0e8fa'},
+      {x:1260,y:18,w:1660,h:1100,rx:12,fill:'#e0f5f5'},
+      {x:18,y:1130,w:2902,h:50,rx:10,fill:'#f5f3ed'}
+    ];
+    [
+      ['LEGEND',800,11,'#3d3520',42,1142,'.06em'],
+      ['⬭ category     ▭ concept     ▱ modification     ⬡ location     ◆ key distinction     ⬣ warning     ┈┈ note',600,9,'#5a4e2a',130,1142,''],
+      ['Purple = Protein Modification     Teal = Plasma Membrane',600,9,'#5a4e2a',130,1162,'']
+    ].forEach(([t,fw,fs,c,x,y,ls])=>lbls.push({text:t,style:`position:absolute;left:${x}px;top:${y}px;font-weight:${fw};font-size:${fs}px;color:${c};white-space:nowrap;${ls?'letter-spacing:'+ls+';':''}`}));
+    return {bands,edges,rects,polys,nds,lbls};
+  }
+}
+
+</script>
+</body>
+</html>

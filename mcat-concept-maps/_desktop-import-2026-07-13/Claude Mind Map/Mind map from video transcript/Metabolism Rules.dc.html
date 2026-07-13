@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>html,body{margin:0;padding:0;background:#fff;}</style>
+</helmet>
+<div style="position:relative;width:3000px;height:1660px;background:#fff;font-family:Verdana,Geneva,sans-serif;">
+  <div style="position:absolute;left:40px;top:6px;font-size:11px;font-weight:700;color:#9aa3ad;letter-spacing:.08em;">B/B &middot; MCAT BIOCHEMISTRY</div>
+  <svg width="3000" height="1660" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none;">
+    <defs>
+      <marker id="aM" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><path d="M0,0.5 L8,3.5 L0,6.5z" fill="#8a5520"></path></marker>
+      <marker id="aP" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><path d="M0,0.5 L8,3.5 L0,6.5z" fill="#9a4a18"></path></marker>
+      <marker id="aGy" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><path d="M0,0.5 L8,3.5 L0,6.5z" fill="#aaa"></path></marker>
+      <marker id="aK" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><path d="M0,0.5 L8,3.5 L0,6.5z" fill="#333"></path></marker>
+    </defs>
+    <sc-for list="{{ bands }}" as="b" hint-placeholder-count="5">
+      <rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" rx="{{ b.rx }}" fill="{{ b.fill }}"></rect>
+    </sc-for>
+    <sc-for list="{{ edges }}" as="e" hint-placeholder-count="40">
+      <path d="{{ e.d }}" fill="none" stroke="{{ e.stroke }}" stroke-width="{{ e.sw }}" stroke-dasharray="{{ e.dash }}" marker-end="{{ e.me }}"></path>
+    </sc-for>
+    <sc-for list="{{ rects }}" as="r" hint-placeholder-count="60">
+      <rect x="{{ r.x }}" y="{{ r.y }}" width="{{ r.w }}" height="{{ r.h }}" rx="{{ r.rx }}" fill="{{ r.fill }}" stroke="{{ r.stroke }}" stroke-width="{{ r.sw }}" stroke-dasharray="{{ r.dash }}"></rect>
+    </sc-for>
+    <sc-for list="{{ polys }}" as="p" hint-placeholder-count="20">
+      <polygon points="{{ p.points }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}"></polygon>
+    </sc-for>
+  </svg>
+  <sc-for list="{{ nds }}" as="n" hint-placeholder-count="40">
+    <div style="{{ n.style }}">
+      <sc-for list="{{ n.lines }}" as="ln" hint-placeholder-count="3">
+        <div style="{{ ln.s }}">{{ ln.t }}</div>
+      </sc-for>
+    </div>
+  </sc-for>
+  <sc-for list="{{ lbls }}" as="l" hint-placeholder-count="30">
+    <div style="{{ l.style }}">{{ l.text }}</div>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:3000,&quot;height&quot;:1660}}">
+class Component extends DCLogic {
+  renderVals() {
+    const TH = {
+      hM:  {f:'#8a5520', s:'#5a3510', tc:'#fff',     sh:'rect'},
+      cp:  {f:'#f3d98a', s:'#9a6a1a', tc:'#4a3510', sh:'rect'},
+      ky:  {f:'#e0962e', s:'#9a5a18', tc:'#fff',     sh:'pill'},
+      cat: {f:'#d9722e', s:'#9a4a18', tc:'#fff',     sh:'rect'},
+      ana: {f:'#5b8fb0', s:'#356080', tc:'#fff',     sh:'rect'},
+      ill: {f:'#fbf6ea', s:'#cdbf90', tc:'#4a3d1a', sh:'rect'},
+      nt:  {f:'#ffffff', s:'#c9b97a', tc:'#5a4e2a', sh:'note'},
+    };
+
+    // [id, x, y, w, h, theme, [[text, weight, size], ...]]
+    const N = [
+      ['gen', 55, 750, 230, 116, 'hM', [['GENERAL RULES', 800, 15], ['OF METABOLISM', 800, 15]]],
+
+      // ── BAND A : Reactants & Products ──
+      ['rp',    370, 168, 215, 56, 'cp', [['Reactants & Products', 700, 12]]],
+      ['react', 660, 92,  150, 46, 'ky', [['Reactants', 700, 12]]],
+      ['aer',   880, 92,  230, 46, 'ky', [['Aerobic vs Anaerobic', 700, 11]]],
+      ['anc',   1190, 78, 250, 66, 'nt', [['Anaerobic respiration', 600, 9], ['(glycolysis / fermentation)', 500, 8.5], ['occurs in the cytosol', 600, 9]]],
+      ['prod',  660, 234, 150, 46, 'ky', [['Products', 700, 12]]],
+      ['lech',  880, 210, 360, 92, 'nt', [['At the start of glycolysis,', 600, 9], ['\u2191 [reactant] shifts the reaction', 600, 9], ['spontaneously toward products', 600, 9], ['(Le Ch\u00e2telier\u2019s principle)', 500, 8.5]]],
+
+      // ── BAND B : Redox & Coupling ──
+      ['redox', 370, 540, 220, 62, 'cp', [['Reduction is coupled', 700, 11], ['to an oxidation', 700, 11]]],
+      ['coup',  680, 540, 240, 62, 'cp', [['Couples spontaneous +', 700, 10.5], ['nonspontaneous reactions', 700, 10.5]]],
+      ['cat',   1000, 448, 310, 86, 'cat', [['CATABOLISM \u2014 oxidative breakdown', 700, 9.5], ['uses NAD\u207a & FAD \u2192 NADH, FADH\u2082', 500, 9], ['releases energy (exergonic)', 500, 9]]],
+      ['ana',   1000, 604, 310, 86, 'ana', [['ANABOLISM \u2014 reductive biosynthesis', 700, 9.5], ['uses NADPH \u00b7 requires energy', 500, 9], ['\u2193 entropy (builds order)', 500, 9]]],
+      ['mov',   1410, 470, 380, 42, 'cp', [['METABOLISM OVERVIEW', 700, 11]]],
+      ['movC',  1410, 524, 380, 56, 'cat', [['Catabolism: energy nutrients (carbs,', 500, 9], ['lipids, proteins) \u2192 CO\u2082, H\u2082O, NH\u2083 + ATP', 500, 9]]],
+      ['movA',  1410, 590, 380, 56, 'ana', [['Anabolism: precursors (amino acids,', 500, 9], ['sugars, fatty acids) \u2192 macromolecules', 500, 9]]],
+      ['movX',  1410, 656, 380, 40, 'nt', [['shared currency: ADP+Pi, NAD\u207a \u21cc ATP, NADH', 600, 8.7]]],
+
+      // ── BAND C : Regulation ──
+      ['irr',  370, 842, 220, 56, 'cp', [['Many irreversible steps', 700, 11]]],
+      ['spon', 370, 966, 220, 54, 'ky', [['Spontaneous =', 700, 10.5], ['large negative \u0394G', 700, 10.5]]],
+      ['enz',  680, 842, 240, 56, 'cp', [['Highly regulated,', 700, 11], ['irreversible enzymes', 700, 11]]],
+      ['allo', 1000, 820, 330, 100, 'nt', [['Most key enzymes are regulated', 600, 9.2], ['by hormones AND by their own', 600, 9.2], ['product (feedback inhibition)', 600, 9.2], ['acting at the allosteric site', 600, 9.2]]],
+      ['gly',  680, 966, 320, 70, 'nt', [['Example: glycolysis irreversible', 600, 9.2], ['steps 1, 3, 10 \u2192 hexokinase,', 600, 9.2], ['PFK-1, pyruvate kinase', 600, 9.2]]],
+
+      // ── BAND D : Thermodynamics / ETC ──
+      ['thermo', 370, 1330, 230, 62, 'cp', [['Thermodynamics', 700, 11], ['(gen chem / orgo)', 500, 9]]],
+      ['c4',     1340, 1300, 310, 92, 'cat', [['Complex IV has the highest', 700, 9.5], ['reduction potential (E\u00b0\u2032 = +)', 600, 9], ['O\u2082 = final electron acceptor', 600, 9]]],
+      ['pump',   1340, 1414, 310, 64, 'nt', [['Large drops in free energy drive', 600, 9], ['H\u207a pumping at Complexes I, III, IV', 600, 9]]],
+    ];
+
+    const dict = {}, rects = [], polys = [], nds = [];
+    N.forEach(([id, x, y, w, h, tk, lns]) => {
+      const T = TH[tk]; dict[id] = {x, y, w, h};
+      const sw = tk === 'nt' ? 1.2 : 1.5;
+      const da = tk === 'nt' ? '5 3' : '';
+      if (T.sh === 'pill') rects.push({x, y, w, h, rx:h/2, fill:T.f, stroke:T.s, sw, dash:da});
+      else if (T.sh === 'rect') rects.push({x, y, w, h, rx:7, fill:T.f, stroke:T.s, sw, dash:da});
+      else if (T.sh === 'note') rects.push({x, y, w, h, rx:0, fill:T.f, stroke:T.s, sw, dash:da});
+      nds.push({
+        style:`position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1px 4px;color:${T.tc};pointer-events:none;`,
+        lines: lns.map(([t, fw, fs]) => ({t, s:`font-weight:${fw};font-size:${fs}px;line-height:1.3;`}))
+      });
+    });
+
+    const ET = {
+      m: {stroke:'#8a5520', sw:1.7, dash:'',    me:'url(#aM)'},
+      p: {stroke:'#9a4a18', sw:1.4, dash:'',    me:'url(#aP)'},
+      s: {stroke:'#aaa',    sw:1.1, dash:'4 4', me:'url(#aGy)'},
+    };
+    // [from, to, type, label, dir]  dir: omit=down, 'r'=right, 'l'=left
+    const ED = [
+      ['gen','rp','m',null,'r'], ['gen','redox','m',null,'r'], ['gen','irr','m',null,'r'], ['gen','thermo','m',null,'r'],
+      // band A
+      ['rp','react','p',null,'r'], ['react','aer','p',null,'r'], ['aer','anc','s',null,'r'],
+      ['rp','prod','p',null,'r'], ['prod','lech','s',null,'r'],
+      // band B
+      ['redox','coup','p',null,'r'], ['coup','cat','p',null,'r'], ['coup','ana','p',null,'r'],
+      ['cat','mov','s',null,'r'],
+      // band C
+      ['irr','enz','p','controlled by','r'], ['enz','allo','s',null,'r'],
+      ['irr','spon','p',null], ['spon','gly','s',null,'r'],
+      // band D
+      ['thermo','c4','s',null,'r'],
+    ];
+
+    const edges = [], lbls = [];
+    ED.forEach(([fi, ti, tp, lbl, dir]) => {
+      const A = dict[fi], B = dict[ti]; if (!A || !B) return;
+      let sx, sy, ex, ey;
+      if (dir === 'r') { sx=A.x+A.w; sy=A.y+A.h/2; ex=B.x; ey=B.y+B.h/2; }
+      else if (dir === 'l') { sx=A.x; sy=A.y+A.h/2; ex=B.x+B.w; ey=B.y+B.h/2; }
+      else { sx=A.x+A.w/2; sy=A.y+A.h; ex=B.x+B.w/2; ey=B.y; }
+      const T = ET[tp];
+      edges.push({d:`M${sx},${sy}L${ex},${ey}`, stroke:T.stroke, sw:T.sw, dash:T.dash, me:T.me});
+      if (lbl) {
+        const lx=(sx+ex)/2, ly=(sy+ey)/2;
+        lbls.push({text:lbl, style:`position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);background:#fff;border:1px solid #ddd;border-radius:3px;padding:1px 5px;font-size:8px;font-weight:600;color:#666;white-space:nowrap;`});
+      }
+    });
+
+    // ═══ ETC FREE-ENERGY DIAGRAM (band D) ═══
+    const px = 640, py = 1210, pw = 660, ph = 380;
+    rects.push({x:px, y:py, w:pw, h:ph, rx:8, fill:'#fbf6ea', stroke:'#cdbf90', sw:1.3, dash:''});
+    // axes
+    const ax = px + 80, ayT = py + 40, ayB = py + ph - 60, axR = px + pw - 30;
+    edges.push({d:`M${ax},${ayT}L${ax},${ayB}`, stroke:'#555', sw:1.6, dash:'', me:'url(#aK)'});
+    edges.push({d:`M${ax},${ayB}L${axR},${ayB}`, stroke:'#555', sw:1.6, dash:'', me:'url(#aK)'});
+    // descending staircase
+    const stair = [[ax+20,ayT+8],[ax+95,ayT+58],[ax+150,ayT+86],[ax+250,ayT+150],[ax+330,ayT+188],[ax+430,ayT+258],[ax+510,ayT+300]];
+    let dPath = `M${stair[0][0]},${stair[0][1]}`;
+    stair.slice(1).forEach(p => dPath += `L${p[0]},${p[1]}`);
+    edges.push({d:dPath, stroke:'#9a4a18', sw:2.4, dash:'', me:''});
+    // FADH2 entry into Q
+    edges.push({d:`M${ax+95},${ayT+118}L${stair[2][0]},${stair[2][1]}`, stroke:'#2d7a4a', sw:1.8, dash:'', me:''});
+    // node dots
+    stair.forEach(p => rects.push({x:p[0]-3.5, y:p[1]-3.5, w:7, h:7, rx:3.5, fill:'#9a4a18', stroke:'#fff', sw:1, dash:''}));
+    rects.push({x:ax+95-3.5, y:ayT+118-3.5, w:7, h:7, rx:3.5, fill:'#2d7a4a', stroke:'#fff', sw:1, dash:''});
+
+    const dl = (t, x, y, fs, c, fw, rot) => lbls.push({text:t, style:`position:absolute;left:${x}px;top:${y}px;font-size:${fs}px;font-weight:${fw||600};color:${c||'#3a3020'};white-space:nowrap;${rot?'transform:rotate(-90deg);transform-origin:left top;':''}`});
+    dl('High', ax-46, ayT-2, 9, '#8a1e1e');
+    dl('Low', ax-42, ayB-14, 9, '#1a5c8a');
+    dl('Free energy (G)', ax-58, ayB-6, 9, '#555', 700, true);
+    dl('Electron Transport Chain \u27f6', ax+120, ayB+18, 9.5, '#555', 700);
+    dl('NAD\u207a / NADH', stair[0][0]-6, stair[0][1]-22, 8.5, '#222', 700);
+    dl('Complex I', stair[1][0]-8, stair[1][1]-20, 8, '#222', 600);
+    dl('Q', stair[2][0]+6, stair[2][1]-4, 8.5, '#222', 700);
+    dl('Complex III', stair[3][0]-2, stair[3][1]-20, 8, '#222', 600);
+    dl('cyt c', stair[4][0]+4, stair[4][1]-4, 8, '#222', 600);
+    dl('Complex IV', stair[5][0]-2, stair[5][1]-20, 8, '#222', 600);
+    dl('O\u2082', stair[6][0]+8, stair[6][1]-4, 9, '#222', 700);
+    dl('FADH\u2082 / Complex II', ax+38, ayT+122, 8, '#2d7a4a', 600);
+    // H+ pumped tags
+    const hp = (x, y) => lbls.push({text:'H\u207a pumped', style:`position:absolute;left:${x}px;top:${y}px;font-size:7.5px;font-weight:700;color:#1f7a3d;background:#e6f5ec;border:1px solid #9fd4b0;border-radius:3px;padding:1px 4px;white-space:nowrap;`});
+    hp(stair[1][0]-18, stair[1][1]+10);
+    hp(stair[3][0]-18, stair[3][1]+10);
+    hp(stair[5][0]-18, stair[5][1]+10);
+    dl('large free-energy drops', ax+150, ayB-40, 7.5, '#8a6a2a', 600);
+    dl('drive H\u207a pumping', ax+150, ayB-28, 7.5, '#8a6a2a', 600);
+    // connect ETC panel -> c4
+    edges.push({d:`M${px+pw},${1330}L${dict.c4.x},${dict.c4.y+dict.c4.h/2}`, stroke:'#aaa', sw:1.1, dash:'4 4', me:'url(#aGy)'});
+
+    // ═══ BANDS ═══
+    const bands = [
+      {x:18,  y:18,  w:300,  h:1604, rx:12, fill:'#f3ece0'},
+      {x:338, y:18,  w:2644, h:362,  rx:12, fill:'#fdf4e3'},
+      {x:338, y:396, w:2644, h:366,  rx:12, fill:'#fbeede'},
+      {x:338, y:778, w:2644, h:386,  rx:12, fill:'#fdf4e3'},
+      {x:338, y:1180,w:2644, h:442,  rx:12, fill:'#fbeede'},
+    ];
+
+    // band titles
+    const bt = (t, x, y) => lbls.push({text:t, style:`position:absolute;left:${x}px;top:${y}px;font-size:11px;font-weight:800;color:#9a6a1a;letter-spacing:.05em;`});
+    bt('REACTANTS & PRODUCTS', 360, 30);
+    bt('REDOX & ENERGY COUPLING', 360, 408);
+    bt('REGULATION', 360, 790);
+    bt('THERMODYNAMICS & THE ELECTRON TRANSPORT CHAIN', 360, 1192);
+
+    // legend (left column)
+    let ly = 980;
+    lbls.push({text:'LEGEND', style:`position:absolute;left:42px;top:${ly}px;font-size:11px;font-weight:800;color:#5a3510;letter-spacing:.06em;`});
+    [
+      ['\u25ad  concept / rule', '#4a3510'],
+      ['\u2b2d  key term', '#9a5a18'],
+      ['\u25ad  catabolic (orange)', '#a8521e'],
+      ['\u25ad  anabolic (blue)', '#356080'],
+      ['\u250c\u2504\u2510  note / detail', '#7a6a3a'],
+    ].forEach((r, i) => lbls.push({text:r[0], style:`position:absolute;left:42px;top:${ly+28+i*24}px;font-size:9.5px;font-weight:600;color:${r[1]};`}));
+    lbls.push({text:'Reorganized from source map;', style:`position:absolute;left:42px;top:${ly+170}px;font-size:8.5px;font-weight:600;color:#8a7a5a;`});
+    lbls.push({text:'facts per Kaplan / UWorld / Jack Westin', style:`position:absolute;left:42px;top:${ly+184}px;font-size:8.5px;font-weight:600;color:#8a7a5a;`});
+
+    return {bands, edges, rects, polys, nds, lbls};
+  }
+}
+</script>
+</body>
+</html>

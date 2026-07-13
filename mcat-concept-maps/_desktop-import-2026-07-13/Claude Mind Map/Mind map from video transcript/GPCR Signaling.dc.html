@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<style>
+html,body{margin:0;padding:0;background:#fff;}
+</style>
+</helmet>
+<div style="position:relative;width:2800px;height:1600px;background:#fff;font-family:Verdana,Geneva,sans-serif;">
+  <div style="position:absolute;left:40px;top:4px;font-size:10px;font-weight:700;color:#9aa3ad;letter-spacing:.08em;">B/B · MCAT BIOCHEMISTRY</div>
+  <svg width="2800" height="1600" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none;">
+    <defs>
+      <marker id="aB" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#555"></path></marker>
+      <marker id="aR" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#8b1a1a"></path></marker>
+      <marker id="aG" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#27ae60"></path></marker>
+      <marker id="aGy" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#999"></path></marker>
+    </defs>
+    <sc-for list="{{ bands }}" as="b" hint-placeholder-count="5">
+      <rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" rx="{{ b.rx }}" fill="{{ b.fill }}"></rect>
+    </sc-for>
+    <sc-for list="{{ edges }}" as="e" hint-placeholder-count="40">
+      <path d="{{ e.d }}" fill="none" stroke="{{ e.stroke }}" stroke-width="{{ e.sw }}" stroke-dasharray="{{ e.dash }}" marker-end="{{ e.me }}"></path>
+    </sc-for>
+    <sc-for list="{{ rects }}" as="r" hint-placeholder-count="60">
+      <rect x="{{ r.x }}" y="{{ r.y }}" width="{{ r.w }}" height="{{ r.h }}" rx="{{ r.rx }}" fill="{{ r.fill }}" stroke="{{ r.stroke }}" stroke-width="{{ r.sw }}" stroke-dasharray="{{ r.dash }}"></rect>
+    </sc-for>
+    <sc-for list="{{ polys }}" as="p" hint-placeholder-count="15">
+      <polygon points="{{ p.points }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}"></polygon>
+    </sc-for>
+  </svg>
+  <sc-for list="{{ nds }}" as="n" hint-placeholder-count="60">
+    <div style="{{ n.style }}">
+      <sc-for list="{{ n.lines }}" as="ln" hint-placeholder-count="2">
+        <div style="{{ ln.s }}">{{ ln.t }}</div>
+      </sc-for>
+    </div>
+  </sc-for>
+  <sc-for list="{{ lbls }}" as="l" hint-placeholder-count="20">
+    <div style="{{ l.style }}">{{ l.text }}</div>
+  </sc-for>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:2800,&quot;height&quot;:1600}}">
+
+class Component extends DCLogic {
+  renderVals() {
+    const TH={
+      hG:{f:'#8b1a1a',s:'#8b1a1a',tc:'#fff',sh:'banner'},
+      hE:{f:'#1a4a6b',s:'#1a4a6b',tc:'#fff',sh:'banner'},
+      hS:{f:'#4a3a1a',s:'#4a3a1a',tc:'#fff',sh:'banner'},
+      cg:{f:'#8b1a1a',s:'#6b1010',tc:'#fff',sh:'pill'},
+      st:{f:'#c0392b',s:'#962d22',tc:'#fff',sh:'rect'},
+      sn:{f:'#e67e22',s:'#c47a20',tc:'#fff',sh:'rect'},
+      sm:{f:'#2980b9',s:'#1a5a8a',tc:'#fff',sh:'rect'},
+      sg:{f:'#27ae60',s:'#1a8a4a',tc:'#fff',sh:'rect'},
+      sp:{f:'#8e44ad',s:'#6a2a8a',tc:'#fff',sh:'rect'},
+      nt:{f:'#ffffff',s:'#c9b97a',tc:'#5a4e2a',sh:'note'},
+      mc:{f:'#2d5a8e',s:'#1a3a5c',tc:'#fff',sh:'pill'},
+      ef:{f:'#1a4a6b',s:'#0e2e45',tc:'#fff',sh:'pill'},
+      lc:{f:'#f0c75e',s:'#9e7c1a',tc:'#3d3520',sh:'hex'},
+      ds:{f:'#d45d5d',s:'#9a3030',tc:'#fff',sh:'diamond'},
+      oc:{f:'#c43e3e',s:'#8a2020',tc:'#fff',sh:'oct'},
+      cy:{f:'#3a8a6a',s:'#1a6a4a',tc:'#fff',sh:'rect'},
+      sb:{f:'#5a3a1a',s:'#3a2510',tc:'#fff',sh:'pill'},
+      rg:{f:'#e8d5a3',s:'#9e8745',tc:'#4a3d1a',sh:'pill'},
+      mp:{f:'#5b9bd5',s:'#2d5a8e',tc:'#fff',sh:'rect'}
+    };
+    const N=[
+      // ═══ GPCR OVERVIEW ═══
+      ['hGP',60,30,260,44,'hG',[['GPCR SIGNALING',800,14]]],
+      ['gpc',70,110,230,54,'cg',[['GPCR',800,16],['G-Protein Coupled Receptor',400,9]]],
+      ['nGP',70,172,230,50,'nt',[['7-transmembrane receptor',600,9],['largest receptor family',400,8.5],['metabotropic (not ion channel)',400,8.5]]],
+      // ═══ 11-STEP CASCADE ═══
+      ['hST',480,30,900,44,'hG',[['GENERAL GPCR STEPS (11-step cascade)',800,13]]],
+      // Row 1
+      ['s1',420,110,160,50,'st',[['① Ligand Binding',700,10],['to GPCR',400,9]]],
+      ['s2',620,110,160,50,'sn',[['② Conformational',700,10],['Change',400,9]]],
+      ['s3',820,110,175,50,'sm',[['③ G-Protein',700,10],['GDP → GTP exchange',400,8.5]]],
+      ['s4',1040,110,160,56,'sg',[['④ Subunit',700,10],['Dissociation',400,9],['Gα-GTP + Gβγ',400,8]]],
+      // Row 2
+      ['s5',420,210,160,56,'sp',[['⑤ Effector',700,10],['Activation',400,9],['(AC, PLC, etc.)',400,8]]],
+      ['s6',620,210,160,56,'st',[['⑥ 2nd Messenger',700,10],['Production',400,9],['(cAMP, IP3, DAG)',400,8]]],
+      ['s7',820,210,175,56,'sn',[['⑦ Downstream',700,10],['Signaling',400,9],['Pathways',400,9]]],
+      ['s8',1040,210,160,56,'sm',[['⑧ Cellular',700,10],['Response',400,9],['(gene expr, metab)',400,8]]],
+      // Row 3
+      ['s9',620,310,160,56,'sg',[['⑨ GTP Hydrolysis',700,10],['on Gα',400,9],['GTP → GDP',400,8.5]]],
+      ['s10',820,310,175,50,'sp',[['⑩ G-Protein',700,10],['Reassociation',400,9]]],
+      ['s11',1040,310,160,50,'oc',[['⑪ Signal',700,10],['Termination',400,9]]],
+
+      // ═══ EFFECTOR PATHWAYS ═══
+      ['hEF',60,430,1180,44,'hE',[['GPCR EFFECTOR PATHWAYS',800,14]]],
+      // Pathway 1: Gαs
+      ['pL1',80,510,120,28,'nt',[['Gαs pathway',700,9]]],
+      ['nt1',80,560,148,36,'lc',[['Norepinephrine',700,9]]],
+      ['ef1',300,560,178,36,'ef',[['Adenylate Cyclase',700,10]]],
+      ['cm1',550,560,108,36,'cy',[['cAMP',700,12]]],
+      ['pk1',730,560,148,36,'mp',[['Protein Kinase A',700,9]]],
+      ['rs1',950,550,270,50,'nt',[['↑ protein phosphorylation',600,9.5],['glycogen breakdown · gene regulation',400,8.5]]],
+      // Pathway 2: Gαq
+      ['pL2',80,640,120,28,'nt',[['Gαq pathway',700,9]]],
+      ['nt2',80,690,128,36,'lc',[['Glutamate',700,10]]],
+      ['ef2',300,690,178,36,'ef',[['Phospholipase C',700,10]]],
+      ['ip3',540,680,88,36,'cy',[['IP₃',700,12]]],
+      ['dag',540,730,88,36,'cy',[['DAG',700,12]]],
+      ['ca2',700,680,108,36,'ds',[['Ca²⁺ release',700,9]]],
+      ['pkc',700,730,138,36,'mp',[['Protein Kinase C',700,9]]],
+      ['rs2',910,680,310,50,'nt',[['↑ phosphorylation + Ca²⁺-binding',600,9.5],['activate calmodulin · smooth muscle',400,8.5]]],
+      // Pathway 3: Gαi
+      ['pL3',80,810,120,28,'nt',[['Gαi pathway',700,9]]],
+      ['nt3',80,860,128,36,'lc',[['Dopamine (D₂)',700,9]]],
+      ['ef3',300,860,178,36,'ef',[['Adenylate Cyclase',700,10]]],
+      ['inh',550,858,140,40,'oc',[['INHIBITED',700,10]]],
+      ['rs3',760,860,228,36,'nt',[['↓ cAMP → ↓ PKA activity',600,9.5]]],
+      // Key
+      ['nEK',80,940,1140,54,'ds',[['KEY: Gαs = stimulatory (↑cAMP) · Gαq = PLC pathway (IP₃+DAG) · Gαi = inhibitory (↓cAMP)',800,10],['All use GTP hydrolysis as molecular switch · Cholera toxin locks Gαs ON · Pertussis locks Gαi OFF',400,9]]],
+
+      // ═══ EPINEPHRINE ═══
+      ['hEP',60,1060,450,44,'hE',[['EPINEPHRINE SIGNALING (example)',800,13]]],
+      ['epi',80,1140,148,38,'cg',[['Epinephrine',700,11]]],
+      ['ert',300,1140,178,42,'mp',[['β-adrenergic',700,10],['receptor (GPCR)',400,8.5]]],
+      ['eAC',300,1220,178,38,'ef',[['Adenylyl Cyclase',700,10]]],
+      ['eAT',80,1220,108,36,'lc',[['ATP',700,11]]],
+      ['ecA',80,1300,108,36,'cy',[['cAMP',700,11]]],
+      ['ePK',300,1300,168,42,'mp',[['PKA',700,12],['(Protein Kinase A)',400,8]]],
+      // glycogen branch
+      ['gPh',80,1400,178,48,'cy',[['Glycogen',700,10],['Phosphorylase',700,9]]],
+      ['nAc',80,1454,178,24,'nt',[['ACTIVATED → breaks down glycogen',600,8.5]]],
+      ['gSy',320,1400,178,48,'cy',[['Glycogen',700,10],['Synthase',700,9]]],
+      ['nSI',320,1454,178,24,'oc',[['INACTIVATED → no synthesis',700,8.5]]],
+      ['nEp',80,1510,418,32,'nt',[['NET: Epi → ↑ blood glucose via glycogen breakdown',700,9.5]]],
+
+      // ═══ SUBSTRATES ═══
+      ['hSU',650,1060,420,44,'hS',[['SUBSTRATES + GTP HYDROLYSIS',800,13]]],
+      ['sub',700,1140,138,38,'sb',[['Substrates',700,11]]],
+      ['atp',900,1140,100,36,'lc',[['ATP',700,12]]],
+      ['gtp',900,1210,100,36,'lc',[['GTP',700,12]]],
+      ['hyd',900,1300,168,48,'ds',[['Hydrolyzed',700,12]]],
+      ['nHy',700,1300,168,58,'nt',[['GTP hydrolysis',700,9],['releases free energy',400,8.5],['ΔG° = −RT ln Keq',400,8.5],['Keq ≈ 1 × 10⁵',400,8.5]]],
+      ['nGT',700,1390,368,58,'nt',[['GTP acts as molecular switch:',700,9],['GTP-bound = ON (active)',600,8.5],['GDP-bound = OFF (inactive)',600,8.5],['GTPase activity = built-in timer',400,8.5]]],
+      // Regulators
+      ['gap',700,1480,148,42,'oc',[['GAP',700,10],['(GTPase-activating)',400,7.5]]],
+      ['nGA',700,1528,148,24,'nt',[['speeds GTP → GDP (OFF)',600,8.5]]],
+      ['gef',900,1480,148,42,'cy',[['GEF',700,10],['(guanine exchange)',400,7.5]]],
+      ['nGE',900,1528,148,24,'nt',[['speeds GDP → GTP (ON)',600,8.5]]]
+    ];
+    /* ── BUILD SHAPES + TEXT ── */
+    const dict={},rects=[],polys=[],nds=[];
+    N.forEach(([id,x,y,w,h,tk,lns])=>{
+      const T=TH[tk]; dict[id]={x,y,w,h};
+      const sw=(tk==='nt')?1.2:(tk.startsWith('h'))?0:1.5;
+      const da=tk==='nt'?'5 3':'';
+      if(T.sh==='pill') rects.push({x,y,w,h,rx:h/2,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='rect') rects.push({x,y,w,h,rx:5,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='banner') rects.push({x,y,w,h,rx:22,fill:T.f,stroke:T.f,sw:0,dash:''});
+      else if(T.sh==='note') rects.push({x,y,w,h,rx:3,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='oct'){const c=Math.min(8,w/5,h/3);polys.push({points:`${x+c},${y} ${x+w-c},${y} ${x+w},${y+c} ${x+w},${y+h-c} ${x+w-c},${y+h} ${x+c},${y+h} ${x},${y+h-c} ${x},${y+c}`,fill:T.f,stroke:T.s,sw:1.5});}
+      else if(T.sh==='hex'){const i=Math.min(14,h/2);polys.push({points:`${x+i},${y} ${x+w-i},${y} ${x+w},${y+h/2} ${x+w-i},${y+h} ${x+i},${y+h} ${x},${y+h/2}`,fill:T.f,stroke:T.s,sw:1.5});}
+      else if(T.sh==='diamond') polys.push({points:`${x+w/2},${y} ${x+w},${y+h/2} ${x+w/2},${y+h} ${x},${y+h/2}`,fill:T.f,stroke:T.s,sw:1.5});
+      else if(T.sh==='para'){const s=10;polys.push({points:`${x+s},${y} ${x+w},${y} ${x+w-s},${y+h} ${x},${y+h}`,fill:T.f,stroke:T.s,sw:1.2});}
+      nds.push({
+        style:`position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1px 3px;color:${T.tc};pointer-events:none;`,
+        lines:lns.map(([t,fw,fs])=>({t,s:`font-weight:${fw};font-size:${fs}px;line-height:1.3;`}))
+      });
+    });
+    /* ── EDGES ── */
+    const ET={
+      f:{stroke:'#555',sw:1.3,dash:'',me:'url(#aB)'},
+      r:{stroke:'#8b1a1a',sw:1.3,dash:'',me:'url(#aR)'},
+      g:{stroke:'#27ae60',sw:1.3,dash:'7 5',me:'url(#aG)'},
+      i:{stroke:'#c0392b',sw:1.3,dash:'7 5',me:''},
+      s:{stroke:'#999',sw:1,dash:'4 4',me:'url(#aGy)'}
+    };
+    const ED=[
+      // Steps — horizontal chain rows
+      ['s1','s2','r',null,'r'],['s2','s3','r',null,'r'],['s3','s4','r',null,'r'],
+      ['s4','s5','r'],
+      ['s5','s6','r',null,'r'],['s6','s7','r',null,'r'],['s7','s8','r',null,'r'],
+      ['s8','s9','r'],
+      ['s9','s10','r',null,'r'],['s10','s11','r',null,'r'],
+      // Effector 1
+      ['nt1','ef1','r',null,'r'],['ef1','cm1','r','produces','r'],['cm1','pk1','f','activates','r'],['pk1','rs1','s',null,'r'],
+      // Effector 2
+      ['nt2','ef2','r',null,'r'],['ef2','ip3','r',null,'r'],['ef2','dag','r',null,'r'],
+      ['ip3','ca2','f',null,'r'],['dag','pkc','f',null,'r'],['ca2','rs2','s',null,'r'],['pkc','rs2','s',null,'r'],
+      // Effector 3
+      ['nt3','ef3','r',null,'r'],['ef3','inh','i','Gαi blocks','r'],['inh','rs3','s',null,'r'],
+      // Epinephrine
+      ['epi','ert','r',null,'r'],['ert','eAC','f'],['eAT','ecA','f'],['ecA','ePK','f',null,'r'],
+      ['ePK','gPh','f'],['ePK','gSy','f'],
+      // Substrates
+      ['sub','atp','f',null,'r'],['sub','gtp','f'],
+      ['gtp','hyd','f'],['atp','hyd','f']
+    ];
+    const edges=[],lbls=[];
+    ED.forEach(([fi,ti,tp,lbl,dir])=>{
+      const A=dict[fi],B=dict[ti]; if(!A||!B) return;
+      let sx,sy,ex,ey;
+      if(dir==='r'){sx=A.x+A.w;sy=A.y+A.h/2;ex=B.x;ey=B.y+B.h/2;}
+      else if(dir==='l'){sx=A.x;sy=A.y+A.h/2;ex=B.x+B.w;ey=B.y+B.h/2;}
+      else{sx=A.x+A.w/2;sy=A.y+A.h;ex=B.x+B.w/2;ey=B.y;}
+      const d=`M${sx},${sy}L${ex},${ey}`;
+      const t=ET[tp];
+      edges.push({d,stroke:t.stroke,sw:t.sw,dash:t.dash,me:t.me});
+      if(lbl){
+        const lx=(sx+ex)/2,ly=(sy+ey)/2;
+        lbls.push({text:lbl,style:`position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);background:#fff;border:1px solid #ddd;border-radius:3px;padding:1px 5px;font-size:7.5px;font-weight:600;color:#666;white-space:nowrap;`});
+      }
+    });
+    /* ── BANDS ── */
+    const bands=[
+      {x:18,y:18,w:1220,h:370,rx:12,fill:'#fae8e8'},
+      {x:18,y:410,w:1260,h:600,rx:12,fill:'#e0eaf5'},
+      {x:18,y:1040,w:550,h:530,rx:12,fill:'#e5f0e8'},
+      {x:590,y:1040,w:500,h:530,rx:12,fill:'#f5f0e0'}
+    ];
+    [
+      ['LEGEND',800,11,'#3d3520',42,1580,'.06em'],
+      ['⬭ receptor     ▭ step     ⬡ molecule     ◆ key event     ⬣ termination     ┈┈ note     All arrows: straight lines',600,9,'#5a4e2a',130,1580,''],
+      ['Red = GPCR Steps     Blue = Pathways     Green = Epinephrine     Gold = Substrates',600,9,'#5a4e2a',130,1598,'']
+    ].forEach(([t,fw,fs,c,x,y,ls])=>lbls.push({text:t,style:`position:absolute;left:${x}px;top:${y}px;font-weight:${fw};font-size:${fs}px;color:${c};white-space:nowrap;${ls?'letter-spacing:'+ls+';':''}`}));
+    return {bands,edges,rects,polys,nds,lbls};
+  }
+}
+
+</script>
+</body>
+</html>

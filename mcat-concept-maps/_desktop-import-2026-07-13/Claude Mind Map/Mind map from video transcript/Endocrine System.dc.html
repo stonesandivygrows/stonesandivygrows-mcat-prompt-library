@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>html,body{margin:0;padding:0;background:#fff;}</style>
+</helmet>
+<div style="position:relative;width:3300px;height:2000px;background:#fff;font-family:Verdana,Geneva,sans-serif;">
+  <div style="position:absolute;left:40px;top:8px;font-size:11px;font-weight:700;color:#9aa3ad;letter-spacing:.08em;">B/B &middot; MCAT BIOLOGY</div>
+  <svg width="3300" height="2000" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none;">
+    <defs>
+      <marker id="aT" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><path d="M0,0.5 L8,3.5 L0,6.5z" fill="#2f8e7e"></path></marker>
+      <marker id="aH" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><path d="M0,0.5 L8,3.5 L0,6.5z" fill="#5f6f9e"></path></marker>
+      <marker id="aD" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><path d="M0,0.5 L8,3.5 L0,6.5z" fill="#888"></path></marker>
+      <marker id="aR" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><path d="M0,0.5 L8,3.5 L0,6.5z" fill="#c0392b"></path></marker>
+      <marker id="aF" markerWidth="9" markerHeight="7" refX="7.5" refY="3.5" orient="auto"><path d="M0,0.5 L8,3.5 L0,6.5z" fill="#b0a060"></path></marker>
+    </defs>
+    <sc-for list="{{ edges }}" as="e" hint-placeholder-count="60">
+      <path d="{{ e.d }}" fill="none" stroke="{{ e.stroke }}" stroke-width="{{ e.sw }}" stroke-dasharray="{{ e.dash }}" marker-end="{{ e.me }}"></path>
+    </sc-for>
+    <sc-for list="{{ ells }}" as="el" hint-placeholder-count="1">
+      <ellipse cx="{{ el.cx }}" cy="{{ el.cy }}" rx="{{ el.rx }}" ry="{{ el.ry }}" fill="{{ el.fill }}" stroke="{{ el.stroke }}" stroke-width="{{ el.sw }}"></ellipse>
+    </sc-for>
+    <sc-for list="{{ rects }}" as="r" hint-placeholder-count="40">
+      <rect x="{{ r.x }}" y="{{ r.y }}" width="{{ r.w }}" height="{{ r.h }}" rx="{{ r.rx }}" fill="{{ r.fill }}" stroke="{{ r.stroke }}" stroke-width="{{ r.sw }}" stroke-dasharray="{{ r.dash }}"></rect>
+    </sc-for>
+    <sc-for list="{{ polys }}" as="p" hint-placeholder-count="20">
+      <polygon points="{{ p.points }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}"></polygon>
+    </sc-for>
+  </svg>
+  <sc-for list="{{ nds }}" as="n" hint-placeholder-count="70">
+    <div style="{{ n.style }}">
+      <sc-for list="{{ n.lines }}" as="ln" hint-placeholder-count="4">
+        <div style="{{ ln.s }}">{{ ln.t }}</div>
+      </sc-for>
+    </div>
+  </sc-for>
+  <sc-for list="{{ lbls }}" as="l" hint-placeholder-count="20">
+    <div style="{{ l.style }}">{{ l.text }}</div>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:3300,&quot;height&quot;:2000}}">
+class Component extends DCLogic {
+  renderVals() {
+    const TH = {
+      hub: {f:'#7cc4b4', s:'#23776a', tc:'#0e3a33', sh:'ellipse'},
+      gl:  {f:'#8ccabb', s:'#2f8e7e', tc:'#123f38', sh:'hex'},
+      hor: {f:'#9fb3d9', s:'#42578a', tc:'#13203c', sh:'pill'},
+      cat: {f:'#d8a6cb', s:'#9a5a86', tc:'#3a2030', sh:'diamond'},
+      rel: {f:'#ffffff', s:'#5f86b8', tc:'#1a3a5c', sh:'pill'},
+      fn:  {f:'#fffdf5', s:'#c9b97a', tc:'#4a4326', sh:'note'},
+      fnO: {f:'#dcd69e', s:'#8f8a4a', tc:'#37331a', sh:'note'},
+      inh: {f:'#fdecec', s:'#c0392b', tc:'#8a1e1e', sh:'note'},
+    };
+
+    // [id, x, y, w, h, theme, [[text, weight, size], ...]]
+    const N = [
+      ['HUB', 1240, 895, 330, 160, 'hub', [['endocrine', 800, 30], ['system', 800, 30]]],
+
+      // ── PANCREAS ──
+      ['panc', 640, 640, 170, 60, 'gl', [['Pancreas', 700, 16]]],
+      ['isl',  420, 610, 210, 64, 'fn', [['Hormone-producing cells in', 600, 9], ['Islets of Langerhans', 600, 9]]],
+      ['som',  120, 438, 250, 74, 'fn', [['Somatostatin (\u03b4-cells)', 700, 9.5], ['inhibits Glucagon & Insulin', 500, 8.5], ['secretion', 500, 8.5]]],
+      ['somH', 120, 356, 250, 60, 'fn', [['Also from Hypothalamus \u2192', 500, 8.5], ['\u2193 Growth Hormone (GH)', 500, 8.5]]],
+      ['ins',  110, 556, 250, 66, 'fn', [['Insulin (\u03b2-cells)', 700, 9.5], ['glucose HIGH \u2192 \u2191 fat &', 500, 8.4], ['protein synthesis', 500, 8.4]]],
+      ['glg',  130, 690, 250, 58, 'fn', [['Glucagon (\u03b1-cells)', 700, 9.5], ['glucose LOW', 500, 8.5]]],
+
+      // ── PINEAL ──
+      ['pin', 1060, 420, 150, 58, 'gl', [['Pineal Gland', 700, 12]]],
+      ['mel', 940, 300, 220, 68, 'fn', [['Melatonin', 700, 10], ['\u2192 Circadian Rhythms', 500, 9]]],
+
+      // ── GI TRACT ──
+      ['gi',   1360, 400, 140, 56, 'gl', [['GI Tract', 700, 12]]],
+      ['secr', 1230, 300, 110, 38, 'rel', [['Secretin', 600, 10]]],
+      ['gast', 1360, 288, 100, 38, 'rel', [['Gastrin', 600, 10]]],
+      ['cck',  1480, 300, 170, 38, 'rel', [['Cholecystokinin', 600, 9.5]]],
+
+      // ── KIDNEYS ──
+      ['kid', 1700, 400, 150, 56, 'gl', [['Kidneys', 700, 12]]],
+      ['epo', 1700, 276, 260, 92, 'fn', [['Erythropoietin (EPO)', 700, 9.5], ['\u2192 bone marrow makes more RBCs', 500, 8.4], ['in response to low O\u2082', 500, 8.5]]],
+
+      // ── HEART ──
+      ['hrt',  1980, 500, 140, 56, 'gl', [['Heart', 700, 12]]],
+      ['anp',  2000, 400, 230, 42, 'rel', [['Atrial Natriuretic Peptide', 600, 9.5]]],
+      ['anpF', 2050, 320, 210, 62, 'fn', [['Regulates Salt & Water', 600, 9], ['balance in blood', 500, 8.5]]],
+
+      // ── THYMUS ──
+      ['thy',  2120, 680, 140, 56, 'gl', [['Thymus', 700, 12]]],
+      ['thmn', 2300, 650, 130, 42, 'rel', [['Thymosin', 600, 10]]],
+      ['thmF', 2470, 628, 240, 82, 'fn', [['T-cell development &', 600, 9], ['differentiation in the', 600, 9], ['immune system', 600, 9]]],
+
+      // ── ADRENAL ──
+      ['adr', 900, 1300, 170, 60, 'gl', [['Adrenal Gland', 700, 12]]],
+      ['med', 680, 1226, 170, 54, 'gl', [['Adrenal Medulla', 700, 10.5]]],
+      ['ctx', 1080, 1426, 160, 54, 'gl', [['Adrenal Cortex', 700, 10.5]]],
+      ['cat', 480, 1276, 180, 96, 'cat', [['Catecholamines', 700, 10]]],
+      ['epi', 300, 1206, 170, 44, 'hor', [['Epinephrine', 600, 11]]],
+      ['nor', 300, 1308, 180, 44, 'hor', [['Norepinephrine', 600, 10.5]]],
+      ['cort', 930, 1556, 180, 96, 'cat', [['Corticosteroids', 700, 10]]],
+      ['csh', 700, 1556, 180, 46, 'hor', [['Cortical Sex Hormones', 600, 9.5]]],
+      ['cshF', 560, 1640, 240, 58, 'fnO', [['Androgens (\u2642) &', 600, 9], ['Estrogens (\u2640)', 600, 9]]],
+      ['min', 770, 1700, 180, 46, 'hor', [['Mineralocorticoids', 600, 9.5]]],
+      ['minF', 630, 1778, 250, 94, 'fnO', [['Salt & water homeostasis', 600, 8.7], ['via Renin\u2013Angiotensin\u2013', 600, 8.7], ['Aldosterone System', 600, 8.7]]],
+      ['gluc', 1010, 1700, 170, 46, 'hor', [['Glucocorticoids', 600, 9.5]]],
+      ['glucF', 980, 1788, 260, 112, 'fnO', [['Cortisol & Cortisone', 700, 9], ['\u2191 blood glucose via', 500, 8.5], ['gluconeogenesis;', 500, 8.5], ['\u2193 protein synthesis', 500, 8.5]]],
+
+      // ── HYPOTHALAMUS ──
+      ['hyp',  2230, 950, 180, 64, 'gl', [['Hypothalamus *', 700, 12]]],
+      ['hypN', 2150, 1078, 220, 40, 'fn', [['*via Hypophyseal Portal System', 500, 8.5]]],
+
+      // posterior pituitary axis
+      ['oxy',  2480, 818, 140, 42, 'hor', [['Oxytocin', 600, 10.5]]],
+      ['oxyF', 2680, 756, 250, 66, 'fn', [['Uterine contractions;', 600, 9], ['positive feedback loop', 500, 8.5]]],
+      ['adh',  2500, 908, 120, 42, 'hor', [['ADH', 600, 11]]],
+      ['adhF', 2680, 886, 270, 120, 'fn', [['\u2191 permeability of renal', 600, 8.7], ['collecting ducts \u2192', 600, 8.7], ['\u2191 blood volume & BP', 600, 8.7], ['(water reabsorption)', 500, 8.3]]],
+      ['post', 2450, 1030, 180, 58, 'gl', [['Posterior Pituitary', 700, 10.5]]],
+      ['postN', 2660, 1036, 200, 48, 'fn', [['stores & releases', 500, 8.5], ['Oxytocin + ADH', 500, 8.5]]],
+
+      // releasing hormones
+      ['crf',  1500, 1188, 90, 36, 'rel', [['CRF', 600, 10]]],
+      ['trh',  1650, 1188, 90, 36, 'rel', [['TRH', 600, 10]]],
+      ['gnrh', 1800, 1188, 110, 36, 'rel', [['GnRH', 600, 10]]],
+      ['ghrh', 1970, 1188, 110, 36, 'rel', [['GHRH', 600, 10]]],
+
+      // anterior pituitary
+      ['ant', 1700, 1288, 240, 62, 'gl', [['Anterior Pituitary', 700, 11], ['Tropic Hormones', 400, 8.5]]],
+
+      // tropic hormones
+      ['acth',  1450, 1410, 100, 38, 'rel', [['ACTH', 600, 10]]],
+      ['tsh',   1610, 1410, 90, 38, 'rel', [['TSH', 600, 10]]],
+      ['fshlh', 2010, 1410, 120, 38, 'rel', [['FSH & LH', 600, 10]]],
+      ['gh',    2280, 1410, 80, 38, 'rel', [['GH', 600, 11]]],
+      ['prl',   2470, 1410, 110, 38, 'rel', [['Prolactin', 600, 10]]],
+      ['endo',  2700, 1410, 120, 38, 'rel', [['Endorphins', 600, 9.5]]],
+      ['pain',  2870, 1346, 140, 38, 'fn', [['Pain Signals', 600, 9]]],
+
+      // thyroid cluster
+      ['thyr',  1590, 1500, 140, 54, 'gl', [['Thyroid', 700, 12]]],
+      ['calc',  1430, 1600, 120, 40, 'rel', [['Calcitonin', 600, 9.5]]],
+      ['calcF', 1400, 1680, 200, 48, 'fn', [['\u2193 plasma Ca\u00b2\u207a levels', 600, 9]]],
+      ['t3t4',  1640, 1600, 200, 48, 'rel', [['T3 & T4', 700, 10], ['(Triiodothyronine / Thyroxine)', 400, 7.6]]],
+      ['t3t4F', 1680, 1690, 220, 58, 'fn', [['Affects metabolism &', 600, 9], ['cellular respiration', 600, 9]]],
+      ['pth',   1390, 1750, 240, 112, 'fn', [['Parathyroid \u2192 PTH', 700, 9], ['raises Ca\u00b2\u207a; activates', 500, 8.4], ['Vitamin D for gut', 500, 8.4], ['Ca\u00b2\u207a absorption', 500, 8.4]]],
+
+      // gonads
+      ['tes',   1990, 1500, 110, 42, 'rel', [['Testes', 600, 10]]],
+      ['testo', 1960, 1590, 160, 44, 'fn', [['Testosterone', 600, 10]]],
+      ['ova',   2130, 1500, 120, 42, 'rel', [['Ovaries', 600, 10]]],
+      ['estp',  2150, 1590, 190, 52, 'fn', [['Estrogen &', 600, 9.5], ['Progesterone', 600, 9.5]]],
+
+      // GH / prolactin / endorphin functions
+      ['ghF',   2250, 1500, 190, 66, 'fn', [['Stimulates bone &', 600, 9], ['muscle growth', 600, 9]]],
+      ['prlF',  2440, 1500, 200, 52, 'fn', [['Stimulates mammaries', 600, 9], ['to produce milk', 600, 9]]],
+      ['inh',   2440, 1580, 240, 56, 'inh', [['Inhibited by Dopamine,', 600, 8.8], ['Estrogen & Progesterone', 600, 8.8]]],
+      ['endF',  2700, 1500, 210, 66, 'fn', [['\u2193 pain sensation;', 600, 9], ['promotes euphoria', 600, 9]]],
+    ];
+
+    const dict = {}, rects = [], polys = [], ells = [], nds = [];
+    N.forEach(([id, x, y, w, h, tk, lns]) => {
+      const T = TH[tk];
+      dict[id] = {x, y, w, h};
+      const sw = (tk === 'fn' || tk === 'fnO' || tk === 'inh') ? 1.2 : 1.6;
+      const da = (tk === 'fn' || tk === 'fnO' || tk === 'inh') ? '5 3' : '';
+      if (T.sh === 'ellipse') ells.push({cx:x+w/2, cy:y+h/2, rx:w/2, ry:h/2, fill:T.f, stroke:T.s, sw:2.5});
+      else if (T.sh === 'pill') rects.push({x, y, w, h, rx:h/2, fill:T.f, stroke:T.s, sw, dash:da});
+      else if (T.sh === 'note') rects.push({x, y, w, h, rx:6, fill:T.f, stroke:T.s, sw, dash:da});
+      else if (T.sh === 'hex') {
+        const i = Math.min(16, h/2);
+        polys.push({points:`${x+i},${y} ${x+w-i},${y} ${x+w},${y+h/2} ${x+w-i},${y+h} ${x+i},${y+h} ${x},${y+h/2}`, fill:T.f, stroke:T.s, sw:1.8});
+      } else if (T.sh === 'diamond') {
+        polys.push({points:`${x+w/2},${y} ${x+w},${y+h/2} ${x+w/2},${y+h} ${x},${y+h/2}`, fill:T.f, stroke:T.s, sw:1.8});
+      }
+      nds.push({
+        style:`position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1px 4px;color:${T.tc};pointer-events:none;`,
+        lines: lns.map(([t, fw, fs]) => ({t, s:`font-weight:${fw};font-size:${fs}px;line-height:1.25;`}))
+      });
+    });
+
+    // edge styles
+    const ET = {
+      s: {stroke:'#2f8e7e', sw:2,   dash:'',    me:'url(#aT)'},
+      h: {stroke:'#5f6f9e', sw:1.5, dash:'',    me:'url(#aH)'},
+      d: {stroke:'#888',    sw:1.5, dash:'6 4', me:'url(#aD)'},
+      r: {stroke:'#c0392b', sw:1.5, dash:'5 4', me:'url(#aR)'},
+      f: {stroke:'#b0a060', sw:1.2, dash:'',    me:'url(#aF)'},
+    };
+
+    const ED = [
+      ['HUB','panc','s'], ['HUB','pin','s'], ['HUB','gi','s'], ['HUB','kid','s'],
+      ['HUB','hrt','s'], ['HUB','thy','s'], ['HUB','adr','s'], ['HUB','hyp','s'],
+      // pancreas
+      ['panc','isl','f'], ['isl','som','d','\u03b4-cells'], ['som','somH','f'],
+      ['isl','ins','d','\u03b2-cells'], ['isl','glg','d','\u03b1-cells'],
+      // pineal
+      ['pin','mel','f'],
+      // GI
+      ['gi','secr','h'], ['gi','gast','h'], ['gi','cck','h'],
+      // kidney
+      ['kid','epo','f'],
+      // heart
+      ['hrt','anp','h'], ['anp','anpF','f'],
+      // thymus
+      ['thy','thmn','h'], ['thmn','thmF','f'],
+      // adrenal
+      ['adr','med','s'], ['adr','ctx','s'],
+      ['med','cat','h'], ['cat','epi','h'], ['cat','nor','h'],
+      ['ctx','cort','h'], ['cort','csh','h'], ['cort','min','h'], ['cort','gluc','h'],
+      ['csh','cshF','f'], ['min','minF','f'], ['gluc','glucF','f'],
+      // hypothalamus posterior
+      ['hyp','oxy','h','makes'], ['oxy','oxyF','f'],
+      ['hyp','adh','h','makes'], ['adh','adhF','f'],
+      ['hyp','post','d','stored in'], ['post','postN','f'],
+      // releasing hormones
+      ['hyp','crf','d'], ['hyp','trh','d'], ['hyp','gnrh','d'], ['hyp','ghrh','d'],
+      ['crf','ant','d'], ['trh','ant','d'], ['gnrh','ant','d'], ['ghrh','ant','d'],
+      // anterior tropic
+      ['ant','acth','h'], ['ant','tsh','h'], ['ant','fshlh','h'],
+      ['ant','gh','h'], ['ant','prl','h'], ['ant','endo','h'],
+      // ACTH cross-link
+      ['acth','ctx','d','\u2192 adrenal cortex'],
+      // thyroid
+      ['tsh','thyr','h'], ['thyr','calc','h','C-cells'], ['calc','calcF','f'],
+      ['thyr','t3t4','h','follicular'], ['t3t4','t3t4F','f'], ['thyr','pth','d','Parathyroid'],
+      // gonads
+      ['fshlh','tes','h'], ['tes','testo','f'], ['fshlh','ova','h'], ['ova','estp','f'],
+      // GH / prolactin / endorphins
+      ['gh','ghF','f'], ['prl','prlF','f'], ['prl','inh','r'], ['endo','endF','f'], ['pain','endo','d'],
+    ];
+
+    const edgePoint = (b, tx, ty) => {
+      const cx = b.x + b.w/2, cy = b.y + b.h/2;
+      const dx = tx - cx, dy = ty - cy;
+      if (dx === 0 && dy === 0) return [cx, cy];
+      const sX = dx !== 0 ? (b.w/2) / Math.abs(dx) : Infinity;
+      const sY = dy !== 0 ? (b.h/2) / Math.abs(dy) : Infinity;
+      const t = Math.min(sX, sY);
+      return [cx + dx*t, cy + dy*t];
+    };
+
+    const edges = [], lbls = [];
+    ED.forEach(([fi, ti, tp, lbl]) => {
+      const A = dict[fi], B = dict[ti]; if (!A || !B) return;
+      const bcx = B.x + B.w/2, bcy = B.y + B.h/2;
+      const acx = A.x + A.w/2, acy = A.y + A.h/2;
+      const [sx, sy] = edgePoint(A, bcx, bcy);
+      const [ex, ey] = edgePoint(B, acx, acy);
+      const T = ET[tp];
+      edges.push({d:`M${sx},${sy}L${ex},${ey}`, stroke:T.stroke, sw:T.sw, dash:T.dash, me:T.me});
+      if (lbl) {
+        const lx = (sx+ex)/2, ly = (sy+ey)/2;
+        lbls.push({text:lbl, style:`position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);background:#fff;border:1px solid #ddd;border-radius:3px;padding:1px 5px;font-size:8px;font-weight:600;color:#555;white-space:nowrap;`});
+      }
+    });
+
+    // legend
+    rects.push({x:40, y:1880, w:1180, h:96, rx:10, fill:'#f6f7f5', stroke:'#cdd2cc', sw:1, dash:''});
+    [
+      ['LEGEND', 800, 12, '#2f4a44', 60, 1894, '.06em'],
+      ['\u2b22 gland     \u2b2d hormone     \u25c6 hormone class     \u25b1 releasing / tropic hormone     \u250c\u2504\u2510 note', 600, 9.5, '#3a4a46', 60, 1922, ''],
+      ['solid teal = gland branch    blue = hormone    gray dashed = portal / pathway    red dashed = inhibition', 600, 9.5, '#3a4a46', 60, 1948, ''],
+    ].forEach(([t, fw, fs, c, x, y, ls]) => lbls.push({
+      text:t, style:`position:absolute;left:${x}px;top:${y}px;font-weight:${fw};font-size:${fs}px;color:${c};white-space:nowrap;${ls?'letter-spacing:'+ls+';':''}`
+    }));
+
+    return {ells, edges, rects, polys, nds, lbls};
+  }
+}
+</script>
+</body>
+</html>

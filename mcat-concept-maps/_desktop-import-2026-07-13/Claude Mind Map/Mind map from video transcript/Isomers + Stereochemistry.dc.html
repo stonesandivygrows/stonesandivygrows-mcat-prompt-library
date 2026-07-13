@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>html,body{margin:0;padding:0;background:#fff;}</style>
+</helmet>
+<div style="position:relative;width:3600px;height:1260px;background:#fff;font-family:Verdana,Geneva,sans-serif;">
+  <div style="position:absolute;left:40px;top:4px;font-size:10px;font-weight:700;color:#9aa3ad;letter-spacing:.08em;">C/P · MCAT CHEMISTRY</div>
+  <svg width="3600" height="1260" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none;">
+    <defs>
+      <marker id="aB"  markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#555"></path></marker>
+      <marker id="aO"  markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#c46a1a"></path></marker>
+      <marker id="aGy" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#6d6d6d"></path></marker>
+      <marker id="aBl" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#2d5a8e"></path></marker>
+      <marker id="aP"  markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#7a3dbb"></path></marker>
+      <marker id="aT"  markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#1a7a7a"></path></marker>
+      <marker id="aR"  markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#b83232"></path></marker>
+    </defs>
+    <sc-for list="{{ bands }}" as="b" hint-placeholder-count="7">
+      <rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" rx="{{ b.rx }}" fill="{{ b.fill }}" stroke="{{ b.stroke }}" stroke-width="{{ b.sw }}" stroke-dasharray="{{ b.dash }}"></rect>
+    </sc-for>
+    <sc-for list="{{ edges }}" as="e" hint-placeholder-count="20">
+      <path d="{{ e.d }}" fill="none" stroke="{{ e.stroke }}" stroke-width="{{ e.sw }}" stroke-dasharray="{{ e.dash }}" marker-end="{{ e.me }}"></path>
+    </sc-for>
+    <sc-for list="{{ rects }}" as="r" hint-placeholder-count="60">
+      <rect x="{{ r.x }}" y="{{ r.y }}" width="{{ r.w }}" height="{{ r.h }}" rx="{{ r.rx }}" fill="{{ r.fill }}" stroke="{{ r.stroke }}" stroke-width="{{ r.sw }}" stroke-dasharray="{{ r.dash }}"></rect>
+    </sc-for>
+    <sc-for list="{{ polys }}" as="p" hint-placeholder-count="25">
+      <polygon points="{{ p.points }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}"></polygon>
+    </sc-for>
+  </svg>
+  <sc-for list="{{ nds }}" as="n" hint-placeholder-count="40">
+    <div style="{{ n.style }}">
+      <sc-for list="{{ n.lines }}" as="ln" hint-placeholder-count="5">
+        <div style="{{ ln.s }}">{{ ln.t }}</div>
+      </sc-for>
+    </div>
+  </sc-for>
+  <sc-for list="{{ lbls }}" as="l" hint-placeholder-count="8">
+    <div style="{{ l.style }}">{{ l.text }}</div>
+  </sc-for>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:3600,&quot;height&quot;:1260}}">
+class Component extends DCLogic {
+  renderVals() {
+    const TH = {
+      hP:  {f:'#7a3dbb', s:'#7a3dbb', tc:'#fff',    sh:'banner'},
+      mO:  {f:'#c46a1a', s:'#8c4a12', tc:'#fff',    sh:'pill'},
+      mGy: {f:'#6d6d6d', s:'#4d4d4d', tc:'#fff',    sh:'pill'},
+      mB:  {f:'#2d5a8e', s:'#1a3a5c', tc:'#fff',    sh:'pill'},
+      mP:  {f:'#7a3dbb', s:'#5c2d91', tc:'#fff',    sh:'pill'},
+      mT:  {f:'#1a7a7a', s:'#1a5c5c', tc:'#fff',    sh:'pill'},
+      mR:  {f:'#b83232', s:'#7a1e1e', tc:'#fff',    sh:'pill'},
+      lc:  {f:'#f0c75e', s:'#9e7c1a', tc:'#3d3520', sh:'hex'},
+      ez:  {f:'#ffffff', s:'#4a7da8', tc:'#1a3a5c', sh:'para'},
+      nt:  {f:'#ffffff', s:'#c9b97a', tc:'#5a4e2a', sh:'note'},
+      oc:  {f:'#c43e3e', s:'#8a2020', tc:'#ffffff',  sh:'oct'},
+    };
+
+    // [id, x, y, w, h, theme, [[text, fontWeight, fontSize], ...]]
+    const N = [
+      // ── TITLE ──
+      ['hISO', 1650, 22, 300, 50, 'hP',  [['ISOMERS', 800, 17]]],
+
+      // ── LEVEL 1 ──
+      ['con',  120,  140, 240, 46, 'mO',  [['Constitutional', 700, 12], ['/ Structural', 400, 10]]],
+      ['cfm',  703,  140, 240, 46, 'mGy', [['Conformational', 700, 12], ['Conformers', 400, 10]]],
+      ['ste',  1900, 140, 200, 46, 'mB',  [['Stereo', 700, 13], ['Isomers', 400, 11]]],
+
+      // ── CONSTITUTIONAL DETAILS ──
+      ['nCon', 28,   204, 402, 78,  'nt', [['Same molecular formula, different connectivity', 700, 9], ['Types: Chain · Positional · Functional Group', 600, 8.5], ['e.g. n-butane vs isobutane (chain isomers)', 400, 8]]],
+
+      // ── CONFORMATIONAL DETAILS ──
+      ['nCfm', 624,  204, 398, 96,  'nt', [['Same molecule · bond rotation only', 700, 9], ['Interconvert freely · no bond breaking required', 600, 8.5], ['Newman projections: staggered · eclipsed · gauche · anti', 400, 8], ['Ring conformers: chair · boat · twist-boat', 400, 8]]],
+
+      // ── STEREO OVERVIEW + CONFIGURATIONAL ──
+      ['nSte', 1678, 204, 452, 48,  'nt', [['Same formula, same connectivity, different spatial arrangement', 600, 9], ['Require bond breaking (or reflection) to interconvert', 400, 8.5]]],
+      ['cfg',  1856, 284, 240, 46,  'mP', [['Configurational', 700, 12], ['Isomers', 400, 11]]],
+      ['nCfg', 1678, 348, 452, 26,  'nt', [['Require bond breaking to change configuration; includes optical AND geometric isomers', 600, 8.5]]],
+
+      // ── LEVEL 2 ──
+      ['ena',  1259, 514, 210, 46,  'mT', [['Enantiomers', 700, 13]]],
+      ['dia',  2690, 514, 210, 46,  'mR', [['Diastereomers', 700, 13]]],
+
+      // ── ENANTIOMERS NOTES ──
+      ['nEna', 1163, 582, 402, 108, 'nt', [['Non-superimposable mirror images', 700, 9], ['Opposite R/S at EVERY chiral center', 700, 8.5], ['Same physical properties (bp, mp, solubility, density)', 600, 8.5], ['Opposite optical rotation direction (+/−)', 600, 8.5]]],
+
+      // ── DIASTEREOMERS NOTES ──
+      ['nDia', 2490, 582, 402, 78,  'nt', [['NOT mirror images', 700, 9], ['Opposite R/S at ONLY SOME chiral centers', 700, 8.5], ['Different physical properties — can be separated!', 600, 8.5]]],
+
+      // ── LEVEL 3 — ENANTIOMERS BRANCH ──
+      ['rs',   778,  710, 180, 50,  'ez', [['R / S', 800, 14], ['Absolute Config.', 400, 9]]],
+      ['dl',   1028, 710, 180, 50,  'ez', [['D / L', 800, 14], ['Relative Config.', 400, 9]]],
+      ['pm',   1278, 710, 180, 50,  'ez', [['(+) / (−)', 800, 13], ['Optical Rotation', 400, 9]]],
+      ['mes',  1536, 710, 165, 50,  'lc', [['Meso', 800, 12], ['Compound', 400, 10]]],
+      ['rac',  1786, 710, 165, 50,  'lc', [['Racemic', 700, 11], ['Mixture', 400, 10]]],
+
+      // ── LEVEL 3 — DIASTEREOMERS BRANCH ──
+      ['geo',  2308, 710, 196, 50,  'mR', [['Geometric', 700, 12], ['Isomers', 400, 11]]],
+      ['epi',  2620, 710, 165, 50,  'mR', [['Epimers', 700, 13]]],
+      ['ano',  2890, 710, 165, 50,  'mR', [['Anomers', 700, 13]]],
+
+      // ── L3 DETAIL NOTES — ENANTIOMERS ──
+      ['nRS',  753,  782, 230, 118, 'nt', [['CIP Priority Rules', 700, 9.5], ['sp³ C with 4 different groups = chiral center', 600, 8], ['Rank substituents 1→4 (highest atomic # = 1)', 600, 8], ['R = clockwise (rectus)', 700, 8.5], ['S = counterclockwise (sinister)', 700, 8.5]]],
+      ['nDL',  1003, 782, 230, 118, 'nt', [['Fischer Convention', 700, 9.5], ['D = OH on right at reference carbon', 700, 8.5], ['L = OH on left at reference carbon', 700, 8.5], ['Most natural sugars: D-form', 600, 8], ['Most natural amino acids: L-form', 600, 8]]],
+      ['nPM',  1253, 782, 230, 108, 'nt', [['Measured by polarimetry', 700, 9.5], ['(+) dextrorotatory = CW rotation of light', 600, 8.5], ['(−) levorotatory = CCW rotation', 600, 8.5], ['NOT correlated with R/S or D/L!', 700, 8.5]]],
+      ['nMes', 1508, 782, 220, 108, 'nt', [['Has chiral centers, BUT achiral overall', 700, 9], ['Internal plane of symmetry', 600, 8.5], ['Optical rotation = 0 (inactive)', 700, 8.5], ['e.g. meso-tartaric acid', 400, 8]]],
+      ['nRac', 1763, 782, 210, 88,  'nt', [['50:50 mix of enantiomers', 700, 9], ['Net optical rotation = 0', 700, 8.5], ['Cannot separate by standard physical methods', 600, 8], ['(need chiral column or resolving agent)', 400, 8]]],
+
+      // ── KEY INDEPENDENCE RULE ──
+      ['kInd', 735,  916, 1248, 36,  'oc', [['R/S · D/L · (+)/(−) are INDEPENDENT — each must be determined separately!', 700, 9]]],
+
+      // ── L3 DETAIL NOTES — DIASTEREOMERS ──
+      ['nGeo', 2148, 782, 322, 78,  'nt', [['Restricted rotation (C=C double bond or ring)', 700, 9], ['Cannot interconvert without breaking π bond', 600, 8.5], ['E/Z = preferred IUPAC; cis/trans = H-based (older)', 600, 8.5]]],
+      ['nEpi', 2480, 782, 268, 108, 'nt', [['Differ at ONLY ONE chiral center', 700, 9], ['(always diastereomers)', 600, 8.5], ['D-Glucose vs D-Galactose → C4 epimers', 700, 8], ['D-Glucose vs D-Mannose → C2 epimers', 700, 8]]],
+      ['nAno', 2760, 782, 282, 108, 'nt', [['Epimers at the anomeric carbon (C1)', 700, 9], ['Formed during ring closure of open-chain sugars', 600, 8.5], ['α = OH axial (below ring plane)', 700, 8.5], ['β = OH equatorial (above ring plane)', 700, 8.5], ['Interconvert in solution via mutarotation', 600, 8]]],
+
+      // ── E/Z AND CIS/TRANS ──
+      ['ezN',  2198, 902, 180, 46,  'ez', [['E / Z', 800, 13], ['(CIP-based)', 400, 9]]],
+      ['ctN',  2410, 902, 190, 46,  'ez', [['cis / trans', 700, 12], ['(H-based)', 400, 9]]],
+
+      ['nEZ',  2092, 968, 280, 108, 'nt', [['E (Entgegen) = higher priority groups', 700, 8.5], ['on OPPOSITE sides of double bond', 700, 8.5], ['Z (Zusammen) = higher priority groups', 700, 8.5], ['on the SAME side of double bond', 700, 8.5], ['Assign using CIP rules (same as R/S)', 600, 8]]],
+      ['nCT',  2392, 968, 225, 96,  'nt', [['cis = same groups on same side', 600, 8.5], ['trans = same groups on opposite side', 600, 8.5], ['Only reliable for H-bearing carbons', 600, 8.5], ['Use E/Z when no H on double bond carbon', 700, 8.5]]],
+
+      // ── BOTTOM FORMULA RULE ──
+      ['kN',   998,  1076, 722, 36,  'oc', [['Max stereoisomers = 2ⁿ (n = # chiral centers); fewer if meso compound(s) exist', 700, 9]]],
+    ];
+
+    const dict = {}, rects = [], polys = [], nds = [];
+    N.forEach(([id, x, y, w, h, tk, lns]) => {
+      const T = TH[tk];
+      dict[id] = {x, y, w, h};
+      const sw = tk === 'nt' ? 1.2 : 1.5;
+      const da = tk === 'nt' ? '5 3' : '';
+      if (T.sh === 'banner') rects.push({x, y, w, h, rx:4,   fill:T.f, stroke:T.f, sw:0,   dash:''});
+      else if (T.sh === 'pill') rects.push({x, y, w, h, rx:h/2, fill:T.f, stroke:T.s, sw,    dash:da});
+      else if (T.sh === 'note') rects.push({x, y, w, h, rx:6,   fill:T.f, stroke:T.s, sw,    dash:da});
+      else if (T.sh === 'oct') {
+        const c = Math.min(8, w/5, h/3);
+        polys.push({points:`${x+c},${y} ${x+w-c},${y} ${x+w},${y+c} ${x+w},${y+h-c} ${x+w-c},${y+h} ${x+c},${y+h} ${x},${y+h-c} ${x},${y+c}`, fill:T.f, stroke:T.s, sw:1.5});
+      } else if (T.sh === 'hex') {
+        const i = Math.min(14, h/2);
+        polys.push({points:`${x+i},${y} ${x+w-i},${y} ${x+w},${y+h/2} ${x+w-i},${y+h} ${x+i},${y+h} ${x},${y+h/2}`, fill:T.f, stroke:T.s, sw:1.5});
+      } else if (T.sh === 'para') {
+        const s = 10;
+        polys.push({points:`${x+s},${y} ${x+w},${y} ${x+w-s},${y+h} ${x},${y+h}`, fill:T.f, stroke:T.s, sw:1.2});
+      }
+      nds.push({
+        style:`position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1px 3px;color:${T.tc};pointer-events:none;`,
+        lines: lns.map(([t, fw, fs]) => ({t, s:`font-weight:${fw};font-size:${fs}px;line-height:1.3;`}))
+      });
+    });
+
+    const ET = {
+      o: {stroke:'#c46a1a', sw:1.6, dash:'',    me:'url(#aO)'},
+      g: {stroke:'#888',    sw:1.6, dash:'7 4',  me:'url(#aGy)'},
+      b: {stroke:'#2d5a8e', sw:1.6, dash:'',    me:'url(#aBl)'},
+      p: {stroke:'#7a3dbb', sw:1.6, dash:'',    me:'url(#aP)'},
+      t: {stroke:'#1a7a7a', sw:1.3, dash:'',    me:'url(#aT)'},
+      r: {stroke:'#b83232', sw:1.3, dash:'',    me:'url(#aR)'},
+    };
+
+    const ED = [
+      ['hISO','con', 'o'],
+      ['hISO','cfm', 'g'],
+      ['hISO','ste', 'b'],
+      ['ste', 'cfg', 'b'],
+      ['cfg', 'ena', 'p'],
+      ['cfg', 'dia', 'p'],
+      ['ena', 'rs',  't'],
+      ['ena', 'dl',  't'],
+      ['ena', 'pm',  't'],
+      ['ena', 'mes', 't'],
+      ['ena', 'rac', 't'],
+      ['dia', 'geo', 'r'],
+      ['dia', 'epi', 'r'],
+      ['dia', 'ano', 'r'],
+      ['geo', 'ezN', 'r'],
+      ['geo', 'ctN', 'r'],
+    ];
+
+    const edges = [], lbls = [];
+    ED.forEach(([fi, ti, tp]) => {
+      const A = dict[fi], B = dict[ti];
+      if (!A || !B) return;
+      const sx = A.x + A.w/2, sy = A.y + A.h;
+      const ex = B.x + B.w/2, ey = B.y;
+      const my = sy + (ey - sy) * 0.45;
+      edges.push({d:`M${sx},${sy} C${sx},${my} ${ex},${my} ${ex},${ey}`, stroke:ET[tp].stroke, sw:ET[tp].sw, dash:ET[tp].dash, me:ET[tp].me});
+    });
+
+    const bands = [
+      {x:20,   y:105, w:562,  h:272, rx:12, fill:'#fff4e8', stroke:'#e0c090', sw:1,   dash:''},
+      {x:592,  y:105, w:462,  h:272, rx:12, fill:'#f0f0f0', stroke:'#aaaaaa', sw:1.5, dash:'8 4'},
+      {x:1088, y:105, w:2492, h:368, rx:12, fill:'#e8f0fa', stroke:'#90aad0', sw:1,   dash:''},
+      {x:680,  y:488, w:1338, h:658, rx:12, fill:'#e2f4f4', stroke:'#5aacac', sw:1,   dash:''},
+      {x:2060, y:488, w:1518, h:658, rx:12, fill:'#fae8e8', stroke:'#d08080', sw:1,   dash:''},
+      {x:20,   y:1158,w:3560, h:52,  rx:10, fill:'#f5f3ed', stroke:'',        sw:0,   dash:''},
+    ];
+
+    [
+      ['LEGEND', 800, 11, '#3d3520', 42, 1172, '.06em'],
+      ['▱ notation / designation     ⬡ special case     ○ concept node     ⬣ key exam rule     ┄┄ conformers (not true isomers)', 600, 9, '#5a4e2a', 130, 1172, ''],
+      ['Purple = Configurational hierarchy     Teal = Enantiomers section     Red = Diastereomers section     Orange = Constitutional     Gray dashed = Conformational', 600, 9, '#5a4e2a', 130, 1188, ''],
+    ].forEach(([t, fw, fs, c, x, y, ls]) => lbls.push({
+      text: t,
+      style:`position:absolute;left:${x}px;top:${y}px;font-weight:${fw};font-size:${fs}px;color:${c};white-space:nowrap;${ls?'letter-spacing:'+ls+';':''}`
+    }));
+
+    return {bands, edges, rects, polys, nds, lbls};
+  }
+}
+
+</script>
+</body>
+</html>

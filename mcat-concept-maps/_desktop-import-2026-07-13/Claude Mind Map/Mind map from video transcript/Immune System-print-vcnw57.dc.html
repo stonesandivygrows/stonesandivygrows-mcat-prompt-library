@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<style>
+html,body{margin:0;padding:0;background:#fff;}
+</style>
+</helmet>
+<div style="position:relative;width:3400px;height:1500px;background:#fff;font-family:Verdana,Geneva,sans-serif;">
+  <div style="position:absolute;left:40px;top:4px;font-size:10px;font-weight:700;color:#9aa3ad;letter-spacing:.08em;">B/B · MCAT BIOLOGY</div>
+  <svg width="3400" height="1500" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none;">
+    <defs>
+      <marker id="aB" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#555"></path></marker>
+      <marker id="aI" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#1a6b42"></path></marker>
+      <marker id="aA" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#2d5a8e"></path></marker>
+      <marker id="aGy" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0.5 L7,3 L0,5.5z" fill="#999"></path></marker>
+      <marker id="coopD" markerWidth="10" markerHeight="10" refX="4.5" refY="4.5" orient="auto"><path d="M4.5,1 L8,4.5 L4.5,8 L1,4.5 Z" fill="#0f9b8e"></path></marker>
+    </defs>
+    <sc-for list="{{ bands }}" as="b" hint-placeholder-count="5">
+      <rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}" rx="{{ b.rx }}" fill="{{ b.fill }}"></rect>
+    </sc-for>
+    <sc-for list="{{ wm }}" as="w" hint-placeholder-count="3">
+      <path d="{{ w.d }}" fill="{{ w.fill }}" opacity="{{ w.op }}" transform="{{ w.tr }}"></path>
+    </sc-for>
+    <sc-for list="{{ edges }}" as="e" hint-placeholder-count="50">
+      <path d="{{ e.d }}" fill="none" stroke="{{ e.stroke }}" stroke-width="{{ e.sw }}" stroke-dasharray="{{ e.dash }}" marker-end="{{ e.me }}"></path>
+    </sc-for>
+    <sc-for list="{{ coops }}" as="c" hint-placeholder-count="2">
+      <path d="{{ c.d }}" fill="none" stroke="#0f9b8e" stroke-width="1.7" marker-start="url(#coopD)" marker-end="url(#coopD)"></path>
+    </sc-for>
+    <sc-for list="{{ rects }}" as="r" hint-placeholder-count="70">
+      <rect x="{{ r.x }}" y="{{ r.y }}" width="{{ r.w }}" height="{{ r.h }}" rx="{{ r.rx }}" fill="{{ r.fill }}" stroke="{{ r.stroke }}" stroke-width="{{ r.sw }}" stroke-dasharray="{{ r.dash }}"></rect>
+    </sc-for>
+    <sc-for list="{{ polys }}" as="p" hint-placeholder-count="20">
+      <polygon points="{{ p.points }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}"></polygon>
+    </sc-for>
+  </svg>
+  <sc-for list="{{ nds }}" as="n" hint-placeholder-count="70">
+    <div style="{{ n.style }}">
+      {{ n.icon }}
+      <div style="{{ n.tw }}">
+        <sc-for list="{{ n.lines }}" as="ln" hint-placeholder-count="2">
+          <div style="{{ ln.s }}"><span style="{{ ln.bs }}">{{ ln.b }}</span><span>{{ ln.t }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-for>
+  <sc-for list="{{ lbls }}" as="l" hint-placeholder-count="20">
+    <div style="{{ l.style }}">{{ l.text }}</div>
+  </sc-for>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:3400,&quot;height&quot;:1300}}">
+
+class Component extends DCLogic {
+  renderVals() {
+    const TH={
+      hT:{f:'#2c3e50',s:'#2c3e50',tc:'#fff',sh:'banner'},
+      ci:{f:'#2d8f5e',s:'#1a6b42',tc:'#fff',sh:'pill'},
+      ca:{f:'#2d5a8e',s:'#1a3a5c',tc:'#fff',sh:'pill'},
+      sc:{f:'#3aaa7a',s:'#1a8a5a',tc:'#fff',sh:'rect'},
+      sa:{f:'#4a86c8',s:'#2d5a8e',tc:'#fff',sh:'rect'},
+      lc:{f:'#f0c75e',s:'#9e7c1a',tc:'#3d3520',sh:'hex'},
+      nt:{f:'#ffffff',s:'#c9b97a',tc:'#5a4e2a',sh:'note'},
+      ds:{f:'#d45d5d',s:'#9a3030',tc:'#fff',sh:'diamond'},
+      oc:{f:'#c43e3e',s:'#8a2020',tc:'#fff',sh:'oct'},
+      rg:{f:'#e8d5a3',s:'#9e8745',tc:'#4a3d1a',sh:'pill'},
+      mc:{f:'#8b6bb5',s:'#6a4a95',tc:'#fff',sh:'pill'},
+      mp:{f:'#a88bd0',s:'#8b6bb5',tc:'#fff',sh:'rect'},
+      rfT:{f:'#faf1d8',s:'#9e7c1a',tc:'#6b5618',sh:'chip'},
+      pg:{f:'#4a4a4a',s:'#2e2e2e',tc:'#fff',sh:'rect'}
+    };
+    // ── LEVEL 0 ──
+    const N=[
+      ['hIM',1450,30,480,48,'hT',[['IMMUNE SYSTEM',800,16]]],
+      // ── LEVEL 1 ──
+      ['inn',500,150,300,48,'ci',[['INNATE IMMUNE SYSTEM',800,13]]],
+      ['nIn',500,204,300,28,'nt',[['Always active · non-specific · no memory',600,9]]],
+      ['adp',2250,150,300,48,'ca',[['ADAPTIVE IMMUNE SYSTEM',800,13]]],
+      ['nAd',2250,204,300,28,'nt',[['Specific · slower · has memory',600,9]]],
+      // ── LEVEL 2 ──
+      ['ncl',250,310,260,40,'sc',[['NONCELLULAR DEFENSES',700,11]]],
+      ['cel',1000,310,260,40,'sc',[['CELLS OF INNATE SYSTEM',700,11]]],
+      ['hum',2830,310,240,40,'sa',[['HUMORAL IMMUNITY',700,12]]],
+      ['nHu',2830,356,240,24,'nt',[['Antibody-mediated (B-cells)',600,8.5]]],
+      ['cyt',1770,310,260,40,'sa',[['CELL-MEDIATED',700,12]]],
+      ['nCy',1770,356,260,24,'nt',[['T-cell mediated',600,8.5]]],
+      // ── LEVEL 3: Noncellular children ──
+      ['cmp',40,430,148,50,'lc',[['Complement',700,10]]],
+      ['muc',220,430,148,50,'lc',[['Mucous',700,10],['Membranes',700,10]]],
+      ['skn',400,430,108,50,'lc',[['Skin',700,11]]],
+      ['gi',540,430,108,50,'lc',[['GI Tract',700,10]]],
+      ['ifn',680,430,138,50,'lc',[['Interferons',700,10]]],
+      // Level 3 notes
+      ['nCm',40,490,148,68,'nt',[['Plasma proteins',600,8.5],['enhance phagocytosis',400,8],['lyse pathogens',400,8],['trigger inflammation',400,8]]],
+      ['nMu',220,490,148,42,'nt',[['Lysozymes in tears',600,8.5],['saliva · nasal secretions',400,8]]],
+      ['nSk',400,490,108,42,'nt',[['Physical barrier',600,8.5],['acidic pH · sweat',400,8]]],
+      ['nGi',540,490,108,42,'nt',[['Stomach acid',600,8.5],['low pH kills microbes',400,8]]],
+      ['nIf',680,490,138,56,'nt',[['Cytokines from infected cells prevent viral replication in neighboring cells',400,8]]],
+      // Level 4: Complement sub
+      ['clp',40,590,148,36,'rg',[['Classical Pathway',700,9]]],
+      ['nCl',40,632,148,34,'nt',[['Requires antibody',600,8.5],['bound to antigen',400,8]]],
+      ['alp',220,590,148,36,'rg',[['Alternative Pathway',700,9]]],
+      ['nAl',220,632,148,24,'nt',[['No antibody required',600,8.5]]],
+      // ── LEVEL 3: Cells children ──
+      ['mac',880,430,160,46,'sc',[['Macrophages',700,11]]],
+      ['nMa',880,482,160,56,'nt',[['Phagocytic',600,8.5],['engulf + display on MHC',400,8],['release cytokines',400,8],['antigen-presenting cell',400,8]]],
+      ['nkc',1080,430,148,46,'sc',[['Natural Killer',700,10],['Cells',700,10]]],
+      ['nNK',1080,482,148,50,'nt',[['Kill infected/cancer cells',600,8.5],['perforin + granzymes',400,8],['innate (no MHC needed)',400,8]]],
+      ['grn',1280,430,168,40,'sc',[['Granulocytes',700,11]]],
+      // Level 4: Granulocyte sub
+      ['neu',1180,540,128,42,'sc',[['Neutrophils',700,10]]],
+      ['nNe',1180,588,128,50,'nt',[['First responders',600,8.5],['most abundant WBC',400,8],['phagocytic',400,8]]],
+      ['bas',1340,540,118,42,'sc',[['Basophils',700,10]]],
+      ['nBa',1340,588,118,42,'nt',[['Inflammatory +',600,8.5],['allergic response',400,8],['release histamine',400,8]]],
+      ['eos',1490,540,128,42,'sc',[['Eosinophils',700,10]]],
+      ['nEo',1490,588,128,42,'nt',[['Anti-parasitic',600,8.5],['allergic response',400,8],['granule release',400,8]]],
+      // ── MHC (under Macrophages) ──
+      ['hMH',840,600,230,36,'mc',[['MHC Complex',700,10]]],
+      ['mh1',840,660,168,44,'mp',[['MHC-I',800,12]]],
+      ['nM1',840,710,168,60,'nt',[['All nucleated cells',700,8.5,'u'],['endogenous pathway',600,8],['(antigens from INSIDE)',400,8],['presents to CD8⁺',700,8,'u']]],
+      ['mh2',1040,660,168,44,'mp',[['MHC-II',800,12]]],
+      ['nM2',1040,710,168,68,'nt',[['APCs only',700,8.5,'u'],['exogenous pathway',600,8],['(antigens from OUTSIDE)',400,8],['presents to CD4⁺',700,8,'u'],['(helper T-cells)',400,8]]],
+      // ── LEVEL 3: Humoral flow ──
+      ['agx',2870,430,160,36,'sa',[['Antigen Exposure',700,10]]],
+      ['lyb',2881,510,138,36,'sa',[['Lymphoblasts',700,10]]],
+      ['bcl',2886,590,128,44,'lc',[['B-Cells',700,11]]],
+      ['clb',2876,680,148,36,'sa',[['Clonal B-Cells',700,9]]],
+      ['pla',2796,770,148,44,'lc',[['Plasma Cells',700,10]]],
+      ['nPl',2796,820,148,42,'nt',[['Secrete antibodies',600,8.5],['effector cells',400,8],['short-lived',400,8]]],
+      ['mbc',2956,770,148,44,'lc',[['Memory B-Cells',700,10]]],
+      ['nMb',2956,820,148,42,'nt',[['Long-lived',600,8.5],['faster response on',400,8],['re-exposure',400,8]]],
+      ['ant',2771,900,358,44,'ds',[['ANTIBODIES (Immunoglobulins)',800,10]]],
+      ['nAb',2771,950,358,56,'nt',[['IgG (most abundant · crosses placenta)',600,8.5,'u'],['IgM (first responder · pentamer)',600,8,'u'],['IgA (mucous membranes · secretory)',600,8],['IgE (allergies · parasites) · IgD (B-cell receptor)',600,8]]],
+      // ── LEVEL 3: Cell-Mediated children ──
+      ['ctc',1740,430,168,48,'lc',[['Cytotoxic T-Cells',700,10],['(CD8⁺)',700,10]]],
+      ['nCt',1740,484,168,60,'nt',[['Recognize MHC-I',700,8.5,'u'],['on infected cells',400,8],['perforin + granzymes',400,8],['→ apoptosis',400,8]]],
+      ['htc',1740,600,168,48,'lc',[['Helper T-Cells',700,10],['(CD4⁺)',700,10]]],
+      ['nHt',1740,654,168,68,'nt',[['Activated by MHC-II',700,8.5,'u'],['on APCs',400,8],['1. Co-stimulate B-cells',600,8],['2. Activate macrophages',600,8],['3. Secrete cytokines',600,8]]],
+      ['rtc',1950,430,148,44,'lc',[['Regulatory',700,10],['T-Cells',700,10]]],
+      ['nRt',1950,484,148,42,'nt',[['Suppress immune',600,8.5],['response · prevent',400,8],['autoimmunity',400,8]]],
+      ['mtc',1950,600,148,44,'lc',[['Memory',700,10],['T-Cells',700,10]]],
+      ['nMt',1950,654,148,42,'nt',[['Long-lived',600,8.5],['rapid response on',400,8],['re-exposure',400,8]]],
+      // ── Cross-references ──
+      ['xBc',2806,634,186,24,'rfT',[['Helper T · co-stim',700,8]]],
+      // ── KEY ──
+      ['kd',1700,1060,780,54,'ds',[['KEY: Innate = fast · non-specific · no memory     Adaptive = slow · specific · HAS memory',800,10],['Humoral = B-cells + antibodies (extracellular)     Cell-mediated = T-cells (intracellular pathogens)',400,9]]],
+      ['nCr',1700,1128,780,36,'nt',[['MHC-I + CD8⁺ = cytotoxic (kill infected cells)     MHC-II + CD4⁺ = helper (coordinate response)',700,9]]]
+    ];
+    /* ── ICON SYSTEM ── */
+    const RC=React.createElement;
+    function ic(parts,color,sz){
+      const el=(a,i)=>{const k=a[0],b={key:i};
+        if(k==='c')return RC('circle',{...b,cx:a[1],cy:a[2],r:a[3],fill:'none',stroke:color,strokeWidth:1.7});
+        if(k==='cf')return RC('circle',{...b,cx:a[1],cy:a[2],r:a[3],fill:color});
+        if(k==='l')return RC('line',{...b,x1:a[1],y1:a[2],x2:a[3],y2:a[4],stroke:color,strokeWidth:1.7,strokeLinecap:'round'});
+        if(k==='p')return RC('path',{...b,d:a[1],fill:'none',stroke:color,strokeWidth:1.7,strokeLinejoin:'round',strokeLinecap:'round'});
+        if(k==='pg')return RC('polygon',{...b,points:a[1],fill:'none',stroke:color,strokeWidth:1.7});
+        if(k==='t')return RC('text',{...b,x:a[1],y:a[2],fontSize:a[3],fontWeight:800,fill:color,textAnchor:'middle',fontFamily:'Verdana'},a[4]);
+        return null;};
+      return RC('svg',{width:sz,height:sz,viewBox:'0 0 24 24',style:{flexShrink:0,display:'block'}},parts.map(el));
+    }
+    const IC={
+      shield:[['p','M12 2 L20 5 V11 C20 16 16 20 12 22 C8 20 4 16 4 11 V5 Z']],
+      barrier:[['p','M4 6 H20 V18 H4 Z'],['l',4,12,20,12],['l',12,6,12,12],['l',8,12,8,18],['l',16,12,16,18]],
+      cell:[['c',12,12,8],['cf',14,11,2.5]],
+      pore:[['c',12,12,6],['cf',18,12,1.5],['cf',15,17.2,1.5],['cf',9,17.2,1.5],['cf',6,12,1.5],['cf',9,6.8,1.5],['cf',15,6.8,1.5]],
+      droplet:[['p','M12 3 C12 3 6 11 6 15 A6 6 0 0 0 18 15 C18 11 12 3 12 3 Z']],
+      skin:[['l',5,8,19,8],['l',5,12,19,12],['l',5,16,19,16],['cf',9,10,0.9],['cf',14,14,0.9]],
+      stomach:[['p','M10 4 C10 7 9 8 12 9 C17 10 18 16 13 18 C10 19 9 16 9 14']],
+      virus:[['c',12,12,5],['l',12,7,12,3],['l',12,17,12,21],['l',7,12,3,12],['l',17,12,21,12],['l',8.5,8.5,6,6],['l',15.5,8.5,18,6],['l',8.5,15.5,6,18],['l',15.5,15.5,18,18]],
+      bact:[['p','M6 9 h7 a3 3 0 0 1 0 6 h-7 a3 3 0 0 1 0 -6 Z'],['p','M16 12 q4 -1 4 -5'],['cf',9,12,0.9],['cf',12,12,0.9]],
+      worm:[['p','M5 17 C4 11 10 11 12 14 C14 17 20 16 19 9'],['cf',19,8.6,1.3]],
+      amoeba:[['p','M6 10 C4 6 9 3 12 5 C15 3 20 6 18 10 C22 12 20 18 15 17 C13 21 8 20 8 16 C3 16 3 11 6 10 Z'],['cf',12,12,2]],
+      nk:[['c',12,12,8],['c',9.5,10,3],['cf',15,13,1],['cf',13,16,1],['cf',16,10,1]],
+      granulo:[['c',12,12,8],['cf',9,10,1.2],['cf',14,9,1.2],['cf',15,14,1.2],['cf',10,15,1.2],['cf',12,12,1.2]],
+      neutro:[['c',12,12,8],['c',10,10,2],['c',14,10,2],['c',12,14,2]],
+      baso:[['c',12,12,8],['cf',10,11,2],['cf',14,12,2],['cf',12,15,1.6]],
+      eosino:[['c',12,12,8],['c',9,12,2.2],['c',15,12,2.2],['cf',12,9,1],['cf',12,15,1]],
+      mhc:[['p','M7 7 V14 A5 5 0 0 0 17 14 V7'],['l',7,7,17,7],['cf',12,6,1.6]]
+    };
+    const ICN={
+      cmp:'pore',muc:'droplet',skn:'skin',gi:'stomach',ifn:'virus',
+      mac:'amoeba',nkc:'nk',grn:'granulo',neu:'neutro',bas:'baso',eos:'eosino',hMH:'mhc',
+      pBac:'bact',pVir:'virus',pPar:'worm'
+    };
+    /* ── BUILD SHAPES + TEXT ── */
+    const dict={},rects=[],polys=[],nds=[];
+    N.forEach(([id,x,y,w,h,tk,lns])=>{
+      const T=TH[tk]; dict[id]={x,y,w,h};
+      const sw=(tk==='nt')?1.2:(tk==='hT')?0:1.5;
+      const da=tk==='nt'?'5 3':'';
+      if(T.sh==='pill') rects.push({x,y,w,h,rx:h/2,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='rect') rects.push({x,y,w,h,rx:5,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='banner') rects.push({x,y,w,h,rx:14,fill:T.f,stroke:T.f,sw:0,dash:''});
+      else if(T.sh==='note') rects.push({x,y,w,h,rx:10,fill:T.f,stroke:T.s,sw,dash:da});
+      else if(T.sh==='oct'){const c=Math.min(8,w/5,h/3);polys.push({points:`${x+c},${y} ${x+w-c},${y} ${x+w},${y+c} ${x+w},${y+h-c} ${x+w-c},${y+h} ${x+c},${y+h} ${x},${y+h-c} ${x},${y+c}`,fill:T.f,stroke:T.s,sw:1.5});}
+      else if(T.sh==='hex'){const i=Math.min(14,h/2);polys.push({points:`${x+i},${y} ${x+w-i},${y} ${x+w},${y+h/2} ${x+w-i},${y+h} ${x+i},${y+h} ${x},${y+h/2}`,fill:T.f,stroke:T.s,sw:1.5});}
+      else if(T.sh==='diamond') polys.push({points:`${x+w/2},${y} ${x+w},${y+h/2} ${x+w/2},${y+h} ${x},${y+h/2}`,fill:T.f,stroke:T.s,sw:1.5});
+      else if(T.sh==='chip'){const ph=10;polys.push({points:`${x+ph},${y} ${x+w},${y} ${x+w},${y+h} ${x+ph},${y+h} ${x},${y+h/2}`,fill:T.f,stroke:T.s,sw:1.3});}
+      let iconEl=null;
+      if(ICN[id]){const isz=Math.max(16,Math.min(h-16,26));iconEl=ic(IC[ICN[id]],T.tc,isz);}
+      const isNote=(tk==='nt');
+      const multi=lns.length>1;
+      const hasHeader=isNote&&multi&&lns[0][1]>=600&&lns.some(l=>l[1]<600);
+      const leftAlign=isNote&&multi;
+      const chip=(T.sh==='chip');
+      nds.push({
+        style:`position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;box-sizing:border-box;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:${iconEl?5:0}px;padding:1px ${leftAlign?6:3}px 1px ${chip?15:(leftAlign?6:3)}px;color:${T.tc};pointer-events:none;`,
+        tw:leftAlign
+          ?'display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;min-width:0;width:100%;'
+          :'display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-width:0;',
+        icon:iconEl,
+        lines:lns.map(([t,fw,fs,st],li)=>{
+          let bullet='';
+          if(isNote&&multi){
+            const numbered=/^\d+\./.test(t);
+            const headerLine=hasHeader&&li===0;
+            if(!headerLine&&!numbered) bullet='•';
+          }
+          const paren=/^\(.*\)$/.test(String(t).trim());
+          const ital=paren||/i/.test(st||'');
+          const und=/u/.test(st||'');
+          let base=`font-weight:${fw};font-size:${fs}px;line-height:1.35;`;
+          if(ital) base+='font-style:italic;';
+          if(und) base+='text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;';
+          return {t,b:bullet,bs:bullet?'flex-shrink:0;margin-right:3px;':'display:none;',s:bullet?base+'display:flex;align-items:baseline;':base};
+        })
+      });
+    });
+    /* ── EDGES: [from, to, type, label?, dir?] ── */
+    /* dir: 'd'=down (default), 'r'=right, 'l'=left */
+    const ET={
+      f:{stroke:'#555',sw:1.3,dash:'',me:'url(#aB)'},
+      i:{stroke:'#1a6b42',sw:1.3,dash:'',me:'url(#aI)'},
+      a:{stroke:'#2d5a8e',sw:1.3,dash:'',me:'url(#aA)'},
+      s:{stroke:'#999',sw:1,dash:'4 4',me:'url(#aGy)'}
+    };
+    const ED=[
+      ['hIM','inn','f'],['hIM','adp','f'],
+      ['inn','ncl','i'],['inn','cel','i'],
+      ['ncl','cmp','i'],['ncl','muc','i'],['ncl','skn','i'],['ncl','gi','i'],['ncl','ifn','i'],
+      ['cmp','clp','s'],['cmp','alp','s'],
+      ['cel','mac','i'],['cel','nkc','i'],['cel','grn','i'],
+      ['grn','neu','i'],['grn','bas','i'],['grn','eos','i'],
+      ['mac','hMH','s','displays'],
+      ['hMH','mh1','s'],['hMH','mh2','s'],
+      ['adp','hum','a'],['adp','cyt','a'],
+      ['hum','agx','a'],['agx','lyb','a'],['lyb','bcl','a'],
+      ['bcl','clb','a'],['clb','pla','a'],['clb','mbc','a'],
+      ['pla','ant','a','secrete'],
+      ['cyt','htc','a'],['cyt','ctc','a'],
+      ['cyt','rtc','a'],['cyt','mtc','a']
+    ];
+    const edges=[],lbls=[];
+    ED.forEach(([fi,ti,tp,lbl,dir])=>{
+      const A=dict[fi],B=dict[ti]; if(!A||!B) return;
+      let sx,sy,ex,ey;
+      if(dir==='r'){
+        sx=A.x+A.w; sy=A.y+A.h/2; ex=B.x; ey=B.y+B.h/2;
+      } else if(dir==='l'){
+        sx=A.x; sy=A.y+A.h/2; ex=B.x+B.w; ey=B.y+B.h/2;
+      } else {
+        // Default: exit bottom center → enter top center
+        sx=A.x+A.w/2; sy=A.y+A.h; ex=B.x+B.w/2; ey=B.y;
+      }
+      const d=`M${sx},${sy}L${ex},${ey}`;
+      const t=ET[tp];
+      edges.push({d,stroke:t.stroke,sw:t.sw,dash:t.dash,me:t.me});
+      if(lbl){
+        const lx=(sx+ex)/2,ly=(sy+ey)/2;
+        lbls.push({text:lbl,style:`position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);background:#fff;border:1px solid #ddd;border-radius:3px;padding:1px 5px;font-size:7.5px;font-weight:600;color:#666;white-space:nowrap;`});
+      }
+    });
+    /* ── BANDS ── */
+    const bands=[
+      {x:18,y:18,w:3364,h:68,rx:12,fill:'#e8ecf0'},
+      {x:18,y:100,w:1640,h:580,rx:12,fill:'#e5f5ec'},
+      {x:800,y:580,w:500,h:230,rx:10,fill:'#ede5f5'},
+      {x:1680,y:100,w:1702,h:980,rx:12,fill:'#e0eaf5'},
+      {x:1680,y:1040,w:820,h:140,rx:10,fill:'#f5f3ed'}
+    ];
+    /* ── LEGEND ── */
+    const ly=1210;
+    [
+      ['LEGEND',800,11,'#3d3520',42,ly,'.06em'],
+      ['⬭ system     ▭ cell type     ⬡ specific cell     ◆ key concept     ⬭ purple = MHC     ┈┈ note/cross-ref',600,9,'#5a4e2a',42,ly+22,''],
+      ['──▶ green = innate     ──▶ blue = adaptive     ◆──◆ teal = MHC↔T-cell cooperation     ▷ gold chip = cross-reference     underline = high-yield',600,9,'#5a4e2a',42,ly+42,'']
+    ].forEach(([t,fw,fs,c,x,y,ls])=>lbls.push({text:t,style:`position:absolute;left:${x}px;top:${y}px;font-weight:${fw};font-size:${fs}px;color:${c};white-space:nowrap;${ls?'letter-spacing:'+ls+';':''}`}));
+    /* ── COOPERATION LINES (MHC ↔ T-cell, no hierarchy) ── */
+    const coops=[
+      {d:'M1008,674 L1008,648 L1652,648 L1652,460 L1740,460'},
+      {d:'M1208,682 L1208,668 L1672,668 L1672,624 L1740,624'}
+    ];
+    [['MHC-I presents → CD8⁺',1330,638],['MHC-II presents → CD4⁺',1440,658]].forEach(([t,lx,ly])=>{
+      lbls.push({text:t,style:`position:absolute;left:${lx}px;top:${ly}px;transform:translate(-50%,-50%);background:#fff;border:1px solid #0f9b8e;border-radius:3px;padding:1px 5px;font-size:7.5px;font-weight:700;color:#0b6f66;white-space:nowrap;`});
+    });
+    /* ── WATERMARK SILHOUETTES ── */
+    const wm=[
+      {d:'M6 10 C4 6 9 3 12 5 C15 3 20 6 18 10 C22 12 20 18 15 17 C13 21 8 20 8 16 C3 16 3 11 6 10 Z',fill:'#1a6b42',op:0.05,tr:'translate(1180,120) scale(24)'}
+    ];
+    return {bands,edges,rects,polys,nds,lbls,wm,coops};
+  }
+}
+
+</script>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "Immune System";
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    for (let y = 0; y <= full; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: ≥2 visible non-fixed children, each with authored px width
+  // AND height, all within ±2px of each other. Off unless the page opts in
+  // via data-om-multi-frame on the stop element — guards against card grids
+  // and pricing tables that match the geometry but aren't separate canvases.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var cands = [];
+    for (var k = 0; k < el.children.length; k++) {
+      var ch = el.children[k];
+      var cs; try { cs = getComputedStyle(ch); } catch (e) { continue; }
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed') continue;
+      var rc = rectOf(ch);
+      if (rc.width < 2 || rc.height < 2) continue;
+      if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+      cands.push(rc);
+    }
+    if (cands.length >= 2) {
+      var w0 = cands[0].width, h0 = cands[0].height, ok = true;
+      for (var q = 1; q < cands.length; q++)
+        if (Math.abs(cands[q].width - w0) > 2 || Math.abs(cands[q].height - h0) > 2) ok = false;
+      if (ok) return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (__m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>
