@@ -564,3 +564,37 @@ Print/Cornell Status:
 Archive Note:
 - Keep old file / migrated / no separate file needed
 ```
+
+---
+
+## 2026-07-14 — Overnight Automation Session + UWorld/CARS Practice
+
+**Source:** UWorld Science (15 questions), UWorld CARS (10 questions), overnight Claude Code session
+
+**Practice completed today:**
+- 15 UWorld science questions
+- 10 UWorld CARS questions (via UWorld platform)
+
+**Overnight automation produced (all committed to GitHub):**
+- `resources/inventory/existing-materials-audit.md` — full audit of all materials across all locations (GitHub repo, MCAT_Cowork, mcat archive, Google Drive, external platforms)
+- `study-notes/bio-biochem/carbohydrates/carbohydrate-comparison-visual.html` — comparison table + flowcharts for aldonic/aldaric/uronic acids, reducing/non-reducing sugars, Benedict's/Tollens'
+- `study-notes/bio-biochem/lab-techniques/lab-techniques-and-figures.html` — scannable reference cards for all lab techniques (gel electrophoresis, blots, ELISA, PCR, chromatography, Beer-Lambert, centrifugation)
+- `study-notes/bio-biochem/lab-techniques/lab-techniques-connection-web.html` — committed from MCAT_Cowork (interactive canvas, dark theme)
+- `study-notes/mcat-mind-maps/behavior-and-neuroscience-test.html` — committed from scratchpad (in-progress Markmap)
+- `study-notes/mcat-mind-maps/bio-biochem-section-04-nucleic-acids-dna-rna.md` — full Section 04 mind map: nucleotide structure, purines/pyrimidines, DNA helix, replication enzymes (helicase through ligase), RNA types, transcription (prokaryotic + eukaryotic), translation (initiation/elongation/termination), mutations, DNA repair (MMR/NER/BER), epigenetics
+- `study-plans/study_plan_july2026.md` — July 2026 plan with daily structure, subject priority (Orgo 9th → GenChem 24th → Physics 31st → Biochem), weekly structure, FL3 scheduled July 26
+- `interactive-html-and-tools/mcat-hub/master_index.md` — comprehensive cross-location index rebuilt from inventory
+- `resources/discord-finds/` — structure created for AAMC Warriors, Mi Gente Latino, 528 (needs manual link population)
+
+**Manual actions flagged for morning (do before study session starts):**
+1. **Claude Desktop restart** — MCAT_Hub was renamed to MCAT_Cowork; config updated; restart required for filesystem MCP
+2. **Canva/Claude Design** — list slide/mind map topics; add to inventory
+3. **Whimsical** — export or link weakness-analysis diagrams
+4. **Netlify** — retrieve deployed HTML URL(s) from Netlify dashboard
+5. **draw.io** — export or list concept map files
+6. **Discord (3 servers)** — manually populate `resources/discord-finds/` files
+7. **open-exam-skills color/font fix** — requires Claude Desktop session (local filesystem access)
+
+**Archive Note:** No separate file needed — all outputs committed to GitHub repo.
+
+**Print/Cornell Status:** All HTML visuals are print-ready. Mind map markdown can be converted to Markmap if needed.

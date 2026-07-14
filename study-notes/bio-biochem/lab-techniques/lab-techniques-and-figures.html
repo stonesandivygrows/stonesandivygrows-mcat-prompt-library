@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Techniques & Reading Figures — MCAT Reference</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Verdana, Geneva, sans-serif;
+    background: #FDFBF7;
+    color: #2C3E50;
+    padding: 22px 18px;
+    max-width: 1140px;
+    margin: 0 auto;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  h1 { font-size: 18px; color: #1A252F; margin-bottom: 4px; }
+  .subtitle { color: #5D6D7E; font-size: 11.5px; margin-bottom: 24px; }
+  h2 { font-size: 13.5px; color: #1A252F; margin: 26px 0 8px;
+       border-left: 4px solid #2980B9; padding-left: 10px; }
+
+  /* CARD GRID */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .card {
+    border: 1.5px solid #D5D0C8;
+    border-radius: 8px;
+    padding: 13px 14px;
+    background: #FAFAF8;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 9px;
+  }
+  .card-tag {
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .card-title { font-weight: bold; font-size: 13px; color: #1A252F; }
+
+  /* SECTION COLORS */
+  .tag-gel { background: #D6EAF8; color: #1A5276; }
+  .tag-blot { background: #D5F5E3; color: #1E8449; }
+  .tag-elisa { background: #FEF9E7; color: #B7770D; }
+  .tag-pcr { background: #F5EEF8; color: #6C3483; }
+  .tag-chrom { background: #FDEBD0; color: #A04000; }
+  .tag-spec { background: #EAFAF1; color: #1A8462; }
+  .tag-cent { background: #EBF5FB; color: #154360; }
+  .tag-page { background: #FDEDEC; color: #922B21; }
+
+  .border-gel { border-left: 4px solid #2980B9; }
+  .border-blot { border-left: 4px solid #27AE60; }
+  .border-elisa { border-left: 4px solid #F39C12; }
+  .border-pcr { border-left: 4px solid #8E44AD; }
+  .border-chrom { border-left: 4px solid #E67E22; }
+  .border-spec { border-left: 4px solid #16A085; }
+  .border-cent { border-left: 4px solid #2471A3; }
+  .border-page { border-left: 4px solid #C0392B; }
+
+  /* CARD BODY */
+  .row { display: flex; gap: 6px; margin-bottom: 5px; align-items: flex-start; }
+  .row-label {
+    font-size: 10.5px;
+    font-weight: bold;
+    color: #5D6D7E;
+    min-width: 88px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .row-val { font-size: 12px; }
+
+  /* FIGURE BOX */
+  .figure-box {
+    background: #F0F3F4;
+    border-radius: 4px;
+    padding: 7px 9px;
+    margin: 6px 0;
+    font-size: 11.5px;
+    border-left: 3px solid #AEB6BF;
+  }
+  .figure-box .fig-title { font-weight: bold; font-size: 11px; color: #2C3E50; margin-bottom: 3px; }
+
+  /* TRAP */
+  .trap {
+    background: #FEF9E7;
+    border: 1.5px solid #F39C12;
+    border-radius: 4px;
+    padding: 6px 9px;
+    margin-top: 6px;
+    font-size: 11.5px;
+  }
+  .trap::before { content: "⚠ MCAT TRAP: "; font-weight: bold; color: #E67E22; }
+
+  /* COMPARISON TABLE */
+  .comp-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+  .comp-table th {
+    background: #2C3E50;
+    color: #ECF0F1;
+    padding: 7px 9px;
+    text-align: left;
+    font-size: 11.5px;
+  }
+  .comp-table td {
+    padding: 7px 9px;
+    border-bottom: 1px solid #E8E4DC;
+    vertical-align: top;
+  }
+  .comp-table tr:nth-child(even) td { background: #F5F2EC; }
+  .comp-table tr:hover td { background: #EEF4FB; }
+
+  .pos { color: #27AE60; font-weight: bold; }
+  .neg { color: #C0392B; font-weight: bold; }
+  .neutral { color: #2980B9; font-weight: bold; }
+
+  .print-note { color: #7F8C8D; font-size: 11px; margin-top: 28px; }
+</style>
+</head>
+<body>
+<h1>Lab Techniques & Reading Figures — MCAT Reference</h1>
+<div class="subtitle">Scannable reference cards: what each technique separates/detects · how to read the output · MCAT trap</div>
+
+<h2>Section 1 — Gel Electrophoresis &amp; Related</h2>
+<div class="card-grid">
+
+  <div class="card border-gel">
+    <div class="card-header">
+      <span class="card-tag tag-gel">Gel</span>
+      <span class="card-title">Agarose Gel Electrophoresis</span>
+    </div>
+    <div class="row"><span class="row-label">Separates:</span><span class="row-val">DNA or RNA fragments by size (negatively charged → migrate toward + pole)</span></div>
+    <div class="row"><span class="row-label">Matrix:</span><span class="row-val">Agarose gel; pores act as sieve</span></div>
+    <div class="figure-box">
+      <div class="fig-title">How to read the gel image:</div>
+      — Ladder (marker) lane: known size bands for comparison<br>
+      — <span class="pos">Smaller fragments</span> = migrate farther (toward + end of gel)<br>
+      — <span class="neg">Larger fragments</span> = stay near wells (top of gel, − end)<br>
+      — Band intensity ∝ amount of DNA (brighter = more)<br>
+      — Single band = one fragment size; smear = RNA degradation
+    </div>
+    <div class="trap">Migration direction is from − (top, well end) to + (bottom). Small = fast = far. Big = slow = near top.</div>
+  </div>
+
+  <div class="card border-page">
+    <div class="card-header">
+      <span class="card-tag tag-page">PAGE</span>
+      <span class="card-title">SDS-PAGE vs Native PAGE</span>
+    </div>
+    <div class="row"><span class="row-label">SDS-PAGE:</span><span class="row-val">SDS denatures &amp; coats proteins with negative charge; separates by <strong>molecular weight only</strong></span></div>
+    <div class="row"><span class="row-label">Native PAGE:</span><span class="row-val">No denaturant; separates by <strong>charge + shape + size</strong> — native conformation intact</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Reading SDS-PAGE:</div>
+      — Molecular weight ladder in one lane<br>
+      — Protein band position → compare to ladder → get MW in kDa<br>
+      — Coomassie/silver stain: all proteins visible<br>
+      — Western blot follows SDS-PAGE: adds antibody specificity
+    </div>
+    <div class="trap">SDS-PAGE separates by MW only — you cannot determine charge or activity. To preserve activity → native PAGE or gel filtration.</div>
+  </div>
+
+  <div class="card border-gel">
+    <div class="card-header">
+      <span class="card-tag tag-gel">PCR</span>
+      <span class="card-title">PCR — Polymerase Chain Reaction</span>
+    </div>
+    <div class="row"><span class="row-label">Purpose:</span><span class="row-val">Amplify a specific DNA sequence exponentially</span></div>
+    <div class="row"><span class="row-label">3 steps:</span><span class="row-val">(1) Denature 95°C → (2) Anneal primers ~55°C → (3) Extend 72°C (Taq polymerase)</span></div>
+    <div class="row"><span class="row-label">RT-PCR:</span><span class="row-val">mRNA → cDNA (reverse transcriptase) → then PCR; detects gene expression</span></div>
+    <div class="row"><span class="row-label">qPCR:</span><span class="row-val">Quantitative PCR; uses fluorescent probe; Ct value ∝ starting template amount</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Reading PCR gel output:</div>
+      — Run amplicons on agarose gel<br>
+      — Band at expected bp → amplification worked<br>
+      — No band → primers failed, no template, or denaturation issue<br>
+      — Extra bands → non-specific amplification
+    </div>
+    <div class="trap">PCR requires primers flanking the target — primers determine specificity. Taq has no 3'→5' proofreading. For high-fidelity cloning, use Pfu/Phusion polymerase instead.</div>
+  </div>
+
+</div>
+
+<h2>Section 2 — Blotting Techniques</h2>
+<div class="card-grid">
+
+  <div class="card border-blot">
+    <div class="card-header">
+      <span class="card-tag tag-blot">Southern</span>
+      <span class="card-title">Southern Blot — Detects DNA</span>
+    </div>
+    <div class="row"><span class="row-label">Target:</span><span class="row-val"><strong>DNA</strong> — detects specific DNA sequence in a genome</span></div>
+    <div class="row"><span class="row-label">Steps:</span><span class="row-val">Digest (restriction enzymes) → gel electrophoresis → transfer to membrane → hybridize with labeled probe → visualize</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Reading the blot:</div>
+      — Band = sequence present; position = fragment size after restriction digest<br>
+      — No band = sequence absent or restriction site changed<br>
+      — Multiple bands = restriction site cuts within the target
+    </div>
+    <div class="trap">Southern = DNA. Don't confuse with Northern (RNA). If the question mentions restriction enzymes + probe hybridization to detect a gene → Southern.</div>
+  </div>
+
+  <div class="card border-blot">
+    <div class="card-header">
+      <span class="card-tag tag-blot">Northern</span>
+      <span class="card-title">Northern Blot — Detects RNA</span>
+    </div>
+    <div class="row"><span class="row-label">Target:</span><span class="row-val"><strong>RNA/mRNA</strong> — measures gene expression level and mRNA size</span></div>
+    <div class="row"><span class="row-label">Steps:</span><span class="row-val">Extract RNA → gel electrophoresis → transfer to membrane → probe hybridization → visualize</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Reading the blot:</div>
+      — Band presence = gene is being transcribed (expressed)<br>
+      — Band intensity = expression level (brighter = more mRNA)<br>
+      — Band position = mRNA size (compare to RNA ladder)<br>
+      — Multiple bands = alternative splicing isoforms
+    </div>
+    <div class="trap">Northern = RNA expression. No restriction enzyme needed (RNA doesn't need digestion). To detect protein → Western. To quantify expression more precisely → RT-qPCR.</div>
+  </div>
+
+  <div class="card border-blot">
+    <div class="card-header">
+      <span class="card-tag tag-blot">Western</span>
+      <span class="card-title">Western Blot — Detects Protein</span>
+    </div>
+    <div class="row"><span class="row-label">Target:</span><span class="row-val"><strong>Protein</strong> — confirms presence and size of a specific protein</span></div>
+    <div class="row"><span class="row-label">Steps:</span><span class="row-val">SDS-PAGE → transfer to PVDF/nitrocellulose → block → primary antibody → secondary antibody (HRP or fluorescent) → detect</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Reading the blot:</div>
+      — Band = protein present; position → MW (kDa, compare to ladder)<br>
+      — Intensity = relative protein amount<br>
+      — No band = protein absent, wrong antibody, or sample problem<br>
+      — Loading control (β-actin, GAPDH) confirms equal loading
+    </div>
+    <div class="trap">Western detects proteins but NOT activity — an inactive mutant protein still gives a band. For activity → enzyme assay. Primary antibody specificity determines what you detect.</div>
+  </div>
+
+</div>
+
+<h2>Section 3 — ELISA</h2>
+<div class="card-grid">
+  <div class="card border-elisa" style="grid-column: 1 / -1; max-width: 700px;">
+    <div class="card-header">
+      <span class="card-tag tag-elisa">ELISA</span>
+      <span class="card-title">ELISA — Enzyme-Linked Immunosorbent Assay</span>
+    </div>
+    <div class="row"><span class="row-label">Purpose:</span><span class="row-val">Quantify a specific antigen (or antibody) in solution — liquid sample, not on gel</span></div>
+    <div class="row"><span class="row-label">Types:</span><span class="row-val">Direct (1 antibody), Indirect (2 antibodies, more sensitive), Sandwich (capture + detection Ab), Competitive</span></div>
+    <div class="row"><span class="row-label">Signal:</span><span class="row-val">Enzyme on secondary antibody converts colorless substrate → colored product; absorbance measured by spectrophotometer</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Reading ELISA results:</div>
+      — Standard curve: known concentrations → plot absorbance vs concentration → linear range<br>
+      — Sample absorbance → interpolate from curve → get concentration<br>
+      — Higher absorbance = more antigen present (direct relationship in sandwich ELISA)<br>
+      — Competitive ELISA: <span class="neg">MORE antigen in sample → LESS signal</span> (inverse relationship)
+    </div>
+    <div class="trap">In competitive ELISA the relationship is INVERSE: high antigen → blocks labeled antigen from binding → low signal. Don't apply direct-ELISA logic to competitive ELISA.</div>
+  </div>
+</div>
+
+<h2>Section 4 — Chromatography</h2>
+<div class="card-grid">
+
+  <div class="card border-chrom">
+    <div class="card-header">
+      <span class="card-tag tag-chrom">Chrom</span>
+      <span class="card-title">Gel Filtration (Size-Exclusion)</span>
+    </div>
+    <div class="row"><span class="row-label">Separates by:</span><span class="row-val"><strong>Molecular size</strong></span></div>
+    <div class="row"><span class="row-label">Mechanism:</span><span class="row-val">Small molecules enter pores → delayed (slow). Large molecules excluded → elute first.</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Reading elution profile:</div>
+      — X-axis: elution volume (or fraction number)<br>
+      — Y-axis: absorbance (protein concentration)<br>
+      — <span class="pos">First peak = largest protein</span><br>
+      — <span class="neg">Later peaks = smaller proteins</span>
+    </div>
+    <div class="trap">Elution ORDER is OPPOSITE to SDS-PAGE order. Large comes off FIRST in gel filtration; large stays at TOP in SDS-PAGE. Both are size-based but opposite direction.</div>
+  </div>
+
+  <div class="card border-chrom">
+    <div class="card-header">
+      <span class="card-tag tag-chrom">Chrom</span>
+      <span class="card-title">Ion Exchange Chromatography</span>
+    </div>
+    <div class="row"><span class="row-label">Separates by:</span><span class="row-val"><strong>Charge</strong></span></div>
+    <div class="row"><span class="row-label">Mechanism:</span><span class="row-val">Charged resin binds oppositely charged proteins. Elute with increasing salt (NaCl) gradient — higher charge proteins elute last.</span></div>
+    <div class="row"><span class="row-label">Types:</span><span class="row-val">Cation exchange: negative resin, binds + proteins. Anion exchange: positive resin, binds − proteins.</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Reading elution:</div>
+      — Protein elutes when salt concentration matches its binding affinity<br>
+      — pH affects protein charge; changing pH can elute without salt
+    </div>
+    <div class="trap">Changing pH can change protein charge → changes when it elutes. Don't assume only salt gradient elutes. Also: a protein at its pI has zero net charge → won't bind ion exchange resin.</div>
+  </div>
+
+  <div class="card border-chrom">
+    <div class="card-header">
+      <span class="card-tag tag-chrom">Chrom</span>
+      <span class="card-title">Affinity Chromatography</span>
+    </div>
+    <div class="row"><span class="row-label">Separates by:</span><span class="row-val"><strong>Specific binding interaction</strong> (ligand-target)</span></div>
+    <div class="row"><span class="row-label">Mechanism:</span><span class="row-val">Column contains immobilized ligand. Target protein binds specifically; all others wash through. Elute with competing ligand, low pH, or high salt.</span></div>
+    <div class="row"><span class="row-label">Example:</span><span class="row-val">His-tag protein + Ni-NTA column; GST-tag + glutathione column; antibody + antigen column</span></div>
+    <div class="trap">Most selective purification — one-step can give near-pure protein. The "wash-through" fraction contains EVERYTHING that doesn't bind. Elution fraction = your target.</div>
+  </div>
+
+</div>
+
+<h2>Section 5 — Spectrophotometry &amp; Beer-Lambert</h2>
+<div class="card-grid">
+  <div class="card border-spec" style="grid-column: 1 / -1; max-width: 700px;">
+    <div class="card-header">
+      <span class="card-tag tag-spec">Spec</span>
+      <span class="card-title">Spectrophotometry &amp; Beer-Lambert Law</span>
+    </div>
+    <div class="row"><span class="row-label">Law:</span><span class="row-val"><strong>A = εlc</strong> &nbsp; (Absorbance = molar absorptivity × path length × concentration)</span></div>
+    <div class="row"><span class="row-label">Transmittance:</span><span class="row-val">A = −log(T) where T = I/I₀; A = 1 → 10% transmittance; A = 2 → 1% transmittance</span></div>
+    <div class="row"><span class="row-label">DNA:</span><span class="row-val">Absorbance at 260 nm. A₂₆₀/A₂₈₀ ratio: pure DNA ≈ 1.8; pure RNA ≈ 2.0; lower ratio = protein contamination</span></div>
+    <div class="row"><span class="row-label">Protein:</span><span class="row-val">Absorbance at 280 nm (Trp, Tyr residues); also Bradford assay (dye binding, 595 nm)</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Reading a standard curve / absorbance spectrum:</div>
+      — Spectrum: absorbance vs wavelength → peak = λmax (color absorbed = complementary to color observed)<br>
+      — Standard curve: known concentrations → fit line → unknown concentration from absorbance<br>
+      — Beer-Lambert is LINEAR only in a working range; saturates at high concentrations (A &gt; 1.5 typically)
+    </div>
+    <div class="trap">A solution that LOOKS blue absorbs ORANGE/RED light (complementary colors). The measured wavelength is the one being ABSORBED, not the color you see.</div>
+  </div>
+</div>
+
+<h2>Section 6 — Centrifugation</h2>
+<div class="card-grid">
+
+  <div class="card border-cent">
+    <div class="card-header">
+      <span class="card-tag tag-cent">Cent</span>
+      <span class="card-title">Differential Centrifugation</span>
+    </div>
+    <div class="row"><span class="row-label">Separates by:</span><span class="row-val"><strong>Size and density</strong> using sequential speed increases</span></div>
+    <div class="row"><span class="row-label">Order:</span><span class="row-val">Low speed → pellet cells &amp; debris → medium speed → pellet nuclei → high speed → pellet mitochondria → ultraspeed → pellet ribosomes/microsomes</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Reading results:</div>
+      — Each pellet = organelle fraction at that speed<br>
+      — Supernatant after each spin = smaller particles<br>
+      — Purity requires multiple washes
+    </div>
+    <div class="trap">Differential centrifugation fractions are ENRICHED, not pure. A "nuclear fraction" still contains some mitochondria that co-pellet at that speed.</div>
+  </div>
+
+  <div class="card border-cent">
+    <div class="card-header">
+      <span class="card-tag tag-cent">Cent</span>
+      <span class="card-title">Density Gradient Centrifugation</span>
+    </div>
+    <div class="row"><span class="row-label">Separates by:</span><span class="row-val"><strong>Buoyant density</strong> (equilibrium/isopycnic) or <strong>sedimentation rate</strong> (rate-zonal)</span></div>
+    <div class="row"><span class="row-label">CsCl gradient:</span><span class="row-val">Used for DNA; particles float at their isodensity point. Heavy DNA (e.g., ¹⁵N-labeled) sinks lower than light DNA (¹⁴N).</span></div>
+    <div class="row"><span class="row-label">Sucrose gradient:</span><span class="row-val">Rate-zonal; separates by size/shape; ribosomal subunits (40S, 60S, 80S) shown as peaks</span></div>
+    <div class="figure-box">
+      <div class="fig-title">Meselson-Stahl experiment (classic MCAT):</div>
+      — ¹⁵N heavy DNA → grown in ¹⁴N → CsCl gradient<br>
+      — Conservative: 2 bands (heavy + light)<br>
+      — Semiconservative: 1 hybrid band after 1 gen; 1 hybrid + 1 light after 2 gen<br>
+      — Dispersive: 1 intermediate band (both gens)<br>
+      — Result = semiconservative (1 hybrid band)
+    </div>
+    <div class="trap">In CsCl gradient: heavier density = lower position in the tube. ¹⁵N DNA is denser than ¹⁴N → pellets lower. Hybrid (¹⁵N/¹⁴N) is intermediate.</div>
+  </div>
+
+</div>
+
+<h2>Section 7 — Blotting Master Comparison</h2>
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>Blot Type</th>
+      <th>Detects</th>
+      <th>Probe/Detection</th>
+      <th>Preceded by</th>
+      <th>MCAT Memory Hook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Southern</strong></td>
+      <td>Specific <strong>DNA</strong> sequence</td>
+      <td>Labeled DNA/RNA probe</td>
+      <td>Restriction enzyme digest + agarose gel</td>
+      <td>"S" for DNA — discovered by Edwin <u>S</u>outhern</td>
+    </tr>
+    <tr>
+      <td><strong>Northern</strong></td>
+      <td>Specific <strong>RNA/mRNA</strong></td>
+      <td>Labeled DNA probe</td>
+      <td>Agarose gel (RNA)</td>
+      <td>"N"orthern = R<u>N</u>A; named by analogy</td>
+    </tr>
+    <tr>
+      <td><strong>Western</strong></td>
+      <td>Specific <strong>protein</strong></td>
+      <td>Primary + secondary antibody</td>
+      <td>SDS-PAGE</td>
+      <td>"W"estern = pro<u>t</u>ein — antibody-based</td>
+    </tr>
+    <tr>
+      <td><strong>Eastern</strong></td>
+      <td>Post-translational modifications (lipids, phospho)</td>
+      <td>Labeled probe specific to mod</td>
+      <td>SDS-PAGE or 2D gel</td>
+      <td>Rarely tested; "Eastern = modification"</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Section 8 — Chromatography Comparison</h2>
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>Technique</th>
+      <th>Basis of Separation</th>
+      <th>Elution Order</th>
+      <th>Best Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Gel Filtration</strong></td>
+      <td>Molecular size</td>
+      <td><span class="pos">Largest first</span></td>
+      <td>MW estimation, buffer exchange</td>
+    </tr>
+    <tr>
+      <td><strong>Ion Exchange</strong></td>
+      <td>Charge</td>
+      <td>Low charge first; high charge last (as salt ↑)</td>
+      <td>Charge-based purification</td>
+    </tr>
+    <tr>
+      <td><strong>Affinity</strong></td>
+      <td>Specific binding (ligand)</td>
+      <td>Non-specific wash through; target elutes with competitor</td>
+      <td>High-specificity purification; one-step</td>
+    </tr>
+    <tr>
+      <td><strong>SDS-PAGE</strong></td>
+      <td>MW (denatured)</td>
+      <td><span class="neg">Smallest runs farthest</span></td>
+      <td>MW determination, Western blot prep</td>
+    </tr>
+    <tr>
+      <td><strong>Native PAGE</strong></td>
+      <td>Charge + size + shape</td>
+      <td>Depends on net charge and size together</td>
+      <td>Activity preservation, complex analysis</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="print-note">stonesandivygrows/stonesandivygrows-mcat-prompt-library | study-notes/bio-biochem/lab-techniques/lab-techniques-and-figures.html</div>
+</body>
+</html>

@@ -1,178 +1,179 @@
 # MCAT Master Index
-**Last Updated:** 2026-07-13
-**Source of Truth for:** All local MCAT study assets and GitHub repo path references
+**Last Updated:** 2026-07-14 (rebuilt from full inventory — see `resources/inventory/existing-materials-audit.md`)  
+**Source of Truth for:** All MCAT study assets across all locations
 
-> **HOW TO READ THIS FILE**
-> - Paths marked `[LOCAL]` are inside `/Users/Neissa/Desktop/MCAT_Hub/` — Claude can directly read and write these.
-> - Paths marked `[GITHUB REPO]` are inside `/Users/Neissa/Desktop/mcat-prompt-library/` — Claude cannot access these directly. They are listed here as reference only.
-> - Files with both `.html` and `.md` versions: the `.html` is the visual/formatted version; the `.md` is the raw text version.
+> **HOW TO READ THIS FILE**  
+> `[LOCAL]` = `/Users/Neissa/Desktop/MCAT_Cowork/` (renamed from MCAT_Hub 2026-07-14; Claude Desktop restart required)  
+> `[GITHUB]` = `/Users/Neissa/Desktop/mcat-prompt-library/` — committed, versioned  
+> `[DRIVE]` = Google Drive  
+> `[EXTERNAL]` = Canva, Whimsical, Netlify, draw.io — MANUAL retrieval required  
+>
+> **Status codes:** `COMMITTED` `KEEP` `IMPROVE` `LINK` `REPLACE` `MANUAL`
 
 ---
 
-## SECTION 1 — LOCAL STUDY HUB
-**Root:** `/Users/Neissa/Desktop/MCAT_Hub/`
+## Quick Navigation
 
-### 1.1 Biochemistry
-**Path:** `MCAT_Hub/Biochemistry/`
+| Location | Root | Notes |
+|----------|------|-------|
+| [GitHub Repo — New (this session)](#section-1-github-repo--new-this-session) | `/Desktop/mcat-prompt-library/` | Visuals, mind maps, plan |
+| [GitHub Repo — Pre-existing](#section-2-github-repo--pre-existing) | `/Desktop/mcat-prompt-library/` | CARS, study notes, UWorld |
+| [Local MCAT_Cowork](#section-3-local-mcat_cowork) | `/Desktop/MCAT_Cowork/` | Markmap HTMLs, lab techniques |
+| [Google Drive](#section-4-google-drive) | Drive → MCAT | PDFs, whiteboards, physics map |
+| [External Platforms](#section-5-external-platforms-manual) | Canva, Whimsical, Netlify, draw.io | MANUAL |
+| [Discord Resources](#section-6-discord-resources) | `resources/discord-finds/` | Links need population |
+| [Manual Actions](#section-7-manual-actions-required) | — | Morning checklist |
 
-| File | Format | Topic |
-|------|--------|-------|
-| `amino_acids.html` | HTML | Amino Acids (visual) |
-| `amino_acids.md` | Markdown | Amino Acids (text) |
-| `carbohydrate_metabolism.html` | HTML | Carbohydrate Metabolism |
-| `carbohydrates.html` | HTML | Carbohydrate Structure (visual) |
-| `carbohydrates.md` | Markdown | Carbohydrate Structure (text) |
-| `dhap_crossroads.html` | HTML | DHAP Metabolic Crossroads |
-| `enzymes.html` | HTML | Enzymes (visual) |
-| `enzymes.md` | Markdown | Enzymes (text) |
-| `gpcr_signaling.html` | HTML | GPCR Signaling Pathways |
-| `membranes.html` | HTML | Biological Membranes |
-| `metabolic_shuttles.html` | HTML | Metabolic Shuttles |
-| `metabolism.html` | HTML | Metabolism Overview |
-| `metabolism_rules.html` | HTML | Metabolism Rules |
-| `molecular_building_blocks.html` | HTML | Molecular Building Blocks |
+---
 
-### 1.2 Biology
-**Path:** `MCAT_Hub/Biology/`
+## Section 1: GitHub Repo — New (this session)
 
-| File | Format | Topic |
-|------|--------|-------|
-| `cardiovascular.html` | HTML | Cardiovascular System (visual) |
-| `cardiovascular.md` | Markdown | Cardiovascular System (text) |
-| `digestion.html` | HTML | Digestion |
-| `embryogenesis.html` | HTML | Embryogenesis |
-| `endocrine.html` | HTML | Endocrine System |
-| `immune_system.html` | HTML | Immune System |
-| `nervous_system.html` | HTML | Nervous System |
+### Study Visuals (HTML)
 
-### 1.3 General Chemistry
-**Path:** `MCAT_Hub/General_Chemistry/`
+| Path | Description | Status |
+|------|-------------|--------|
+| `study-notes/bio-biochem/carbohydrates/carbohydrate-comparison-visual.html` | Aldonic/aldaric/uronic acid table; reducing/non-reducing flowcharts; 8 comparison terms | COMMITTED |
+| `study-notes/bio-biochem/lab-techniques/lab-techniques-and-figures.html` | Gel electrophoresis, SDS-PAGE, PCR, Southern/Northern/Western, ELISA, chromatography, Beer-Lambert, centrifugation | COMMITTED |
+| `study-notes/bio-biochem/lab-techniques/lab-techniques-connection-web.html` | Interactive canvas network diagram (dark theme; click nodes for details) | COMMITTED |
+| `study-notes/mcat-mind-maps/behavior-and-neuroscience-test.html` | Markmap — behavior & neuroscience (in-progress; from prior scratchpad) | COMMITTED |
 
-| File | Format | Topic |
-|------|--------|-------|
-| `acids_and_bases.html` | HTML | Acids and Bases (visual) |
-| `acids_and_bases.md` | Markdown | Acids and Bases (text) |
+### Study Notes (Markdown)
 
-### 1.4 Organic Chemistry
-**Path:** `MCAT_Hub/Organic_Chemistry/`
+| Path | Description | Status |
+|------|-------------|--------|
+| `study-notes/mcat-mind-maps/bio-biochem-section-04-nucleic-acids-dna-rna.md` | Nucleic acids, DNA replication enzymes, RNA types, transcription, translation, mutations, repair, epigenetics | COMMITTED |
 
-| File | Format | Topic |
-|------|--------|-------|
-| `sound_alikes.html` | HTML | Sound-Alike Terms |
-| `stereochemistry.html` | HTML | Stereochemistry |
+### Plans & Inventory
 
-### 1.5 Physics
-**Path:** `MCAT_Hub/Physics/`
+| Path | Description | Status |
+|------|-------------|--------|
+| `study-plans/study_plan_july2026.md` | July 2026 plan (test Jul 31; Aiden milestone Jul 24; priority: Orgo → GenChem → Physics → Biochem) | COMMITTED |
+| `resources/inventory/existing-materials-audit.md` | Full audit of all materials across all locations (2026-07-14) | COMMITTED |
+| `resources/discord-finds/README.md` + server files | Discord resource collection structure (needs manual population) | COMMITTED |
 
-| File | Format | Topic |
-|------|--------|-------|
-| `electricity_circuits.html` | HTML | Electricity and Circuits |
-| `electrostatics.html` | HTML | Electrostatics |
-| `units_math.html` | HTML | Units and Math Foundations |
+---
 
-### 1.6 Psychology / Social Sciences
-**Path:** `MCAT_Hub/Psychology/`
+## Section 2: GitHub Repo — Pre-existing
 
-| File | Format | Topic |
-|------|--------|-------|
-| `behavior_neuroscience.html` | HTML | Behavior and Neuroscience (visual) |
-| `behavior_neuroscience.md` | Markdown | Behavior and Neuroscience (text) |
+### Mind Map Series (Aiden deck extractions)
 
-### 1.7 Root-Level Files
-**Path:** `MCAT_Hub/`
-
-| File | Purpose |
+| File | Content |
 |------|---------|
-| `master_index.md` | This file — source of truth for all paths |
-| `project_snapshot.md` | Project overview and status snapshot |
-| `anki_corrections.md` | Corrections and edits flagged from Anki review |
-| `index.html` | Visual hub homepage (browser-viewable) |
-| `assets/` | Supporting media/images folder (currently empty) |
+| `study-notes/mcat-mind-maps/00-` | Canonical index of all Anki project mind map content |
+| `study-notes/mcat-mind-maps/01-` | Foundational sciences (gen chem, orgo, physics) |
+| `study-notes/mcat-mind-maps/02-` | Biochemistry, cell & molecular |
+| `study-notes/mcat-mind-maps/03-` | Biological systems (organ systems) |
+| `study-notes/mcat-mind-maps/04-` | Behavioral sciences |
+| `study-notes/mcat-mind-maps/05-` | CARS and test strategy |
+| `study-notes/mcat-mind-maps/06-` | Anki and production workflows |
+| `study-notes/mcat-mind-maps/07-` | Cross-link, contradiction, gap audit |
+
+**Still needed (Sections 05–10):** Genetics, Metabolism, Organ Systems, Endocrine, Nervous System, Behavioral Sciences
+
+### Study Notes (pre-existing)
+
+| Path | Topic |
+|------|-------|
+| `study-notes/bio-biochem/biological-membranes/fluid-mosaic-model-and-membrane-proteins.md` | Membrane structure |
+| `study-notes/biology/reproduction/gametogenesis-fertilization-development-terminology.md` | Reproduction |
+| `study-notes/chem-phys/foundational-concepts/equation-memory-hooks.md` | Equation hooks |
+| `study-notes/chem-phys/foundational-concepts/gas-laws-variables-constraints-and-piston-work.md` | Gas laws |
+| `study-notes/chem-phys/foundational-concepts/sign-conventions-negative-values.md` | Sign conventions |
+| `study-notes/organic-chemistry/carboxylic-acid-derivatives/amide-hydrolysis-nucleophilic-acyl-substitution.md` | Amide hydrolysis |
+| `study-notes/organic-chemistry/enolates/kinetic-vs-thermodynamic-product-control.md` | Enolate control |
+| `study-notes/organic-chemistry/spectroscopy/spectroscopy-and-mass-spectrometry-concept-map.md` | Spectroscopy |
+| `study-notes/psych-soc/social-perception-and-culture-distinctions.md` | Psych/soc distinctions |
+| `biology/nervous-system/autonomic-neurotransmission.md` | Autonomic NS |
+| `biology/nervous-system/autonomic-relay-map.html` | Autonomic relay map (HTML) |
+
+### CARS
+
+| Path | Description |
+|------|-------------|
+| `cars/01-strategy-garden/` | CARS operating system, timing, passage protocols |
+| `cars/02-pattern-reports/` | Core strategy failure reports |
+| `cars/03-jack-westin-session-hubs/` | Jack Westin session reviews |
+| `cars/04-passage-autopsies/` | Question-by-question analysis templates |
+| `cars/strategy/` | Current CARS testing strategy (updated 2026-06-08) |
+
+### Practice Review
+
+| Path | Description |
+|------|-------------|
+| `practice-review/uworld/uworld-verbatim-transcription-running-master-docx-workflow.md` | UWorld workflow |
+| `running-documents/mcat-running-review-and-notes-master.md` | Running review log — add to daily |
 
 ---
 
-## SECTION 2 — GITHUB REPOSITORY PATHS
-**Root:** `/Users/Neissa/Desktop/mcat-prompt-library/`
-*(Claude cannot access this directory. Paths listed here are for your reference and navigation.)*
+## Section 3: Local MCAT_Cowork
+**Root:** `/Users/Neissa/Desktop/MCAT_Cowork/`  
+**⚠ Claude Desktop restart required** for filesystem MCP to use the new path (renamed from MCAT_Hub 2026-07-14).
 
-### 2.1 Practice Review
-| Path | Contents |
-|------|----------|
-| `practice-review/uworld/` | UWorld review guides, autopsy templates, transcription workflows |
-| `practice-review/uworld/2026-06-20__uworld_test_5__ps_q1-10_review_guide.md` | Psych/Soc Q1–10 review; key error: signal detection theory |
+| Folder | Key Files | Note |
+|--------|-----------|------|
+| `Biochemistry/` | amino_acids, carbohydrate_metabolism, carbohydrates, dhap_crossroads, enzymes, gpcr_signaling, membranes, metabolic_shuttles, metabolism, metabolism_rules, molecular_building_blocks | All `.html` + `.md` Markmap format |
+| `Biology/` | cardiovascular, digestion, embryogenesis, endocrine, immune_system, nervous_system | All `.html` visuals |
+| `General_Chemistry/` | acids_and_bases | `.html` + `.md` |
+| `Organic_Chemistry/` | sound_alikes, stereochemistry | `.html` visuals |
+| `Physics/` | electricity_circuits, electrostatics, units_math | `.html` visuals |
+| `Psychology/` | behavior_and_neuroscience (v1 + v2), both `.html` + `.md` | Markmap format |
+| Root | `lab_techniques_connection_web.html`, `OPEN_CLAUDE_MCAT_HUB.html`, `master_index.md`, `recovery_report.md`, `index.html` | Hub launchers |
 
-### 2.2 Study Notes
-| Path | Contents |
-|------|----------|
-| `study-notes/bio-biochem/biological-membranes/` | Fluid mosaic model and membrane proteins |
-| `study-notes/biology/reproduction/` | Gametogenesis, fertilization, development terminology |
-| `study-notes/chem-phys/foundational-concepts/` | Sign conventions; gas laws, variables, constraints, and piston work |
-| `study-notes/mcat-mind-maps/` | Knowledge maps from Anki project ChatGPT conversations |
-| `study-notes/mcat-mind-maps/00-anki-project-chat-coverage-and-map-architecture.md` | Canonical index of all mind map content (created 2026-07-11) |
-
-### 2.3 CARS (Critical Analysis and Reasoning Skills)
-| Path | Contents |
-|------|----------|
-| `cars/01-strategy-garden/cars-operating-system-and-decision-tree.md` | Core CARS operating system; one task at a time rule |
-| `cars/01-strategy-garden/question-stem-translations-and-boundaries.md` | Inference vs. assumption boundary definitions |
-| `cars/01-strategy-garden/syntax-proper-nouns-quotes-and-punctuation-protocol.md` | Sentence-spine method |
-| `cars/04-passage-autopsies/question-by-question-game-tape-template.md` | Per-session autopsy template |
-| `cars/strategy/syntax-interruption-and-targeted-reread-protocol.md` | Handling parentheses, em dashes, appositives, quotations |
-
-### 2.4 MCAT Concept Maps
-| Path | Contents |
-|------|----------|
-| `mcat-concept-maps/` | Concept maps (check repo for current files) |
-
-### 2.5 Study Workflows
-| Path | Contents |
-|------|----------|
-| `study-workflows/anki-pdf-active-recall-backward-review.md` | Anki + PDF backward active recall method |
-| `study-workflows/browser-review-export/README.md` | Video-hiding style, GoFullPage, UWorld console scripts |
-| `practice-review/uworld/uworld-verbatim-transcription-running-master-docx-workflow.md` | UWorld transcription workflow |
-| `practice-review/uworld/uworld-mcat-science-practice-test-autopsy-prompt.md` | Science set autopsy prompt (not for CARS) |
-
-### 2.6 Running Documents (Cross-Subject Consolidation)
-| Path | Contents |
-|------|----------|
-| `running-documents/mcat-running-review-and-notes-master.md` | **Primary consolidation hub** — all new material enters here as dated entries (created 2026-06-23) |
+**Note on carbohydrates.html:** This is a Markmap mind map. The new `carbohydrate-comparison-visual.html` in GitHub is a different format (table + flowchart). They are complementary.
 
 ---
 
-## SECTION 3 — RULES AND CONVENTIONS
+## Section 4: Google Drive
 
-### Source Hierarchy (for all study work)
-1. GitHub consolidated notes (`running-documents/mcat-running-review-and-notes-master.md`) — **always check first**
-2. Aiden deck (current Anki deck, ~8,887 cards) — **primary flashcard source**
-3. Kaplan / UWorld — **for fact-checking and gap-filling only**
-
-> ⚠️ **Important:** The Aiden deck is the current active Anki deck. The Captain Hook deck is a legacy deck from approximately one month prior — do not use it as a source.
-
-### Consolidation Rule
-All new study material goes into `running-documents/mcat-running-review-and-notes-master.md` as **dated entries**.
-Standalone files are only created for: templates, scripts, printable exports, or major finished guides.
-
-### File Naming Convention (GitHub repo)
-- Dated files: `YYYY-MM-DD__descriptive-name.md`
-- Undated files: `descriptive-name-in-kebab-case.md`
+| Item | Type | Status |
+|------|------|--------|
+| `Whiteboard- Behavioral Science Mind Map.pdf` | PDF | LINK |
+| `Whiteboard- Chemistry Mind Map.pdf` | PDF | LINK |
+| `Whiteboard- Physics Mind Map.pdf` | PDF | LINK |
+| `Whiteboard- Biology-Biochemistry Mindmap.pdf` (2 versions) | PDF | LINK |
+| `Whiteboard- Fatty Acid Metabolism Mind Map.pdf` | PDF | LINK |
+| `MCAT_Physics_Complete_MindMap.md` (307KB, 8 sections) | Markdown | LINK |
+| `MCAT_Physics_MindMap_Access_Guide.md` | Markdown | LINK |
+| `Biochemistry_Mindmap_Templates` | Google Doc (Kaplan ch 1–12 prompts) | LINK — never executed |
+| `Mind map biology` | Google Doc (Captain Hook: Reproduction, Immune, Digestive, Respiratory, Musculoskeletal) | REPLACE — old deck; rebuild from Aiden |
 
 ---
 
-## SECTION 4 — QUICK SUBJECT LOOKUP
+## Section 5: External Platforms (MANUAL)
 
-| Subject | Local Path | GitHub Path |
-|---------|-----------|-------------|
-| Biochemistry | `MCAT_Hub/Biochemistry/` | `study-notes/bio-biochem/` |
-| Biology | `MCAT_Hub/Biology/` | `study-notes/biology/` |
-| General Chemistry | `MCAT_Hub/General_Chemistry/` | `study-notes/chem-phys/` |
-| Organic Chemistry | `MCAT_Hub/Organic_Chemistry/` | `study-notes/chem-phys/` |
-| Physics | `MCAT_Hub/Physics/` | `study-notes/chem-phys/` |
-| Psychology/Soc | `MCAT_Hub/Psychology/` | `practice-review/uworld/` |
-| CARS | *(no local files)* | `cars/` |
-| Concept Maps | *(no local files)* | `mcat-concept-maps/` |
-| Running Notes | *(no local files)* | `running-documents/` |
-| Workflows | *(no local files)* | `study-workflows/` |
+| Platform | What's there | Action needed |
+|----------|-------------|---------------|
+| **Canva / Claude Design** | Slides and mind maps (quantity and topics unknown) | List topics manually or connect Canva MCP |
+| **Whimsical** | Weakness-analysis mind maps from ChatGPT sessions | Export as PNG or retrieve URLs |
+| **Netlify** | At least 1 deployed HTML visual (confirmed "BEAUTIFUL" — exact URL unknown) | Retrieve URL from Netlify dashboard |
+| **draw.io** | MCAT concept maps (topics unknown) | Export or list file names |
 
 ---
 
-*This file is maintained by Claude. To update it, ask Claude to rescan `/Users/Neissa/Desktop/MCAT_Hub/` or provide updated GitHub paths manually.*
+## Section 6: Discord Resources
+**Root:** `resources/discord-finds/`  
+Structure created 2026-07-14. Links need manual population.
+
+| File | Server | Status |
+|------|--------|--------|
+| `aamc-warriors.md` | AAMC Warriors | Template ready — MANUAL |
+| `mi-gente-latino.md` | Mi Gente Latino | Template ready — MANUAL |
+| `528.md` | 528 server | Template ready — MANUAL |
+| `chrome-bookmarks-export.md` | All | Tab group guide — MANUAL |
+
+---
+
+## Section 7: Manual Actions Required
+
+Morning checklist (in order):
+
+- [ ] **Claude Desktop restart** — required for MCAT_Cowork rename to take effect in filesystem MCP
+- [ ] **Canva/Claude Design** — list all MCAT slides/mind maps; add to inventory + this index
+- [ ] **Whimsical** — export or link weakness-analysis diagrams; add URLs to inventory
+- [ ] **Netlify** — retrieve deployed HTML URL(s) from Netlify dashboard; add to inventory
+- [ ] **draw.io** — export or list concept map files; add to inventory
+- [ ] **Discord AAMC Warriors** — review #resources and pinned; populate `resources/discord-finds/aamc-warriors.md`
+- [ ] **Discord Mi Gente Latino** — same; populate `resources/discord-finds/mi-gente-latino.md`
+- [ ] **Discord 528** — same; populate `resources/discord-finds/528.md`
+- [ ] **open-exam-skills color/font fix** — requires Claude Desktop session (local filesystem access)
+- [ ] **mcat/ archive full scan** — `/Desktop/mcat/` has HTML visuals worth committing; manual review needed

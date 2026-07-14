@@ -69,10 +69,10 @@
 
 ---
 
-## SECTION 2 — Local MCAT_Cowork (`/Users/Neissa/Desktop/MCAT_Hub/`)
+## SECTION 2 — Local MCAT_Cowork (`/Users/Neissa/Desktop/MCAT_Cowork/`)
 > **⚠ NOTE:** This folder was renamed to `MCAT_Cowork` this session (Task 7). Path going forward: `/Users/Neissa/Desktop/MCAT_Cowork/`. Claude Desktop restart required for config to apply.
 
-### 2.1 Biochemistry (`MCAT_Hub/Biochemistry/`)
+### 2.1 Biochemistry (`MCAT_Cowork/Biochemistry/`)
 
 | File | Description | Status |
 |------|-------------|--------|
@@ -93,7 +93,7 @@
 
 > **carbohydrates.html NOTE:** This is a Markmap mind map. A NEW comparison table HTML (`study-notes/bio-biochem/carbohydrates/carbohydrate-comparison-visual.html`) was created this session with different format (table + flowchart). These are complementary, not duplicates.
 
-### 2.2 Biology (`MCAT_Hub/Biology/`)
+### 2.2 Biology (`MCAT_Cowork/Biology/`)
 
 | File | Description | Status |
 |------|-------------|--------|
@@ -104,20 +104,20 @@
 | `immune_system.html` | Immune system visual | KEEP |
 | `nervous_system.html` | Nervous system visual | KEEP |
 
-### 2.3 General Chemistry (`MCAT_Hub/General_Chemistry/`)
+### 2.3 General Chemistry (`MCAT_Cowork/General_Chemistry/`)
 
 | File | Description | Status |
 |------|-------------|--------|
 | `acids_and_bases.html` + `.md` | Acids and bases visual + text | KEEP |
 
-### 2.4 Organic Chemistry (`MCAT_Hub/Organic_Chemistry/`)
+### 2.4 Organic Chemistry (`MCAT_Cowork/Organic_Chemistry/`)
 
 | File | Description | Status |
 |------|-------------|--------|
 | `sound_alikes.html` | Sound-alike terms visual | KEEP |
 | `stereochemistry.html` | Stereochemistry visual | KEEP |
 
-### 2.5 Physics (`MCAT_Hub/Physics/`)
+### 2.5 Physics (`MCAT_Cowork/Physics/`)
 
 | File | Description | Status |
 |------|-------------|--------|
@@ -125,18 +125,18 @@
 | `electrostatics.html` | Electrostatics visual | KEEP |
 | `units_math.html` | Units and math foundations visual | KEEP |
 
-### 2.6 Psychology (`MCAT_Hub/Psychology/`)
+### 2.6 Psychology (`MCAT_Cowork/Psychology/`)
 
 | File | Description | Status |
 |------|-------------|--------|
 | `behavior_and_neuroscience.html` + `.md` | Behavior & neuroscience visual (Markmap) + text | KEEP |
 | `behavior_neuroscience.html` + `.md` | Behavior & neuroscience visual (second version, newer) + text | KEEP |
 
-### 2.7 Root-Level Files (`MCAT_Hub/`)
+### 2.7 Root-Level Files (`MCAT_Cowork/`)
 
 | File | Description | Status |
 |------|-------------|--------|
-| `master_index.md` | Local-path index of all MCAT_Hub files (2026-07-13, comprehensive) | KEEP (separate from GitHub master_index.md) |
+| `master_index.md` | Local-path index of all MCAT_Cowork files (2026-07-13, comprehensive) | KEEP (separate from GitHub master_index.md) |
 | `project_snapshot.md` | Overview: 23 maps built of 72; Aiden deck corrections; B&N content summary | KEEP |
 | `anki_corrections.md` | 3 confirmed Aiden deck errors: apoenzyme def, mitral valve name, histamine CNS role | KEEP |
 | `index.html` | Visual hub homepage (browser-viewable dashboard) | KEEP |

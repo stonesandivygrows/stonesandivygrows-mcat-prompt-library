@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab Techniques — Connection Web</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #080c14; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif; }
+canvas { display: block; }
+#legend {
+  position: fixed; top: 12px; left: 12px;
+  background: rgba(8,12,20,0.92); border: 1px solid #1e2a3a;
+  border-radius: 10px; padding: 12px 14px;
+  color: #78909c; font-size: 10.5px; line-height: 1.9; pointer-events: none;
+}
+#legend strong { color: #90caf9; display: block; font-size: 11px; margin-bottom: 4px; }
+.leg { display: flex; align-items: center; gap: 7px; }
+.leg-line { width: 22px; height: 2.5px; border-radius: 1px; flex-shrink: 0; }
+.leg-dash { border-top: 2.5px dashed #ff8a65; background: none !important; }
+#infobox {
+  position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+  background: rgba(8,12,20,0.97); border: 1px solid #3f51b5;
+  border-radius: 10px; padding: 13px 20px; color: #b0bec5;
+  font-size: 12px; text-align: center; pointer-events: none;
+  display: none; max-width: 520px; line-height: 1.65; min-width: 280px;
+}
+#info-name { color: #90caf9; font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+#info-desc { color: #cfd8dc; font-size: 11.5px; }
+#title {
+  position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+  color: #263238; font-size: 10px; letter-spacing: 2.5px;
+  text-transform: uppercase; pointer-events: none; white-space: nowrap;
+}
+#hint {
+  position: fixed; top: 32px; left: 50%; transform: translateX(-50%);
+  color: #1e2a3a; font-size: 9.5px; letter-spacing: 1px;
+  pointer-events: none; white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="title">LAB TECHNIQUES — CONNECTION WEB</div>
+<div id="hint">click any node · click again to deselect</div>
+<div id="legend">
+  <strong>Connection Types</strong>
+  <div class="leg"><div class="leg-line" style="background:#4fc3f7"></div>feeds into (workflow)</div>
+  <div class="leg"><div class="leg-line" style="background:#a5d6a7"></div>variant / scale-up</div>
+  <div class="leg"><div class="leg-line" style="background:#ffe082"></div>compare / distinguish (MCAT)</div>
+  <div class="leg"><div class="leg-line leg-dash"></div>⚠️ MCAT TRAP: opposite!</div>
+  <div class="leg"><div class="leg-line" style="background:#ce93d8"></div>same underlying principle</div>
+</div>
+<div id="infobox">
+  <div id="info-name"></div>
+  <div id="info-desc"></div>
+</div>
+<script>
+const C = document.getElementById('c');
+const ctx = C.getContext('2d');
+C.width = window.innerWidth;
+C.height = window.innerHeight;
+let W = C.width, H = C.height;
+
+const GC = {
+  dna:    { fill:'#0d1b4a', stroke:'#5c6bc0', text:'#9fa8da' },
+  gel:    { fill:'#2d0a45', stroke:'#9c27b0', text:'#ce93d8' },
+  blot:   { fill:'#00252a', stroke:'#00acc1', text:'#80deea' },
+  protein:{ fill:'#3a0a0a', stroke:'#ef5350', text:'#ffcdd2' },
+  purify: { fill:'#0a2010', stroke:'#43a047', text:'#a5d6a7' },
+  sep:    { fill:'#2a1500', stroke:'#ff8f00', text:'#ffe082' },
+  struct: { fill:'#2a0018', stroke:'#e91e63', text:'#f48fb1' },
+  enzyme: { fill:'#001520', stroke:'#0288d1', text:'#81d4fa' },
+  carb:   { fill:'#1a0f0a', stroke:'#8d6e63', text:'#d7ccc8' },
+};
+const EC = {
+  feeds:'#4fc3f7', variant:'#a5d6a7', compare:'#ffe082',
+  contrast:'#ff8a65', sameprinciple:'#ce93d8'
+};
+
+const RAW = [
+  {id:'rt_pcr',      label:'RT-PCR',                 g:'dna',     desc:'RNA → cDNA via reverse transcriptase, then amplified by PCR. Essential for studying gene EXPRESSION from mRNA.'},
+  {id:'pcr',         label:'PCR',                    g:'dna',     desc:'Amplifies specific DNA exponentially (2ⁿ/cycle). Heat denatures strands — no helicase. Taq polymerase (heat-resistant). Needs primers.'},
+  {id:'qpcr',        label:'qPCR',                   g:'dna',     desc:'PCR + real-time fluorescence (SYBR Green or TaqMan). Quantifies exact copy number. Most sensitive RNA/DNA quantification method.'},
+  {id:'restriction', label:'Restriction\nEnzymes',   g:'dna',     desc:'Cut dsDNA at specific palindromic sequences. Produce sticky ends (overhangs) or blunt ends. Type II = used in cloning.'},
+  {id:'cloning',     label:'Cloning &\nLigation',    g:'dna',     desc:'Gene of interest cut with restriction enzyme → inserted into plasmid vector → ligase seals → bacteria transformed → colonies selected.'},
+  {id:'crispr',      label:'CRISPR-Cas9',            g:'dna',     desc:'Guide RNA directs Cas9 endonuclease to specific genomic site → double-strand cut → repaired via NHEJ (error-prone) or HDR (precise).'},
+  {id:'sanger',      label:'Sanger\nSequencing',     g:'dna',     desc:'Chain-terminating method: ddNTPs (no 3\'OH) stop chain growth. Different-sized fragments → gel reads sequence. Classic; accurate to ~800 bp.'},
+  {id:'agarose_gel', label:'Agarose\nGel Elec.',     g:'gel',     desc:'Separates DNA/RNA by SIZE. All nucleic acids carry (−) charge → migrate toward (+). Smaller = farther. Visualize with EtBr or SYBR Green under UV.'},
+  {id:'sds_page',    label:'SDS-PAGE',               g:'gel',     desc:'SDS denatures proteins + gives uniform (−) charge → separates by SIZE ONLY. Reducing agent (DTT, β-ME) breaks disulfide bonds. Run toward (+).'},
+  {id:'southern',    label:'Southern Blot\n(DNA)',   g:'blot',    desc:'Detects specific DNA sequence. Steps: agarose gel → denature → transfer to nitrocellulose membrane → hybridize labeled DNA probe → expose.'},
+  {id:'northern',    label:'Northern Blot\n(RNA)',   g:'blot',    desc:'Detects specific RNA. Same as Southern but RNA is transferred. Reveals TRANSCRIPT SIZE and relative expression level across samples.'},
+  {id:'western',     label:'Western Blot\n(Protein)',g:'blot',    desc:'Detects specific protein. SDS-PAGE FIRST → transfer → block → primary antibody → secondary Ab-HRP → ECL chemiluminescence. Band = target.'},
+  {id:'fish',        label:'FISH',                   g:'blot',    desc:'Fluorescent In Situ Hybridization. Fluorescent DNA probe hybridizes to CHROMOSOME in intact cell → visualize chromosomal location, deletions, translocations.'},
+  {id:'microarray',  label:'Microarray\n(Gene Chip)',g:'blot',    desc:'Thousands of probes on chip simultaneously detect thousands of genes. Compare expression profiles across conditions. Replaced by RNA-seq for new studies.'},
+  {id:'elisa',       label:'ELISA',                  g:'protein', desc:'Quantifies specific protein or Ab in solution. Direct (enzyme-linked 1° Ab), Indirect (enzyme-linked 2° Ab), Sandwich (most sensitive: capture + detect Ab).'},
+  {id:'co_ip',       label:'Co-IP /\nChIP',          g:'protein', desc:'Immunoprecipitation: Ab pulls down target → pellet includes binding partners (Co-IP) or DNA (ChIP). Detects protein-protein or protein-DNA interactions.'},
+  {id:'facs',        label:'Flow Cytometry\n(FACS)', g:'protein', desc:'Counts/sorts individual cells using fluorescent antibodies. Detects surface markers, intracellular proteins. Can physically sort cell populations.'},
+  {id:'bradford',    label:'Bradford /\nBCA Assay',  g:'protein', desc:'Colorimetric protein QUANTIFICATION. Bradford: Coomassie dye → 595 nm. BCA: Cu²⁺ reduced by protein → 562 nm. Requires standard curve.'},
+  {id:'centrifuge',  label:'Centrifugation',         g:'purify',  desc:'Separates by density/size. Differential: stepwise speed → nuclei first → mitochondria → ribosomes. CsCl gradient: DNA by GC content (Meselson-Stahl).'},
+  {id:'affinity',    label:'Affinity\nChromatography',g:'purify', desc:'Most specific purification step. Exploits specific binding (His-tag → Ni²⁺ column; antibody → antigen). First step after centrifugation. Highest purity gain.'},
+  {id:'ion_ex',      label:'Ion Exchange\nChrom.',   g:'purify',  desc:'Charged column binds proteins of opposite charge. Elute with increasing NaCl gradient. Separates by NET CHARGE at given pH. Step 2 in purification.'},
+  {id:'sec',         label:'SEC / Gel\nFiltration',  g:'purify',  desc:'Separates by SIZE using porous beads. LARGE proteins excluded from pores → ELUTE FIRST. Small proteins enter pores → elute last. ⚠️ OPPOSITE of agarose gel!'},
+  {id:'tlc',         label:'TLC',                    g:'sep',     desc:'Thin-Layer Chromatography. Stationary: polar silica. Rf = spot distance ÷ solvent front. Normal phase: POLAR = low Rf (sticks to silica); nonpolar = high Rf.'},
+  {id:'column',      label:'Column\nChromatography', g:'sep',     desc:'Preparative scale-up of TLC. Same stationary/mobile phase principle. Collect fractions. Normal or reverse phase. Confirm purity of each fraction by TLC.'},
+  {id:'hplc',        label:'HPLC',                   g:'sep',     desc:'High-Pressure LC: column under high pressure → faster, better resolution than standard column. Reverse phase most common: nonpolar stationary + polar mobile.'},
+  {id:'gc',          label:'GC / GC-MS',             g:'sep',     desc:'Gas Chromatography: separates VOLATILE compounds in gas phase by BP and stationary phase affinity. GC-MS combines separation (GC) with identification (MS).'},
+  {id:'distillation',label:'Distillation',           g:'sep',     desc:'Simple (>25°C BP diff), Fractional (<25°C, fractionating column), Vacuum (reduces BP for heat-sensitive), Steam (water-immiscible compounds).'},
+  {id:'titration',   label:'Titration',              g:'sep',     desc:'Add known concentration (titrant) to unknown. Equivalence pt: moles acid = moles base. Half-eq pt: pH = pKa. Buffer region: ±1 pH unit from pKa.'},
+  {id:'ir',          label:'IR Spectroscopy',        g:'struct',  desc:'Identifies FUNCTIONAL GROUPS by bond vibrations. C=O sharp ~1700 cm⁻¹; O-H broad ~3300; N-H ~3300-3500; C≡N ~2200. Y-axis = % transmittance (dips = absorption).'},
+  {id:'nmr',         label:'NMR\n(¹H / ¹³C)',        g:'struct',  desc:'¹H: unique proton environments, chemical shift (δ), integration ∝ # Hs, n+1 splitting rule. ¹³C: unique C environments, no splitting. TMS = 0 ppm reference.'},
+  {id:'ms',          label:'Mass Spec (MS)',          g:'struct',  desc:'M⁺ peak = molecular weight. Base peak = most stable fragment. M+2 doublet at ≈1:1 = bromine; ≈3:1 = chlorine. GC-MS combines separation + identification.'},
+  {id:'xray',        label:'X-ray\nCrystallography', g:'struct',  desc:'X-rays diffract through pure crystal → electron density map → 3D atomic structure. Gold standard for protein structure. Limitation: requires pure crystal.'},
+  {id:'uvvis',       label:'UV-Vis\nSpectroscopy',   g:'struct',  desc:'Beer-Lambert: A = εlc. More conjugation → longer λmax (bathochromic shift). DNA: 260 nm. Protein (Trp/Tyr): 280 nm. A260/A280 ≈1.8 = pure DNA; ≈2.0 = pure RNA.'},
+  {id:'mm',          label:'Michaelis-Menten\nPlot', g:'enzyme',  desc:'Hyperbolic V vs [S] curve. Vmax = maximum velocity plateau. Km = [S] at ½Vmax. LOW Km = HIGH affinity. Inhibition changes curve shape.'},
+  {id:'lwb',         label:'Lineweaver-Burk\nPlot',  g:'enzyme',  desc:'Double-reciprocal of MM: 1/V vs 1/[S]. Y-int = 1/Vmax; X-int = −1/Km. Competitive: X-int shifts (Km↑), Y-int same. Non-competitive: Y-int shifts (Vmax↓), X-int same. Uncompetitive: PARALLEL lines.'},
+  {id:'benedicts',   label:"Benedict's /\nTollens'", g:'carb',    desc:'Detect REDUCING SUGARS. Benedict: Cu²⁺ → Cu₂O orange precipitate. Tollens: Ag⁺ → silver mirror. Fehling: similar to Benedict. Sucrose (non-reducing) = NEGATIVE on all.'},
+];
+
+const EDGES = [
+  {from:'rt_pcr',     to:'pcr',          t:'feeds',        lb:'RNA → cDNA first,\nthen standard PCR'},
+  {from:'pcr',        to:'qpcr',         t:'variant',      lb:'qPCR = PCR + real-time\nfluorescence readout'},
+  {from:'pcr',        to:'agarose_gel',  t:'feeds',        lb:'run PCR product on gel\nto verify expected size'},
+  {from:'pcr',        to:'sanger',       t:'feeds',        lb:'amplify gene first,\nthen sequence it'},
+  {from:'pcr',        to:'cloning',      t:'feeds',        lb:'amplify gene before\ninsertion into vector'},
+  {from:'restriction',to:'cloning',      t:'feeds',        lb:'cuts gene at palindrome\nfor insertion with ligase'},
+  {from:'restriction',to:'agarose_gel',  t:'feeds',        lb:'verify restriction digest\npattern by band sizes'},
+  {from:'crispr',     to:'agarose_gel',  t:'feeds',        lb:'PCR + gel confirms\nCRISPR edit worked'},
+  {from:'agarose_gel',to:'southern',     t:'feeds',        lb:'transfer DNA\nfrom gel to membrane'},
+  {from:'agarose_gel',to:'northern',     t:'feeds',        lb:'transfer RNA\nfrom gel to membrane'},
+  {from:'sds_page',   to:'western',      t:'feeds',        lb:'Western STARTS with SDS-PAGE;\nit is literally Step 1'},
+  {from:'sds_page',   to:'agarose_gel',  t:'sameprinciple',lb:'both: electric field through\nmatrix separates by size'},
+  {from:'southern',   to:'northern',     t:'compare',      lb:'SNoW DRoP: swap DNA\nfor RNA — same protocol'},
+  {from:'northern',   to:'western',      t:'compare',      lb:'SNoW DRoP: swap RNA\nfor Protein — uses Ab not probe'},
+  {from:'southern',   to:'fish',         t:'sameprinciple',lb:'both use labeled\nprobe hybridization to target'},
+  {from:'southern',   to:'microarray',   t:'variant',      lb:'microarray = run thousands\nof Southern probes at once'},
+  {from:'rt_pcr',     to:'northern',     t:'compare',      lb:'both detect RNA/expression;\nRT-qPCR = quantify,\nNorthern = transcript size'},
+  {from:'western',    to:'elisa',        t:'compare',      lb:'same target (protein);\nWestern = MW identity,\nELISA = how much'},
+  {from:'elisa',      to:'facs',         t:'compare',      lb:'both use antibodies;\nFACS = per individual cell,\nELISA = bulk in solution'},
+  {from:'western',    to:'co_ip',        t:'compare',      lb:'Co-IP uses Ab to pull down\ntarget + its interacting partners'},
+  {from:'bradford',   to:'sds_page',     t:'feeds',        lb:'quantify total protein first\nthen load equal amounts'},
+  {from:'uvvis',      to:'bradford',     t:'sameprinciple',lb:'both quantify protein;\nA280 is UV-Vis at 280 nm'},
+  {from:'centrifuge', to:'affinity',     t:'feeds',        lb:'centrifuge to clarify lysate\nbefore loading onto column'},
+  {from:'affinity',   to:'ion_ex',       t:'variant',      lb:'purification step 2:\ncharge-based separation'},
+  {from:'ion_ex',     to:'sec',          t:'variant',      lb:'purification step 3:\nsize-based final polish'},
+  {from:'sec',        to:'sds_page',     t:'feeds',        lb:'confirm purity of each\nfraction by SDS-PAGE'},
+  {from:'sec',        to:'agarose_gel',  t:'contrast',     lb:'⚠️ MCAT TRAP: OPPOSITE!\nSEC: LARGE elutes FIRST\nGel: SMALL goes FARTHER'},
+  {from:'tlc',        to:'column',       t:'variant',      lb:'column = preparative\nscale-up of TLC; same principle'},
+  {from:'column',     to:'hplc',         t:'variant',      lb:'HPLC = high-pressure\ncolumn; better resolution'},
+  {from:'tlc',        to:'gc',           t:'compare',      lb:'both: stationary + mobile\nphase; GC = gas mobile (volatile only)'},
+  {from:'gc',         to:'ms',           t:'feeds',        lb:'GC-MS: GC separates,\nMS identifies each fragment'},
+  {from:'distillation',to:'gc',          t:'compare',      lb:'both exploit boiling point;\ndistillation = bulk, GC = analytical'},
+  {from:'ir',         to:'nmr',          t:'sameprinciple',lb:'structure trio: IR gives\nfunctional groups; NMR gives\nH connectivity + environments'},
+  {from:'nmr',        to:'ms',           t:'sameprinciple',lb:'structure trio: MS gives\nMW + fragment pattern;\nuse all 3 to solve unknown'},
+  {from:'xray',       to:'nmr',          t:'compare',      lb:'both give protein 3D structure;\nX-ray needs crystal;\nNMR = small proteins in solution'},
+  {from:'uvvis',      to:'ir',           t:'compare',      lb:'both spectroscopy;\nUV-Vis = conjugation/quantity,\nIR = functional groups'},
+  {from:'mm',         to:'lwb',          t:'variant',      lb:'L-B = double-reciprocal\ntransform of MM curve;\nstraightens hyperbola'},
+  {from:'benedicts',  to:'tlc',          t:'compare',      lb:'both identify carb types;\nBenedict = solution test (reducing?),\nTLC = separate by polarity'},
+  {from:'titration',  to:'uvvis',        t:'compare',      lb:'both measure concentration;\ntitration = acid/base,\nUV-Vis via Beer-Lambert'},
+];
+
+// Initial positions (fraction of W,H)
+const INIT = {
+  rt_pcr:[.14,.10], pcr:[.27,.13], qpcr:[.38,.09],
+  restriction:[.18,.26], cloning:[.08,.24], crispr:[.36,.24],
+  sanger:[.10,.40],
+  agarose_gel:[.22,.55], sds_page:[.28,.70],
+  southern:[.40,.44], northern:[.44,.57], western:[.40,.70],
+  fish:[.52,.34], microarray:[.58,.44],
+  elisa:[.62,.60], co_ip:[.52,.76], facs:[.72,.50],
+  bradford:[.13,.76],
+  centrifuge:[.08,.90], affinity:[.22,.88], ion_ex:[.36,.88], sec:[.50,.86],
+  tlc:[.62,.78], column:[.70,.88], hplc:[.80,.80],
+  gc:[.86,.66], distillation:[.88,.50], titration:[.54,.94],
+  ir:[.72,.22], nmr:[.82,.30], ms:[.88,.42],
+  xray:[.80,.11], uvvis:[.66,.12],
+  mm:[.86,.82], lwb:[.92,.90],
+  benedicts:[.06,.62],
+};
+
+// Build node objects
+const nodes = RAW.map(n => {
+  const p = INIT[n.id] || [.5,.5];
+  return { id:n.id, label:n.label, g:n.g, desc:n.desc,
+           x:p[0]*W, y:p[1]*H, vx:0, vy:0, r:30 };
+});
+const NM = {};
+nodes.forEach(n => NM[n.id] = n);
+
+// Count degree for node sizing
+const degree = {};
+nodes.forEach(n => degree[n.id] = 0);
+EDGES.forEach(e => { degree[e.from]++; degree[e.to]++; });
+nodes.forEach(n => { n.r = 24 + Math.min(degree[n.id] * 2.5, 16); });
+
+// Build edge objects
+const edges = EDGES.map(e => ({
+  ...e, a: NM[e.from], b: NM[e.to], color: EC[e.t]
+}));
+
+// Adjacency
+const adj = {};
+nodes.forEach(n => adj[n.id] = []);
+edges.forEach(e => {
+  adj[e.from].push({nid:e.to, edge:e});
+  adj[e.to].push({nid:e.from, edge:e});
+});
+
+// ── SPRING SIMULATION ───────────────────────────────────────────────
+function simulate(iters) {
+  for (let i=0; i<iters; i++) {
+    // Repulsion
+    for (let a=0; a<nodes.length; a++) {
+      for (let b=a+1; b<nodes.length; b++) {
+        const na=nodes[a], nb=nodes[b];
+        const dx=nb.x-na.x, dy=nb.y-na.y;
+        const d=Math.sqrt(dx*dx+dy*dy)||1;
+        const f=7000/(d*d);
+        na.vx-=f*dx/d; na.vy-=f*dy/d;
+        nb.vx+=f*dx/d; nb.vy+=f*dy/d;
+      }
+    }
+    // Springs
+    edges.forEach(e => {
+      const dx=e.b.x-e.a.x, dy=e.b.y-e.a.y;
+      const d=Math.sqrt(dx*dx+dy*dy)||1;
+      const f=0.04*(d-140);
+      e.a.vx+=f*dx/d; e.a.vy+=f*dy/d;
+      e.b.vx-=f*dx/d; e.b.vy-=f*dy/d;
+    });
+    // Center gravity
+    nodes.forEach(n => {
+      n.vx+=(W*.5-n.x)*.003; n.vy+=(H*.5-n.y)*.003;
+    });
+    // Integrate
+    nodes.forEach(n => {
+      n.vx*=.82; n.vy*=.82;
+      n.x=Math.max(n.r+4, Math.min(W-n.r-4, n.x+n.vx));
+      n.y=Math.max(n.r+4, Math.min(H-n.r-4, n.y+n.vy));
+    });
+  }
+}
+simulate(450);
+
+// ── RENDER ──────────────────────────────────────────────────────────
+let selected = null;
+
+function getHL() {
+  if (!selected) return null;
+  const s = new Set([selected.id]);
+  adj[selected.id].forEach(({nid}) => s.add(nid));
+  return s;
+}
+
+function quad(ax,ay,bx,by) {
+  const mx=(ax+bx)/2, my=(ay+by)/2;
+  const dx=bx-ax, dy=by-ay;
+  const len=Math.sqrt(dx*dx+dy*dy)||1;
+  const k=35;
+  return { cx:mx-(dy/len)*k, cy:my+(dx/len)*k };
+}
+
+function ptOnQuad(ax,ay,cx,cy,bx,by,t) {
+  return {
+    x:(1-t)*(1-t)*ax+2*(1-t)*t*cx+t*t*bx,
+    y:(1-t)*(1-t)*ay+2*(1-t)*t*cy+t*t*by
+  };
+}
+
+function rrect(x,y,w,h,r) {
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y);
+  ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r);
+  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h);
+  ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r);
+  ctx.quadraticCurveTo(x,y,x+r,y);
+  ctx.closePath();
+}
+
+function draw() {
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='#080c14'; ctx.fillRect(0,0,W,H);
+  const hl = getHL();
+
+  // Edges
+  edges.forEach(e => {
+    const active = hl ? (hl.has(e.from) && hl.has(e.to)) : false;
+    const dim = hl && !active;
+    ctx.save();
+    ctx.globalAlpha = dim ? 0.07 : (hl ? 0.92 : 0.28);
+    ctx.strokeStyle = e.color;
+    ctx.lineWidth = active ? 2.5 : 1.2;
+    if (e.t === 'contrast') ctx.setLineDash([7,5]);
+    const {cx,cy} = quad(e.a.x,e.a.y,e.b.x,e.b.y);
+    ctx.beginPath();
+    ctx.moveTo(e.a.x,e.a.y);
+    ctx.quadraticCurveTo(cx,cy,e.b.x,e.b.y);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    if (active && hl) {
+      const {x:lx,y:ly} = ptOnQuad(e.a.x,e.a.y,cx,cy,e.b.x,e.b.y,0.5);
+      const lines = e.lb.split('\n');
+      const fw = Math.max(...lines.map(l=>l.length))*5.2+12;
+      const fh = lines.length*13+8;
+      ctx.globalAlpha=1;
+      ctx.fillStyle='rgba(6,9,18,0.96)';
+      ctx.strokeStyle=e.color; ctx.lineWidth=1;
+      rrect(lx-fw/2, ly-fh/2, fw, fh, 5);
+      ctx.fill(); ctx.stroke();
+      ctx.fillStyle=e.color;
+      ctx.font='8.5px Segoe UI,Arial,sans-serif';
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      lines.forEach((ln,i)=> ctx.fillText(ln, lx, ly-(lines.length-1)*6.5+i*13));
+    }
+    ctx.restore();
+  });
+
+  // Nodes
+  nodes.forEach(n => {
+    const c = GC[n.g];
+    const isSel = n===selected;
+    const isNbr = hl && hl.has(n.id) && !isSel;
+    const isDim = hl && !hl.has(n.id);
+    ctx.save();
+    ctx.globalAlpha = isDim ? 0.18 : 1;
+    if (isSel) { ctx.shadowColor=c.stroke; ctx.shadowBlur=22; }
+    ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+    ctx.fillStyle = isSel ? c.stroke : c.fill; ctx.fill();
+    ctx.strokeStyle = c.stroke;
+    ctx.lineWidth = isSel ? 3 : (isNbr ? 2.2 : 1.5);
+    ctx.stroke(); ctx.shadowBlur=0;
+    const lines=n.label.split('\n');
+    ctx.fillStyle=c.text;
+    ctx.font=(isSel?'bold ':'')+`${lines.length>1?8.5:9.5}px Segoe UI,Arial,sans-serif`;
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    const lh=12;
+    lines.forEach((ln,i)=> ctx.fillText(ln, n.x, n.y-(lines.length-1)*lh/2+i*lh));
+    ctx.restore();
+  });
+}
+
+draw();
+
+// ── INTERACTION ──────────────────────────────────────────────────────
+C.addEventListener('click', e => {
+  const r=C.getBoundingClientRect();
+  const mx=e.clientX-r.left, my=e.clientY-r.top;
+  let hit=null;
+  nodes.forEach(n => {
+    const dx=n.x-mx, dy=n.y-my;
+    if (dx*dx+dy*dy < (n.r+6)*(n.r+6)) hit=n;
+  });
+  selected = hit===selected ? null : hit;
+  const box=document.getElementById('infobox');
+  if (selected) {
+    document.getElementById('info-name').textContent = selected.label.replace('\n',' ');
+    document.getElementById('info-desc').textContent = selected.desc;
+    box.style.display='block';
+  } else {
+    box.style.display='none';
+  }
+  draw();
+});
+
+C.addEventListener('mousemove', e => {
+  const r=C.getBoundingClientRect();
+  const mx=e.clientX-r.left, my=e.clientY-r.top;
+  let on=false;
+  nodes.forEach(n => {
+    const dx=n.x-mx, dy=n.y-my;
+    if (dx*dx+dy*dy < (n.r+8)*(n.r+8)) on=true;
+  });
+  C.style.cursor = on ? 'pointer' : 'default';
+});
+
+window.addEventListener('resize', () => {
+  W=C.width=window.innerWidth; H=C.height=window.innerHeight; draw();
+});
+</script>
+</body>
+</html>
