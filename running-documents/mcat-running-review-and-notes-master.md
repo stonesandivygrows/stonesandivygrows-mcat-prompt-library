@@ -125,7 +125,7 @@ Each practice session should become a dated entry with source links and mistake 
 
 ### 2026-07-18 — AAMC FL1 Aiden + MCATalyst map filed
 
-Status: Filed.
+Status: Complete and corrected.
 
 Repository record:
 
@@ -133,7 +133,7 @@ Repository record:
 
 Completed artifacts from ChatGPT session:
 
-- `AAMC_FL1_Aiden_Deck_Passage_Question_Map.docx`
+- `AAMC_FL1_Aiden_Deck_Passage_Question_Map_CORRECTED.docx`
 - `AAMC_FL_Equation_to_Aidan_Flashcard_Map_REVISED.docx`
 
 Coverage:
@@ -153,28 +153,68 @@ Do not make AAMC FL maps equation-centered by default.
 Preferred structure is question/passage → Aiden deck card(s), with MCATalyst equations only when relevant.
 ```
 
-Known FL1 caveat: the prior full FL1 export began at Question 2 of 230, so C/P Q1 was recovered from the shorter review-list preview. It is included, but not as fully sourced as the other FL1 questions.
+The formerly incomplete FL1 C/P Q1 entry was replaced using the user-provided full passage, question, choices, solution, timing, and tags. The prior missing-Q1 caveat is resolved.
 
-Quality queue: weak matches need manual relinking around C/P Q23–Q24, C/P Q52–Q56, B/B Q57, and a few P/S experimental/development entries.
+Quality queue retained for later semantic polishing: lower-confidence card associations around C/P Q23–Q24, C/P Q52–Q56, B/B Q57, and a few P/S experimental/development entries.
 
-### 2026-07-18 — AAMC Unscored FL prepared
+### 2026-07-18 — AAMC Unscored FL Aiden map completed
 
-Status: Ready for mapping.
+Status: Complete and audited.
 
-Repository plan:
+Repository record:
 
 - `practice-review/aamc/unscored/2026-07-18__AAMC_Unscored_FL__Processing_Plan.md`
 
-Source in ChatGPT session:
+Completed artifact:
 
-- `AAMC_MCAT_Exam_Review_Export_2026-07-18_09-14 Unsampled 230.pdf`
+- `AAMC_Unscored_FL_Aiden_Deck_Passage_Question_Map_PROCESSED.docx`
 
-Processing target:
+Coverage and audit:
 
 ```text
-C/P Q1–Q59 → B/B Q1–Q59 → P/S Q1–Q59
-Total science entries expected: 177
-CARS excluded unless separately requested
+C/P: 59/59
+B/B: 59/59
+P/S: 59/59
+Total science entries: 177/177
+CARS: intentionally excluded
+No missing or duplicate section-local labels
+72 rendered pages inspected
 ```
 
-The uploaded Unscored source begins at Question 1 of 230, so it should not have the FL1 missing-Q1 limitation.
+The Unscored source began at Question 1 of 230 and did not have the FL1 missing-Q1 limitation.
+
+### 2026-07-18 — AAMC FL3 Aiden + MCATalyst map completed
+
+Status: Complete and audited.
+
+Repository record:
+
+- `practice-review/aamc/fl3/2026-07-18__AAMC_FL3__Aiden_MCATalyst_Processing_Record.md`
+
+Completed artifact:
+
+- `AAMC_FL3_Aiden_Deck_Passage_Question_Map_PROCESSED.docx`
+
+Coverage and inventory:
+
+```text
+C/P: 59/59
+B/B: 59/59
+P/S: 59/59
+Total science entries: 177/177
+CARS: intentionally excluded
+Exact Aiden-export rows: 125
+Question-specific bridge rows: 177
+Questions with MCATalyst relationships: 29
+```
+
+Structural audit:
+
+```text
+No missing or duplicated section-local labels
+No pending or unavailable-mapping placeholders
+178 tables
+70 rendered pages inspected
+```
+
+The FL3 source contained all 230 questions beginning at Question 1. Exact-export cards and question-specific bridge cards remain explicitly distinguished.
