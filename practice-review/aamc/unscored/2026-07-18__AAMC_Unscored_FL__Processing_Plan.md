@@ -1,8 +1,9 @@
 # 2026-07-18 — AAMC Unscored FL Processing Plan
 
-Status: Prepared / ready for mapping
+Status: Draft mapping generated / needs manual relinking pass
 Source file in ChatGPT session: `AAMC_MCAT_Exam_Review_Export_2026-07-18_09-14 Unsampled 230.pdf`
 Observed source count: 230 captured questions
+Draft artifact created in ChatGPT: `AAMC_Unscored_FL_Aiden_Deck_Passage_Question_Map_DRAFT.docx`
 
 ## Target output
 
@@ -22,12 +23,12 @@ CARS is excluded unless separately requested.
 
 ## Expected science-section coverage
 
-| Section | Global question range | Target entries |
-|---|---:|---:|
-| C/P | Q1–Q59 | 59 |
-| B/B | Q113–Q171 | 59 |
-| P/S | Q172–Q230 | 59 |
-| Total science entries | — | 177 |
+| Section | Global question range | Target entries | Draft mapped |
+|---|---:|---:|---:|
+| C/P | Q1–Q59 | 59 | 59 |
+| B/B | Q113–Q171 | 59 | 59 |
+| P/S | Q172–Q230 | 59 | 59 |
+| Total science entries | — | 177 | 177 |
 
 The global numbering assumes standard AAMC 230-question full-length structure:
 
@@ -43,12 +44,34 @@ Each entry should include:
 2. Global source question number, such as `Question 1 of 230`.
 3. Passage or discrete context.
 4. AAMC tags/content skills when available.
-5. Related Aiden deck flashcard(s).
+5. Related Aiden deck flashcard(s), or a rewritten Aiden-style target card when no high-confidence exact card is present in the available text export.
 6. Why the Aiden card applies to solving the question or understanding the passage.
 7. MCATalyst equation/card only when the question actually uses that equation or quantitative relationship.
 8. Match-confidence label: high / medium / weak.
 
-## Audit rules before delivery
+## Draft audit result
+
+Draft DOCX generated with complete science coverage:
+
+```text
+C/P: 59/59
+B/B: 59/59
+P/S: 59/59
+Total science entries: 177/177
+CARS: intentionally excluded
+```
+
+Match-confidence distribution in the draft:
+
+```text
+High: 43
+Medium: 33
+Weak / rewritten target: 101
+```
+
+Interpretation: coverage is complete, but this is not yet a final polished Aiden-link map. Many entries use rewritten Aiden-style target cards because the exact Aiden card could not be confidently matched from the available text exports.
+
+## Audit rules before final delivery
 
 Before finalizing the Unscored FL document:
 
@@ -59,6 +82,7 @@ Before finalizing the Unscored FL document:
 - Confirm no duplicate section-local labels.
 - Confirm no missing section-local labels.
 - Flag weak Aiden-card matches rather than pretending they are exact.
+- Manually relink weak/rewrite entries where possible.
 - Render/inspect the DOCX if exported as a document.
 
 ## First source anchor
@@ -67,4 +91,4 @@ The uploaded Unscored FL source begins with `Question 1 of 230`; the first passa
 
 ## Next action
 
-Build the AAMC Unscored FL Aiden deck map from the uploaded PDF, starting with C/P Q1–Q59, then B/B Q1–Q59, then P/S Q1–Q59.
+Use the draft DOCX as the skeleton, then manually improve weak/rewrite entries in batches, starting with the C/P weak matches and high-miss questions.
