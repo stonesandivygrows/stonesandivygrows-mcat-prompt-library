@@ -1,94 +1,89 @@
-# 2026-07-18 — AAMC Unscored FL Processing Plan
+# 2026-07-18 — AAMC Unscored FL Processing Record
 
-Status: Draft mapping generated / needs manual relinking pass
+Status: Targeted question/card processing complete; structural and rendering audits passed
 Source file in ChatGPT session: `AAMC_MCAT_Exam_Review_Export_2026-07-18_09-14 Unsampled 230.pdf`
 Observed source count: 230 captured questions
-Draft artifact created in ChatGPT: `AAMC_Unscored_FL_Aiden_Deck_Passage_Question_Map_DRAFT.docx`
+Processed artifact created in ChatGPT: `AAMC_Unscored_FL_Aiden_Deck_Passage_Question_Map_PROCESSED.docx`
+Intermediate checkpoints retained locally in the ChatGPT session:
 
-## Target output
+- `AAMC_Unscored_FL_Aiden_Deck_Passage_Question_Map_DRAFT.docx`
+- `AAMC_Unscored_FL_Aiden_Deck_Passage_Question_Map_CP_VERIFIED.docx`
+- `AAMC_Unscored_FL_Aiden_Deck_Passage_Question_Map_CP_BB_VERIFIED.docx`
 
-Create the same style of document as the corrected FL1 map:
+## Output structure
 
-```text
-AAMC Unscored FL → Aiden Deck Passage/Question Map
-```
-
-Preferred order:
+The requested science mapping is organized:
 
 ```text
 C/P → B/B → P/S
 ```
 
-CARS is excluded unless separately requested.
+CARS is intentionally excluded unless separately requested.
 
-## Expected science-section coverage
+## Science-section coverage audit
 
-| Section | Global question range | Target entries | Draft mapped |
-|---|---:|---:|---:|
-| C/P | Q1–Q59 | 59 | 59 |
-| B/B | Q113–Q171 | 59 | 59 |
-| P/S | Q172–Q230 | 59 | 59 |
-| Total science entries | — | 177 | 177 |
+| Section | Global source range | Section-local range | Mapped | Missing | Duplicate labels |
+|---|---:|---:|---:|---:|---:|
+| C/P | Q1–Q59 | C/P Q1–Q59 | 59/59 | 0 | 0 |
+| B/B | Q113–Q171 | B/B Q1–Q59 | 59/59 | 0 | 0 |
+| P/S | Q172–Q230 | P/S Q1–Q59 | 59/59 | 0 | 0 |
+| Total science | — | — | 177/177 | 0 | 0 |
 
-The global numbering assumes standard AAMC 230-question full-length structure:
+The global numbering follows the full 230-question export:
 
 ```text
 C/P 59 → CARS 53 → B/B 59 → P/S 59
 ```
 
-## Mapping rules
+## Content included for every science question
 
-Each entry should include:
+1. Section-local label.
+2. Global source question number.
+3. Source page and AAMC Data ID.
+4. Passage or discrete context.
+5. Searchable question stem.
+6. Correct answer and controlling reasoning rule.
+7. Exact Aiden text-export flashcards when a sufficiently specific match was available.
+8. A clearly labeled Aiden-aligned question-specific bridge when the available export did not contain a sufficiently exact card.
+9. Why each card is relevant to solving the question or understanding the passage.
 
-1. Section-local label, such as `C/P Q1`, `B/B Q14`, or `P/S Q41`.
-2. Global source question number, such as `Question 1 of 230`.
-3. Passage or discrete context.
-4. AAMC tags/content skills when available.
-5. Related Aiden deck flashcard(s), or a rewritten Aiden-style target card when no high-confidence exact card is present in the available text export.
-6. Why the Aiden card applies to solving the question or understanding the passage.
-7. MCATalyst equation/card only when the question actually uses that equation or quantitative relationship.
-8. Match-confidence label: high / medium / weak.
+MCATalyst equations are included only where equation knowledge is actually relevant. The document is not equation-centered.
 
-## Draft audit result
+## Card-link transparency
 
-Draft DOCX generated with complete science coverage:
-
-```text
-C/P: 59/59
-B/B: 59/59
-P/S: 59/59
-Total science entries: 177/177
-CARS: intentionally excluded
-```
-
-Match-confidence distribution in the draft:
+The processed DOCX contains two separately labeled card types:
 
 ```text
-High: 43
-Medium: 33
-Weak / rewritten target: 101
+Exact Aiden export card
+Aiden-aligned supplemental rewrite / question-specific bridge
 ```
 
-Interpretation: coverage is complete, but this is not yet a final polished Aiden-link map. Many entries use rewritten Aiden-style target cards because the exact Aiden card could not be confidently matched from the available text exports.
+A bridge card is not represented as verbatim Aiden wording. It is a source-grounded rewrite connecting the relevant Aiden content cluster to the exact AAMC application.
 
-## Audit rules before final delivery
+Document-level row counts:
 
-Before finalizing the Unscored FL document:
+```text
+Exact Aiden export rows: 245
+Question-specific bridge rows: 133
+```
 
-- Confirm 59 C/P entries.
-- Confirm 59 B/B entries.
-- Confirm 59 P/S entries.
-- Confirm total science entries = 177.
-- Confirm no duplicate section-local labels.
-- Confirm no missing section-local labels.
-- Flag weak Aiden-card matches rather than pretending they are exact.
-- Manually relink weak/rewrite entries where possible.
-- Render/inspect the DOCX if exported as a document.
+Some questions contain both exact-export cards and a bridge. Bridge rows do not indicate missing question coverage.
 
-## First source anchor
+## Structural and rendering audit
 
-The uploaded Unscored FL source begins with `Question 1 of 230`; the first passage is an HIV protease/aspartyl protease passage with questions 1–4. This means the Unscored source does not have the prior FL1 issue where the full export began at Question 2.
+Audit results:
 
-## Next action
+- 59/59 C/P labels confirmed.
+- 59/59 B/B labels confirmed.
+- 59/59 P/S labels confirmed.
+- 177/177 total science labels confirmed.
+- No missing section-local labels.
+- No duplicated section-local labels.
+- No remaining `IN PROCESS`, `Pending processing`, or unavailable-mapping placeholders.
+- 178 tables: one coverage table plus one mapping table for each of 177 science questions.
+- DOCX rendered to 72 pages.
+- All 72 rendered pages inspected; no visible clipping, overlapping tables, or broken page layouts found.
 
-Use the draft DOCX as the skeleton, then manually improve weak/rewrite entries in batches, starting with the C/P weak matches and high-miss questions.
+## Remaining quality option
+
+The requested processing is complete. A later semantic refinement pass can replace question-specific bridge cards with newly supplied exact Aiden cards if additional deck exports become available. Until then, the bridge labels preserve source honesty and prevent weak generic cards from being presented as exact matches.
