@@ -1,8 +1,9 @@
 # 2026-07-18 — AAMC FL1 Aiden + MCATalyst Coverage Record
 
-Status: Filed / source-indexed
-Source type: AAMC FL1 review export + Aiden deck + MCATalyst equation sheet
-Primary artifact created in ChatGPT: `AAMC_FL1_Aiden_Deck_Passage_Question_Map.docx`
+Status: Filed / source-indexed / C/P Q1 corrected
+Source type: AAMC FL1 review export + separately supplied C/P Q1 screenshots + Aiden deck + MCATalyst equation sheet
+Primary corrected artifact created in ChatGPT: `AAMC_FL1_Aiden_Deck_Passage_Question_Map_CORRECTED.docx`
+Prior artifact: `AAMC_FL1_Aiden_Deck_Passage_Question_Map.docx`
 Related artifact: `AAMC_FL_Equation_to_Aidan_Flashcard_Map_REVISED.docx`
 
 ## What was completed
@@ -17,7 +18,7 @@ Coverage completed:
 
 | Section | Covered | Notes |
 |---|---:|---|
-| C/P | 59/59 | Includes all science-section C/P entries. |
+| C/P | 59/59 | Includes all science-section C/P entries; Q1 is now fully supplied. |
 | B/B | 59/59 | Includes all science-section B/B entries. |
 | P/S | 59/59 | Includes all science-section P/S entries. |
 | CARS | 0/53 | Intentionally excluded for this Aiden/MCATalyst science-deck mapping workflow. |
@@ -31,11 +32,40 @@ Second self-audit result: coverage passed.
 - No duplicate science-section question numbers.
 - C/P, B/B, and P/S are ordered in the intended sequence.
 - The document includes passage/discrete context, question label, AAMC tags, related Aiden deck cards, and reason for the linkage.
-- Render/layout check passed at document level.
+- Render/layout check passed after the Q1 correction.
 
-## Known limitation
+## C/P Q1 correction
 
-C/P Q1 in the prior FL1 export required recovery from the shorter review-list preview because the full FL1 export available at that stage began at Question 2 of 230. The question is included, but its source capture was less complete than the remaining entries.
+C/P Q1 was later supplied directly from the AAMC review interface.
+
+Question focus:
+
+```text
+Paper chromatography using water absorbed on cellulose as the stationary phase.
+Principal factor determining component migration: hydrogen bonding.
+```
+
+Correct answer: A — Hydrogen bonding.
+
+Reasoning:
+
+- Components capable of stronger hydrogen bonding to the immobilized water stationary phase migrate more slowly.
+- Solute concentration changes spot size, not average migration rate.
+- The stationary phase is an immobilized surface rather than a solution concentration.
+- Paper thickness affects sample/separation capacity rather than relative migration rates.
+
+Exact tags:
+
+```text
+SIRS2
+CC5C — Separation and purification methods
+FC5
+OCH — Organic Chemistry
+```
+
+Recorded time: 2 min 46 sec.
+
+The corrected Q1 card links now prioritize chromatography, stationary-phase interaction, Rf, and hydrogen-bond donor/acceptor knowledge rather than amino-acid-only keyword matches.
 
 ## Card-link quality note
 
