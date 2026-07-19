@@ -40,6 +40,7 @@ Use this before editing MCAT Whimsical boards that repackage Anki flashcard cont
 - It is acceptable to mark weak, duplicate, or superseded diagrams inside a board and move them far aside for the user to delete later.
 - Do not delete existing diagrams unless the user explicitly asks.
 - Keep source/reference notes short and useful for study traceability.
+- When a large or buggy mind map has one dense branch doing too much, consider pulling that branch out into its own branch, companion mini-map, or nearby flowchart instead of rebuilding the whole map.
 
 ## Context Sources To Check
 
