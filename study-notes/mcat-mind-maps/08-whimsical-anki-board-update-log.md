@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Membranes Study Board
+
+- Board: https://whimsical.com/VQdQ9HTdFx6F6rxrZDoN4d
+- Topic: fluid mosaic model, membrane lipids/proteins/carbohydrates, cell-cell junctions, concentration-gradient transport, tonicity/osmosis, active and passive transport, vesicle transport, membrane potential, Na+/K+-ATPase, and mitochondrial membrane cues within Biochemistry::Membranes
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Membranes` and `Membranes Question Router`
+- Verified read-back: board contains a 184-node hierarchy map and a 51-shape flowchart.
+- Purpose: organize membrane structure, lipid/protein/carbohydrate identity, junction function distinctions, gradient and tonicity decisions, active/passive/vesicle transport logic, membrane-potential equations, pump stoichiometry, and mitochondrial membrane trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Lipids Study Board
 
 - Board: https://whimsical.com/Ay6yz47PvHH2RscnqtEjEw
