@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Carbohydrates Study Board
+
+- Board: https://whimsical.com/VSnEdqgotMrNXXAxqpcCrY
+- Topic: carbohydrate classification, stereochemistry, cyclic sugars, anomers, reducing-sugar tests, glycosides, disaccharides, polysaccharides, starch/glycogen/cellulose distinctions, and carbohydrate enzyme cues within Biochemistry::Carbohydrates
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Carbohydrates` and `Carbohydrates Question Router`
+- Verified read-back: board contains a 247-node hierarchy map and a 61-shape flowchart.
+- Purpose: organize carbohydrate naming and structure recognition, D/L and Fischer/Haworth rules, alpha/beta and mutarotation logic, reducing-sugar assays, glycosidic bond notation, disaccharide digestibility, polysaccharide storage/structure cues, and MCAT trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Amino Acids Study Board
 
 - Board: https://whimsical.com/533nwJBkBo7RJsXsTxF5eC
