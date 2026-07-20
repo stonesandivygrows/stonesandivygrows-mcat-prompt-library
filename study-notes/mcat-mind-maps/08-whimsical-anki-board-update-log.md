@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Digestion Study Board
+
+- Board: https://whimsical.com/UAwFansea8g8sptHBP9VuM
+- Topic: oral cavity, pharynx, esophagus, stomach, duodenum, pancreatic-biliary secretions, liver, gallbladder, pancreas, small-intestinal absorption, large-intestinal water handling, GI hormones, portal versus lymph transport, and digestion trap distinctions within Biology::Digestion
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Digestion` and `Digestion Question Router`
+- Verified read-back: board contains a 282-node hierarchy map and a 53-shape flowchart.
+- Purpose: organize digestive route anatomy, gastric gland cell cues, duodenal neutralization and enzyme activation, bile and pancreatic secretion logic, absorption route distinctions, large-intestine roles, GI hormone feedback, and MCAT trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Cardiovascular System Study Board
 
 - Board: https://whimsical.com/Bxj2LFQZreMjJw3feMBajm
