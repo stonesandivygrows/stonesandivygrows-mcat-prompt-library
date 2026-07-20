@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Thermochemistry Study Board
+
+- Board: https://whimsical.com/P2Z4wtouuFYTiAGkenkjAw
+- Topic: systems/processes, heat, calorimetry, heating curves, phase changes, phase diagrams, enthalpy, Hess law, bond dissociation, entropy, Gibbs free energy, and temperature-dependent spontaneity within General Chemistry::Thermochemistry
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Thermochemistry` and `Thermochemistry Question Router`
+- Verified read-back: board contains a 144-node hierarchy map and a 33-shape flowchart.
+- Purpose: organize thermodynamic process classification, q-equation choice, calorimetry constraints, phase-curve reading, phase-diagram landmarks, enthalpy paths, entropy trends, Gibbs sign logic, and MCAT sign-convention traps without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Stoichiometry Study Board
 
 - Board: https://whimsical.com/BEUHLjwbu5RdaPNHWceQ4d
