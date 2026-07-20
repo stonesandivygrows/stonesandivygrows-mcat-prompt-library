@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Equilibrium Study Board
+
+- Board: https://whimsical.com/1oVcp4qsVHf4BwhKFnnnm
+- Topic: dynamic equilibrium, law of mass action, reaction quotient comparisons, Le Chatelier pressure/volume and temperature shifts, and kinetic versus thermodynamic control within General Chemistry::Equilibrium
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Equilibrium` and `Equilibrium Question Router`
+- Verified read-back: board contains a 70-node hierarchy map and a 27-shape flowchart.
+- Purpose: organize K-expression setup, Q-versus-K direction calls, phase omissions, gas pressure/volume shifts, temperature effects on K, and kinetic-versus-thermodynamic product distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Electrochemistry Study Board
 
 - Board: https://whimsical.com/HHc3VwPfiutaBvHoqB4XAo
