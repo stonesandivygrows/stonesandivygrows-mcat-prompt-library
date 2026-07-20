@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Non-enzymatic Proteins Study Board
+
+- Board: https://whimsical.com/LY6XCA1JL3TzUCK8XkkdEd
+- Topic: binding proteins, structural proteins, motor proteins, ion channels, GPCRs, enzyme-linked receptors, protein isolation, chromatography, electrophoresis, isoelectric focusing, native/SDS-PAGE, ELISA, protein structure/composition/concentration, and protein-method trap distinctions within Biochemistry::Non-enzymatic Proteins
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Non-enzymatic Proteins` and `Non-enzymatic Proteins Question Router`
+- Verified read-back: board contains a 268-node hierarchy map and a 52-shape flowchart.
+- Purpose: organize non-catalytic protein functions, binding and structural protein identities, kinesin/dynein direction cues, membrane signaling pathways, protein isolation and chromatography rules, analysis methods, cleavage-term boundaries, and MCAT trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Lipid Metabolism Study Board
 
 - Board: https://whimsical.com/BtXnGBcNAkkVJSdKXZR5AA
