@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Redox and Inorganic Reactions Study Board
+
+- Board: https://whimsical.com/PbHhKvZ94p2X2kLZM2Qe8i
+- Topic: inorganic reaction types, oxidation-number rules, redox agents, acidic/basic redox balancing, net ionic equations, disproportionation, peroxide cues, and redox titration cues within General Chemistry::Redox & Inorganic Reactions
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Redox and Inorganic Reactions` and `Redox and Inorganic Reactions Question Router`
+- Verified read-back: board contains a 106-node hierarchy map and a 33-shape flowchart.
+- Purpose: organize reaction classification, oxidation-state assignment, OIL RIG role naming, whole-compound agent labels, redox balancing helpers, spectator-ion removal, and special peroxide/disproportionation/titration cues without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Gases Study Board
 
 - Board: https://whimsical.com/VyJ2aWGSk5QyA4QTSH77rp
