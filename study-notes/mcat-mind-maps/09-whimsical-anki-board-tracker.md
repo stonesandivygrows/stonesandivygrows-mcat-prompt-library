@@ -23,6 +23,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Biochemistry::Amino Acids | done | https://whimsical.com/533nwJBkBo7RJsXsTxF5eC |
 | Biochemistry::Carbohydrates | done | https://whimsical.com/VSnEdqgotMrNXXAxqpcCrY |
 | Biochemistry::Enzymes | done | https://whimsical.com/Pjzcttp49f2RCtsidRGNfW |
+| Biochemistry::Lipids | done | https://whimsical.com/Ay6yz47PvHH2RscnqtEjEw |
 | Biology::Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | Biology::Cells source/reference | reference-only | https://whimsical.com/BLLr8vLf3bKhNuHpaC4js2 |
 | Biology::Cells related Anki board | reference-only | https://whimsical.com/LvWnUipz8Q4FSoceuU3Mo3 |
@@ -37,7 +38,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 12 | Bioenergetics | tiny-parent-deck-review | |
 | 135 | Carbohydrates | done | https://whimsical.com/VSnEdqgotMrNXXAxqpcCrY |
 | 165 | Enzymes | done | https://whimsical.com/Pjzcttp49f2RCtsidRGNfW |
-| 161 | Lipids | new-board-needed | |
+| 161 | Lipids | done | https://whimsical.com/Ay6yz47PvHH2RscnqtEjEw |
 | 78 | Membranes | new-board-needed | |
 | 39 | Metabolism | tiny-parent-deck-review | |
 | 446 | Metabolism::Carbohydrate Metabolism | new-board-needed | |
@@ -159,3 +160,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-20: `Biochemistry::Amino Acids` board verified after creating `MCAT Amino Acids Study Board`, with a 274-node hierarchy map and a 57-shape question router.
 - 2026-07-20: `Biochemistry::Carbohydrates` board verified after creating `MCAT Carbohydrates Study Board`, with a 247-node hierarchy map and a 61-shape question router.
 - 2026-07-20: `Biochemistry::Enzymes` board verified after creating `MCAT Enzymes Study Board`, with a 293-node hierarchy map and an 82-shape question router.
+- 2026-07-20: `Biochemistry::Lipids` board verified after creating `MCAT Lipids Study Board`, with a 280-node hierarchy map and a 62-shape question router.
