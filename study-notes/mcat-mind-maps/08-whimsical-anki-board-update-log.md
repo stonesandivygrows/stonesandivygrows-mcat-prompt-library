@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Electrochemistry Study Board
+
+- Board: https://whimsical.com/HHc3VwPfiutaBvHoqB4XAo
+- Topic: galvanic/electrolytic cells, electrodes, cell potentials, EMF/thermodynamics, concentration effects, rechargeable cells, and fuel cells within General Chemistry::Electrochemistry
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Electrochemistry` and `Electrochemistry Question Router`
+- Verified read-back: board contains a 70-node hierarchy map and a 24-shape flowchart.
+- Purpose: organize redox-cell types, anode/cathode logic, electron/ion movement, Ecell and delta G signs, Nernst/Q effects, and battery/fuel-cell distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Chemical Kinetics Study Board
 
 - Board: https://whimsical.com/45KyX7SH2cuzk6jWKBPN1S
