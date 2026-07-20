@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Social Psychology Aidenster Map
+
+- Board: https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh
+- Topic: relationships, attachment, attraction, helping, and support within Psychology::Social Psychology & Interactions
+- Approved change: add one focused study-facing companion flowchart to the existing board.
+- Added artifact: `Relationships Attachment and Helping Decisions`
+- Verified read-back: board contains the new 20-shape flowchart starting from `Relationship or helping stem`.
+- Purpose: separate close-relationship and helping/support decisions from the existing social pressure, attribution, and prejudice layers.
+
 ## 2026-07-19 - Biology Cells Study Home
 
 - Board: https://whimsical.com/HtfEHDxZEXNeDUU3W22tki
