@@ -11,7 +11,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Topic | Status | Board |
 |---|---:|---|
 | General Chemistry::Acids & Bases | done | https://whimsical.com/5PaeVg8z8qr391vSvMhH4R |
-| Biology::Cells | existing-fetch-needed | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
+| Biology::Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | Biology::Cells source/reference | reference-only | https://whimsical.com/BLLr8vLf3bKhNuHpaC4js2 |
 | Biology::Cells related Anki board | reference-only | https://whimsical.com/LvWnUipz8Q4FSoceuU3Mo3 |
 | Psychology::Social Psychology & Interactions | existing-fetch-needed | https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh |
@@ -39,7 +39,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Notes | Topic | Status | Board |
 |---:|---|---|---|
 | 138 | Cardiovascular System | new-board-needed | |
-| 241 | Cells | existing-fetch-needed | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
+| 241 | Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | 117 | Digestion | new-board-needed | |
 | 150 | Embryogenesis | new-board-needed | |
 | 191 | Endocrine | new-board-needed | |
@@ -133,3 +133,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 ## Verified Updates
 
 - 2026-07-19: `General Chemistry::Acids & Bases` board verified after adding `Weak Acid/Base Equilibrium Setup`, a 12-shape companion flowchart for weak-equilibrium calculation setup.
+- 2026-07-19: `Biology::Cells` board verified after adding `Eukaryotic Organelle Identity + Routing`, a 37-node companion mini-map near eukaryotic machinery.
