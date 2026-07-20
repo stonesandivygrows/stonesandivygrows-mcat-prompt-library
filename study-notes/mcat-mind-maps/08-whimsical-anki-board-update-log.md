@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Carbohydrate Metabolism Study Board
+
+- Board: https://whimsical.com/SXSPDdKqbA8frWxHL3pG3D
+- Topic: glucose transport, glycolysis, fermentation and RBC side paths, pyruvate dehydrogenase, citric acid cycle, electron transport chain, oxidative phosphorylation, NADH shuttles, gluconeogenesis, glycogen metabolism, pentose phosphate pathway, fructose/galactose metabolism, and metabolic-state control within Biochemistry::Metabolism::Carbohydrate Metabolism
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Carbohydrate Metabolism` and `Carbohydrate Metabolism Question Router`
+- Verified read-back: board contains a 435-node hierarchy map and a 76-shape flowchart.
+- Purpose: organize carbohydrate pathway flow, enzyme/regulation cues, fasting/fed decisions, glycolysis/TCA/ETC/OxPhos integration, shuttle yield distinctions, glycogen and gluconeogenesis bypass logic, PPP products, sugar-entry routes, and MCAT trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Membranes Study Board
 
 - Board: https://whimsical.com/VQdQ9HTdFx6F6rxrZDoN4d
