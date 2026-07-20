@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Cardiovascular System Study Board
+
+- Board: https://whimsical.com/Bxj2LFQZreMjJw3feMBajm
+- Topic: cardiovascular anatomy, pulmonary/systemic circulation, valves, electrical conduction, systole/diastole, cardiac output, vasculature, portal systems, blood composition, blood pressure/resistance, gas and solute exchange, bicarbonate buffering, and coagulation within Biology::Cardiovascular System
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Cardiovascular System` and `Cardiovascular System Question Router`
+- Verified read-back: board contains a 239-node hierarchy map and a 51-shape flowchart.
+- Purpose: organize heart circuit anatomy, valve and conduction order, contraction/output timing, vessel and portal-system distinctions, blood component cues, pressure/resistance equations, gas exchange and pH-buffer rules, clotting cascade steps, and MCAT trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Non-enzymatic Proteins Study Board
 
 - Board: https://whimsical.com/LY6XCA1JL3TzUCK8XkkdEd
