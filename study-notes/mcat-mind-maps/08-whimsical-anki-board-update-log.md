@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Amino Acids Study Board
+
+- Board: https://whimsical.com/533nwJBkBo7RJsXsTxF5eC
+- Topic: amino-acid codes, side-chain classes, special residues, stereochemistry, acid-base behavior, pI/isoelectric focusing, peptide bonds, disulfide redox, and protein-structure consequences within Biochemistry::Amino Acids
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Amino Acids` and `Amino Acids Question Router`
+- Verified read-back: board contains a 274-node hierarchy map and a 57-shape flowchart.
+- Purpose: organize amino-acid recognition, functional side-chain cues, charge/pH decisions, pI shortcuts, peptide-bond properties, secondary/tertiary/quaternary structure cues, disulfide redox, and MCAT trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Thermochemistry Study Board
 
 - Board: https://whimsical.com/P2Z4wtouuFYTiAGkenkjAw
