@@ -14,7 +14,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Biology::Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | Biology::Cells source/reference | reference-only | https://whimsical.com/BLLr8vLf3bKhNuHpaC4js2 |
 | Biology::Cells related Anki board | reference-only | https://whimsical.com/LvWnUipz8Q4FSoceuU3Mo3 |
-| Psychology::Social Psychology & Interactions | existing-fetch-needed | https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh |
+| Psychology::Social Psychology & Interactions | done | https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh |
 
 ## Biochemistry
 
@@ -116,7 +116,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 159 | Self Identity | new-board-needed | |
 | 121 | Sensation | new-board-needed | |
 | 75 | Sleep & Consciousness | new-board-needed | |
-| 270 | Social Psychology & Interactions | existing-fetch-needed | https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh |
+| 270 | Social Psychology & Interactions | done | https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh |
 | 106 | Society & Culture | new-board-needed | |
 | 34 | Stress | tiny-parent-deck-review | |
 | 15 | Therapy | tiny-parent-deck-review | |
@@ -134,3 +134,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 
 - 2026-07-19: `General Chemistry::Acids & Bases` board verified after adding `Weak Acid/Base Equilibrium Setup`, a 12-shape companion flowchart for weak-equilibrium calculation setup.
 - 2026-07-19: `Biology::Cells` board verified after adding `Eukaryotic Organelle Identity + Routing`, a 37-node companion mini-map near eukaryotic machinery.
+- 2026-07-20: `Psychology::Social Psychology & Interactions` board verified after adding `Relationships Attachment and Helping Decisions`, a 20-shape companion flowchart for attachment, attraction, helping, support, and relationship-trap distinctions.
