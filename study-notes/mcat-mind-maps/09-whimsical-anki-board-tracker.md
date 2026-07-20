@@ -27,6 +27,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Biochemistry::Membranes | done | https://whimsical.com/VQdQ9HTdFx6F6rxrZDoN4d |
 | Biochemistry::Metabolism::Carbohydrate Metabolism | done | https://whimsical.com/SXSPDdKqbA8frWxHL3pG3D |
 | Biochemistry::Metabolism::Lipid Metabolism | done | https://whimsical.com/BtXnGBcNAkkVJSdKXZR5AA |
+| Biochemistry::Non-enzymatic Proteins | done | https://whimsical.com/LY6XCA1JL3TzUCK8XkkdEd |
 | Biology::Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | Biology::Cells source/reference | reference-only | https://whimsical.com/BLLr8vLf3bKhNuHpaC4js2 |
 | Biology::Cells related Anki board | reference-only | https://whimsical.com/LvWnUipz8Q4FSoceuU3Mo3 |
@@ -46,7 +47,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 39 | Metabolism | tiny-parent-deck-review | |
 | 446 | Metabolism::Carbohydrate Metabolism | done | https://whimsical.com/SXSPDdKqbA8frWxHL3pG3D |
 | 115 | Metabolism::Lipid Metabolism | done | https://whimsical.com/BtXnGBcNAkkVJSdKXZR5AA |
-| 123 | Non-enzymatic Proteins | new-board-needed | |
+| 123 | Non-enzymatic Proteins | done | https://whimsical.com/LY6XCA1JL3TzUCK8XkkdEd |
 | 233 | DNA & Biotechnology | excluded | |
 | 177 | RNA & Gene Expression | excluded | |
 
@@ -167,3 +168,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-20: `Biochemistry::Membranes` board verified after creating `MCAT Membranes Study Board`, with a 184-node hierarchy map and a 51-shape question router.
 - 2026-07-20: `Biochemistry::Metabolism::Carbohydrate Metabolism` board verified after creating `MCAT Carbohydrate Metabolism Study Board`, with a 435-node hierarchy map and a 76-shape question router.
 - 2026-07-20: `Biochemistry::Metabolism::Lipid Metabolism` board verified after creating `MCAT Lipid Metabolism Study Board`, with a 272-node hierarchy map and a 56-shape question router.
+- 2026-07-20: `Biochemistry::Non-enzymatic Proteins` board verified after creating `MCAT Non-enzymatic Proteins Study Board`, with a 268-node hierarchy map and a 52-shape question router.
