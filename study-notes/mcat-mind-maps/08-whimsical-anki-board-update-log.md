@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Chemical Kinetics Study Board
+
+- Board: https://whimsical.com/45KyX7SH2cuzk6jWKBPN1S
+- Topic: reaction rates, rate laws, reaction orders, mechanisms, collision theory, transition-state theory, catalysts, and kinetics traps within General Chemistry::Chemical Kinetics
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Chemical Kinetics` and `Kinetics Question Router`
+- Verified read-back: board contains a 67-node hierarchy map and a 23-shape flowchart.
+- Purpose: organize rate-law math, graph/order recognition, mechanism logic, catalyst effects, steady-state approximation, and thermodynamics-versus-kinetics distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Atoms and Bonding Study Board
 
 - Board: https://whimsical.com/62JjMersY9RSB3SQKB4rxo
