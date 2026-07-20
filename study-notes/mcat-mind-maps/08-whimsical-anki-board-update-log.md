@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Atoms and Bonding Study Board
+
+- Board: https://whimsical.com/62JjMersY9RSB3SQKB4rxo
+- Topic: atomic structure, quantum numbers, electron configuration, and bonding within General Chemistry::Atoms & Bonding
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Atoms and Bonding` and `Atoms and Bonding Question Router`
+- Verified read-back: board contains a 54-node hierarchy map and a 23-shape flowchart.
+- Purpose: organize atomic accounting, Bohr/spectra logic, quantum numbers, electron configuration, Lewis/octet logic, bond categories, polarity, and MCAT trap checks without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Social Psychology Aidenster Map
 
 - Board: https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh
