@@ -24,6 +24,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Biochemistry::Carbohydrates | done | https://whimsical.com/VSnEdqgotMrNXXAxqpcCrY |
 | Biochemistry::Enzymes | done | https://whimsical.com/Pjzcttp49f2RCtsidRGNfW |
 | Biochemistry::Lipids | done | https://whimsical.com/Ay6yz47PvHH2RscnqtEjEw |
+| Biochemistry::Membranes | done | https://whimsical.com/VQdQ9HTdFx6F6rxrZDoN4d |
 | Biology::Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | Biology::Cells source/reference | reference-only | https://whimsical.com/BLLr8vLf3bKhNuHpaC4js2 |
 | Biology::Cells related Anki board | reference-only | https://whimsical.com/LvWnUipz8Q4FSoceuU3Mo3 |
@@ -39,7 +40,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 135 | Carbohydrates | done | https://whimsical.com/VSnEdqgotMrNXXAxqpcCrY |
 | 165 | Enzymes | done | https://whimsical.com/Pjzcttp49f2RCtsidRGNfW |
 | 161 | Lipids | done | https://whimsical.com/Ay6yz47PvHH2RscnqtEjEw |
-| 78 | Membranes | new-board-needed | |
+| 78 | Membranes | done | https://whimsical.com/VQdQ9HTdFx6F6rxrZDoN4d |
 | 39 | Metabolism | tiny-parent-deck-review | |
 | 446 | Metabolism::Carbohydrate Metabolism | new-board-needed | |
 | 115 | Metabolism::Lipid Metabolism | new-board-needed | |
@@ -161,3 +162,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-20: `Biochemistry::Carbohydrates` board verified after creating `MCAT Carbohydrates Study Board`, with a 247-node hierarchy map and a 61-shape question router.
 - 2026-07-20: `Biochemistry::Enzymes` board verified after creating `MCAT Enzymes Study Board`, with a 293-node hierarchy map and an 82-shape question router.
 - 2026-07-20: `Biochemistry::Lipids` board verified after creating `MCAT Lipids Study Board`, with a 280-node hierarchy map and a 62-shape question router.
+- 2026-07-20: `Biochemistry::Membranes` board verified after creating `MCAT Membranes Study Board`, with a 184-node hierarchy map and a 51-shape question router.
