@@ -17,6 +17,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | General Chemistry::Equilibrium | done | https://whimsical.com/1oVcp4qsVHf4BwhKFnnnm |
 | General Chemistry::Gases | done | https://whimsical.com/VyJ2aWGSk5QyA4QTSH77rp |
 | General Chemistry::Redox & Inorganic Reactions | done | https://whimsical.com/PbHhKvZ94p2X2kLZM2Qe8i |
+| General Chemistry::Solutions | done | https://whimsical.com/DxfDZYZaX96AtiY5UE7s2n |
 | Biology::Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | Biology::Cells source/reference | reference-only | https://whimsical.com/BLLr8vLf3bKhNuHpaC4js2 |
 | Biology::Cells related Anki board | reference-only | https://whimsical.com/LvWnUipz8Q4FSoceuU3Mo3 |
@@ -70,7 +71,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 125 | Gases | done | https://whimsical.com/VyJ2aWGSk5QyA4QTSH77rp |
 | 121 | Periodic Table | excluded | |
 | 43 | Redox & Inorganic Reactions | done | https://whimsical.com/PbHhKvZ94p2X2kLZM2Qe8i |
-| 127 | Solutions | new-board-needed | |
+| 127 | Solutions | done | https://whimsical.com/DxfDZYZaX96AtiY5UE7s2n |
 | 53 | Stoichiometry | new-board-needed | |
 | 124 | Thermochemistry | new-board-needed | |
 
@@ -147,3 +148,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-20: `General Chemistry::Equilibrium` board verified after creating `MCAT Equilibrium Study Board`, with a 70-node hierarchy map and a 27-shape question router.
 - 2026-07-20: `General Chemistry::Gases` board verified after creating `MCAT Gases Study Board`, with an 89-node hierarchy map and a 28-shape question router.
 - 2026-07-20: `General Chemistry::Redox & Inorganic Reactions` board verified after creating `MCAT Redox and Inorganic Reactions Study Board`, with a 106-node hierarchy map and a 33-shape question router.
+- 2026-07-20: `General Chemistry::Solutions` board verified after creating `MCAT Solutions Study Board`, with a 113-node hierarchy map and a 31-shape question router.
