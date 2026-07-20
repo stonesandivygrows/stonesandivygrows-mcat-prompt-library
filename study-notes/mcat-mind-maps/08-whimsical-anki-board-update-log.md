@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Stoichiometry Study Board
+
+- Board: https://whimsical.com/BEUHLjwbu5RdaPNHWceQ4d
+- Topic: unit conversions, density, mole anchors, molarity, STP gas volume, balanced-equation mole ratios, limiting reagent, theoretical/percent yield, empirical/molecular formulas, mass percent, and equivalent weight within General Chemistry::Stoichiometry
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Stoichiometry` and `Stoichiometry Question Router`
+- Verified read-back: board contains a 101-node hierarchy map and a 30-shape flowchart.
+- Purpose: organize dimensional-analysis paths, grams-to-moles setup, coefficient mole ratios, limiting-reagent comparison, percent-composition formula derivation, yield setup, and equivalents/normality cues without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Solutions Study Board
 
 - Board: https://whimsical.com/DxfDZYZaX96AtiY5UE7s2n
