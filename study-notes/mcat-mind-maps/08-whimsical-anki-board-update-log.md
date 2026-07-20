@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-19 - Biology Cells Study Home
+
+- Board: https://whimsical.com/HtfEHDxZEXNeDUU3W22tki
+- Topic: eukaryotic organelle identity and routing within Biology::Cells
+- Approved change: add one compact study-facing mini-map near the existing eukaryotic machinery section.
+- Added artifact: `Eukaryotic Organelle Identity + Routing`
+- Verified read-back: board contains the new 37-node mind map.
+- Purpose: consolidate organelle identity, secretory routing, breakdown routes, cytoskeleton cues, prokaryote contrast, and MCAT traps without adding workflow/process notes.
+
 ## 2026-07-19 - MCAT Acids and Bases Concept Map
 
 - Board: https://whimsical.com/5PaeVg8z8qr391vSvMhH4R
