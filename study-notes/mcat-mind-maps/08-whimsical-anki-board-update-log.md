@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Gases Study Board
+
+- Board: https://whimsical.com/VyJ2aWGSk5QyA4QTSH77rp
+- Topic: ideal gases, gas laws, kinetic molecular theory, real-gas deviations, partial pressure, diffusion/effusion, Henry law, Fick law, and pressure measurement within General Chemistry::Gases
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Gases` and `Gases Question Router`
+- Verified read-back: board contains an 89-node hierarchy map and a 28-shape flowchart.
+- Purpose: organize gas-variable selection, Kelvin/unit setup, proportionality laws, Dalton and water-vapor pressure handling, real-gas deviation conditions, transport/solubility logic, and pressure-device distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Equilibrium Study Board
 
 - Board: https://whimsical.com/1oVcp4qsVHf4BwhKFnnnm
