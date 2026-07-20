@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Lipid Metabolism Study Board
+
+- Board: https://whimsical.com/BtXnGBcNAkkVJSdKXZR5AA
+- Topic: lipid digestion and absorption, lipid mobilization, lipoprotein transport, apolipoproteins, cholesterol synthesis, fatty acid synthesis, beta-oxidation, ketogenesis, ketolysis, and fasting/fed lipid-state decisions within Biochemistry::Metabolism::Lipid Metabolism
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Lipid Metabolism` and `Lipid Metabolism Question Router`
+- Verified read-back: board contains a 272-node hierarchy map and a 56-shape flowchart.
+- Purpose: organize lipid digestion/absorption routes, HSL versus LPL mobilization logic, lipoprotein and apolipoprotein matching, cholesterol/HMG-CoA reductase cues, fatty-acid synthesis and beta-oxidation enzyme logic, ketone-body tissue rules, and MCAT trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Carbohydrate Metabolism Study Board
 
 - Board: https://whimsical.com/SXSPDdKqbA8frWxHL3pG3D
