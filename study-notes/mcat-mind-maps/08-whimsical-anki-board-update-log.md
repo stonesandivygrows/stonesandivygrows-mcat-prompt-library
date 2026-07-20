@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Solutions Study Board
+
+- Board: https://whimsical.com/DxfDZYZaX96AtiY5UE7s2n
+- Topic: solvation, solubility, Ksp/Qsp, common-ion effect, complex-ion formation, concentration/dilution, aqueous cues, Raoult law, osmotic pressure, and other colligative properties within General Chemistry::Solutions
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Solutions` and `Solutions Question Router`
+- Verified read-back: board contains a 113-node hierarchy map and a 31-shape flowchart.
+- Purpose: organize concentration units, dilution setup, solvation thermodynamics, saturation/precipitation logic, common-ion ICE setup, complex-ion solubility shifts, and colligative-property equation choice without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Redox and Inorganic Reactions Study Board
 
 - Board: https://whimsical.com/PbHhKvZ94p2X2kLZM2Qe8i
