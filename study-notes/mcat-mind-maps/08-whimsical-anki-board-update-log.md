@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Enzymes Study Board
+
+- Board: https://whimsical.com/Pjzcttp49f2RCtsidRGNfW
+- Topic: enzyme catalyst rules, enzyme class names, cofactors/coenzymes, B-vitamin anchors, binding models, Michaelis-Menten kinetics, Lineweaver-Burk plots, cooperativity, inhibition patterns, assays, protein yield, and local pH/temperature cues within Biochemistry::Enzymes
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Enzymes` and `Enzymes Question Router`
+- Verified read-back: board contains a 293-node hierarchy map and an 82-shape flowchart.
+- Purpose: organize enzyme classification, cofactor and coenzyme distinctions, mechanism models, kinetics equations and graph reads, inhibitor effects on Km/Vmax, cooperative/allosteric curve shifts, assay/yield calculations, and MCAT trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Carbohydrates Study Board
 
 - Board: https://whimsical.com/VSnEdqgotMrNXXAxqpcCrY
