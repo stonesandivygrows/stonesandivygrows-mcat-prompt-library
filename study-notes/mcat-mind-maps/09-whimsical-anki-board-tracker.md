@@ -21,6 +21,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | General Chemistry::Stoichiometry | done | https://whimsical.com/BEUHLjwbu5RdaPNHWceQ4d |
 | General Chemistry::Thermochemistry | done | https://whimsical.com/P2Z4wtouuFYTiAGkenkjAw |
 | Biochemistry::Amino Acids | done | https://whimsical.com/533nwJBkBo7RJsXsTxF5eC |
+| Biochemistry::Carbohydrates | done | https://whimsical.com/VSnEdqgotMrNXXAxqpcCrY |
 | Biology::Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | Biology::Cells source/reference | reference-only | https://whimsical.com/BLLr8vLf3bKhNuHpaC4js2 |
 | Biology::Cells related Anki board | reference-only | https://whimsical.com/LvWnUipz8Q4FSoceuU3Mo3 |
@@ -33,7 +34,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 12 | MCAT::Biochemistry | tiny-parent-deck-review | |
 | 113 | Amino Acids | done | https://whimsical.com/533nwJBkBo7RJsXsTxF5eC |
 | 12 | Bioenergetics | tiny-parent-deck-review | |
-| 135 | Carbohydrates | new-board-needed | |
+| 135 | Carbohydrates | done | https://whimsical.com/VSnEdqgotMrNXXAxqpcCrY |
 | 165 | Enzymes | new-board-needed | |
 | 161 | Lipids | new-board-needed | |
 | 78 | Membranes | new-board-needed | |
@@ -155,3 +156,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-20: `General Chemistry::Stoichiometry` board verified after creating `MCAT Stoichiometry Study Board`, with a 101-node hierarchy map and a 30-shape question router.
 - 2026-07-20: `General Chemistry::Thermochemistry` board verified after creating `MCAT Thermochemistry Study Board`, with a 144-node hierarchy map and a 33-shape question router.
 - 2026-07-20: `Biochemistry::Amino Acids` board verified after creating `MCAT Amino Acids Study Board`, with a 274-node hierarchy map and a 57-shape question router.
+- 2026-07-20: `Biochemistry::Carbohydrates` board verified after creating `MCAT Carbohydrates Study Board`, with a 247-node hierarchy map and a 61-shape question router.
