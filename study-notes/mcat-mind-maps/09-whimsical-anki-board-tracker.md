@@ -11,6 +11,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Topic | Status | Board |
 |---|---:|---|
 | General Chemistry::Acids & Bases | done | https://whimsical.com/5PaeVg8z8qr391vSvMhH4R |
+| General Chemistry::Atoms & Bonding | done | https://whimsical.com/62JjMersY9RSB3SQKB4rxo |
 | Biology::Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | Biology::Cells source/reference | reference-only | https://whimsical.com/BLLr8vLf3bKhNuHpaC4js2 |
 | Biology::Cells related Anki board | reference-only | https://whimsical.com/LvWnUipz8Q4FSoceuU3Mo3 |
@@ -56,7 +57,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Notes | Topic | Status | Board |
 |---:|---|---|---|
 | 162 | Acids & Bases | done | https://whimsical.com/5PaeVg8z8qr391vSvMhH4R |
-| 155 | Atoms & Bonding | new-board-needed | |
+| 155 | Atoms & Bonding | done | https://whimsical.com/62JjMersY9RSB3SQKB4rxo |
 | 84 | Chemical Kinetics | new-board-needed | |
 | 14 | Common Ion Names | tiny-parent-deck-review | |
 | 82 | Electrochemistry | new-board-needed | |
@@ -135,3 +136,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-19: `General Chemistry::Acids & Bases` board verified after adding `Weak Acid/Base Equilibrium Setup`, a 12-shape companion flowchart for weak-equilibrium calculation setup.
 - 2026-07-19: `Biology::Cells` board verified after adding `Eukaryotic Organelle Identity + Routing`, a 37-node companion mini-map near eukaryotic machinery.
 - 2026-07-20: `Psychology::Social Psychology & Interactions` board verified after adding `Relationships Attachment and Helping Decisions`, a 20-shape companion flowchart for attachment, attraction, helping, support, and relationship-trap distinctions.
+- 2026-07-20: `General Chemistry::Atoms & Bonding` board verified after creating `MCAT Atoms and Bonding Study Board`, with a 54-node hierarchy map and a 23-shape question router.
