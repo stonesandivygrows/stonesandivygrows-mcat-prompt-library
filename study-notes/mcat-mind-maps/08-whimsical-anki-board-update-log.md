@@ -2,6 +2,15 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Lipids Study Board
+
+- Board: https://whimsical.com/Ay6yz47PvHH2RscnqtEjEw
+- Topic: lipid energy storage, free fatty acids, saponification, glycerophospholipids, sphingolipids, waxes, fat-soluble vitamins, steroids/cholesterol, terpenes/terpenoids, prostaglandins/eicosanoids, and fatty-acid derivatives within Biochemistry::Lipids
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Lipids` and `Lipids Question Router`
+- Verified read-back: board contains a 280-node hierarchy map and a 62-shape flowchart.
+- Purpose: organize lipid storage and fatty-acid properties, membrane lipid structure, vitamin/steroid/terpene signaling cues, prostaglandin/eicosanoid pathway logic, saponification, lipid synthesis distinctions, and MCAT trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Enzymes Study Board
 
 - Board: https://whimsical.com/Pjzcttp49f2RCtsidRGNfW
