@@ -2,6 +2,16 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-20 - MCAT Embryogenesis Study Board
+
+- Board: https://whimsical.com/D1V2j1rNeiV2Yo97ciFgeN
+- Topic: fertilization, acrosomal and cortical reactions, cleavage, blastocyst, implantation, twins, gastrulation, germ layers, neurulation, development mechanisms, extraembryonic membranes, fetal circulation, gestational timing, teratogens, and embryogenesis trap distinctions within Biology::Embryogenesis
+- Approved change: create one new Anki-repackaged topic board in the mcat Vault because no existing topic board was found.
+- Added artifacts: `MCAT Embryogenesis` and `Embryogenesis Question Router`
+- Verified read-back: board contains a 451-node hierarchy map and a 57-shape flowchart.
+- Coverage check: integrated the main Biology::Embryogenesis inventory with the attached supplemental Biology deck and public fact checks, without storing raw source text.
+- Purpose: organize stage order, oocyte covering and reaction distinctions, potency, twin zygosity and membrane-sharing logic, blastocyst fate, germ-layer derivatives, neurulation, fetal shunts, extraembryonic support structures, gestational timing, and MCAT trap distinctions without adding workflow/process notes.
+
 ## 2026-07-20 - MCAT Digestion Study Board
 
 - Board: https://whimsical.com/UAwFansea8g8sptHBP9VuM
