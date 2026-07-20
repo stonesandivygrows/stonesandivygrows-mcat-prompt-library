@@ -14,6 +14,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | General Chemistry::Atoms & Bonding | done | https://whimsical.com/62JjMersY9RSB3SQKB4rxo |
 | General Chemistry::Chemical Kinetics | done | https://whimsical.com/45KyX7SH2cuzk6jWKBPN1S |
 | General Chemistry::Electrochemistry | done | https://whimsical.com/HHc3VwPfiutaBvHoqB4XAo |
+| General Chemistry::Equilibrium | done | https://whimsical.com/1oVcp4qsVHf4BwhKFnnnm |
 | Biology::Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | Biology::Cells source/reference | reference-only | https://whimsical.com/BLLr8vLf3bKhNuHpaC4js2 |
 | Biology::Cells related Anki board | reference-only | https://whimsical.com/LvWnUipz8Q4FSoceuU3Mo3 |
@@ -63,7 +64,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 84 | Chemical Kinetics | done | https://whimsical.com/45KyX7SH2cuzk6jWKBPN1S |
 | 14 | Common Ion Names | tiny-parent-deck-review | |
 | 82 | Electrochemistry | done | https://whimsical.com/HHc3VwPfiutaBvHoqB4XAo |
-| 48 | Equilibrium | new-board-needed | |
+| 48 | Equilibrium | done | https://whimsical.com/1oVcp4qsVHf4BwhKFnnnm |
 | 125 | Gases | new-board-needed | |
 | 121 | Periodic Table | excluded | |
 | 43 | Redox & Inorganic Reactions | new-board-needed | |
@@ -141,3 +142,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-20: `General Chemistry::Atoms & Bonding` board verified after creating `MCAT Atoms and Bonding Study Board`, with a 54-node hierarchy map and a 23-shape question router.
 - 2026-07-20: `General Chemistry::Chemical Kinetics` board verified after creating `MCAT Chemical Kinetics Study Board`, with a 67-node hierarchy map and a 23-shape question router.
 - 2026-07-20: `General Chemistry::Electrochemistry` board verified after creating `MCAT Electrochemistry Study Board`, with a 70-node hierarchy map and a 24-shape question router.
+- 2026-07-20: `General Chemistry::Equilibrium` board verified after creating `MCAT Equilibrium Study Board`, with a 70-node hierarchy map and a 27-shape question router.
