@@ -4,7 +4,9 @@ Private repository for organizing MCAT study prompts, durable concept notes, and
 
 ## AI resume context
 
-Any AI model or collaborator resuming this project must read these files in order:
+Repository-wide AI instructions are in [`AGENTS.md`](AGENTS.md).
+
+Any AI model or collaborator resuming this project must then read these files in order:
 
 1. [`AI_RESUME_CONTEXT.md`](AI_RESUME_CONTEXT.md) — permanent student preferences, quality rules, source hierarchy, and study-system architecture
 2. [`PROJECT_HANDOFF_INDEX.md`](PROJECT_HANDOFF_INDEX.md) — map of frequently used files and what each controls
@@ -92,10 +94,12 @@ See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-pr
 
 - [`PROJECT_HANDOFF_INDEX.md`](PROJECT_HANDOFF_INDEX.md) — repository-wide handoff coverage map
 - [`TASK_LEDGER.md`](TASK_LEDGER.md) — active work and exact resume instructions
+- [`HANDOFF_COVERAGE_AUDIT_2026-07-21.md`](HANDOFF_COVERAGE_AUDIT_2026-07-21.md) — current handoff-coverage audit
 - [`cars/README.md`](cars/README.md) — CARS command center
 - [`practice-review/aamc/README.md`](practice-review/aamc/README.md) — AAMC guide and review command center
 - [`practice-review/uworld/README.md`](practice-review/uworld/README.md) — UWorld workflow command center
-- [`study-workflows/browser-review-export/README.md`](study-workflows/browser-review-export/README.md) — browser export scripts and troubleshooting workflow
+- [`study-workflows/browser-review-export/AI_HANDOFF.md`](study-workflows/browser-review-export/AI_HANDOFF.md) — browser export continuation and selector-testing rules
+- [`study-workflows/browser-review-export/README.md`](study-workflows/browser-review-export/README.md) — browser export scripts and instructions
 - [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-protocol.md) — private deck integration and QC rules
 
 ## Recently added study resources
