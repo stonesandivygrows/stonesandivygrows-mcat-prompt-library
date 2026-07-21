@@ -1,5 +1,13 @@
 # CARS Operating System and Decision Tree
 
+## AI resume block
+
+- **Status:** Canonical live CARS solving protocol.
+- **Read with:** [`../../AI_RESUME_CONTEXT.md`](../../AI_RESUME_CONTEXT.md), [`../../TASK_LEDGER.md`](../../TASK_LEDGER.md), and [`../README.md`](../README.md).
+- **Locked preferences:** no default skimming; read paragraphs for jobs; translate the stem before selecting one strategy; hop-and-return is allowed; use start-time checkpoints; do not promote “the last paragraph is usually tested” into an absolute rule.
+- **Change rule:** update this file only when a strategy repeatedly succeeds/fails across passages or the user explicitly revises the operating system. Passage-specific observations stay in the passage autopsy or pattern report.
+- **Exact resume instruction:** identify the active CARS passage/session in `TASK_LEDGER.md`, continue at the exact next question, complete the question-level autopsy, then decide whether the result changes this canonical protocol.
+
 ## Purpose
 
 Use this as the live play-by-play plan for a CARS passage. The goal is not to remember every strategy at once. The goal is to select the correct tool for the exact problem in front of you.
