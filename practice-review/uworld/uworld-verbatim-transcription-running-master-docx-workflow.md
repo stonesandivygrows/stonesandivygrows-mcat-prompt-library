@@ -1,5 +1,14 @@
 # UWorld Verbatim Transcription + Running Master DOCX Workflow
 
+## AI resume block
+
+- **Status:** Canonical UWorld verbatim-transcription and append protocol.
+- **Read with:** [`../../AI_RESUME_CONTEXT.md`](../../AI_RESUME_CONTEXT.md), [`../../TASK_LEDGER.md`](../../TASK_LEDGER.md), and [`README.md`](README.md).
+- **Private inputs:** raw UWorld PDFs/screenshots and the latest real master DOCX remain outside GitHub.
+- **Critical rule:** never create a new empty “master” that only points to an older file. Start from the latest confirmed master DOCX, append, save, reopen, and verify.
+- **Exact resume instruction:** identify the latest master filename and last appended UWorld set in `TASK_LEDGER.md`; open that actual file, confirm it is intact, and append the next source set from its first unprocessed question.
+- **End-of-session requirement:** update the ledger with the last verified question, source filename/test ID, output filename, and any unreadable figure or missing source content.
+
 ## Purpose
 
 Canonical workflow for converting UWorld practice PDFs or screenshots into one continuously growing, editable master DOCX.
