@@ -1,5 +1,14 @@
 # Anki Export Integration Protocol
 
+## AI resume block
+
+- **Status:** Canonical source-integration and card-selection protocol.
+- **Read with:** [`../AI_RESUME_CONTEXT.md`](../AI_RESUME_CONTEXT.md), [`../TASK_LEDGER.md`](../TASK_LEDGER.md), and [`../PROJECT_HANDOFF_INDEX.md`](../PROJECT_HANDOFF_INDEX.md).
+- **Private inputs:** complete Aiden/Captain Hook/Pankow/other deck exports remain in private local or cloud storage.
+- **Critical rule:** confirm the latest exact deck, subdeck, note type, field names, and export date before creating import files. Do not infer the current deck structure from an old prompt or filename.
+- **Locked architecture:** Goodnotes holds full explanations; Anki holds concise content recall and automatic strategy/application triggers. Exact source cards and newly written bridge cards must be distinguishable.
+- **Exact resume instruction:** open the active Anki task in `TASK_LEDGER.md`, locate the latest separated exports, confirm exact deck metadata, and continue from the last verified card/note or approved passage—not from a generic topic list.
+
 ## Purpose
 
 Anki exports are preserved as archival source material and used to build targeted flashcard-review layers inside Kaplan Chapter Hubs.
@@ -162,6 +171,8 @@ Before approving a chapter layer:
 - Confirm cloze deletions remain understandable.
 - Flag cross-chapter cards rather than duplicating them unnecessarily.
 - Confirm the toggle functions as a review tool rather than a content dump.
+- Confirm any new application/strategy card points back to the approved Goodnotes explanation or source question.
+- Record exact last processed note/card and next note/card in `TASK_LEDGER.md` before stopping.
 
 ## Processing limitation
 
