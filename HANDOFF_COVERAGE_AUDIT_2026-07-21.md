@@ -6,6 +6,7 @@ Ensure that the repository can pass unfinished MCAT work to another AI model whe
 
 ## Repository-level handoff files now present
 
+- [`AGENTS.md`](AGENTS.md) — repository-wide instructions that apply to any AI agent working anywhere in the repository
 - [`AI_RESUME_CONTEXT.md`](AI_RESUME_CONTEXT.md) — permanent project and student context
 - [`PROJECT_HANDOFF_INDEX.md`](PROJECT_HANDOFF_INDEX.md) — map of frequently used, explanation-dependent files
 - [`TASK_LEDGER.md`](TASK_LEDGER.md) — active task state and exact resume instructions
@@ -15,7 +16,7 @@ Ensure that the repository can pass unfinished MCAT work to another AI model whe
 
 | Area | Handoff coverage |
 |---|---|
-| Root repository | `README.md` links the required read order and session-continuity rule |
+| Root repository | `AGENTS.md` applies repository-wide; `README.md` links the required read order and session-continuity rule |
 | Running documents | `running-documents/README.md` distinguishes durable learning from task state |
 | CARS | `cars/README.md` and the live CARS operating system contain resume rules |
 | AAMC review | `practice-review/aamc/README.md` records the quality reset, pilot-first workflow, and source hierarchy |
@@ -45,8 +46,8 @@ Ensure that the repository can pass unfinished MCAT work to another AI model whe
 
 Minor concept notes, completed one-off reviews, dated passage autopsies, and archived prompts do not each repeat the entire project context. They inherit context from:
 
-1. the root handoff files
-2. their parent folder README
+1. `AGENTS.md` and the root handoff files
+2. their parent folder README or handoff
 3. the task ledger when active
 4. their canonical workflow or template
 
@@ -60,13 +61,15 @@ When a file becomes a frequent entry point or begins a multi-session task:
 2. add an AI resume block or parent-folder handoff
 3. create/update its `TASK_LEDGER.md` entry while work is active
 4. record durable outcomes in the running master after completion
+5. update this audit when the workflow becomes a major continuation path
 
 ## Audit conclusion
 
 The repository now has a layered handoff system rather than relying on a single giant context file:
 
 ```text
-permanent context
+AGENTS.md
+→ permanent context
 → handoff index
 → active task ledger
 → folder command center
