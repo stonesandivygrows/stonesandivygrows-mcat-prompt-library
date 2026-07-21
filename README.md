@@ -2,6 +2,21 @@
 
 Private repository for organizing MCAT study prompts, durable concept notes, and study workflows by tool and use case.
 
+## AI resume context
+
+Any AI model or collaborator resuming this project must read [`AI_RESUME_CONTEXT.md`](AI_RESUME_CONTEXT.md) before creating or revising study guides, Anki cards, Whimsical maps, Goodnotes packets, or AAMC/UWorld review files.
+
+That file records:
+
+- the three-place study system: Goodnotes, Anki, and Whimsical
+- the current AAMC passage-guide objective
+- the required question-by-question learning format
+- spoiler-safe redo rules
+- science and CARS strategy requirements
+- source locations and repository paths
+- known failures of the prior automatically generated guides
+- the pilot-first workflow required before mass generation
+
 ## Current consolidation policy
 
 To reduce overwhelm, **all MCAT study material from the full study period** should default to **running documents with dated entries** rather than new standalone files.
