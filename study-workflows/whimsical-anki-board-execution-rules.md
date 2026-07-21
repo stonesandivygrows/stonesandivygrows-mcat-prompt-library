@@ -42,6 +42,14 @@ Use this before editing MCAT Whimsical boards that repackage Anki flashcard cont
 - Keep source/reference notes short and useful for study traceability.
 - When a large or buggy mind map has one dense branch doing too much, consider pulling that branch out into its own branch, companion mini-map, or nearby flowchart instead of rebuilding the whole map.
 
+## Visual Formatting Rules
+
+- Visual text emphasis is nonnegotiable for MCAT Whimsical study boards. Without emphasis, every node looks the same and high-yield terms go unnoticed.
+- Use available formatting intentionally: bold key terms, italicize nuance/exceptions, use bullets or short grouped lines for multi-part facts, and use labels, spacing, colors, shapes, and arrows to show hierarchy and relationships.
+- Important anchor terms, exceptions, equations, trend directions, and decision cues should be visually distinguished from supporting explanation.
+- If the Whimsical connector or a specific diagram type cannot preserve rich text formatting inside nodes, use the closest reliable visual substitute: concise node labels, capitalization for anchor terms, separate child nodes, color grouping, shape grouping, or nearby callout notes.
+- Do not flatten study content into uniform plain text when the board is meant for learning or review.
+
 ## Context Sources To Check
 
 Use the newest relevant source first, then fall back only as needed:
