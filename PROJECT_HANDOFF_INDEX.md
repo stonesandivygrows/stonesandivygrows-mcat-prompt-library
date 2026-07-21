@@ -6,11 +6,13 @@ This file maps the **frequently used and explanation-dependent parts of the repo
 
 Use this read order whenever a session is new or the previous model reached a usage/context limit:
 
-1. [`README.md`](README.md) — repository purpose and folder map
-2. [`AI_RESUME_CONTEXT.md`](AI_RESUME_CONTEXT.md) — student preferences, quality rules, study-system architecture, source hierarchy
-3. [`TASK_LEDGER.md`](TASK_LEDGER.md) — active work, last verified item, next exact item
-4. the folder README or canonical workflow file below
-5. the latest source/export named in the task ledger
+1. [`AGENTS.md`](AGENTS.md) — repository-wide AI instructions
+2. [`README.md`](README.md) — repository purpose and folder map
+3. [`AI_RESUME_CONTEXT.md`](AI_RESUME_CONTEXT.md) — student preferences, quality rules, study-system architecture, source hierarchy
+4. [`TASK_LEDGER.md`](TASK_LEDGER.md) — active work, last verified item, next exact item
+5. the nearest folder README or handoff file
+6. the canonical workflow named by the task
+7. the latest source/export named in the task ledger
 
 ## Handoff coverage rule
 
@@ -42,20 +44,26 @@ Related canonical files
 
 | Area | Start here | What it controls | Resume requirement |
 |---|---|---|---|
-| Whole repository | `AI_RESUME_CONTEXT.md` | Three-place study system, student preferences, passage-guide specification, timing, source hierarchy, quality boundaries | Read before creating any new guide, map, deck, workflow, or study artifact |
+| Whole repository | `AGENTS.md` | Repository-wide AI behavior and continuity rules | Read before substantive work |
+| Permanent student/project context | `AI_RESUME_CONTEXT.md` | Three-place study system, student preferences, passage-guide specification, timing, source hierarchy, quality boundaries | Read before creating any new guide, map, deck, workflow, or study artifact |
 | Active tasks | `TASK_LEDGER.md` | Last verified item, next exact item, rejected approaches, open questions | Update before stopping any multi-step task |
-| Consolidated study history | `running-documents/mcat-running-review-and-notes-master.md` | Durable learning and dated practice/test-review index | Append durable decisions and lesson summaries; do not use it as a raw task scratchpad |
+| Consolidated study history | `running-documents/README.md` → `mcat-running-review-and-notes-master.md` | Durable learning and dated practice/test-review index | Append durable decisions and lesson summaries; do not use it as a raw task scratchpad |
 | CARS | `cars/README.md` | Folder routing and canonical CARS strategy files | Continue from the session/passage named in the task ledger; preserve question-level analysis |
 | Live CARS solving | `cars/01-strategy-garden/cars-operating-system-and-decision-tree.md` | Passage and question decision tree | Update only after a pattern repeats or the user explicitly changes a rule |
 | CARS timing | `cars/01-strategy-garden/cars-timing-whiteboard-and-skipping-protocol.md` | Timer checkpoints, whiteboard use, skip/return rules | Preserve start-time preference and protected return buffer |
 | UWorld transcription | `practice-review/uworld/uworld-verbatim-transcription-running-master-docx-workflow.md` | Verbatim extraction, one-running-DOCX append rules, figure handling, QC | Start from the latest real master file; never create an empty replacement master |
-| Browser exports | `study-workflows/browser-review-export/README.md` | JW/UWorld/AAMC export scripts and browser workflow | Reproduce failures on the live site; record selector changes and verification date |
+| Browser exports | `study-workflows/browser-review-export/AI_HANDOFF.md` → `README.md` | JW/UWorld/AAMC export scripts, selector testing, and browser workflow | Reproduce failures on the live site; record selector changes and verification date |
 | Anki source integration | `anki/anki-export-integration-protocol.md` | How private deck exports feed chapter layers and application cards | Confirm exact current deck/subdeck names before writing import files |
-| Mind-map architecture | `study-notes/mcat-mind-maps/00-anki-project-chat-coverage-and-map-architecture.md` | Chat extraction, canonical nodes, shard status, visual grammar | Resume from `Needs Recheck` or next unexecuted shard/prompt packet |
+| Mind-map architecture | `study-notes/mcat-mind-maps/README.md` → `00-anki-project-chat-coverage-and-map-architecture.md` | Chat extraction, canonical nodes, shard status, visual grammar | Resume from `Needs Recheck` or next unexecuted shard/prompt packet |
 | AAMC full-length guides | `practice-review/aamc/README.md` | Exam-source roles, spoiler-safe layers, guide quality standard | Rebuild one FL4 pilot passage first; do not batch from generic templates |
 | UWorld review folder | `practice-review/uworld/README.md` | Separation between transcription, autopsy, QID mapping, and copyrighted sources | Update the running map or running review; do not create unnecessary one-off files |
+| Handoff audit | `HANDOFF_COVERAGE_AUDIT_2026-07-21.md` | Records which command centers and canonical workflows currently have coverage | Update when a new major workflow becomes frequently used |
 
 ## File roles: do not confuse them
+
+### `AGENTS.md`
+
+Answers: **What must any AI agent do anywhere in this repository?**
 
 ### `AI_RESUME_CONTEXT.md`
 
@@ -69,7 +77,7 @@ Answers: **What is currently being done, where did the previous session stop, an
 
 Answers: **What durable learning, rules, and completed review records should remain useful after the current task is over?**
 
-### Folder README
+### Folder README or handoff
 
 Answers: **Which files in this folder are canonical, how do they relate, and which workflow should be used?**
 
@@ -141,5 +149,6 @@ When a new frequently used workflow is created:
 3. Add an active task to `TASK_LEDGER.md` if work is incomplete.
 4. Link it from the root README when it becomes a primary entry point.
 5. Record the private-source boundary and verification standard.
+6. Update the handoff coverage audit when the new workflow is likely to be resumed across sessions.
 
 This targeted approach prevents repetitive boilerplate in every minor note while ensuring that the files most likely to be reopened by another model contain enough context to continue safely.
