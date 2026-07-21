@@ -1,11 +1,21 @@
 # CARS Study Garden
 
+> **AI handoff:** Before changing this folder, read [`../AI_RESUME_CONTEXT.md`](../AI_RESUME_CONTEXT.md), [`../PROJECT_HANDOFF_INDEX.md`](../PROJECT_HANDOFF_INDEX.md), and [`../TASK_LEDGER.md`](../TASK_LEDGER.md). This README is the folder-level command center. Update the task ledger before stopping a long CARS task so another model can resume without reconstructing the chat.
+
 This folder is the canonical GitHub and Obsidian-compatible home for CARS strategy, pattern reports, session hubs, passage autopsies, and raw-review routing.
 
 The organization combines two requirements:
 
 1. **Parent/child hierarchy** so every file has a predictable home.
 2. **Study-vibes presentation** so parent pages feel like calm dashboards and child pages feel like focused workrooms.
+
+## AI resume block
+
+- **Authoritative files:** this README for routing; `01-strategy-garden/cars-operating-system-and-decision-tree.md` for live solving; `01-strategy-garden/cars-timing-whiteboard-and-skipping-protocol.md` for pacing; `04-passage-autopsies/question-by-question-game-tape-template.md` for review output.
+- **Current student rules:** do not default to skimming; use the opening as an anchor; read paragraphs for jobs; translate the stem before choosing a strategy; hop-and-return is allowed; final paragraphs are often high-value but not an absolute rule; use start-time checkpoints.
+- **Quality boundary:** do not assign one generic distractor taxonomy to every CARS question. Each question must be classified and tied to exact passage evidence.
+- **Storage boundary:** raw commercial passages, screenshots, and large exports remain private/local. GitHub stores original analysis, workflows, indexes, and bounded searchable anchors.
+- **Resume instruction:** identify the active passage/session in `TASK_LEDGER.md`, open the source file listed there, continue from the exact next question, and update the relevant pattern report only after the question-level autopsy is complete.
 
 ## Parent/child map
 
@@ -40,7 +50,6 @@ Empty lanes are created when the first durable file belongs there; raw source du
 ### Master Guides
 
 Shareable, polished versions of the CARS system belong here:
-
 - [CARS Master Guide for Online Sharing](master-guides/cars-master-guide-for-online-sharing.md)
 
 The master guide is written for outside readers. It should stay free of raw commercial passage text, private transcript details, and overly personalized notes.
@@ -48,7 +57,6 @@ The master guide is written for outside readers. It should stay free of raw comm
 ### 01 — Strategy Garden
 
 Stable rules that should transfer across passages:
-
 - [3-Layer Operational Autopsy System](01-strategy-garden/3-layer-operational-autopsy.md)
 - [CARS Operating System and Decision Tree](01-strategy-garden/cars-operating-system-and-decision-tree.md)
 - [CARS Timing, Whiteboard, and Skipping Protocol](01-strategy-garden/cars-timing-whiteboard-and-skipping-protocol.md)
