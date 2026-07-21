@@ -4,9 +4,14 @@ Private repository for organizing MCAT study prompts, durable concept notes, and
 
 ## AI resume context
 
-Any AI model or collaborator resuming this project must read [`AI_RESUME_CONTEXT.md`](AI_RESUME_CONTEXT.md) before creating or revising study guides, Anki cards, Whimsical maps, Goodnotes packets, or AAMC/UWorld review files.
+Any AI model or collaborator resuming this project must read these files in order:
 
-That file records:
+1. [`AI_RESUME_CONTEXT.md`](AI_RESUME_CONTEXT.md) — permanent student preferences, quality rules, source hierarchy, and study-system architecture
+2. [`PROJECT_HANDOFF_INDEX.md`](PROJECT_HANDOFF_INDEX.md) — map of frequently used files and what each controls
+3. [`TASK_LEDGER.md`](TASK_LEDGER.md) — active tasks, last verified item, next exact item, and rejected approaches
+4. the canonical workflow file named in the task ledger
+
+These files record:
 
 - the three-place study system: Goodnotes, Anki, and Whimsical
 - the current AAMC passage-guide objective
@@ -16,6 +21,13 @@ That file records:
 - source locations and repository paths
 - known failures of the prior automatically generated guides
 - the pilot-first workflow required before mass generation
+- exact cross-session continuation instructions
+
+### Session-continuity requirement
+
+Before a long task ends or usage/context limits are reached, the working model must update [`TASK_LEDGER.md`](TASK_LEDGER.md) with the exact last verified item and next action. Essential continuation information must not remain only in the chat.
+
+Frequently used or explanation-dependent files should contain an `AI resume block` or be governed by a parent README. Use [`templates/AI_HANDOFF_BLOCK_TEMPLATE.md`](templates/AI_HANDOFF_BLOCK_TEMPLATE.md).
 
 ## Current consolidation policy
 
@@ -56,11 +68,13 @@ Older one-off files remain as archive/source until summarized into the running m
 - `macwhisper/` — transcription, note conversion, and title-generation prompts
 - `canva/` — transcript-to-visual and design-generation prompts
 - `cars/` — CARS-specific prompts, decision trees, review frameworks, pattern reports, and passage autopsies
-- `practice-review/uworld/` — UWorld transcription workflows, review autopsies, and durable correction notes
+- `practice-review/aamc/` — AAMC full-length processing records, guide workflow, and spoiler-safe architecture
+- `practice-review/uworld/` — UWorld transcription workflows, review autopsies, mappings, and durable correction notes
 - `study-notes/` — durable MCAT concept explanations, misconception repairs, and cross-topic connections
   - [`study-notes/mcat-mind-maps/00-anki-project-chat-coverage-and-map-architecture.md`](study-notes/mcat-mind-maps/00-anki-project-chat-coverage-and-map-architecture.md) — master index for the project-wide chat-to-mind-map architecture, subject shards, cross-links, corrections, and verification queue
 - `study-workflows/` — reusable review methods, study procedures, and active-recall systems
 - `anki/` — Anki export storage, routing, extraction, and chapter-layer protocols
+- `templates/` — reusable prompt, layout, and AI-handoff templates
 - `naming-rules/` — transcript title and naming conventions
 - `archive/` — legacy or superseded prompt versions
 
@@ -73,6 +87,16 @@ Large Anki exports remain in private local or cloud storage under the canonical 
 They are used as searchable reference pools for Kaplan Chapter Hubs. Only targeted, verified cards are placed into each chapter's `▼ High-Yield Flashcard Review Layer`.
 
 See [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-protocol.md).
+
+## Frequently used command centers
+
+- [`PROJECT_HANDOFF_INDEX.md`](PROJECT_HANDOFF_INDEX.md) — repository-wide handoff coverage map
+- [`TASK_LEDGER.md`](TASK_LEDGER.md) — active work and exact resume instructions
+- [`cars/README.md`](cars/README.md) — CARS command center
+- [`practice-review/aamc/README.md`](practice-review/aamc/README.md) — AAMC guide and review command center
+- [`practice-review/uworld/README.md`](practice-review/uworld/README.md) — UWorld workflow command center
+- [`study-workflows/browser-review-export/README.md`](study-workflows/browser-review-export/README.md) — browser export scripts and troubleshooting workflow
+- [`anki/anki-export-integration-protocol.md`](anki/anki-export-integration-protocol.md) — private deck integration and QC rules
 
 ## Recently added study resources
 
