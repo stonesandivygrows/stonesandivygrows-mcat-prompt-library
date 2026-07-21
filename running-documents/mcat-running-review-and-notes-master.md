@@ -218,3 +218,43 @@ No pending or unavailable-mapping placeholders
 ```
 
 The FL3 source contained all 230 questions beginning at Question 1. Exact-export cards and question-specific bridge cards remain explicitly distinguished.
+
+### 2026-07-21 — Canonical AI resume context added; generated-guide quality reset
+
+Status: Handoff context complete. Full-guide rebuild remains pending.
+
+Canonical handoff:
+
+- `AI_RESUME_CONTEXT.md`
+
+README now links to the handoff file and instructs any future AI model to read it before creating new materials.
+
+The handoff records:
+
+```text
+three-place study system: Goodnotes, Anki, Whimsical
+science passage operating-system objective
+CARS guide requirements
+spoiler-safe redo/learning/key separation
+per-question evidence, shortcut, distractor, and timing requirements
+Aiden and MCATalyst update architecture
+source locations
+personal learning preferences and recurring errors
+pilot-first rebuild workflow
+```
+
+Quality correction:
+
+Several automatically generated FL1, Unscored, FL3, and FL4 Cornell/Goodnotes guides were judged by the student to have poor content quality. Their layouts may be used as prototypes, but their explanations, shortcuts, distractor labels, and personalized mappings are **not canonical** and should not be reused without source verification.
+
+Locked replacement workflow:
+
+```text
+1. Verify the exact AAMC source.
+2. Rebuild one FL4 passage at high quality.
+3. Include all choices, exact evidence, real distractor logic, explicit shortcut math/logic, timing, and personal links.
+4. Obtain user approval on the pilot.
+5. Only then batch the remaining passages and exams.
+```
+
+Do not regenerate all four exams from generic templates before the pilot is approved.
