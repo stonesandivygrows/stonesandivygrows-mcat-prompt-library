@@ -34,6 +34,9 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Biology::Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | Biology::Cells source/reference | reference-only | https://whimsical.com/BLLr8vLf3bKhNuHpaC4js2 |
 | Biology::Cells related Anki board | reference-only | https://whimsical.com/LvWnUipz8Q4FSoceuU3Mo3 |
+| Biology::Endocrine | done | https://whimsical.com/KRzPDC1ceqEVu4cTREogTR |
+| Biology::Genetics & Evolution | done | https://whimsical.com/Pe9X7zCBDBb5XJpjirr9ej |
+| Biology::Homeostasis | done | https://whimsical.com/MXu9iXfDCtTXuDeBxyb6Yk |
 | Psychology::Social Psychology & Interactions | done | https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh |
 
 ## Biochemistry
@@ -62,9 +65,9 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 241 | Cells | done | https://whimsical.com/HtfEHDxZEXNeDUU3W22tki |
 | 117 | Digestion | done | https://whimsical.com/UAwFansea8g8sptHBP9VuM |
 | 150 | Embryogenesis | done | https://whimsical.com/D1V2j1rNeiV2Yo97ciFgeN |
-| 191 | Endocrine | new-board-needed | |
-| 115 | Genetics & Evolution | new-board-needed | |
-| 104 | Homeostasis | new-board-needed | |
+| 191 | Endocrine | done | https://whimsical.com/KRzPDC1ceqEVu4cTREogTR |
+| 115 | Genetics & Evolution | done | https://whimsical.com/Pe9X7zCBDBb5XJpjirr9ej |
+| 104 | Homeostasis | done | https://whimsical.com/MXu9iXfDCtTXuDeBxyb6Yk |
 | 218 | Immune System | new-board-needed | |
 | 143 | Musculoskeletal System | new-board-needed | |
 | 127 | Nervous System | new-board-needed | |
@@ -175,3 +178,6 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-20: `Biology::Cardiovascular System` board verified after creating `MCAT Cardiovascular System Study Board`, with a 239-node hierarchy map and a 51-shape question router.
 - 2026-07-20: `Biology::Digestion` board verified after creating `MCAT Digestion Study Board`, with a 282-node hierarchy map and a 53-shape question router.
 - 2026-07-20: `Biology::Embryogenesis` board verified after creating `MCAT Embryogenesis Study Board`, with a 451-node hierarchy map and a 57-shape question router.
+- 2026-07-22: `Biology::Endocrine` board verified after creating `MCAT Endocrine Study Board`, with a 147-node hierarchy map and a 24-shape question router.
+- 2026-07-22: `Biology::Genetics & Evolution` board verified after creating `MCAT Genetics & Evolution Study Board`, with a 143-node hierarchy map and a 22-shape question router.
+- 2026-07-22: `Biology::Homeostasis` board verified after creating `MCAT Homeostasis Study Board`, with hierarchy map and question router covering feedback loops, RAAS/ADH/ANP, thermoregulation, and pH/osmotic balance.
