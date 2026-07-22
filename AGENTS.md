@@ -52,6 +52,46 @@ Create standalone files only for:
 
 Do not delete or overwrite earlier user work casually. Use versioned names or update canonical files only after inspecting the current content and status.
 
+## Google Docs sync policy
+
+Important durable study documents should be findable in Google Docs as well as GitHub.
+
+When creating or substantially updating a **Tier 1** document, also create or update a native Google Doc unless the user explicitly opts out for that task.
+
+**Tier 1 — sync to Google Docs**
+
+- living study guides
+- running review documents
+- major MCAT strategy documents
+- CARS operating-system documents
+- whiteboard/timing systems
+- AAMC and UWorld review guides
+- zero-math and mathematical-bridge guides
+- NotebookLM source documents
+- durable concept explanations that the user is expected to read, revise, or reuse
+- major workflow documents for study execution or AI handoff
+
+**Tier 2 — GitHub only unless requested**
+
+- code
+- console scripts
+- templates
+- reusable prompts
+- raw exports
+- manifests
+- logs
+- temporary scratch files
+- archive-only source references
+
+Google Docs sync requirements:
+
+1. Use a clear, searchable title that matches or closely mirrors the GitHub filename/title.
+2. Prefer native Google Docs for editable text documents.
+3. Keep GitHub as the durable backend and handoff layer; Google Docs is the readable/editable study copy.
+4. After syncing, record the Google Docs URL in the relevant GitHub file, README, ledger, or index when appropriate.
+5. Do not upload full commercial source exports, complete commercial decks, or large screenshot archives to Google Docs unless the user explicitly asks and the material is private/personal-use only.
+6. If importance is unclear, ask whether the document is Tier 1 before syncing.
+
 ## Quality and trust rules
 
 - Do not claim a private source was opened unless it was actually accessed in the active session.
