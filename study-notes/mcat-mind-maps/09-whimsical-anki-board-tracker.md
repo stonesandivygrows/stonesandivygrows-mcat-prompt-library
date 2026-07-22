@@ -38,6 +38,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Biology::Genetics & Evolution | done | https://whimsical.com/Pe9X7zCBDBb5XJpjirr9ej |
 | Biology::Homeostasis | done | https://whimsical.com/MXu9iXfDCtTXuDeBxyb6Yk |
 | Biology::Immune System | done | https://whimsical.com/WwKi9yiR8vS9KrqNBKVJXE |
+| Biology::Musculoskeletal System | done | https://whimsical.com/RwucrZ7ae4M7ufQJFHHr1a |
 | Biology::Nervous System | done | https://whimsical.com/MQFgXFFxALYW5JN4w64Qg1 |
 | Psychology::Social Psychology & Interactions | done | https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh |
 
@@ -71,7 +72,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 115 | Genetics & Evolution | done | https://whimsical.com/Pe9X7zCBDBb5XJpjirr9ej |
 | 104 | Homeostasis | done | https://whimsical.com/MXu9iXfDCtTXuDeBxyb6Yk |
 | 218 | Immune System | done | https://whimsical.com/WwKi9yiR8vS9KrqNBKVJXE |
-| 143 | Musculoskeletal System | new-board-needed | |
+| 143 | Musculoskeletal System | done | https://whimsical.com/RwucrZ7ae4M7ufQJFHHr1a |
 | 127 | Nervous System | done | https://whimsical.com/MQFgXFFxALYW5JN4w64Qg1 |
 | 174 | Reproductive System | new-board-needed | |
 | 90 | Respiratory System | new-board-needed | |
@@ -185,3 +186,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-22: `Biology::Homeostasis` board verified after creating `MCAT Homeostasis Study Board`, with hierarchy map and question router covering feedback loops, RAAS/ADH/ANP, thermoregulation, and pH/osmotic balance.
 - 2026-07-22: `Biology::Immune System` board verified after creating `MCAT Immune System Study Board` (WwKi9yiR8vS9KrqNBKVJXE), with hierarchy map covering innate immunity, adaptive immunity (MHC I/II, CD4/CD8, B cells, antibodies), cell identity guide, 4 traceable pathways, and cross-topic bridges.
 - 2026-07-22: `Biology::Nervous System` board verified after creating `MCAT Nervous System Study Board` (MQFgXFFxALYW5JN4w64Qg1), with hierarchy map covering CNS/PNS divisions, neuron signal cascade, myelin/glia, ionotropic vs metabotropic receptors, sympathetic/parasympathetic relay, cholinergic exceptions, and cross-topic bridges to Biochemistry, Endocrine, Musculoskeletal, and Physics.
+- 2026-07-22: `Biology::Musculoskeletal System` board verified after creating `MCAT Musculoskeletal System Study Board` (RwucrZ7ae4M7ufQJFHHr1a), with hierarchy map covering muscle types (skeletal/cardiac/smooth), sliding filament model (Ca²⁺/troponin/myosin), bone cells (osteoblasts/osteoclasts/osteocytes), joint types, proprioceptors, and cross-topic bridges to Biochemistry AA, Non-enzymatic Proteins, Endocrine, Nervous System, and Physics Mechanics.
