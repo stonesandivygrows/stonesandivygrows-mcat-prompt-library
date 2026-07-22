@@ -2,6 +2,26 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-22 - MCAT Respiratory System Study Board (new companion map)
+
+- Board: https://whimsical.com/Armj3LtH9HQ5TgaNBG6fUG
+- Topic: airway/alveolar structure, breathing mechanics, lung volumes/capacities, gas exchange and O2/CO2 transport, acid-base chemical control, and ventilation-perfusion relationships within Biology::Respiratory System
+- Found state: existing 71-node hierarchy map, already well-formed and rule-compliant. Left untouched per explicit request to build a new map beside it rather than edit it.
+- Approved change: add one new ground-up standalone mindmap covering the topic independently, including added depth the existing map did not have: obstructive-vs-restrictive lung volume patterns, explicit V/Q ratio numeric baseline, and left-vs-right dissociation-curve shift causes.
+- Added artifact: `Respiratory System: Mechanics, Gas Exchange & Control`
+- Verified read-back: board contains the new 97-node hierarchy map; the original 71-node map is unchanged.
+- Purpose: give a second, independently-built full-coverage map for this topic without disturbing the existing one, clustered to the max-3-4-children-per-node style rule throughout.
+
+## 2026-07-22 - MCAT Reproductive System Study Board (new companion map)
+
+- Board: https://whimsical.com/TkrJmZVHCAwZ7px4jGjWcK
+- Topic: germ-cell and follicle lineage terminology, fertilization through early development staging, male/female reproductive anatomy, hormonal regulation and menstrual cycle, and reproductive MCAT traps within Biology::Reproductive System
+- Found state: existing 59-node hierarchy map, already well-formed and rule-compliant. Left untouched per explicit request to build a new map beside it rather than edit it.
+- Approved change: add one new ground-up standalone mindmap built from `study-notes/biology/reproduction/gametogenesis-fertilization-development-terminology.md`, adding depth the existing map did not have: full oogonium-to-ovum and spermatogonium-to-spermatozoon lineage naming, the primordial-to-Graafian follicle progression plus corpus luteum/corpus albicans distinction, and the inner-cell-mass-vs-trophoblast blastocyst split.
+- Added artifact: `Reproductive System: Gametogenesis, Cycle & Development`
+- Verified read-back: board contains the new 84-node hierarchy map; the original 59-node map is unchanged.
+- Purpose: give a second, independently-built full-coverage map for this topic without disturbing the existing one, clustered to the max-3-4-children-per-node style rule throughout.
+
 ## 2026-07-22 - MCAT Carboxylic Acids and Derivatives Study Board
 
 - Board: https://whimsical.com/Hj2kspVWb7wMTptuhQoD8T
