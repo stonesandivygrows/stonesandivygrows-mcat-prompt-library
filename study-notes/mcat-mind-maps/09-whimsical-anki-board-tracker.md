@@ -42,6 +42,8 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Biology::Musculoskeletal System | done | https://whimsical.com/RwucrZ7ae4M7ufQJFHHr1a |
 | Biology::Nervous System | done | https://whimsical.com/MQFgXFFxALYW5JN4w64Qg1 |
 | Organic Chemistry::Alcohols | done | https://whimsical.com/S9XguES8Wqq2MPQ1oDf75R |
+| Organic Chemistry::Aldehydes & Ketones | done | https://whimsical.com/3PTod8PMpqyk3U7jFZpds6 |
+| Organic Chemistry::Carboxylic Acids & Derivatives | done | https://whimsical.com/Hj2kspVWb7wMTptuhQoD8T |
 | Organic Chemistry::Common Organic Reactions | done | https://whimsical.com/AJ9Uu91SMJnYNXFm4fcHfZ |
 | Psychology::Social Psychology & Interactions | done | https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh |
 
@@ -103,8 +105,8 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 |---:|---|---|---|
 | 44 | MCAT::Organic Chemistry | tiny-parent-deck-review | |
 | 23 | Alcohols | done | https://whimsical.com/S9XguES8Wqq2MPQ1oDf75R |
-| 67 | Aldehydes & Ketones | new-board-needed | |
-| 88 | Carboxylic Acids & Derivatives | new-board-needed | |
+| 67 | Aldehydes & Ketones | done | https://whimsical.com/3PTod8PMpqyk3U7jFZpds6 |
+| 88 | Carboxylic Acids & Derivatives | done | https://whimsical.com/Hj2kspVWb7wMTptuhQoD8T |
 | 140 | Common Organic Reactions | done | https://whimsical.com/AJ9Uu91SMJnYNXFm4fcHfZ |
 | 191 | Lab Techniques | new-board-needed | |
 | 31 | Nitrogen & Phosphorus | tiny-parent-deck-review | |
@@ -194,3 +196,5 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-22: `Organic Chemistry::Alcohols` board repaired and verified on existing board (S9XguES8Wqq2MPQ1oDf75R), with an 83-node relationship-labeled hierarchy map and an 18-node/19-connector question router covering recognition, classification, properties, acid/base logic, oxidation, substitution, dehydration, carbonyl formation, ester/acetal chemistry, and MCAT traps.
 - 2026-07-22: `Organic Chemistry::Alcohols` board supplemented with a new standalone rule-compliant mindmap, `Alcohols: R–OH reaction hub`, preserving the older repaired map but adding a cleaner restart map for recognition, classification, properties, acid/base logic, oxidation, reduction, Grignard addition, substitution, dehydration, carbonyl-derivative chemistry, and cross-links.
 - 2026-07-22: `Organic Chemistry::Common Organic Reactions` board supplemented with four new standalone rule-compliant mindmaps: `Common Organic Reactions: mechanism chooser`, `Substitution and Elimination: alkyl electrophile routes`, `Additions and Carbonyls: π-bond reaction maps`, and `Common Organic Reactions: advanced reaction families`. The new maps correct the Grignard-as-reduction framing by labeling Grignard as carbon nucleophile addition, and cover acid/base triage, nucleophile/electrophile logic, leaving groups, SN1/SN2/E1/E2, alkene additions, carbonyl additions, hydride reductions, acyl substitution, esterification, aromatic substitution, nitrogen chemistry, and MCAT traps.
+- 2026-07-22: `Organic Chemistry::Aldehydes & Ketones` board (`MCAT Aldehydes and Ketones Study Board`, 3PTod8PMpqyk3U7jFZpds6) marked done: found an existing 47-node hierarchy map not yet tracked, gap-filled against repo enolate notes and standard MCAT coverage (Grignard addition, Wittig reaction, kinetic-vs-thermodynamic enolate control, 1,2 vs 1,4 addition), then restructured all flat 5+ branches into 2-3-item clusters per the max-3-4-children style rule. Verified read-back: 59 nodes.
+- 2026-07-22: `Organic Chemistry::Carboxylic Acids & Derivatives` board (`MCAT Carboxylic Acids and Derivatives Study Board`, Hj2kspVWb7wMTptuhQoD8T) marked done: found an existing 41-node hierarchy map not yet tracked, gap-filled against the repo's amide-hydrolysis note (explicit weak-conjugate-base leaving-group rule, carbonyl-protonation trap) and added a missing Decarboxylation branch (beta-keto acid/malonic acid), then restructured flat branches into clusters per the max-3-4-children style rule. Verified read-back: 51 nodes.
