@@ -41,6 +41,8 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Biology::Immune System | done | https://whimsical.com/WwKi9yiR8vS9KrqNBKVJXE |
 | Biology::Musculoskeletal System | done | https://whimsical.com/RwucrZ7ae4M7ufQJFHHr1a |
 | Biology::Nervous System | done | https://whimsical.com/MQFgXFFxALYW5JN4w64Qg1 |
+| Biology::Reproductive System | done | https://whimsical.com/TkrJmZVHCAwZ7px4jGjWcK |
+| Biology::Respiratory System | done | https://whimsical.com/Armj3LtH9HQ5TgaNBG6fUG |
 | Organic Chemistry::Alcohols | done | https://whimsical.com/S9XguES8Wqq2MPQ1oDf75R |
 | Organic Chemistry::Aldehydes & Ketones | done | https://whimsical.com/3PTod8PMpqyk3U7jFZpds6 |
 | Organic Chemistry::Carboxylic Acids & Derivatives | done | https://whimsical.com/Hj2kspVWb7wMTptuhQoD8T |
@@ -79,8 +81,8 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 218 | Immune System | done | https://whimsical.com/WwKi9yiR8vS9KrqNBKVJXE |
 | 143 | Musculoskeletal System | done | https://whimsical.com/RwucrZ7ae4M7ufQJFHHr1a |
 | 127 | Nervous System | done | https://whimsical.com/MQFgXFFxALYW5JN4w64Qg1 |
-| 174 | Reproductive System | new-board-needed | |
-| 90 | Respiratory System | new-board-needed | |
+| 174 | Reproductive System | done | https://whimsical.com/TkrJmZVHCAwZ7px4jGjWcK |
+| 90 | Respiratory System | done | https://whimsical.com/Armj3LtH9HQ5TgaNBG6fUG |
 
 ## General Chemistry
 
@@ -198,3 +200,5 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-22: `Organic Chemistry::Common Organic Reactions` board supplemented with four new standalone rule-compliant mindmaps: `Common Organic Reactions: mechanism chooser`, `Substitution and Elimination: alkyl electrophile routes`, `Additions and Carbonyls: π-bond reaction maps`, and `Common Organic Reactions: advanced reaction families`. The new maps correct the Grignard-as-reduction framing by labeling Grignard as carbon nucleophile addition, and cover acid/base triage, nucleophile/electrophile logic, leaving groups, SN1/SN2/E1/E2, alkene additions, carbonyl additions, hydride reductions, acyl substitution, esterification, aromatic substitution, nitrogen chemistry, and MCAT traps.
 - 2026-07-22: `Organic Chemistry::Aldehydes & Ketones` board (`MCAT Aldehydes and Ketones Study Board`, 3PTod8PMpqyk3U7jFZpds6) marked done: found an existing 47-node hierarchy map not yet tracked, gap-filled against repo enolate notes and standard MCAT coverage (Grignard addition, Wittig reaction, kinetic-vs-thermodynamic enolate control, 1,2 vs 1,4 addition), then restructured all flat 5+ branches into 2-3-item clusters per the max-3-4-children style rule. Verified read-back: 59 nodes.
 - 2026-07-22: `Organic Chemistry::Carboxylic Acids & Derivatives` board (`MCAT Carboxylic Acids and Derivatives Study Board`, Hj2kspVWb7wMTptuhQoD8T) marked done: found an existing 41-node hierarchy map not yet tracked, gap-filled against the repo's amide-hydrolysis note (explicit weak-conjugate-base leaving-group rule, carbonyl-protonation trap) and added a missing Decarboxylation branch (beta-keto acid/malonic acid), then restructured flat branches into clusters per the max-3-4-children style rule. Verified read-back: 51 nodes.
+- 2026-07-22: `Biology::Reproductive System` board (`MCAT Reproductive System Study Board`, TkrJmZVHCAwZ7px4jGjWcK) marked done: found an existing well-formed 59-node hierarchy map. Per explicit request, left it untouched and added a new ground-up standalone mindmap, `Reproductive System: Gametogenesis, Cycle & Development`, built from the repo's gametogenesis/fertilization terminology note (`study-notes/biology/reproduction/gametogenesis-fertilization-development-terminology.md`) — full germ-cell lineage (oogonium/spermatogonium through mature gametes), follicle lineage (primordial through Graafian, corpus luteum/albicans), cleavage-to-implantation staging (inner cell mass vs trophoblast), HPG axis, and MCAT traps, clustered to the max-3-4-children style rule throughout. Verified read-back: 84-node hierarchy map, original 59-node map unchanged.
+- 2026-07-22: `Biology::Respiratory System` board (`MCAT Respiratory System Study Board`, Armj3LtH9HQ5TgaNBG6fUG) marked done: found an existing well-formed 71-node hierarchy map. Per explicit request, left it untouched and added a new ground-up standalone mindmap, `Respiratory System: Mechanics, Gas Exchange & Control`, covering airway/alveolar structure, breathing mechanics and compliance, lung volumes/capacities including obstructive-vs-restrictive patterns, gas exchange and O2/CO2 transport, acid-base chemical control, and V/Q relationships, clustered to the max-3-4-children style rule throughout. Verified read-back: 97-node hierarchy map, original 71-node map unchanged.
