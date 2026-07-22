@@ -42,6 +42,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | Biology::Musculoskeletal System | done | https://whimsical.com/RwucrZ7ae4M7ufQJFHHr1a |
 | Biology::Nervous System | done | https://whimsical.com/MQFgXFFxALYW5JN4w64Qg1 |
 | Organic Chemistry::Alcohols | done | https://whimsical.com/S9XguES8Wqq2MPQ1oDf75R |
+| Organic Chemistry::Common Organic Reactions | done | https://whimsical.com/AJ9Uu91SMJnYNXFm4fcHfZ |
 | Psychology::Social Psychology & Interactions | done | https://whimsical.com/66PSjmaoyvM2SgHhRLfrnh |
 
 ## Biochemistry
@@ -104,7 +105,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 23 | Alcohols | done | https://whimsical.com/S9XguES8Wqq2MPQ1oDf75R |
 | 67 | Aldehydes & Ketones | new-board-needed | |
 | 88 | Carboxylic Acids & Derivatives | new-board-needed | |
-| 140 | Common Organic Reactions | new-board-needed | |
+| 140 | Common Organic Reactions | done | https://whimsical.com/AJ9Uu91SMJnYNXFm4fcHfZ |
 | 191 | Lab Techniques | new-board-needed | |
 | 31 | Nitrogen & Phosphorus | tiny-parent-deck-review | |
 | 276 | Principles of Organic Chemistry | new-board-needed | |
@@ -191,3 +192,5 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-22: `Biology::Musculoskeletal System` board verified after creating `MCAT Musculoskeletal System Study Board` (RwucrZ7ae4M7ufQJFHHr1a), with hierarchy map covering muscle types (skeletal/cardiac/smooth), sliding filament model (Ca²⁺/troponin/myosin), bone cells (osteoblasts/osteoclasts/osteocytes), joint types, proprioceptors, and cross-topic bridges to Biochemistry AA, Non-enzymatic Proteins, Endocrine, Nervous System, and Physics Mechanics.
 - 2026-07-22: `General Chemistry::Common Ion Names` board verified after creating `MCAT Common Ion Names Study Board` (6gP2pzVdFNtyTiiyqmwM3D), with 51-node hierarchy map.
 - 2026-07-22: `Organic Chemistry::Alcohols` board repaired and verified on existing board (S9XguES8Wqq2MPQ1oDf75R), with an 83-node relationship-labeled hierarchy map and an 18-node/19-connector question router covering recognition, classification, properties, acid/base logic, oxidation, substitution, dehydration, carbonyl formation, ester/acetal chemistry, and MCAT traps.
+- 2026-07-22: `Organic Chemistry::Alcohols` board supplemented with a new standalone rule-compliant mindmap, `Alcohols: R–OH reaction hub`, preserving the older repaired map but adding a cleaner restart map for recognition, classification, properties, acid/base logic, oxidation, reduction, Grignard addition, substitution, dehydration, carbonyl-derivative chemistry, and cross-links.
+- 2026-07-22: `Organic Chemistry::Common Organic Reactions` board supplemented with four new standalone rule-compliant mindmaps: `Common Organic Reactions: mechanism chooser`, `Substitution and Elimination: alkyl electrophile routes`, `Additions and Carbonyls: π-bond reaction maps`, and `Common Organic Reactions: advanced reaction families`. The new maps correct the Grignard-as-reduction framing by labeling Grignard as carbon nucleophile addition, and cover acid/base triage, nucleophile/electrophile logic, leaving groups, SN1/SN2/E1/E2, alkene additions, carbonyl additions, hydride reductions, acyl substitution, esterification, aromatic substitution, nitrogen chemistry, and MCAT traps.
