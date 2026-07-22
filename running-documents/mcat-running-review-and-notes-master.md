@@ -258,3 +258,46 @@ Locked replacement workflow:
 ```
 
 Do not regenerate all four exams from generic templates before the pilot is approved.
+
+### 2026-07-22 — FL4 review strategy mindmaps + Anki subdeck board build begins
+
+Status: In progress. Three FL4 review maps built. Anki subdeck board build started with Biology::Endocrine.
+
+#### FL4 review strategy mindmaps
+
+Context: Built from Gemini FL4 C/P review session (Q1 thermodynamics/spontaneity confusion) and the zero-math framework. These are FL4-specific exam-review strategy maps — editable in Whimsical for active review. Distinct from the Anki-deck subject boards.
+
+These maps are also referenced in the FL4 study guide (GPT-started, quality rebuild pending).
+
+| Map | Purpose | URL |
+|---|---|---|
+| FL4 C/P Q1 — Thermodynamics & Spontaneity | ΔG = ΔH − TΔS, spontaneity matrix (2×2), inequality method, limestone example (900K non-spontaneous), temperature traps | https://whimsical.com/Qtr7hSrjPiV7gQ1WQ4sRJA |
+| FL4 C/P: Zero-Math Toolkit (C/P) | Dominant term (Michaelis-Menten), multiplier factor (Poiseuille r⁴, Coulomb, decibels, gas laws), structural boundary (parallel/series circuits, optics decision matrix, converging/diverging lens rules) | https://whimsical.com/M8V5VUEUENV23GjCNNVjbJ |
+| FL4 B/B: Zero-Math Strategy Toolkit | Dominant term (enzyme kinetics 0th/1st order), log shifts (H-H, pKa±1 = 10×), binary doubling (PCR 2^n), Hardy-Weinberg step-by-step (start with q²), electrochemistry sign logic (ΔG = −nFE, AnOx RedCat), SA/V multiplier | https://whimsical.com/5qTvUYp4edpP4TgYa5nSNs |
+
+Key rules locked:
+
+```text
+Spontaneity: ΔH(+)ΔS(+) = high-T only. FL4 Q1 at 900K is non-spontaneous because ΔH > TΔS.
+Inequality method replaces tug-of-war (tug-of-war breaks when ΔS is negative).
+Poiseuille r⁴: halving radius = 1/16 flow.
+Parallel Req < R_smallest (boundary eliminates answer choices without math).
+Converging lens RIO rule: Real = Inverted = Opposite side.
+Diverging lens always VUR: Virtual, Upright, Reduced.
+Enzyme kinetics: [S]=Km → Vmax/2; [S]>>Km → 0th order; [S]<<Km → 1st order.
+H-H: each pH unit from pKa = 10× ratio shift.
+Hardy-Weinberg: start with q² → q = √q² → p = 1−q → carriers = 2pq.
+E > 0 → ΔG < 0 → galvanic (spontaneous). E < 0 → ΔG > 0 → electrolytic.
+AnOx RedCat holds in both galvanic and electrolytic cells.
+PTH net effect: raises Ca²⁺, LOWERS phosphate (kidney excretion dominates).
+```
+
+#### Anki subdeck board build
+
+Boards are being built topic-by-topic following the Aiden deck organization. Content sourced from MCAT knowledge (Kaplan/UWorld verified), Aiden deck structure, Obsidian vault extractions on file, and extraction files in this repo. Aiden deck content detail is used as structure only; factual accuracy is verified against Kaplan or UWorld before including.
+
+Boards built this session:
+
+| Topic | Status | Board |
+|---|---:|---|
+| Biology::Endocrine | in progress | — |
