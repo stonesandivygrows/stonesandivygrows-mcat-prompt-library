@@ -60,16 +60,12 @@ When creating or substantially updating a **Tier 1** document, also create or up
 
 **Tier 1 — sync to Google Docs**
 
-- living study guides
+- whiteboard and timing systems
+- major study guides
 - running review documents
-- major MCAT strategy documents
-- CARS operating-system documents
-- whiteboard/timing systems
-- AAMC and UWorld review guides
 - zero-math and mathematical-bridge guides
-- NotebookLM source documents
+- glossary documents
 - durable concept explanations that the user is expected to read, revise, or reuse
-- major workflow documents for study execution or AI handoff
 
 **Tier 2 — GitHub only unless requested**
 
@@ -82,6 +78,8 @@ When creating or substantially updating a **Tier 1** document, also create or up
 - logs
 - temporary scratch files
 - archive-only source references
+- NotebookLM source documents
+- workflow and handoff documents unless the user specifically wants a readable Google Docs copy
 
 Google Docs sync requirements:
 
