@@ -2,6 +2,27 @@
 
 Durable record for concise, repo-appropriate Whimsical board updates. Raw copyrighted or private study sources do not belong here.
 
+## 2026-07-22 - MCAT Carboxylic Acids and Derivatives Study Board
+
+- Board: https://whimsical.com/Hj2kspVWb7wMTptuhQoD8T
+- Topic: nomenclature, physical properties/acidity, the four acyl derivatives, nucleophilic acyl substitution, saponification/hydrolysis, and decarboxylation within Organic Chemistry::Carboxylic Acids & Derivatives
+- Found state: existing 41-node hierarchy map, not yet reflected in the tracker.
+- Gap-fill against `study-notes/organic-chemistry/carboxylic-acid-derivatives/amide-hydrolysis-nucleophilic-acyl-substitution.md`: added the explicit "good leaving group = weak conjugate base" rule, the amide-specific N-protonation-before-cleavage mechanism note, and the carbonyl-protonation-increases-electrophilicity trap, none of which were stated on the board despite being taught in that note.
+- Added a new Decarboxylation branch (beta-keto acid/malonic acid decarboxylation, cyclic six-membered transition state) that was missing entirely despite being standard high-yield MCAT content.
+- Structural fix: restructured flat branches (Confusion Nodes, Structure and Nomenclature, Physical Properties and Acidity, The Four Acyl Derivatives, Nucleophilic Acyl Substitution, Cross-Topic Bridges) into 2-3-item clusters to satisfy the max-3-4-children-per-node style rule.
+- Verified read-back: 51-node hierarchy map.
+- Purpose: bring an untracked, structurally noncompliant board up to the documented accuracy and branching standard, and sync the tracker to reflect it as done.
+
+## 2026-07-22 - MCAT Aldehydes and Ketones Study Board
+
+- Board: https://whimsical.com/3PTod8PMpqyk3U7jFZpds6
+- Topic: carbonyl structure/reactivity, nucleophilic addition, alpha-carbon/enolate chemistry, oxidation/reduction, and identification tests within Organic Chemistry::Aldehydes & Ketones
+- Found state: existing 47-node hierarchy map, not yet reflected in the tracker.
+- Gap-fill: added Grignard addition (aldehyde/formaldehyde/ketone to 1°/2°/3° alcohol), the Wittig reaction, kinetic-vs-thermodynamic enolate control (a confusion point explicitly documented in `study-notes/organic-chemistry/enolates/kinetic-vs-thermodynamic-product-control.md` but absent from the board), and 1,2 vs 1,4 (Michael) addition on enones.
+- Structural fix: restructured flat branches (Confusion Nodes, Carbonyl Group Structure and Reactivity, Nucleophilic Addition Reactions, Alpha-Carbon and Enolate Chemistry, Oxidation and Reduction) into 2-3-item clusters to satisfy the max-3-4-children-per-node style rule.
+- Verified read-back: 59-node hierarchy map.
+- Purpose: bring an untracked, structurally noncompliant board up to the documented accuracy and branching standard, and sync the tracker to reflect it as done.
+
 ## 2026-07-20 - MCAT Embryogenesis Study Board
 
 - Board: https://whimsical.com/D1V2j1rNeiV2Yo97ciFgeN
