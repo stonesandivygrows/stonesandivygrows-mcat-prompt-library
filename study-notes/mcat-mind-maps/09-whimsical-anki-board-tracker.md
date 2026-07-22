@@ -13,6 +13,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | General Chemistry::Acids & Bases | done | https://whimsical.com/5PaeVg8z8qr391vSvMhH4R |
 | General Chemistry::Atoms & Bonding | done | https://whimsical.com/62JjMersY9RSB3SQKB4rxo |
 | General Chemistry::Chemical Kinetics | done | https://whimsical.com/45KyX7SH2cuzk6jWKBPN1S |
+| General Chemistry::Common Ion Names | done | https://whimsical.com/6gP2pzVdFNtyTiiyqmwM3D |
 | General Chemistry::Electrochemistry | done | https://whimsical.com/HHc3VwPfiutaBvHoqB4XAo |
 | General Chemistry::Equilibrium | done | https://whimsical.com/1oVcp4qsVHf4BwhKFnnnm |
 | General Chemistry::Gases | done | https://whimsical.com/VyJ2aWGSk5QyA4QTSH77rp |
@@ -84,7 +85,7 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 | 162 | Acids & Bases | done | https://whimsical.com/5PaeVg8z8qr391vSvMhH4R |
 | 155 | Atoms & Bonding | done | https://whimsical.com/62JjMersY9RSB3SQKB4rxo |
 | 84 | Chemical Kinetics | done | https://whimsical.com/45KyX7SH2cuzk6jWKBPN1S |
-| 14 | Common Ion Names | tiny-parent-deck-review | |
+| 14 | Common Ion Names | done | https://whimsical.com/6gP2pzVdFNtyTiiyqmwM3D |
 | 82 | Electrochemistry | done | https://whimsical.com/HHc3VwPfiutaBvHoqB4XAo |
 | 48 | Equilibrium | done | https://whimsical.com/1oVcp4qsVHf4BwhKFnnnm |
 | 125 | Gases | done | https://whimsical.com/VyJ2aWGSk5QyA4QTSH77rp |
@@ -187,3 +188,4 @@ Status key: `done`, `existing-fetch-needed`, `new-board-needed`, `excluded`, `ti
 - 2026-07-22: `Biology::Immune System` board verified after creating `MCAT Immune System Study Board` (WwKi9yiR8vS9KrqNBKVJXE), with hierarchy map covering innate immunity, adaptive immunity (MHC I/II, CD4/CD8, B cells, antibodies), cell identity guide, 4 traceable pathways, and cross-topic bridges.
 - 2026-07-22: `Biology::Nervous System` board verified after creating `MCAT Nervous System Study Board` (MQFgXFFxALYW5JN4w64Qg1), with hierarchy map covering CNS/PNS divisions, neuron signal cascade, myelin/glia, ionotropic vs metabotropic receptors, sympathetic/parasympathetic relay, cholinergic exceptions, and cross-topic bridges to Biochemistry, Endocrine, Musculoskeletal, and Physics.
 - 2026-07-22: `Biology::Musculoskeletal System` board verified after creating `MCAT Musculoskeletal System Study Board` (RwucrZ7ae4M7ufQJFHHr1a), with hierarchy map covering muscle types (skeletal/cardiac/smooth), sliding filament model (Ca²⁺/troponin/myosin), bone cells (osteoblasts/osteoclasts/osteocytes), joint types, proprioceptors, and cross-topic bridges to Biochemistry AA, Non-enzymatic Proteins, Endocrine, Nervous System, and Physics Mechanics.
+- 2026-07-22: `General Chemistry::Common Ion Names` board verified after creating `MCAT Common Ion Names Study Board` (6gP2pzVdFNtyTiiyqmwM3D), with 51-node hierarchy map.
