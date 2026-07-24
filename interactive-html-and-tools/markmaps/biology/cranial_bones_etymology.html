@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cranial Bones — Etymology</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1209;
+    --parchment: #f5efe0;
+    --aged: #ede4cc;
+    --sepia: #8b6914;
+    --rust: #9b3a1a;
+    --gold: #c9952a;
+    --frontal:    #d4954a;
+    --parietal:   #6b8f5e;
+    --temporal:   #7d6a9e;
+    --occipital:  #4a7a8a;
+    --sphenoid:   #b05560;
+    --ethmoid:    #8a7a3d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    padding: 2.5rem 2rem 5rem;
+  }
+
+  /* HEADER */
+  header { text-align: center; margin-bottom: 2.6rem; }
+  .chapter-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.38em;
+    text-transform: uppercase; color: var(--sepia); margin-bottom: 0.5rem;
+  }
+  h1 { font-size: 2.8rem; font-weight: 300; letter-spacing: 0.02em; }
+  h1 em { font-style: italic; color: var(--rust); }
+  .rule {
+    width: 280px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--sepia), transparent);
+    margin: 0.85rem auto;
+  }
+  .tagline { font-size: 1rem; font-style: italic; color: var(--sepia); }
+
+  /* DIAGRAMS */
+  .diagrams {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    max-width: 1080px;
+    margin: 0 auto 1.6rem;
+  }
+  .panel {
+    background: var(--aged);
+    border: 1px solid #c9b98a;
+    border-radius: 4px;
+    padding: 1.1rem 0.9rem 0.8rem;
+    box-shadow: 3px 5px 16px rgba(0,0,0,0.10);
+  }
+  .panel-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.58rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--sepia);
+    text-align: center; margin-bottom: 0.7rem;
+  }
+  svg { width: 100%; height: auto; display: block; }
+  .lbl { font-family: 'Josefin Sans', sans-serif; font-size: 8.5px; letter-spacing: 0.03em; }
+
+  /* COLOR KEY */
+  .key {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 1.4rem 2rem;
+    max-width: 1080px; margin: 0 auto 3rem;
+  }
+  .key-item {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .swatch { width: 13px; height: 13px; border-radius: 2px; border: 1px solid rgba(0,0,0,0.14); }
+
+  /* DIVIDER */
+  .section-head {
+    max-width: 1080px; margin: 0 auto 1.8rem;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--sepia);
+  }
+  .section-head::before, .section-head::after {
+    content: ''; display: inline-block;
+    width: 80px; height: 1px;
+    background: var(--sepia); vertical-align: middle;
+    margin: 0 1rem;
+  }
+
+  /* ETYMOLOGY GRID */
+  .etym-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem 2rem;
+    max-width: 1080px; margin: 0 auto;
+  }
+  .etym-card { border-top: 3px solid; padding-top: 0.8rem; }
+  .etym-card.frontal   { border-top-color: var(--frontal); }
+  .etym-card.parietal  { border-top-color: var(--parietal); }
+  .etym-card.temporal  { border-top-color: var(--temporal); }
+  .etym-card.occipital { border-top-color: var(--occipital); }
+  .etym-card.sphenoid  { border-top-color: var(--sphenoid); }
+  .etym-card.ethmoid   { border-top-color: var(--ethmoid); }
+
+  .ename { font-size: 1.3rem; font-weight: 600; line-height: 1; margin-bottom: 0.18rem; }
+  .eroot {
+    font-family: 'Josefin Sans', sans-serif; font-size: 0.62rem;
+    letter-spacing: 0.16em; color: var(--sepia); text-transform: uppercase; margin-bottom: 0.55rem;
+  }
+  .emeaning { font-size: 0.95rem; line-height: 1.5; color: #2e230f; margin-bottom: 0.45rem; }
+  .emeaning strong { color: var(--rust); font-weight: 600; }
+  .elocation { font-size: 0.85rem; line-height: 1.5; color: #5a4a25; margin-bottom: 0.5rem; }
+  .emnemonic {
+    font-size: 0.85rem; font-style: italic; color: #6a4a12;
+    padding: 0.4rem 0.65rem;
+    background: rgba(201,149,42,0.10);
+    border-left: 2px solid var(--gold);
+  }
+  .emnemonic::before { content: "✦ "; color: var(--gold); font-style: normal; }
+
+  /* SUMMARY */
+  .summary {
+    max-width: 1080px; margin: 3rem auto 0;
+    border-top: 1px solid #c9b98a;
+    padding-top: 1.5rem;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; text-align: center;
+  }
+  .snum { font-size: 2.3rem; font-weight: 300; color: var(--rust); line-height: 1; }
+  .slbl {
+    font-family: 'Josefin Sans', sans-serif; font-size: 0.58rem;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--sepia); margin: 0.22rem 0 0.18rem;
+  }
+  .ssub { font-style: italic; font-size: 0.82rem; color: #7a6030; line-height: 1.5; }
+
+  @media (max-width: 760px) {
+    .diagrams, .etym-grid, .summary { grid-template-columns: 1fr; }
+    .key { gap: 0.8rem 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="chapter-label">Radiographic Anatomy · Chapter 11</p>
+  <h1>Cranial <em>Bones</em></h1>
+  <div class="rule"></div>
+  <p class="tagline">Diagrams with etymology &amp; memory notes</p>
+</header>
+
+<!-- ══ DIAGRAMS ══ -->
+<div class="diagrams">
+
+  <!-- FRONTAL VIEW -->
+  <div class="panel">
+    <p class="panel-label">Frontal View</p>
+    <svg viewBox="0 0 240 305" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 78 28 Q 120 10 162 28 L 166 95 Q 148 86 120 84 Q 92 86 74 95 Z" fill="#d4954a" fill-opacity="0.82" stroke="#7a4a15" stroke-width="1.3"/>
+      <path d="M 162 28 Q 192 38 204 75 Q 208 98 196 115 L 166 95 Z" fill="#6b8f5e" fill-opacity="0.75" stroke="#3a5a2e" stroke-width="1.3"/>
+      <path d="M 78 28 Q 48 38 36 75 Q 32 98 44 115 L 74 95 Z" fill="#6b8f5e" fill-opacity="0.75" stroke="#3a5a2e" stroke-width="1.3"/>
+      <path d="M 53 118 Q 70 106 94 118 Q 90 140 80 150 Q 62 144 50 132 Z" fill="#b05560" fill-opacity="0.75" stroke="#7a2535" stroke-width="1.2"/>
+      <path d="M 187 118 Q 170 106 146 118 Q 150 140 160 150 Q 178 144 190 132 Z" fill="#b05560" fill-opacity="0.75" stroke="#7a2535" stroke-width="1.2"/>
+      <path d="M 36 112 Q 28 128 30 150 L 48 155 Q 48 134 52 118 Z" fill="#7d6a9e" fill-opacity="0.72" stroke="#4a3a70" stroke-width="1.2"/>
+      <path d="M 204 112 Q 212 128 210 150 L 192 155 Q 192 134 188 118 Z" fill="#7d6a9e" fill-opacity="0.72" stroke="#4a3a70" stroke-width="1.2"/>
+      <path d="M 78 28 Q 120 10 162 28 Q 205 46 208 90 Q 212 135 196 158 L 185 168 L 55 168 L 44 158 Q 28 135 32 90 Q 35 46 78 28" fill="none" stroke="#1a1209" stroke-width="2"/>
+      <ellipse cx="120" cy="162" rx="17" ry="13" fill="#8a7a3d" fill-opacity="0.82" stroke="#5a500d" stroke-width="1.2"/>
+      <ellipse cx="92" cy="132" rx="26" ry="20" fill="#e8dfc8" stroke="#3a2a10" stroke-width="1.5"/>
+      <ellipse cx="148" cy="132" rx="26" ry="20" fill="#e8dfc8" stroke="#3a2a10" stroke-width="1.5"/>
+      <circle cx="92" cy="132" r="9" fill="#6a5040" fill-opacity="0.25"/>
+      <circle cx="148" cy="132" r="9" fill="#6a5040" fill-opacity="0.25"/>
+      <rect x="112" y="150" width="16" height="16" rx="2" fill="#d4b88a" stroke="#3a2a10" stroke-width="1"/>
+      <ellipse cx="72" cy="158" rx="16" ry="9" fill="#c8a060" fill-opacity="0.65" stroke="#7a5020" stroke-width="0.9"/>
+      <ellipse cx="168" cy="158" rx="16" ry="9" fill="#c8a060" fill-opacity="0.65" stroke="#7a5020" stroke-width="0.9"/>
+      <path d="M 86 168 Q 120 176 154 168 L 152 192 Q 120 200 88 192 Z" fill="#dbb070" fill-opacity="0.65" stroke="#7a4a10" stroke-width="1"/>
+      <rect x="90" y="192" width="60" height="11" rx="2" fill="#f0e8d0" stroke="#8a7040" stroke-width="0.8"/>
+      <line x1="103" y1="192" x2="103" y2="203" stroke="#8a7040" stroke-width="0.6"/>
+      <line x1="116" y1="192" x2="116" y2="203" stroke="#8a7040" stroke-width="0.6"/>
+      <line x1="130" y1="192" x2="130" y2="203" stroke="#8a7040" stroke-width="0.6"/>
+      <line x1="143" y1="192" x2="143" y2="203" stroke="#8a7040" stroke-width="0.6"/>
+      <path d="M 86 203 Q 120 208 154 203 Q 160 226 152 248 Q 120 258 88 248 Q 80 226 86 203" fill="#dbb070" fill-opacity="0.45" stroke="#7a4a10" stroke-width="1.2"/>
+      <rect x="93" y="203" width="54" height="10" rx="2" fill="#f0e8d0" stroke="#8a7040" stroke-width="0.8"/>
+      <line x1="105" y1="203" x2="105" y2="213" stroke="#8a7040" stroke-width="0.6"/>
+      <line x1="118" y1="203" x2="118" y2="213" stroke="#8a7040" stroke-width="0.6"/>
+      <line x1="132" y1="203" x2="132" y2="213" stroke="#8a7040" stroke-width="0.6"/>
+      <!-- labels -->
+      <line x1="164" y1="50" x2="192" y2="38" stroke="#7a4a15" stroke-width="0.8"/>
+      <text x="194" y="37" class="lbl" font-weight="600" fill="#7a4a15">FRONTAL</text>
+      <line x1="200" y1="80" x2="214" y2="70" stroke="#3a5a2e" stroke-width="0.8"/>
+      <text x="215" y="69" class="lbl" font-weight="600" fill="#3a5a2e">PARIETAL</text>
+      <line x1="30" y1="133" x2="8" y2="122" stroke="#4a3a70" stroke-width="0.8"/>
+      <text x="0" y="121" class="lbl" fill="#4a3a70">TEMP.</text>
+      <line x1="56" y1="134" x2="12" y2="147" stroke="#7a2535" stroke-width="0.8"/>
+      <text x="0" y="146" class="lbl" fill="#7a2535">SPHEN.</text>
+      <line x1="120" y1="175" x2="120" y2="188" stroke="#5a500d" stroke-width="0.8"/>
+      <text x="100" y="189" class="lbl" fill="#5a500d">ETHMOID</text>
+    </svg>
+  </div>
+
+  <!-- LATERAL VIEW -->
+  <div class="panel">
+    <p class="panel-label">Lateral View</p>
+    <svg viewBox="0 0 240 248" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 52 28 Q 88 12 115 20 L 113 100 Q 92 96 74 108 Q 60 120 50 136 L 34 126 Q 30 88 36 54 Z" fill="#d4954a" fill-opacity="0.82" stroke="#7a4a15" stroke-width="1.3"/>
+      <path d="M 115 20 Q 155 10 182 28 Q 200 46 202 84 Q 204 118 192 142 L 158 140 Q 140 132 113 132 L 113 100 Z" fill="#6b8f5e" fill-opacity="0.75" stroke="#3a5a2e" stroke-width="1.3"/>
+      <path d="M 158 140 Q 172 156 176 180 L 144 188 Q 130 176 120 160 Q 115 148 113 140 Z" fill="#7d6a9e" fill-opacity="0.75" stroke="#4a3a70" stroke-width="1.3"/>
+      <path d="M 192 142 Q 204 170 196 204 Q 178 218 160 216 L 144 188 Q 162 175 170 158 Z" fill="#4a7a8a" fill-opacity="0.80" stroke="#28505a" stroke-width="1.3"/>
+      <path d="M 74 108 Q 88 104 108 114 Q 106 132 98 140 Q 80 136 70 126 Z" fill="#b05560" fill-opacity="0.78" stroke="#7a2535" stroke-width="1.2"/>
+      <path d="M 40 128 Q 52 122 70 130 Q 66 144 56 150 Q 40 144 36 135 Z" fill="#8a7a3d" fill-opacity="0.75" stroke="#5a500d" stroke-width="1.2"/>
+      <path d="M 52 28 Q 88 12 182 28 Q 214 50 212 94 Q 212 138 194 168 Q 176 204 160 216 Q 136 228 112 220 Q 90 212 78 202 Q 58 188 46 174 Q 26 152 22 128 Q 18 102 26 74 Q 32 48 52 28" fill="none" stroke="#1a1209" stroke-width="2"/>
+      <ellipse cx="68" cy="112" rx="24" ry="20" fill="#e8dfc8" stroke="#3a2a10" stroke-width="1.5"/>
+      <circle cx="68" cy="112" r="8" fill="#6a5040" fill-opacity="0.25"/>
+      <path d="M 78 140 Q 115 150 158 142" fill="none" stroke="#c8a060" stroke-width="3.5" stroke-linecap="round" opacity="0.85"/>
+      <path d="M 30 115 Q 38 108 50 118 Q 46 130 38 134 Q 28 128 30 115" fill="#d4b88a" stroke="#7a4a10" stroke-width="1"/>
+      <circle cx="156" cy="154" r="6" fill="#1a1209" opacity="0.55"/>
+      <path d="M 38 168 Q 50 178 75 188 Q 105 200 140 200 Q 165 198 175 195 L 165 218 Q 130 228 100 220 Q 65 210 40 192 Q 30 180 35 168 Z" fill="#dbb070" fill-opacity="0.50" stroke="#7a4a10" stroke-width="1.2"/>
+      <path d="M 30 136 Q 44 143 62 152 L 58 176 Q 40 170 28 158 Z" fill="#dbb070" fill-opacity="0.6" stroke="#7a4a10" stroke-width="1"/>
+      <!-- labels -->
+      <line x1="62" y1="52" x2="14" y2="40" stroke="#7a4a15" stroke-width="0.8"/>
+      <text x="0" y="39" class="lbl" font-weight="600" fill="#7a4a15">FRONTAL</text>
+      <line x1="155" y1="70" x2="208" y2="56" stroke="#3a5a2e" stroke-width="0.8"/>
+      <text x="210" y="55" class="lbl" font-weight="600" fill="#3a5a2e">PARIETAL</text>
+      <line x1="148" y1="166" x2="186" y2="178" stroke="#4a3a70" stroke-width="0.8"/>
+      <text x="188" y="177" class="lbl" font-weight="600" fill="#4a3a70">TEMPORAL</text>
+      <line x1="180" y1="190" x2="208" y2="203" stroke="#28505a" stroke-width="0.8"/>
+      <text x="210" y="202" class="lbl" font-weight="600" fill="#28505a">OCCIPITAL</text>
+      <line x1="88" y1="128" x2="54" y2="155" stroke="#7a2535" stroke-width="0.8"/>
+      <text x="22" y="159" class="lbl" fill="#7a2535">SPHENOID</text>
+      <line x1="46" y1="140" x2="14" y2="153" stroke="#5a500d" stroke-width="0.8"/>
+      <text x="0" y="152" class="lbl" fill="#5a500d">ETHMOID</text>
+    </svg>
+  </div>
+
+  <!-- SUPERIOR CUTAWAY VIEW -->
+  <div class="panel">
+    <p class="panel-label">Superior Cutaway View</p>
+    <svg viewBox="0 0 240 262" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="120" cy="132" rx="105" ry="118" fill="#e8dfc8" stroke="#1a1209" stroke-width="2"/>
+      <path d="M 80 18 Q 120 10 160 18 Q 168 42 165 70 Q 148 64 120 62 Q 92 64 75 70 Q 72 42 80 18" fill="#d4954a" fill-opacity="0.82" stroke="#7a4a15" stroke-width="1.2"/>
+      <path d="M 160 18 Q 200 32 218 70 Q 224 100 220 134 Q 200 140 172 142 L 165 70 Z" fill="#6b8f5e" fill-opacity="0.75" stroke="#3a5a2e" stroke-width="1.2"/>
+      <path d="M 80 18 Q 40 32 22 70 Q 16 100 20 134 Q 40 140 68 142 L 75 70 Z" fill="#6b8f5e" fill-opacity="0.75" stroke="#3a5a2e" stroke-width="1.2"/>
+      <path d="M 220 134 Q 224 164 210 192 Q 190 198 172 192 Q 168 170 172 142 Z" fill="#7d6a9e" fill-opacity="0.75" stroke="#4a3a70" stroke-width="1.2"/>
+      <path d="M 20 134 Q 16 164 30 192 Q 50 198 68 192 Q 72 170 68 142 Z" fill="#7d6a9e" fill-opacity="0.75" stroke="#4a3a70" stroke-width="1.2"/>
+      <path d="M 68 192 Q 72 220 80 240 Q 120 250 160 240 Q 168 220 172 192 Q 152 202 120 204 Q 88 202 68 192" fill="#4a7a8a" fill-opacity="0.80" stroke="#28505a" stroke-width="1.2"/>
+      <ellipse cx="120" cy="122" rx="28" ry="18" fill="#b05560" fill-opacity="0.75" stroke="#7a2535" stroke-width="1.3"/>
+      <path d="M 92 122 Q 78 112 68 120 Q 72 134 86 132 Z" fill="#b05560" fill-opacity="0.70" stroke="#7a2535" stroke-width="1"/>
+      <path d="M 148 122 Q 162 112 172 120 Q 168 134 154 132 Z" fill="#b05560" fill-opacity="0.70" stroke="#7a2535" stroke-width="1"/>
+      <ellipse cx="120" cy="90" rx="18" ry="14" fill="#8a7a3d" fill-opacity="0.82" stroke="#5a500d" stroke-width="1.2"/>
+      <ellipse cx="120" cy="220" rx="22" ry="18" fill="#1a1209" fill-opacity="0.55" stroke="#1a1209" stroke-width="1"/>
+      <text x="120" y="223" font-family="'Josefin Sans',sans-serif" font-size="6.5" fill="#e8dfc8" text-anchor="middle">foramen magnum</text>
+      <!-- labels -->
+      <line x1="120" y1="38" x2="120" y2="12" stroke="#7a4a15" stroke-width="0.8"/>
+      <text x="120" y="10" class="lbl" font-weight="600" fill="#7a4a15" text-anchor="middle">FRONTAL</text>
+      <line x1="200" y1="102" x2="222" y2="90" stroke="#3a5a2e" stroke-width="0.8"/>
+      <text x="224" y="89" class="lbl" font-weight="600" fill="#3a5a2e">PARIETAL</text>
+      <line x1="210" y1="170" x2="228" y2="164" stroke="#4a3a70" stroke-width="0.8"/>
+      <text x="230" y="163" class="lbl" fill="#4a3a70">TEMP.</text>
+      <line x1="120" y1="238" x2="120" y2="254" stroke="#28505a" stroke-width="0.8"/>
+      <text x="120" y="260" class="lbl" font-weight="600" fill="#28505a" text-anchor="middle">OCCIPITAL</text>
+      <line x1="148" y1="118" x2="175" y2="106" stroke="#7a2535" stroke-width="0.8"/>
+      <text x="177" y="105" class="lbl" fill="#7a2535">SPHENOID</text>
+      <line x1="102" y1="90" x2="72" y2="72" stroke="#5a500d" stroke-width="0.8"/>
+      <text x="38" y="71" class="lbl" fill="#5a500d">ETHMOID</text>
+    </svg>
+  </div>
+
+</div><!-- /diagrams -->
+
+<!-- COLOR KEY -->
+<div class="key">
+  <div class="key-item"><div class="swatch" style="background:var(--frontal)"></div>Frontal</div>
+  <div class="key-item"><div class="swatch" style="background:var(--parietal)"></div>Parietal ×2</div>
+  <div class="key-item"><div class="swatch" style="background:var(--temporal)"></div>Temporal ×2</div>
+  <div class="key-item"><div class="swatch" style="background:var(--occipital)"></div>Occipital</div>
+  <div class="key-item"><div class="swatch" style="background:var(--sphenoid)"></div>Sphenoid</div>
+  <div class="key-item"><div class="swatch" style="background:var(--ethmoid)"></div>Ethmoid</div>
+</div>
+
+<!-- ══ ETYMOLOGY NOTES ══ -->
+<div class="section-head">Etymology &amp; Memory Notes</div>
+
+<div class="etym-grid">
+
+  <div class="etym-card frontal">
+    <div class="ename">Frontal</div>
+    <div class="eroot">Latin: frons, frontis — "forehead"</div>
+    <div class="emeaning">Forms the <strong>forehead</strong> and the superior roof of both eye orbits. Contains the frontal sinuses.</div>
+    <div class="elocation">Paired at birth, fuses midline by ~age 8. Coronal suture joins it to the parietals.</div>
+    <div class="emnemonic">Front of skull = frontal. Exactly where you already think it is.</div>
+  </div>
+
+  <div class="etym-card parietal">
+    <div class="ename">Parietal ×2</div>
+    <div class="eroot">Latin: paries, parietis — "wall"</div>
+    <div class="emeaning">Forms the <strong>lateral walls</strong> and superior dome of the cranium.</div>
+    <div class="elocation">Coronal suture (ant.) · Sagittal suture (sup. midline) · Lambdoid suture (post.) · Squamosal suture (inf.).</div>
+    <div class="emnemonic">The side walls of a house protecting what's inside — parietal = wall.</div>
+  </div>
+
+  <div class="etym-card temporal">
+    <div class="ename">Temporal ×2</div>
+    <div class="eroot">Latin: tempus, temporis — "time"</div>
+    <div class="emeaning">The <strong>temples</strong> — where hair first turns gray with the passage of time.</div>
+    <div class="elocation">Contains the external acoustic meatus (ear canal), mastoid process, styloid process, and forms the TMJ (jaw joint).</div>
+    <div class="emnemonic">Press your temples — time → temples → temporal.</div>
+  </div>
+
+  <div class="etym-card occipital">
+    <div class="ename">Occipital</div>
+    <div class="eroot">Latin: ob + caput — "against the head" (back)</div>
+    <div class="emeaning">Forms the <strong>back and base</strong> of the cranium.</div>
+    <div class="elocation">Contains the foramen magnum (where the spinal cord exits) and the occipital condyles (articulate with C1).</div>
+    <div class="emnemonic">Fall backward — occipital hits first. It is literally the back of your head.</div>
+  </div>
+
+  <div class="etym-card sphenoid">
+    <div class="ename">Sphenoid</div>
+    <div class="eroot">Greek: sphen + eidos — "wedge-shaped"</div>
+    <div class="emeaning">A <strong>bat-shaped wedge</strong> at the cranial base, visible as "greater wings" in the frontal view.</div>
+    <div class="elocation">Contains the sella turcica (houses the pituitary gland). The only bone that articulates with all other cranial bones — the keystone.</div>
+    <div class="emnemonic">A wedge holding everything together — imagine a bat with wings spread across the skull base.</div>
+  </div>
+
+  <div class="etym-card ethmoid">
+    <div class="ename">Ethmoid</div>
+    <div class="eroot">Greek: ethmos — "sieve / strainer"</div>
+    <div class="emeaning">Perforated like a <strong>kitchen sieve</strong> — tiny holes in the cribriform plate let olfactory nerve fibers pass through.</div>
+    <div class="elocation">Between the orbits, forms part of nasal septum, medial orbital walls, and the anterior cranial floor.</div>
+    <div class="emnemonic">Holey bone = ethmoid. The holes carry your sense of smell from nose to brain.</div>
+  </div>
+
+</div>
+
+<!-- SUMMARY -->
+<div class="summary">
+  <div>
+    <div class="snum">8</div>
+    <div class="slbl">Cranial Bones</div>
+    <div class="ssub">Frontal · Parietal ×2 · Temporal ×2<br>Occipital · Sphenoid · Ethmoid</div>
+  </div>
+  <div>
+    <div class="snum">14</div>
+    <div class="slbl">Facial Bones</div>
+    <div class="ssub">Maxilla ×2 · Mandible · Zygomatic ×2<br>Nasal ×2 · Lacrimal ×2 · Palatine ×2<br>Inf. Conchae ×2 · Vomer</div>
+  </div>
+  <div>
+    <div class="snum">1</div>
+    <div class="slbl">Moving Bone</div>
+    <div class="ssub"><em>Only the mandible moves —</em><br>all others are fixed at sutures</div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metabolic Shuttles - MCAT Study Guide</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fafaf9;
+  color: #1a1a1a;
+}
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: #1a1a1a;
+}
+.subtitle {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 30px;
+}
+.shuttle-section { margin: 30px 0; }
+.shuttle-card { 
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.shuttle-card:hover { 
+  border-color: #d4d4d4;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.shuttle-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.shuttle-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1a1a1a;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.shuttle-purpose {
+  font-size: 14px;
+  color: #666;
+  margin: 8px 0 0;
+}
+.shuttle-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.shuttle-details.open { max-height: 2000px; }
+.detail-section {
+  margin: 20px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+}
+.detail-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px;
+}
+.molecule-list, .step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.molecule-item, .step-item {
+  padding: 10px 14px;
+  margin: 6px 0;
+  background: #f5f5f4;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.step-num {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.enzyme {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  background: #fef3c7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #92400e;
+}
+.arrow-icon {
+  color: #3b82f6;
+  transition: transform 0.3s;
+  font-size: 20px;
+}
+.arrow-icon.rotated { transform: rotate(180deg); }
+.why-box {
+  background: #fef3c7;
+  border-left: 3px solid #f59e0b;
+  padding: 14px;
+  border-radius: 8px;
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #78350f;
+}
+.why-box.success {
+  background: #d1fae5;
+  border-left-color: #10b981;
+  color: #065f46;
+}
+.why-box.info {
+  background: #dbeafe;
+  border-left-color: #3b82f6;
+  color: #1e3a8a;
+}
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 16px 0 0;
+}
+.compare-item {
+  padding: 14px;
+  background: #f5f5f4;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+}
+.compare-label {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 4px;
+  font-weight: 500;
+}
+.compare-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.memory-tip {
+  margin: 30px 0 0;
+  padding: 16px;
+  background: #ede9fe;
+  border-radius: 10px;
+  border-left: 4px solid #7c3aed;
+}
+.memory-tip p {
+  font-size: 14px;
+  margin: 0;
+  color: #4c1d95;
+}
+</style>
+</head>
+<body>
+
+<h1>Metabolic Shuttles</h1>
+<p class="subtitle">Click each shuttle to explore molecules, enzymes, and mechanisms</p>
+
+<div class="shuttle-section">
+  <div class="shuttle-card" onclick="toggleShuttle('malate')">
+    <div class="shuttle-header">
+      <div>
+        <h3 class="shuttle-title">
+          <span class="icon">🔄</span>
+          Malate-Aspartate Shuttle
+        </h3>
+        <p class="shuttle-purpose">Transfers NADH from cytoplasm to mitochondria</p>
+      </div>
+      <span id="malate-arrow" class="arrow-icon">▼</span>
+    </div>
+    
+    <div id="malate-details" class="shuttle-details">
+      <div class="why-box info">
+        <strong>Why it exists:</strong> NADH can't cross the inner mitochondrial membrane directly. This shuttle carries the reducing equivalents (electrons) into the matrix for oxidative phosphorylation.
+      </div>
+      
+      <div class="detail-section">
+        <p class="detail-label">Key molecules transported</p>
+        <ul class="molecule-list">
+          <li class="molecule-item"><strong>Malate</strong> — carries electrons INTO mitochondria</li>
+          <li class="molecule-item"><strong>Aspartate</strong> — carries amino group OUT of mitochondria</li>
+          <li class="molecule-item"><strong>Oxaloacetate (OAA)</strong> — intermediate in both compartments</li>
+          <li class="molecule-item"><strong>Glutamate</strong> — amino donor in cytoplasm</li>
+          <li class="molecule-item"><strong>α-Ketoglutarate</strong> — accepts amino group in matrix</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <p class="detail-label">Enzymes involved</p>
+        <ul class="molecule-list">
+          <li class="molecule-item"><span class="enzyme">Malate dehydrogenase</span> — cytoplasmic and mitochondrial versions</li>
+          <li class="molecule-item"><span class="enzyme">Aspartate aminotransferase (AST)</span> — both compartments</li>
+          <li class="molecule-item"><span class="enzyme">Malate-α-ketoglutarate antiporter</span> — membrane transporter</li>
+          <li class="molecule-item"><span class="enzyme">Glutamate-aspartate antiporter</span> — membrane transporter</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <p class="detail-label">Mechanism (step by step)</p>
+        <ul class="step-list">
+          <li class="step-item"><span class="step-num">1</span>Cytoplasmic NADH reduces OAA to malate (via malate DH)</li>
+          <li class="step-item"><span class="step-num">2</span>Malate crosses inner membrane (antiporter with α-KG)</li>
+          <li class="step-item"><span class="step-num">3</span>Matrix malate DH oxidizes malate back to OAA, generating NADH</li>
+          <li class="step-item"><span class="step-num">4</span>OAA accepts amino from glutamate → aspartate (via AST)</li>
+          <li class="step-item"><span class="step-num">5</span>Aspartate exits mitochondria (antiporter with glutamate)</li>
+          <li class="step-item"><span class="step-num">6</span>Cytoplasmic AST converts aspartate back to OAA</li>
+        </ul>
+        <div class="why-box success">
+          <strong>Net result:</strong> Cytoplasmic NADH → Mitochondrial NADH (generates ~2.5 ATP)
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <p class="detail-label">Quick comparison</p>
+        <div class="compare-grid">
+          <div class="compare-item">
+            <p class="compare-label">Energy yield</p>
+            <p class="compare-value">2.5 ATP per NADH</p>
+          </div>
+          <div class="compare-item">
+            <p class="compare-label">Location</p>
+            <p class="compare-value">Heart, liver, kidney</p>
+          </div>
+          <div class="compare-item">
+            <p class="compare-label">Speed</p>
+            <p class="compare-value">Slower but efficient</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shuttle-card" onclick="toggleShuttle('glycerol')">
+    <div class="shuttle-header">
+      <div>
+        <h3 class="shuttle-title">
+          <span class="icon">⚡</span>
+          Glycerol-3-Phosphate Shuttle
+        </h3>
+        <p class="shuttle-purpose">Alternative NADH shuttle, faster but less ATP</p>
+      </div>
+      <span id="glycerol-arrow" class="arrow-icon">▼</span>
+    </div>
+    
+    <div id="glycerol-details" class="shuttle-details">
+      <div class="why-box info">
+        <strong>Why it exists:</strong> Faster than malate-aspartate but yields less ATP. Used when rapid glycolysis happens (muscle during intense exercise, brain).
+      </div>
+      
+      <div class="detail-section">
+        <p class="detail-label">Key molecules transported</p>
+        <ul class="molecule-list">
+          <li class="molecule-item"><strong>Glycerol-3-phosphate (G3P)</strong> — carries electrons INTO mitochondria</li>
+          <li class="molecule-item"><strong>Dihydroxyacetone phosphate (DHAP)</strong> — acceptor in cytoplasm</li>
+          <li class="molecule-item"><strong>FAD/FADH₂</strong> — electron carrier in mitochondria</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <p class="detail-label">Enzymes involved</p>
+        <ul class="molecule-list">
+          <li class="molecule-item"><span class="enzyme">Glycerol-3-phosphate DH (cytoplasmic)</span> — uses NAD⁺</li>
+          <li class="molecule-item"><span class="enzyme">Glycerol-3-phosphate DH (mitochondrial)</span> — uses FAD, membrane-bound</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <p class="detail-label">Mechanism (simpler than malate)</p>
+        <ul class="step-list">
+          <li class="step-item"><span class="step-num">1</span>Cytoplasmic NADH reduces DHAP to G3P (via cytoplasmic G3P DH)</li>
+          <li class="step-item"><span class="step-num">2</span>G3P diffuses to outer mitochondrial membrane</li>
+          <li class="step-item"><span class="step-num">3</span>Mitochondrial G3P DH (outer membrane) oxidizes G3P back to DHAP</li>
+          <li class="step-item"><span class="step-num">4</span>Electrons go to FAD → FADH₂ (feeds into Complex II, not Complex I)</li>
+          <li class="step-item"><span class="step-num">5</span>DHAP returns to cytoplasm to restart cycle</li>
+        </ul>
+        <div class="why-box">
+          <strong>Net result:</strong> Cytoplasmic NADH → FADH₂ (generates only ~1.5 ATP, bypasses Complex I)
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <p class="detail-label">Quick comparison</p>
+        <div class="compare-grid">
+          <div class="compare-item">
+            <p class="compare-label">Energy yield</p>
+            <p class="compare-value">1.5 ATP per NADH</p>
+          </div>
+          <div class="compare-item">
+            <p class="compare-label">Location</p>
+            <p class="compare-value">Brain, muscle, brown fat</p>
+          </div>
+          <div class="compare-item">
+            <p class="compare-label">Speed</p>
+            <p class="compare-value">Faster, irreversible</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shuttle-card" onclick="toggleShuttle('carnitine')">
+    <div class="shuttle-header">
+      <div>
+        <h3 class="shuttle-title">
+          <span class="icon">💧</span>
+          Carnitine Shuttle
+        </h3>
+        <p class="shuttle-purpose">Transports long-chain fatty acids into mitochondria</p>
+      </div>
+      <span id="carnitine-arrow" class="arrow-icon">▼</span>
+    </div>
+    
+    <div id="carnitine-details" class="shuttle-details">
+      <div class="why-box info">
+        <strong>Why it exists:</strong> Activated fatty acids (acyl-CoA) can't cross the inner mitochondrial membrane. Carnitine acts as a carrier molecule for β-oxidation.
+      </div>
+      
+      <div class="detail-section">
+        <p class="detail-label">Key molecules transported</p>
+        <ul class="molecule-list">
+          <li class="molecule-item"><strong>Acyl-CoA</strong> — activated fatty acid (in cytoplasm)</li>
+          <li class="molecule-item"><strong>Acyl-carnitine</strong> — fatty acid attached to carnitine (crosses membrane)</li>
+          <li class="molecule-item"><strong>Carnitine</strong> — the shuttle carrier itself</li>
+          <li class="molecule-item"><strong>CoA</strong> — released in cytoplasm, regenerated in matrix</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <p class="detail-label">Enzymes involved</p>
+        <ul class="molecule-list">
+          <li class="molecule-item"><span class="enzyme">CPT I (Carnitine palmitoyltransferase I)</span> — outer membrane</li>
+          <li class="molecule-item"><span class="enzyme">Carnitine-acylcarnitine translocase</span> — inner membrane antiporter</li>
+          <li class="molecule-item"><span class="enzyme">CPT II (Carnitine palmitoyltransferase II)</span> — inner membrane (matrix side)</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <p class="detail-label">Mechanism (three-step process)</p>
+        <ul class="step-list">
+          <li class="step-item"><span class="step-num">1</span>CPT I on outer membrane transfers fatty acid from CoA to carnitine</li>
+          <li class="step-item"><span class="step-num">2</span>Acyl-carnitine crosses inner membrane via translocase (antiporter with free carnitine)</li>
+          <li class="step-item"><span class="step-num">3</span>CPT II on matrix side transfers fatty acid from carnitine back to CoA</li>
+          <li class="step-item"><span class="step-num">4</span>Free carnitine returns to cytoplasm (via same translocase)</li>
+          <li class="step-item"><span class="step-num">5</span>Acyl-CoA now in matrix undergoes β-oxidation</li>
+        </ul>
+        <div class="why-box success">
+          <strong>Regulation:</strong> CPT I is inhibited by malonyl-CoA (when making fatty acids, don't break them down)
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <p class="detail-label">Quick comparison</p>
+        <div class="compare-grid">
+          <div class="compare-item">
+            <p class="compare-label">Substrate</p>
+            <p class="compare-value">Long-chain fatty acids</p>
+          </div>
+          <div class="compare-item">
+            <p class="compare-label">Regulation</p>
+            <p class="compare-value">Malonyl-CoA inhibits</p>
+          </div>
+          <div class="compare-item">
+            <p class="compare-label">Deficiency</p>
+            <p class="compare-value">Hypoglycemia, weakness</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="memory-tip">
+  <p><strong>Memory tip:</strong> Malate and glycerol shuttles both move NADH equivalents (electrons). Carnitine is completely different — it moves fatty acids (carbon chains), not electrons. Don't mix them up!</p>
+</div>
+
+<script>
+function toggleShuttle(id) {
+  const details = document.getElementById(id + '-details');
+  const arrow = document.getElementById(id + '-arrow');
+  const isOpen = details.classList.contains('open');
+  
+  details.classList.toggle('open');
+  arrow.classList.toggle('rotated');
+}
+</script>
+
+</body>
+</html>

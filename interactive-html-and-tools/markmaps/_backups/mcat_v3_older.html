@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCAT Study Schedule v3 — June 12, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FDFAF5;--bg2:#EDEAE2;
+  --deep:#1E3028;
+  --cp:#1E4A78;  --cp-lt:#E2EDF8;   /* C/P: blue */
+  --bb:#1E6640;  --bb-lt:#E2F2E8;   /* B/B: green */
+  --ps:#6B3FA0;  --ps-lt:#EEE8F8;   /* P/S: purple */
+  --cars:#8B4A00;--cars-lt:#FBF0DE; /* CARS: amber */
+  --anki:#6B1A6B;--anki-lt:#F5E8F5; /* Anki: plum */
+  --lab:#2E6B50; --lab-lt:#E5F5EE;  /* Lab/invisible: teal */
+  --cool:#962020;--cool-lt:#FDEAEA; /* Cool-off: red */
+  --fl:#0A3D6E;  --fl-lt:#D5E8F5;   /* Full-length: navy */
+  --gold:#8B6800;--gold-lt:#FAF0CC; /* Reddit/notes */
+  --ink:#1A1A1A;--muted:#6A6A64;--border:#CCCAC0;
+  --sm:8.5px; --xs:7.5px; --xxs:7px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#D8D4CC;color:var(--ink);font-size:var(--sm);line-height:1.45}
+
+.page{width:210mm;min-height:297mm;margin:0 auto 24px;padding:10mm 11mm 9mm;background:var(--cream);box-shadow:0 2px 20px rgba(0,0,0,.12)}
+
+/* HEADERS */
+.hdr{border-bottom:2.5px solid var(--deep);padding-bottom:6px;margin-bottom:9px;display:flex;justify-content:space-between;align-items:flex-end}
+.hdr h1{font-family:'Playfair Display',serif;font-size:18px;color:var(--deep);font-weight:700;line-height:1}
+.hdr .sub{font-size:7px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.6px}
+.hdr .pgn{font-size:var(--xxs);color:var(--muted);text-align:right;line-height:1.5}
+
+.sec{font-size:7px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:8px 0 4px;padding-bottom:2px;border-bottom:1px solid var(--border)}
+.foot{margin-top:7px;padding-top:4px;border-top:1px solid var(--border);font-size:var(--xxs);color:var(--muted);display:flex;justify-content:space-between}
+
+/* ALERT STRIP */
+.al{border-left:3px solid;padding:4px 7px;border-radius:0 3px 3px 0;margin-bottom:4px;font-size:var(--xs);line-height:1.45}
+.al-gold{background:var(--gold-lt);border-color:var(--gold);color:#4A2A00}
+.al-cp{background:var(--cp-lt);border-color:var(--cp);color:#0A2A50}
+
+/* ─── PAGE 1: MONTHLY ─── */
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:7px}
+.stat{background:white;border:1px solid var(--border);border-radius:4px;padding:5px 6px;text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--deep);line-height:1}
+.stat-l{font-size:var(--xxs);color:var(--muted);margin-top:1px;line-height:1.3}
+.stat.hot{border-color:var(--cool);background:var(--cool-lt)}.stat.hot .stat-n{color:var(--cool)}
+
+/* LEGEND */
+.pleg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.pl{display:flex;align-items:center;gap:3px;font-size:var(--xxs);color:var(--muted)}
+.pd{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+
+/* CALENDAR */
+table.cal{width:100%;border-collapse:collapse;margin-bottom:7px}
+table.cal caption{font-family:'Playfair Display',serif;font-size:12px;font-weight:600;color:var(--deep);text-align:left;padding-bottom:3px}
+table.cal th{background:var(--deep);color:white;font-size:var(--xxs);font-weight:500;padding:3px 2px;text-align:center}
+table.cal td{border:1px solid var(--border);vertical-align:top;padding:3px 2px 2px;height:46px}
+table.cal td.emp{background:var(--bg2);border-color:transparent}
+table.cal td.cp{background:#EEF4FC}
+table.cal td.bb{background:#EEF7F1}
+table.cal td.ps{background:#F4F0FC}
+table.cal td.thu{background:#F8F6F2}
+table.cal td.fl{background:#D5E8F5;border:2px solid var(--fl) !important}
+table.cal td.rev{background:#FBF0DE}
+table.cal td.cool{background:var(--cool-lt)}
+table.cal td.today{background:#DBE8FA;border:2px solid var(--cp) !important}
+table.cal td.test{background:var(--deep) !important;border:2px solid var(--deep) !important}
+
+.dn{font-size:9px;font-weight:700;display:block;color:var(--deep);line-height:1;margin-bottom:2px}
+.dn.tod{color:var(--cp)}.dn.tst{color:white}
+.tags{display:flex;flex-direction:column;gap:1.5px}
+.tg{font-size:6px;font-weight:700;padding:1px 3px;border-radius:2px;line-height:1.4;display:inline-block;letter-spacing:.1px;white-space:nowrap}
+.tc{background:var(--cp-lt);color:var(--cp)}     /* C/P podcast */
+.tb{background:var(--bb-lt);color:var(--bb)}     /* B/B podcast */
+.tp{background:var(--ps-lt);color:var(--ps)}     /* P/S podcast */
+.tu-oc{background:#F2E8F6;color:#5A2070}         /* UW OrgoChem */
+.tu-ph{background:var(--cp-lt);color:var(--cp)}  /* UW Physics */
+.tu-bc{background:var(--gold-lt);color:#5A3A00}  /* UW Biochem */
+.tu-bi{background:var(--bb-lt);color:var(--bb)}  /* UW Bio */
+.tu-mx{background:#F0EDE8;color:var(--muted)}    /* UW Mixed */
+.tu-fl{background:var(--fl);color:white}          /* Full-length */
+.tu-rv{background:var(--gold-lt);color:#5A3A00}  /* Review day */
+.tu-co{background:var(--cool-lt);color:var(--cool)} /* Cool-off */
+.tu-wk{background:var(--ps-lt);color:#3A1060}    /* Pharmacy */
+.test-lbl{color:white;font-size:var(--xxs);font-weight:700;text-align:center;margin-top:3px;line-height:1.3}
+
+/* CHAPTER PROGRESS TABLE */
+.ch-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:7px}
+table.cpt{width:100%;border-collapse:collapse;font-size:var(--xxs)}
+table.cpt caption{font-size:var(--xs);font-weight:700;color:var(--deep);padding-bottom:3px;text-align:left}
+table.cpt th{padding:2px 5px;text-align:left;background:var(--bg2);font-size:var(--xxs)}
+table.cpt td{padding:2px 5px;border-bottom:1px solid var(--border)}
+table.cpt tr:last-child td{border-bottom:none}
+table.cpt td:first-child{font-weight:600;color:var(--deep);min-width:52px}
+.ch-cp{color:var(--cp);font-weight:700}
+.ch-bb{color:var(--bb);font-weight:700}
+.ch-ps{color:var(--ps);font-weight:700}
+
+/* QBANK MATH */
+.qbank{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:7px}
+.qb{background:white;border:1px solid var(--border);border-radius:4px;padding:5px 7px}
+.qb h5{font-size:var(--xxs);font-weight:700;color:var(--deep);margin-bottom:3px}
+.qb p{font-size:var(--xxs);color:var(--ink);line-height:1.5}
+.qb .big{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--deep);display:block;line-height:1;margin-bottom:1px}
+.qb.hi{border-color:var(--cp);background:var(--cp-lt)}
+.qb.hi .big{color:var(--cp)}
+
+/* ─── PAGE 2: WEEKLY ─── */
+
+/* REDDIT PHASE BOX */
+.reddit-strip{background:var(--gold-lt);border:1px solid var(--gold);border-radius:5px;padding:7px 10px;margin-bottom:8px;display:flex;gap:16px;align-items:flex-start}
+.rs-phase{font-size:var(--xs);color:var(--gold)}
+.rs-phase b{font-size:9px;color:var(--gold);display:block;margin-bottom:2px}
+.rs-daily{font-size:var(--xxs);color:#4A2A00;line-height:1.6;flex:1}
+
+/* PHASE BOXES */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:8px}
+.ph{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.ph-h{padding:4px 7px;font-size:var(--xs);font-weight:700}
+.ph1-h{background:#E2EDF8;color:var(--cp)}.ph2-h{background:var(--gold-lt);color:#4A2A00}
+.ph3-h{background:var(--ps-lt);color:#3A1060}.ph4-h{background:var(--cool-lt);color:var(--cool)}
+.ph-b{padding:5px 7px;font-size:var(--xxs);line-height:1.55;color:var(--ink)}
+.ph-b b{color:var(--deep)}
+
+/* WEEKLY TASK GRID */
+.wk7{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:8px}
+.wkd{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.wkd-h{padding:4px 4px;text-align:center}
+.wn{font-size:var(--xs);font-weight:700;display:block}
+.wt{font-size:6px;display:block;margin-top:1px;opacity:.8}
+.wh-cp{background:var(--cp-lt);color:var(--cp)}
+.wh-bb{background:var(--bb-lt);color:var(--bb)}
+.wh-ps{background:var(--ps-lt);color:var(--ps)}
+.wh-th{background:#F0EDE8;color:var(--muted)}
+.wh-su{background:#E2EDF8;color:var(--deep)}
+.tk-list{padding:3px 4px;display:flex;flex-direction:column;gap:2px}
+.tk{font-size:6.5px;padding:2px 4px;border-radius:2px;line-height:1.35;font-weight:500}
+.tk-pod{background:var(--lab-lt);color:var(--lab)}
+.tk-sum{background:#F5F0E8;color:#4A3A20;font-style:italic}
+.tk-uw-new{background:#E2F2E8;color:#0A3A1A;font-weight:700}
+.tk-uw-rev{background:#FBF0DE;color:#4A2A00}
+.tk-err{background:#F0EDE8;color:var(--muted);font-style:italic}
+.tk-ps-doc{background:var(--ps-lt);color:#3A1060}
+.tk-sec{background:var(--cp-lt);color:var(--cp)}
+.tk-anki{background:var(--anki-lt);color:var(--anki);font-weight:600}
+.tk-pank{background:#F8E8FF;color:#4A006A}
+.tk-cars{background:var(--cars-lt);color:var(--cars);font-weight:600}
+.tk-log{background:#F5F0E8;color:#4A3A20;font-style:italic}
+.tk-plan{background:#F5F0E8;color:#4A3A20;font-style:italic}
+.tk-wk{background:var(--ps-lt);color:#3A1060}
+.tk-fl{background:var(--fl);color:white;font-weight:700}
+.tk-aamc{background:var(--deep);color:white;font-weight:700}
+.tk-cool{background:var(--cool-lt);color:var(--cool)}
+.tk-rest{background:#F0EDE8;color:var(--muted)}
+
+/* WEEKLY TOTALS */
+.wk-totals{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:7px}
+.wt-box{background:white;border:1px solid var(--border);border-radius:4px;padding:5px 7px;text-align:center}
+.wt-box .n{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--deep);line-height:1;display:block}
+.wt-box .l{font-size:var(--xxs);color:var(--muted);line-height:1.3;margin-top:1px}
+
+/* NON-NEGOTIABLES */
+.nonneg{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:7px}
+.nn{border-radius:4px;padding:6px 8px;border:1px solid}
+.nn h4{font-size:var(--xs);font-weight:700;margin-bottom:3px}
+.nn ul{list-style:none;padding:0}
+.nn li{font-size:var(--xxs);padding:1px 0 1px 9px;position:relative;line-height:1.4}
+.nn li::before{content:'→';position:absolute;left:0;font-size:6.5px;color:var(--muted)}
+.nn-cp{background:var(--cp-lt);border-color:var(--cp)}.nn-cp h4{color:var(--cp)}
+.nn-bb{background:var(--bb-lt);border-color:var(--bb)}.nn-bb h4{color:var(--bb)}
+.nn-habit{background:var(--gold-lt);border-color:var(--gold)}.nn-habit h4{color:#4A2A00}
+
+/* ─── PAGE 3: DAILY ─── */
+
+.daily-hdr{font-family:'Playfair Display',serif;font-size:11px;font-weight:700;margin-bottom:2px}
+.daily-sub{font-size:var(--xxs);color:var(--muted);margin-bottom:6px}
+
+.d3{display:grid;grid-template-columns:3fr 2fr 2fr;gap:6px;margin-bottom:8px}
+.dc{border-radius:5px;overflow:hidden;border:1px solid var(--border)}
+.dc-h{padding:6px 9px}
+.dc-h h3{font-family:'Playfair Display',serif;font-size:11px;font-weight:700}
+.dc-h p{font-size:var(--xxs);opacity:.8;margin-top:1px}
+.dh-cp{background:#D5E8F5;color:var(--cp)}
+.dh-bb{background:#D5F5E2;color:var(--bb)}
+.dh-thu{background:var(--ps-lt);color:#3A1060}
+.dh-fl{background:#D5E8F5;color:var(--fl)}
+.dh-co{background:var(--cool-lt);color:var(--cool)}
+
+.dr{display:flex;border-bottom:1px solid var(--border);padding:3px 8px;gap:5px;align-items:flex-start}
+.dr:last-child{border-bottom:none}
+.dr.pod-row{background:#EDF7F0}
+.dr.sum-row{background:#F8F5EC}
+.dr.uw-row{background:#E8F4FD}
+.dr.rev-row{background:#FBF5E8}
+.dr.err-row{background:#F5F3EE}
+.dr.sec-row{background:#EEF4EC}
+.dr.cars-row{background:#FBF2E0}
+.dr.log-row{background:#F5F3EE}
+.dr.anki-row{background:#F5EAF8}
+.dr.ps-row{background:var(--ps-lt)}
+.dr.plan-row{background:#F5F3EE}
+.dt{min-width:50px;font-size:var(--xs);font-weight:700;color:var(--deep);flex-shrink:0;line-height:1.3;padding-top:1px}
+.dt.cp{color:var(--cp)}.dt.bb{color:var(--bb)}.dt.rd{color:var(--cool)}
+.di .dm{font-size:var(--xs);font-weight:500;color:var(--ink);display:block;line-height:1.3}
+.di .dn2{font-size:var(--xxs);color:var(--muted);display:block;margin-top:1px;line-height:1.3}
+.di .cnt{display:inline-block;font-size:var(--xxs);font-weight:700;background:var(--deep);color:white;padding:0px 4px;border-radius:2px;margin-left:3px;vertical-align:middle}
+.di .cnt-cp{background:var(--cp)}.di .cnt-bb{background:var(--bb)}
+.di .cnt-cars{background:var(--cars)}.di .cnt-anki{background:var(--anki)}
+.di .cnt-rev{background:var(--gold)}
+
+/* SUPPLEMENT STRIP */
+.supp{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:6px}
+.ss{background:white;border:1px solid var(--border);border-radius:3px;padding:4px 6px}
+.ss-t{font-size:var(--xxs);font-weight:700;color:var(--deep);display:block;margin-bottom:2px}
+.ss-i{font-size:6.5px;color:var(--ink);line-height:1.5}
+
+/* PODCAST vs TRANSCRIPT vs SUMMARY */
+.pvt{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:7px}
+.pvt-box{border-radius:4px;padding:6px 8px;border:1px solid}
+.pvt-box h4{font-size:var(--xs);font-weight:700;margin-bottom:3px}
+.pvt-box p{font-size:var(--xxs);line-height:1.5;color:var(--ink)}
+.pvt-aud{background:var(--bb-lt);border-color:var(--bb)}.pvt-aud h4{color:var(--bb)}
+.pvt-sum{background:var(--gold-lt);border-color:var(--gold)}.pvt-sum h4{color:#4A2A00}
+.pvt-txt{background:var(--ps-lt);border-color:var(--ps)}.pvt-txt h4{color:var(--ps)}
+
+@media print{
+  body{background:white}
+  .page{margin:0;padding:9mm 10mm;box-shadow:none;width:100%;page-break-after:always}
+  .page:last-child{page-break-after:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ PAGE 1: MONTHLY ═══════════════════ -->
+<div class="page">
+<div class="hdr">
+  <div><h1>MCAT Study Schedule — June 12, 2026</h1><div class="sub">Reddit 18-week plan · Weeks 7–18 phase · May 11 Mon → June 12 Fri · 24 active days + 7 cool-off</div></div>
+  <div class="pgn">Page 1 of 3 · Monthly<br>May 11, 2026</div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat hot"><div class="stat-n">32</div><div class="stat-l">Days to<br>June 12</div></div>
+  <div class="stat"><div class="stat-n">24</div><div class="stat-l">Active<br>study days</div></div>
+  <div class="stat"><div class="stat-n">7</div><div class="stat-l">Cool-off<br>June 5–11</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">FLs left:<br>UW FL1 + UW FL2†</div></div>
+  <div class="stat"><div class="stat-n">~920</div><div class="stat-l">UWorld Qs<br>reachable (42%)</div></div>
+  <div class="stat"><div class="stat-n">11/12</div><div class="stat-l">C/P podcast<br>chapters done</div></div>
+</div>
+<div style="font-size:6.5px;color:var(--muted);margin-top:-4px;margin-bottom:6px">† UWorld Practice Exam 2 = your AAMC FL2 equivalent for this cycle. AAMC CARS Q Pack Vol 1 = 100 passages remaining.</div>
+
+<!-- LEGEND -->
+<div class="pleg">
+  <div class="pl"><div class="pd" style="background:#EEF4FC;border:1px solid var(--cp)"></div>C/P day — podcast: Gen Chem + OrgoChem + Physics</div>
+  <div class="pl"><div class="pd" style="background:#EEF7F1;border:1px solid var(--bb)"></div>B/B day — podcast: Bio + Biochem</div>
+  <div class="pl"><div class="pd" style="background:#F4F0FC;border:1px solid var(--ps)"></div>P/S day — podcast: Behavioral Science</div>
+  <div class="pl"><div class="pd" style="background:#F8F6F2;border:1px solid #C0BCB0"></div>Thursday — pharmacy (light day)</div>
+  <div class="pl"><div class="pd" style="background:#D5E8F5;border:2px solid var(--fl)"></div>Full-length exam</div>
+  <div class="pl"><div class="pd" style="background:var(--cool-lt);border:1px solid var(--cool)"></div>Cool-off — no new content</div>
+</div>
+
+<!-- MAY CALENDAR — May 1 = Friday → May 11 = Monday -->
+<table class="cal">
+<caption>May 2026</caption>
+<thead><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr></thead>
+<tbody>
+<tr>
+  <td class="emp"></td><td class="emp"></td><td class="emp"></td><td class="emp"></td><td class="emp"></td>
+  <td class="emp"><span class="dn">1</span></td><td class="emp"><span class="dn">2</span></td>
+</tr>
+<tr>
+  <td class="emp ps"><span class="dn">3</span><div class="tags"><span class="tg tp">P/S pod</span></div></td>
+  <td class="emp cp"><span class="dn">4</span><div class="tags"><span class="tg tc">C/P pod</span></div></td>
+  <td class="emp bb"><span class="dn">5</span><div class="tags"><span class="tg tb">B/B pod</span></div></td>
+  <td class="emp cp"><span class="dn">6</span><div class="tags"><span class="tg tc">C/P pod</span></div></td>
+  <td class="emp thu"><span class="dn">7</span><div class="tags"><span class="tg tu-wk">Pharmacy</span></div></td>
+  <td class="emp cp"><span class="dn">8</span><div class="tags"><span class="tg tc">C/P pod</span></div></td>
+  <td class="emp bb"><span class="dn">9</span><div class="tags"><span class="tg tb">B/B pod</span></div></td>
+</tr>
+<tr>
+  <td class="ps"><span class="dn">10</span><div class="tags"><span class="tg tp">P/S pod</span><span class="tg tu-mx">UW tasks</span></div></td>
+  <!-- TODAY May 11 = Monday = C/P day, Ch 1 -->
+  <td class="today cp"><span class="dn tod">11 ★ TODAY</span><div class="tags"><span class="tg tc">C/P Ch.1</span><span class="tg tu-oc">UW: OrgoChem</span></div></td>
+  <td class="bb"><span class="dn">12</span><div class="tags"><span class="tg tb">B/B Ch.1–2</span><span class="tg tu-bc">UW: Biochem</span></div></td>
+  <td class="cp"><span class="dn">13</span><div class="tags"><span class="tg tc">C/P Ch.2</span><span class="tg tu-ph">UW: Physics</span></div></td>
+  <td class="thu"><span class="dn">14</span><div class="tags"><span class="tg tp">P/S pod ☞</span><span class="tg tu-wk">Pharmacy</span></div></td>
+  <td class="cp"><span class="dn">15</span><div class="tags"><span class="tg tc">C/P Ch.3</span><span class="tg tu-oc">UW: OrgoChem</span></div></td>
+  <td class="bb"><span class="dn">16</span><div class="tags"><span class="tg tb">B/B Ch.3–4</span><span class="tg tu-bi">UW: Bio</span></div></td>
+</tr>
+<tr>
+  <!-- May 17 = Sunday = UWorld FL1 (TIMED) -->
+  <td class="fl"><span class="dn">17</span><div class="tags"><span class="tg tu-fl">UWorld FL1 🎯</span><span class="tg tu-fl">TIMED 6+ hrs</span></div></td>
+  <td class="rev cp"><span class="dn">18</span><div class="tags"><span class="tg tc">C/P Ch.4</span><span class="tg tu-rv">FL1 Review</span></div></td>
+  <td class="bb"><span class="dn">19</span><div class="tags"><span class="tg tb">B/B Ch.5–6</span><span class="tg tu-bc">UW: Biochem</span></div></td>
+  <td class="cp"><span class="dn">20</span><div class="tags"><span class="tg tc">C/P Ch.5</span><span class="tg tu-ph">UW: Physics</span></div></td>
+  <td class="thu"><span class="dn">21</span><div class="tags"><span class="tg tp">P/S pod ☞</span><span class="tg tu-wk">Pharmacy</span></div></td>
+  <td class="cp"><span class="dn">22</span><div class="tags"><span class="tg tc">C/P Ch.6</span><span class="tg tu-oc">UW: OrgoChem</span></div></td>
+  <td class="bb"><span class="dn">23</span><div class="tags"><span class="tg tb">B/B Ch.7–8</span><span class="tg tu-bi">UW: Bio</span></div></td>
+</tr>
+<tr>
+  <td class="ps"><span class="dn">24</span><div class="tags"><span class="tg tp">P/S pod</span><span class="tg tu-mx">UW: Mixed</span></div></td>
+  <td class="cp"><span class="dn">25</span><div class="tags"><span class="tg tc">C/P Ch.7</span><span class="tg tu-oc">UW: OrgoChem</span></div></td>
+  <td class="bb"><span class="dn">26</span><div class="tags"><span class="tg tb">B/B Ch.9–10</span><span class="tg tu-bc">UW: Biochem</span></div></td>
+  <td class="cp"><span class="dn">27</span><div class="tags"><span class="tg tc">C/P Ch.8</span><span class="tg tu-ph">UW: Physics</span></div></td>
+  <td class="thu"><span class="dn">28</span><div class="tags"><span class="tg tp">P/S pod ☞</span><span class="tg tu-wk">Pharmacy</span></div></td>
+  <td class="cp"><span class="dn">29</span><div class="tags"><span class="tg tc">C/P Ch.9</span><span class="tg tu-oc">UW: OrgoChem</span></div></td>
+  <td class="bb"><span class="dn">30</span><div class="tags"><span class="tg tb">B/B Ch.11–12 ✓</span><span class="tg tu-bi">UW: Bio</span></div></td>
+</tr>
+<tr>
+  <!-- May 31 = Sunday = UWorld FL2 (TIMED) -->
+  <td class="fl"><span class="dn">31</span><div class="tags"><span class="tg tu-fl">UWorld FL2 🎯</span><span class="tg tu-fl">TIMED 6+ hrs</span></div></td>
+  <td class="emp"></td><td class="emp"></td><td class="emp"></td><td class="emp"></td><td class="emp"></td><td class="emp"></td>
+</tr>
+</tbody>
+</table>
+
+<!-- JUNE CALENDAR — June 1 = Monday -->
+<table class="cal">
+<caption>June 2026</caption>
+<thead><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr></thead>
+<tbody>
+<tr>
+  <td class="emp"></td>
+  <td class="rev cp"><span class="dn">1</span><div class="tags"><span class="tg tc">C/P Ch.10</span><span class="tg tu-rv">FL2 Review</span></div></td>
+  <td class="bb"><span class="dn">2</span><div class="tags"><span class="tg tb">B/B review</span><span class="tg tu-bc">UW: gaps</span></div></td>
+  <td class="cp"><span class="dn">3</span><div class="tags"><span class="tg tc">C/P Ch.11</span><span class="tg tu-ph">UW: FL2 gaps</span></div></td>
+  <td class="thu"><span class="dn">4</span><div class="tags"><span class="tg tp">P/S pod ☞</span><span class="tg tu-wk">Pharmacy</span></div></td>
+  <td class="cool"><span class="dn">5</span><div class="tags"><span class="tg tu-co">COOL-OFF</span><span class="tg tu-co">Cheat sheets</span></div></td>
+  <td class="cool"><span class="dn">6</span><div class="tags"><span class="tg tu-co">COOL-OFF</span><span class="tg tu-co">CARS 1</span></div></td>
+</tr>
+<tr>
+  <td class="cool"><span class="dn">7</span><div class="tags"><span class="tg tu-co">COOL-OFF</span><span class="tg tu-co">Anki due</span></div></td>
+  <td class="cool"><span class="dn">8</span><div class="tags"><span class="tg tu-co">COOL-OFF</span><span class="tg tu-co">Walk + rest</span></div></td>
+  <td class="cool"><span class="dn">9</span><div class="tags"><span class="tg tu-co">COOL-OFF</span><span class="tg tu-co">Leah4Sci</span></div></td>
+  <td class="cool"><span class="dn">10</span><div class="tags"><span class="tg tu-co">COOL-OFF</span><span class="tg tu-co">Pack bag</span></div></td>
+  <td class="cool thu"><span class="dn">11</span><div class="tags"><span class="tg tu-co">COOL-OFF</span><span class="tg tu-co">Sleep 10 PM</span></div></td>
+  <td class="test"><span class="dn tst">12</span><div class="test-lbl">🎯 MCAT<br>TEST DAY<br>Friday</div></td>
+  <td class="emp"></td>
+</tr>
+</tbody>
+</table>
+
+<!-- CHAPTER PROGRESSION + QBANK MATH -->
+<div class="ch-grid">
+  <table class="cpt">
+  <caption>Podcast Chapter Progression — by section day</caption>
+  <thead><tr><th>Date</th><th>Day</th><th class="ch-cp">C/P subjects</th><th class="ch-bb">B/B subjects</th><th class="ch-ps">P/S</th></tr></thead>
+  <tbody>
+  <tr><td>May 11</td><td>Mon</td><td class="ch-cp">Ch. 1</td><td>—</td><td>—</td></tr>
+  <tr><td>May 12</td><td>Tue</td><td>—</td><td class="ch-bb">Ch. 1–2</td><td>—</td></tr>
+  <tr><td>May 13</td><td>Wed</td><td class="ch-cp">Ch. 2</td><td>—</td><td>—</td></tr>
+  <tr><td>May 14</td><td>Thu ☞</td><td>—</td><td>—</td><td class="ch-ps">commute ep.1</td></tr>
+  <tr><td>May 15</td><td>Fri</td><td class="ch-cp">Ch. 3</td><td>—</td><td>—</td></tr>
+  <tr><td>May 16</td><td>Sat</td><td>—</td><td class="ch-bb">Ch. 3–4</td><td>—</td></tr>
+  <tr><td>May 18</td><td>Mon</td><td class="ch-cp">Ch. 4</td><td>—</td><td>—</td></tr>
+  <tr><td>May 19</td><td>Tue</td><td>—</td><td class="ch-bb">Ch. 5–6</td><td>—</td></tr>
+  <tr><td>May 20</td><td>Wed</td><td class="ch-cp">Ch. 5</td><td>—</td><td>—</td></tr>
+  <tr><td>May 21</td><td>Thu ☞</td><td>—</td><td>—</td><td class="ch-ps">commute ep.2</td></tr>
+  <tr><td>May 22</td><td>Fri</td><td class="ch-cp">Ch. 6</td><td>—</td><td>—</td></tr>
+  <tr><td>May 23</td><td>Sat</td><td>—</td><td class="ch-bb">Ch. 7–8</td><td>—</td></tr>
+  <tr><td>May 24</td><td>Sun</td><td>—</td><td>—</td><td class="ch-ps">full ep.</td></tr>
+  <tr><td>May 25</td><td>Mon</td><td class="ch-cp">Ch. 7</td><td>—</td><td>—</td></tr>
+  <tr><td>May 26</td><td>Tue</td><td>—</td><td class="ch-bb">Ch. 9–10</td><td>—</td></tr>
+  <tr><td>May 27</td><td>Wed</td><td class="ch-cp">Ch. 8</td><td>—</td><td>—</td></tr>
+  <tr><td>May 28</td><td>Thu ☞</td><td>—</td><td>—</td><td class="ch-ps">commute ep.3</td></tr>
+  <tr><td>May 29</td><td>Fri</td><td class="ch-cp">Ch. 9</td><td>—</td><td>—</td></tr>
+  <tr><td>May 30</td><td>Sat</td><td>—</td><td class="ch-bb">Ch. 11–12 ✓</td><td>—</td></tr>
+  <tr><td>Jun 1</td><td>Mon</td><td class="ch-cp">Ch. 10</td><td>—</td><td>—</td></tr>
+  <tr><td>Jun 3</td><td>Wed</td><td class="ch-cp">Ch. 11</td><td>—</td><td>—</td></tr>
+  <tr><td>Jun 4</td><td>Thu ☞</td><td>—</td><td>—</td><td class="ch-ps">commute ep.4</td></tr>
+  </tbody>
+  </table>
+
+  <div>
+  <div class="sec">UWorld QBank Math</div>
+  <div class="qbank">
+    <div class="qb hi">
+      <span class="big">~920</span>
+      <h5>New questions</h5>
+      <p>50–55/full day × 16 days + 20/pharmacy × 4 days. 42% of 2,181 non-CARS unused.</p>
+    </div>
+    <div class="qb">
+      <span class="big">~260</span>
+      <h5>Review (warmup)</h5>
+      <p>15 incorrects/omitted before each new block. 106 incorrect + 70 omitted = warmup pool.</p>
+    </div>
+    <div class="qb">
+      <span class="big">~60</span>
+      <h5>AAMC CARS</h5>
+      <p>2 AAMC Vol 1 passages/night × 20 nights. 60% of remaining 100 passages.</p>
+    </div>
+    <div class="qb">
+      <span class="big">~1,120</span>
+      <h5>Anki cards</h5>
+      <p>50/full day × 16 + 30/FL review × 2 + 30/pharmacy × 4. Due cards first always.</p>
+    </div>
+  </div>
+  <div class="al al-gold"><b>Cannot see all 2,644 questions in 24 days.</b> Seeing 920 questions with full review + error logging beats seeing 2,644 shallowly. Priority: OrgoChem (21st %ile) → Physics (39th %ile) → Biochem gaps → Bio → Gen Chem. Use incorrects from pool as warmup first every session — you specifically asked for this.</div>
+  <div class="al al-cp" style="margin-top:4px"><b>300 pg P/S doc:</b> 12 pages/day × 24 days = 288 pages. Nearly complete by June 4. Read during secondary block or post-dinner.</div>
+  </div>
+</div>
+
+<div class="foot">
+  <span>Monthly · May 11 Mon → June 12 Fri · C/P podcasts advance each Mon/Wed/Fri · B/B podcasts each Tue/Sat · P/S Thu commute</span>
+  <span>UWorld FL1: May 17 Sun · UWorld FL2: May 31 Sun · Cool-off: June 5–11 · Test: June 12 Fri</span>
+</div>
+</div>
+
+
+<!-- ═══════════════════ PAGE 2: WEEKLY ═══════════════════ -->
+<div class="page">
+<div class="hdr">
+  <div><h1>Weekly Template</h1><div class="sub">Reddit weeks 7–18 phase · UWorld + Anki + CARS + P/S 300 pg doc daily · Invisible labor explicitly timed</div></div>
+  <div class="pgn">Page 2 of 3 · Weekly</div>
+</div>
+
+<!-- REDDIT ALIGNMENT -->
+<div class="reddit-strip">
+  <div class="rs-phase"><b>Reddit Exam Prep Daily Phase</b>You are here: weeks 7–18</div>
+  <div class="rs-daily">
+    <b>Reddit's daily tasks → Your equivalent:</b><br>
+    UWorld → UWorld QBank (50–55 new + 15 warmup review) &nbsp;·&nbsp;
+    Anking v2 → Captain Hook deck (50 cards/day) &nbsp;·&nbsp;
+    300 pg P/S doc → same (12 pages/day) &nbsp;·&nbsp;
+    JW CARS → Jack Westin + AAMC CARS Vol 1 (2 AAMC + 1 JW per night) &nbsp;·&nbsp;
+    Pankow P/S Anki → same (20 cards/day) &nbsp;·&nbsp;
+    Blueprint FL → UWorld FL1 (May 17) + UWorld FL2 / UWorld PE2 (May 31)
+  </div>
+</div>
+
+<!-- PHASE SUMMARIES -->
+<div class="sec">Phase summaries — what changes each week</div>
+<div class="phases">
+  <div class="ph"><div class="ph-h ph1-h">Phase 1 · May 11–16</div><div class="ph-b"><b>C/P attack + baseline</b><br>Today: finish UW 15+18. No review today — just complete.<br>Tue: C/P post-mortem (review 15+18, extract formulas).<br>UWorld: OrgoChem primary. Physics secondary.<br>Podcast: C/P Ch.1 → Ch.3 by end of week.<br>B/B: Ch.1–4 by Saturday.<br>FL: None this week.</div></div>
+  <div class="ph"><div class="ph-h ph2-h">Phase 2 · May 17–31</div><div class="ph-b"><b>Subject grind + FL exams</b><br>Sun May 17: UWorld FL1 (full timed, 6+ hrs).<br>Mon May 18: Full FL1 review.<br>Podcast: C/P Ch.4–9 · B/B Ch.5–12 (done by May 30).<br>Primary rotation: OrgoChem → Biochem → Physics → OrgoChem.<br>Sun May 31: UWorld FL2 (full timed).</div></div>
+  <div class="ph"><div class="ph-h ph3-h">Phase 3 · June 1–4</div><div class="ph-b"><b>AAMC integration</b><br>Mon June 1: Full FL2 review.<br>Tue June 2: FL2 weak areas targeted.<br>Wed June 3: Remaining gaps + CARS.<br>Thu June 4: Pharmacy — light.<br>Podcast: C/P Ch.10–11.<br>Anki: Incorrects + due only.<br>No new UWorld subjects after this.</div></div>
+  <div class="ph"><div class="ph-h ph4-h">Cool-off · June 5–11</div><div class="ph-b"><b>No new content</b><br>Leah4Sci cheat sheets (passive scan only).<br>Pankow Anki: due cards only, max 20.<br>CARS: 1 passage max/day.<br>June 10: Pack test bag.<br>June 11: No studying. Sleep 10 PM.<br>June 12: 🎯 TEST DAY.</div></div>
+</div>
+
+<!-- WEEKLY TASK GRID -->
+<div class="sec">Week grid — tasks with counts (adapt subject per phase above)</div>
+<div class="wk7">
+
+  <div class="wkd"><div class="wkd-h wh-cp"><span class="wn">Monday</span><span class="wt">C/P · Full study</span></div>
+  <div class="tk-list">
+    <span class="tk tk-pod">Pod: GChem + OrgoChem + Physics (1 ch each)</span>
+    <span class="tk tk-sum">↳ MacWhisper summary pre-block (15 min)</span>
+    <span class="tk tk-uw-rev">UW warmup: 15 incorrects/omitted</span>
+    <span class="tk tk-uw-new">UW OrgoChem NEW: 50–55 questions</span>
+    <span class="tk tk-err">↳ Review explanations + error log (equal time)</span>
+    <span class="tk tk-ps-doc">P/S 300 pg doc: 12 pages</span>
+    <span class="tk tk-sec">UW secondary: Bio/Biochem 20q</span>
+    <span class="tk tk-anki">Anki: 50 cards — Captain Hook due first</span>
+    <span class="tk tk-pank">Pankow: 20 cards</span>
+    <span class="tk tk-cars">CARS: 2 AAMC Vol 1 + 1 JW</span>
+    <span class="tk tk-log">↳ CARS improvement log (5 min)</span>
+    <span class="tk tk-plan">Day review + tomorrow plan (15 min)</span>
+  </div></div>
+
+  <div class="wkd"><div class="wkd-h wh-bb"><span class="wn">Tuesday</span><span class="wt">B/B · Full study</span></div>
+  <div class="tk-list">
+    <span class="tk tk-pod">Pod: Bio + Biochem (2 chapters each)</span>
+    <span class="tk tk-sum">↳ MacWhisper summary (10 min)</span>
+    <span class="tk tk-uw-rev">UW warmup: 15 incorrects/omitted</span>
+    <span class="tk tk-uw-new">UW Biochem NEW: 50–55 questions</span>
+    <span class="tk tk-err">↳ Review + error log (equal time)</span>
+    <span class="tk tk-ps-doc">P/S 300 pg doc: 12 pages</span>
+    <span class="tk tk-sec">UW secondary: OrgoChem 20q</span>
+    <span class="tk tk-anki">Anki: 50 cards — Bio/Biochem due first</span>
+    <span class="tk tk-pank">Pankow: 20 cards</span>
+    <span class="tk tk-cars">CARS: 2 AAMC + 1 JW</span>
+    <span class="tk tk-log">↳ CARS log + day review (20 min)</span>
+  </div></div>
+
+  <div class="wkd"><div class="wkd-h wh-cp"><span class="wn">Wednesday</span><span class="wt">C/P · Full study</span></div>
+  <div class="tk-list">
+    <span class="tk tk-pod">Pod: GChem + OrgoChem + Physics (next ch)</span>
+    <span class="tk tk-sum">↳ Summary pre-block (15 min)</span>
+    <span class="tk tk-uw-rev">UW warmup: 15 incorrects/omitted</span>
+    <span class="tk tk-uw-new">UW Physics NEW: 50–55 questions</span>
+    <span class="tk tk-err">↳ Review + formula error log</span>
+    <span class="tk tk-ps-doc">P/S 300 pg doc: 12 pages</span>
+    <span class="tk tk-sec">UW secondary: Bio 20q</span>
+    <span class="tk tk-anki">Anki: 50 cards</span>
+    <span class="tk tk-pank">Pankow: 20 cards</span>
+    <span class="tk tk-cars">CARS: 2 AAMC + 1 JW</span>
+    <span class="tk tk-plan">Day review + tomorrow plan</span>
+  </div></div>
+
+  <div class="wkd"><div class="wkd-h wh-th"><span class="wn">Thursday</span><span class="wt">P/S · Pharmacy</span></div>
+  <div class="tk-list">
+    <span class="tk tk-pod">Commute: P/S podcast (earbuds)</span>
+    <span class="tk tk-wk">Pharmacy 9 AM – ~6 PM</span>
+    <span class="tk tk-sum">Lunch: summary + 1 formula note</span>
+    <span class="tk tk-uw-rev">UW warmup: 10 incorrects</span>
+    <span class="tk tk-uw-new">UW any: 20 new questions</span>
+    <span class="tk tk-err">↳ Review explanations (30 min)</span>
+    <span class="tk tk-ps-doc">P/S doc: 10 pages</span>
+    <span class="tk tk-anki">Anki: 30 cards — due only</span>
+    <span class="tk tk-pank">Pankow: 15 cards</span>
+    <span class="tk tk-cars">CARS: 1–2 AAMC</span>
+    <span class="tk tk-log">↳ CARS log (5 min)</span>
+  </div></div>
+
+  <div class="wkd"><div class="wkd-h wh-cp"><span class="wn">Friday</span><span class="wt">C/P · Full study</span></div>
+  <div class="tk-list">
+    <span class="tk tk-pod">Pod: GChem + OrgoChem + Physics (next ch)</span>
+    <span class="tk tk-sum">↳ Summary pre-block (15 min)</span>
+    <span class="tk tk-uw-rev">UW warmup: 15 incorrects/omitted</span>
+    <span class="tk tk-uw-new">UW OrgoChem NEW: 50–55 questions</span>
+    <span class="tk tk-err">↳ Review + error log</span>
+    <span class="tk tk-ps-doc">P/S 300 pg doc: 12 pages</span>
+    <span class="tk tk-sec">UW secondary: Biochem gaps 20q</span>
+    <span class="tk tk-anki">Anki: 50 cards</span>
+    <span class="tk tk-pank">Pankow: 20 cards</span>
+    <span class="tk tk-cars">CARS: 2 AAMC + 1 JW</span>
+    <span class="tk tk-plan">Day review + next-week plan</span>
+  </div></div>
+
+  <div class="wkd"><div class="wkd-h wh-bb"><span class="wn">Saturday</span><span class="wt">B/B · Full study</span></div>
+  <div class="tk-list">
+    <span class="tk tk-pod">Pod: Bio + Biochem (next 2 chapters each)</span>
+    <span class="tk tk-sum">↳ Summary pre-block (10 min)</span>
+    <span class="tk tk-uw-rev">UW warmup: 15 incorrects</span>
+    <span class="tk tk-uw-new">UW Bio NEW: 50–55 questions</span>
+    <span class="tk tk-err">↳ Review + error log</span>
+    <span class="tk tk-ps-doc">P/S doc: 12 pages</span>
+    <span class="tk tk-sec">UW secondary: OrgoChem or P/S 20q</span>
+    <span class="tk tk-anki">Anki: 50 cards — Bio chapters first</span>
+    <span class="tk tk-pank">Pankow: 20 cards</span>
+    <span class="tk tk-cars">CARS: 2 AAMC + 1 JW</span>
+    <span class="tk tk-plan">Day review</span>
+  </div></div>
+
+  <div class="wkd"><div class="wkd-h wh-su"><span class="wn">Sunday</span><span class="wt">FL exam or study</span></div>
+  <div class="tk-list">
+    <span class="tk tk-fl">May 17: UWorld FL1 — timed</span>
+    <span class="tk tk-aamc">May 31: UWorld FL2 — timed</span>
+    <span class="tk" style="background:#F0EDE8;color:var(--muted);font-style:italic">All-day. Note sticking points only.</span>
+    <span class="tk" style="background:#F0EDE8;color:var(--muted);font-style:italic;margin-top:4px">Non-FL Sundays:</span>
+    <span class="tk tk-pod">Pod: P/S or repeat weakest C/P ch</span>
+    <span class="tk tk-uw-rev">UW warmup: 15 incorrects</span>
+    <span class="tk tk-uw-new">UW B/S + mixed: 45 new</span>
+    <span class="tk tk-err">↳ Review + error log</span>
+    <span class="tk tk-anki">Anki: 50 cards</span>
+    <span class="tk tk-pank">Pankow: 20 cards</span>
+    <span class="tk tk-cars">CARS: 2 AAMC + 1 JW</span>
+  </div></div>
+
+</div>
+
+<!-- WEEKLY TOTALS -->
+<div class="sec">Weekly totals (standard week, non-FL)</div>
+<div class="wk-totals">
+  <div class="wt-box"><span class="n">~330</span><div class="l">UWorld new questions<br>(55/day × 6 full days)</div></div>
+  <div class="wt-box"><span class="n">~90</span><div class="l">UWorld warmup/review<br>(15/day × 6 days)</div></div>
+  <div class="wt-box"><span class="n">~17</span><div class="l">CARS passages<br>(2 AAMC + 1 JW × 6 nights - 1 Thu)</div></div>
+  <div class="wt-box"><span class="n">~300</span><div class="l">Anki cards<br>(50/day × 5 + 30 Thu + 30 Sat)</div></div>
+  <div class="wt-box"><span class="n">~75</span><div class="l">P/S doc pages<br>(12/day × 6 + 10 Thu)</div></div>
+</div>
+
+<!-- NON-NEGOTIABLES -->
+<div class="sec">Non-negotiables — every day, every week</div>
+<div class="nonneg">
+  <div class="nn nn-cp">
+    <h4>UWorld protocol</h4>
+    <ul>
+      <li>Always start with 10–15 incorrects/omitted as warmup</li>
+      <li>Read every explanation — even correct answers</li>
+      <li>Error log: 1 line per wrong answer (principle or formula)</li>
+      <li>UWorld CARS = skip entirely (463 questions, not your CARS source)</li>
+      <li>Section priority: OrgoChem every Mon+Fri · Physics Wed · Biochem Tue · Bio Sat</li>
+    </ul>
+  </div>
+  <div class="nn nn-bb">
+    <h4>CARS protocol</h4>
+    <ul>
+      <li>AAMC CARS Vol 1 = primary (2 passages/night on study days)</li>
+      <li>Jack Westin = 1 passage/night as supplement</li>
+      <li>After each session: categorize wrong answers by type (5 min) — this is the improvement log</li>
+      <li>4.5 min passage read is fine — the clock issue is UWorld's timer methodology, not yours</li>
+      <li>Skip CARS on FL exam days, 1 max on pharmacy days</li>
+    </ul>
+  </div>
+  <div class="nn nn-habit">
+    <h4>Daily study habits</h4>
+    <ul>
+      <li>Podcast: 8–11 AM passive window (all pods made — just press play)</li>
+      <li>MacWhisper summary: read before UWorld block on that subject (15 min)</li>
+      <li>Browse mode Anki: use instead of active review on low-energy windows</li>
+      <li>300 pg P/S doc: 12 pages daily (secondary block or post-dinner)</li>
+      <li>Day review + tomorrow plan: 15 min before CARS each night</li>
+      <li>Podcast vs transcript vs summary → see daily page</li>
+    </ul>
+  </div>
+</div>
+
+<div class="foot">
+  <span>Weekly · Reddit Exam Prep Phase · UWorld primary · CARS nightly · Podcast by section · P/S doc 12 pg/day</span>
+  <span>OrgoChem 21st %ile = Mon+Fri · Physics 39th %ile = Wed · Biochem gaps = Tue · Bio = Sat</span>
+</div>
+</div>
+
+
+<!-- ═══════════════════ PAGE 3: DAILY ═══════════════════ -->
+<div class="page">
+<div class="hdr">
+  <div><h1>Daily Schedule</h1><div class="sub">Invisible labor explicitly timed · Podcast/transcript/summary guidance · Three day types</div></div>
+  <div class="pgn">Page 3 of 3 · Daily<br>Noon–midnight window</div>
+</div>
+
+<!-- PODCAST / TRANSCRIPT / SUMMARY -->
+<div class="sec">When to use each format — podcast vs MacWhisper summary vs transcript</div>
+<div class="pvt">
+  <div class="pvt-box pvt-aud">
+    <h4>🎧 Full Podcast — 8–11 AM (passive)</h4>
+    <p>Play during the scroll/snooze window. Half-awake is fine — this is encoding, not active study. All podcasts are already made. Press play on today's section subjects. This primer makes the UWorld questions feel familiar at noon. Do not read or annotate during this — that defeats the passive benefit.</p>
+  </div>
+  <div class="pvt-box pvt-sum">
+    <h4>⚡ MacWhisper Summary — pre-UWorld (15 min)</h4>
+    <p>Read the summary for today's subjects right before opening UWorld. This activates the content in working memory so you're not starting the questions cold. Also use post-dinner as a light second exposure before CARS or Anki. Summary = primer, not replacement. Best use of the summary feature.</p>
+  </div>
+  <div class="pvt-box pvt-txt">
+    <h4>📄 Transcript — on-demand reference</h4>
+    <p>Only open when you get a UWorld question wrong and don't understand the explanation. Search the relevant concept in the transcript for that chapter. Targeted reference, not passive reading. Also useful when making an error log entry — pull the exact passage to understand the mechanism. Not a daily task.</p>
+  </div>
+</div>
+
+<!-- DAILY TEMPLATES -->
+<div class="sec">Hour-by-hour templates — pick your day type</div>
+<div class="d3">
+
+  <!-- C/P FULL STUDY DAY -->
+  <div class="dc">
+    <div class="dc-h dh-cp">
+      <h3>C/P Day — Full Study</h3>
+      <p>Mon · Wed · Fri · Wake 8–10 AM · Sleep midnight<br>Gen Chem + OrgoChem + Physics podcast day</p>
+    </div>
+    <div class="dr pod-row"><div class="dt cp">8–11 AM</div><div class="di"><span class="dm">🎧 Podcast: GChem + OrgoChem + Physics <span class="cnt cnt-cp">1 ch each</span></span><span class="dn2">Half-awake fine. All 3 subjects for today's chapter number (see Ch. table). Do not annotate.</span></div></div>
+    <div class="dr sum-row"><div class="dt">Noon</div><div class="di"><span class="dm">⚡ MacWhisper summary — all 3 C/P subjects <span class="cnt">15 min</span></span><span class="dn2">Read all 3 summaries before opening UWorld. Then eat + medications.</span></div></div>
+    <div class="dr rev-row"><div class="dt cp">12:20 PM</div><div class="di"><span class="dm">UWorld: <span class="cnt cnt-rev">15 warmup</span> incorrects/omitted from pool</span><span class="dn2">Always start here. 106 incorrect + 70 omitted = your warmup pool. Do not skip this step.</span></div></div>
+    <div class="dr uw-row"><div class="dt cp">12:50 PM</div><div class="di"><span class="dm">UWorld OrgoChem NEW <span class="cnt cnt-cp">50–55 new</span></span><span class="dn2">Timed. Read every explanation even when correct. Friday also OrgoChem — highest priority subject.</span></div></div>
+    <div class="dr err-row"><div class="dt">2:30 PM</div><div class="di"><span class="dm">Review: explanations + error log <span class="cnt">= question time</span></span><span class="dn2">This is invisible labor #1. For each wrong answer: 1 line in your error log (formula/principle). Do not skip review to do more questions. Review IS the learning.</span></div></div>
+    <div class="dr ps-row"><div class="dt">4:00 PM</div><div class="di"><span class="dm">Break + 300 pg P/S doc <span class="cnt cnt-bb">12 pages</span></span><span class="dn2">Invisible labor #2. Read during break. ~20 min. 12 pages/day = ~288 pages in 24 days.</span></div></div>
+    <div class="dr sec-row"><div class="dt">4:30 PM</div><div class="di"><span class="dm">UWorld secondary: Bio or Biochem <span class="cnt cnt-bb">20 new</span> + brief review</span><span class="dn2">Lower exec demand. Still timed. Read explanations. No error log needed — just flag for Anki.</span></div></div>
+    <div class="dr anki-row"><div class="dt">5:30 PM</div><div class="di"><span class="dm">Anki — Captain Hook deck <span class="cnt cnt-anki">50 cards</span></span><span class="dn2">Due cards first. Max 20 new. Incorrects as warmup. Browse mode = valid alternative on low-energy days.</span></div></div>
+    <div class="dr anki-row"><div class="dt">6:15 PM</div><div class="di"><span class="dm">Pankow Anki <span class="cnt cnt-anki">20 cards</span></span><span class="dn2">Separate from Captain Hook. P/S-only. Units 6–7 until done.</span></div></div>
+    <div class="dr log-row"><div class="dt">7:00 PM</div><div class="di"><span class="dm">Day review + tomorrow plan <span class="cnt">15 min</span></span><span class="dn2">Invisible labor #3. Write: what was hardest today, tomorrow's UWorld subject, which podcast chapter is next. This is why tomorrow starts immediately at noon.</span></div></div>
+    <div class="dr cars-row"><div class="dt">7:15 PM</div><div class="di"><span class="dm">CARS: AAMC Vol 1 <span class="cnt cnt-cars">2 passages</span> + JW <span class="cnt cnt-cars">1 passage</span></span><span class="dn2">Natural reading window. AAMC Vol 1 = primary. JW = supplement. Read at your pace (4.5 min read time is fine).</span></div></div>
+    <div class="dr log-row"><div class="dt">8:30 PM</div><div class="di"><span class="dm">CARS improvement log <span class="cnt">5 min</span></span><span class="dn2">Invisible labor #4. Categorize wrong answers: inference / author's intent / main idea / application / EXCEPT. After 2 weeks a pattern appears → focus there.</span></div></div>
+    <div class="dr"><div class="dt">Midnight</div><div class="di"><span class="dm">Sleep — hard stop</span><span class="dn2">Sleep consolidates everything from today's study session. Skipping it erases the gains.</span></div></div>
+  </div>
+
+  <!-- RIGHT COLUMN: B/B day + pharmacy + FL + cool-off -->
+  <div style="display:flex;flex-direction:column;gap:5px">
+
+    <div class="dc">
+      <div class="dc-h dh-bb">
+        <h3>B/B Day — Full Study</h3>
+        <p>Tue · Sat · Bio + Biochem podcast day<br><em>Same structure — key differences below</em></p>
+      </div>
+      <div class="dr pod-row"><div class="dt bb">8–11 AM</div><div class="di"><span class="dm">🎧 Pod: Bio + Biochem <span class="cnt cnt-bb">2 ch each</span></span><span class="dn2">2 chapters per subject per session. Advances through all 12 chapters in 3 weeks.</span></div></div>
+      <div class="dr sum-row"><div class="dt">Noon</div><div class="di"><span class="dm">⚡ Summary Bio + Biochem (10 min) then eat</span></div></div>
+      <div class="dr rev-row"><div class="dt bb">12:15 PM</div><div class="di"><span class="dm">UW warmup <span class="cnt cnt-rev">15 incorrects</span> → Biochem NEW <span class="cnt cnt-bb">50–55</span></span><span class="dn2">Tue: Biochem primary (gaps: beta-ox, urea cycle, ETC). Sat: Bio primary.</span></div></div>
+      <div class="dr err-row"><div class="dt">2:30 PM</div><div class="di"><span class="dm">Review + error log <span class="cnt">= question time</span></span></div></div>
+      <div class="dr ps-row"><div class="dt">4:00 PM</div><div class="di"><span class="dm">P/S doc <span class="cnt cnt-bb">12 pages</span> + secondary UW OrgoChem <span class="cnt cnt-cp">20q</span></span></div></div>
+      <div class="dr anki-row"><div class="dt">5:30 PM</div><div class="di"><span class="dm">Anki <span class="cnt cnt-anki">50</span> + Pankow <span class="cnt cnt-anki">20</span></span></div></div>
+      <div class="dr log-row"><div class="dt">7:00 PM</div><div class="di"><span class="dm">Day review + tomorrow plan <span class="cnt">15 min</span></span></div></div>
+      <div class="dr cars-row"><div class="dt">7:15 PM</div><div class="di"><span class="dm">CARS: <span class="cnt cnt-cars">2 AAMC</span> + <span class="cnt cnt-cars">1 JW</span> → CARS log <span class="cnt">5 min</span></span></div></div>
+      <div class="dr"><div class="dt">Midnight</div><div class="di"><span class="dm">Sleep</span></div></div>
+    </div>
+
+    <div class="dc">
+      <div class="dc-h dh-thu">
+        <h3>Thursday — Pharmacy</h3>
+        <p>P/S podcast commute · 9 AM–6 PM shift · compressed</p>
+      </div>
+      <div class="dr pod-row"><div class="dt">Commute</div><div class="di"><span class="dm">🎧 P/S podcast (earbuds, no screen)</span></div></div>
+      <div class="dr sum-row"><div class="dt">Lunch</div><div class="di"><span class="dm">⚡ Summary + 1 formula written in phone <span class="cnt">10 min</span></span></div></div>
+      <div class="dr rev-row"><div class="dt cp">7 PM</div><div class="di"><span class="dm">UW warmup <span class="cnt cnt-rev">10</span> → any subject NEW <span class="cnt cnt-cp">20</span></span><span class="dn2">Smallest UWorld block of the week. Any subject. Review explanations.</span></div></div>
+      <div class="dr ps-row"><div class="dt">8 PM</div><div class="di"><span class="dm">P/S doc <span class="cnt cnt-bb">10 pages</span></span></div></div>
+      <div class="dr anki-row"><div class="dt">8:30 PM</div><div class="di"><span class="dm">Anki <span class="cnt cnt-anki">30 due only</span> + Pankow <span class="cnt cnt-anki">15</span></span></div></div>
+      <div class="dr cars-row"><div class="dt">9:30 PM</div><div class="di"><span class="dm">CARS: <span class="cnt cnt-cars">1–2 AAMC</span> → log <span class="cnt">5 min</span></span></div></div>
+      <div class="dr"><div class="dt">Midnight</div><div class="di"><span class="dm">Sleep</span></div></div>
+    </div>
+
+    <div class="dc">
+      <div class="dc-h dh-fl">
+        <h3>FL Exam Day</h3>
+        <p>May 17 (UW FL1) · May 31 (UW FL2) · All day</p>
+      </div>
+      <div class="dr uw-row"><div class="dt cp">9–10 AM</div><div class="di"><span class="dm">Start FL — all 4 sections timed</span><span class="dn2">Take 10-min optional breaks between sections. Eat during. Finish ~4 PM.</span></div></div>
+      <div class="dr log-row"><div class="dt">Evening</div><div class="di"><span class="dm">Light first-pass: note which sections felt worst</span><span class="dn2">Do not do full review today. That is tomorrow's job. Write 3 bullet points max.</span></div></div>
+      <div class="dr cars-row"><div class="dt">9 PM</div><div class="di"><span class="dm">CARS: <span class="cnt cnt-cars">1</span> AAMC only. Rest.</span></div></div>
+    </div>
+
+    <div class="dc">
+      <div class="dc-h dh-co">
+        <h3>Cool-off Day — June 5–11</h3>
+        <p>No new content · Consolidation only</p>
+      </div>
+      <div class="dr"><div class="dt rd">Morning</div><div class="di"><span class="dm">Sleep in. No alarm. No podcast.</span></div></div>
+      <div class="dr sum-row"><div class="dt">Afternoon</div><div class="di"><span class="dm">Leah4Sci cheat sheets — passive scan only</span><span class="dn2">OrgoChem reactions · Physics equations · Gen Chem. Look, don't memorize new things.</span></div></div>
+      <div class="dr anki-row"><div class="dt">Evening</div><div class="di"><span class="dm">Pankow: <span class="cnt cnt-anki">due only</span>, max 20. If nothing due → skip.</span></div></div>
+      <div class="dr cars-row"><div class="dt">9 PM</div><div class="di"><span class="dm">CARS: <span class="cnt cnt-cars">1</span> passage or your novel. No guilt.</span></div></div>
+      <div class="dr"><div class="dt rd">June 10</div><div class="di"><span class="dm">Pack bag: ID, pencils, snack, water, layers.</span></div></div>
+      <div class="dr"><div class="dt rd">June 11</div><div class="di"><span class="dm">No studying. Sleep 10 PM.</span></div></div>
+      <div class="dr"><div class="dt rd">June 12</div><div class="di"><span class="dm">🎯 TEST DAY — you did the work.</span></div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- INVISIBLE LABOR SUMMARY -->
+<div class="sec">The invisible labor — explicitly named and timed</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:7px">
+  <div style="background:var(--gold-lt);border:1px solid var(--gold);border-radius:4px;padding:6px 7px">
+    <div style="font-size:var(--xs);font-weight:700;color:#4A2A00;margin-bottom:3px">#1 Error Log</div>
+    <div style="font-size:var(--xxs);color:var(--ink);line-height:1.5">During UWorld explanation review. 1 line per wrong answer: the principle or formula that was tested. Happens in real time — not a separate session. Takes ~2 min/wrong answer. This is how content sticks.</div>
+  </div>
+  <div style="background:var(--gold-lt);border:1px solid var(--gold);border-radius:4px;padding:6px 7px">
+    <div style="font-size:var(--xs);font-weight:700;color:#4A2A00;margin-bottom:3px">#2 CARS Improvement Log</div>
+    <div style="font-size:var(--xxs);color:var(--ink);line-height:1.5">5 min after each CARS session. Categorize wrong answers by type: inference / author's intent / main idea / application / EXCEPT. After 2 weeks: pattern emerges → targeted practice on that type. This is the CARS improvement guide.</div>
+  </div>
+  <div style="background:var(--gold-lt);border:1px solid var(--gold);border-radius:4px;padding:6px 7px">
+    <div style="font-size:var(--xs);font-weight:700;color:#4A2A00;margin-bottom:3px">#3 Day Review + Plan</div>
+    <div style="font-size:var(--xxs);color:var(--ink);line-height:1.5">15 min before CARS each night. Write: what was hardest, which subject needs more UWorld tomorrow, what formula appeared in multiple wrong answers, which podcast chapter is next. This means tomorrow's noon block starts in 30 seconds, not 45 minutes.</div>
+  </div>
+  <div style="background:var(--gold-lt);border:1px solid var(--gold);border-radius:4px;padding:6px 7px">
+    <div style="font-size:var(--xs);font-weight:700;color:#4A2A00;margin-bottom:3px">#4 MacWhisper Pre-Block</div>
+    <div style="font-size:var(--xxs);color:var(--ink);line-height:1.5">15 min pre-UWorld. Read today's podcast summary for each subject you're doing. This is not review — it's priming. The summary loads the vocabulary and concepts into working memory so the first 10 UWorld questions don't feel cold.</div>
+  </div>
+</div>
+
+<!-- SUPPLEMENT STRIP (compact) -->
+<div class="sec">Supplement timing reference (keep with medication schedule for details)</div>
+<div class="supp">
+  <div class="ss"><span class="ss-t">Noon with food</span><span class="ss-i">Adderall XR 40mg · Fluoxetine 10mg<br>L-Theanine 200mg · D3 · Folic Acid<br>B Complex (odd dates only)</span></div>
+  <div class="ss"><span class="ss-t">2:00 PM</span><span class="ss-i">Iron 65mg + Vitamin C<br>(after cold brew window)<br>2 hrs post-Adderall</span></div>
+  <div class="ss"><span class="ss-t">Lunch (W+4 hrs)</span><span class="ss-i">Zinc 25mg with food<br>Dextroamphetamine IR PRN<br>(half/quarter — by 4 PM cutoff)</span></div>
+  <div class="ss"><span class="ss-t">With dinner</span><span class="ss-i">Magnesium glycinate 250mg<br>Omega-3 EPA/DHA 1000mg<br>Probiotics (multi-strain)</span></div>
+</div>
+
+<div class="foot">
+  <span>Daily · Podcast 8–11 AM passive · Summary pre-block · UWorld warmup-first protocol · Error log + CARS log + day plan = invisible labor</span>
+  <span>Podcast → summary → UWorld → review → error log · CARS always last · Sleep midnight always</span>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+h1 { color: #2c5aa0; border-bottom: 3px solid #2c5aa0; padding-bottom: 10px; }
+h2 { color: #1d9e75; margin-top: 30px; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background: #2c5aa0; color: white; }
+.concept { background: #f0f8ff; border-left: 4px solid #2c5aa0; padding: 15px; margin: 20px 0; }
+.example { background: #f0fff0; border-left: 4px solid #1d9e75; padding: 15px; margin: 20px 0; }
+.timeline { background: #fff3cd; border-left: 4px solid #f0ad4e; padding: 15px; margin: 20px 0; }
+.key-point { background: #fff9e6; border: 2px solid #f0ad4e; padding: 15px; margin: 20px 0; border-radius: 5px; }
+</style>
+</head>
+<body>
+
+<h1>Topic 5: Reactive Oxygen Species (ROS)</h1>
+
+<h2>Part 1: How ROS Form Chemically</h2>
+
+<div class="concept">
+<h3>What Are ROS?</h3>
+<p><strong>Reactive Oxygen Species</strong> = highly reactive molecules containing oxygen with unpaired electrons</p>
+
+<p><strong>Main types:</strong></p>
+<ul>
+<li><strong>Superoxide (O₂•⁻)</strong> - oxygen with one extra electron (radical)</li>
+<li><strong>Hydrogen peroxide (H₂O₂)</strong> - not a radical, but still reactive</li>
+<li><strong>Hydroxyl radical (•OH)</strong> - extremely reactive</li>
+</ul>
+</div>
+
+<div class="example">
+<h3>Formation in Mitochondria</h3>
+
+<p><strong>The normal ETC pathway:</strong></p>
+<pre>
+NADH → Complex I → CoQ → Complex III → Cyt c → Complex IV → O₂ → H₂O
+</pre>
+
+<p><strong>What's SUPPOSED to happen:</strong></p>
+<ol>
+<li>Electrons travel through Complexes I, II, III, and IV</li>
+<li>O₂ arrives at Complex IV as the final electron acceptor</li>
+<li>Complex IV carefully adds 4 electrons to O₂, making 2 H₂O</li>
+<li>Clean, safe reduction: O₂ + 4e⁻ + 4H⁺ → 2H₂O</li>
+</ol>
+
+<p><strong>What ACTUALLY happens (~1-2% of the time):</strong></p>
+<ol>
+<li>Electrons <strong>LEAK</strong> from Complex I and Complex III</li>
+<li>These leaked electrons hit O₂ BEFORE it reaches Complex IV</li>
+<li>O₂ + 1e⁻ → O₂•⁻ (superoxide)</li>
+<li>This is a <strong>premature, partial reduction</strong> of oxygen</li>
+</ol>
+
+<p><strong>Why does leaking happen?</strong></p>
+<ul>
+<li>At Complex III, ubiquinone (CoQ) forms an unstable radical intermediate called <strong>semiquinone (CoQ•⁻)</strong></li>
+<li>Semiquinone has an unpaired electron</li>
+<li>This unpaired electron can react with O₂ that's dissolved in the membrane</li>
+<li>Result: superoxide formation</li>
+</ul>
+</div>
+
+<h2>Part 2: What ROS Do to Cells (Damage)</h2>
+
+<div class="example">
+<h3>Three Main Targets</h3>
+
+<h4>1. Lipid Peroxidation (Membrane Damage)</h4>
+<ul>
+<li>ROS steal electrons from lipids in cell membranes</li>
+<li>This creates a chain reaction → lipid peroxidation</li>
+<li>Result: Holes in membranes, loss of membrane integrity</li>
+<li>Especially bad in mitochondria where ROS are made</li>
+</ul>
+
+<h4>2. Protein Oxidation</h4>
+<ul>
+<li>ROS oxidize amino acid side chains (especially cysteine, methionine)</li>
+<li>Proteins unfold and lose function</li>
+<li>Enzymes stop working</li>
+<li>Result: Cellular dysfunction</li>
+</ul>
+
+<h4>3. DNA Damage</h4>
+<ul>
+<li>ROS oxidize DNA bases (especially guanine)</li>
+<li>Creates 8-oxoguanine and other lesions</li>
+<li>Result: Mutations, DNA breaks</li>
+<li>Can trigger apoptosis if damage is severe</li>
+</ul>
+</div>
+
+<div class="concept">
+<h3>Cellular Defense Systems</h3>
+
+<table>
+<tr>
+<th>Enzyme</th>
+<th>Reaction</th>
+<th>What it does</th>
+</tr>
+<tr>
+<td><strong>Superoxide dismutase (SOD)</strong></td>
+<td>2 O₂•⁻ + 2H⁺ → H₂O₂ + O₂</td>
+<td>Converts superoxide to hydrogen peroxide</td>
+</tr>
+<tr>
+<td><strong>Catalase</strong></td>
+<td>2 H₂O₂ → 2 H₂O + O₂</td>
+<td>Converts hydrogen peroxide to water</td>
+</tr>
+<tr>
+<td><strong>Glutathione peroxidase</strong></td>
+<td>H₂O₂ + 2 GSH → 2 H₂O + GSSG</td>
+<td>Uses glutathione to neutralize H₂O₂</td>
+</tr>
+</table>
+
+<p><strong>The defense strategy:</strong></p>
+<ol>
+<li>SOD catches superoxide immediately → converts to H₂O₂</li>
+<li>Catalase converts H₂O₂ → harmless H₂O</li>
+<li>If this system is overwhelmed → oxidative stress → damage accumulates</li>
+</ol>
+</div>
+
+<h2>Part 3: Evolutionary Story</h2>
+
+<div class="timeline">
+<h3>The Great Oxygenation Event</h3>
+
+<h4>~3.5 billion years ago: Anaerobic world</h4>
+<ul>
+<li>Earth's atmosphere had almost no oxygen</li>
+<li>All life was prokaryotic (bacteria)</li>
+<li>Energy: fermentation only (2 ATP per glucose)</li>
+<li>Inefficient, but safe from oxygen toxicity</li>
+</ul>
+
+<h4>~2.4 billion years ago: Cyanobacteria evolve photosynthesis</h4>
+<ul>
+<li>Cyanobacteria start producing O₂ as a waste product</li>
+<li>Oxygen accumulates in oceans, then atmosphere</li>
+<li>This was <strong>TOXIC</strong> to most existing life (Great Oxygenation Event)</li>
+<li>Massive extinction of anaerobic organisms</li>
+</ul>
+
+<h4>~2 billion years ago: Aerobic respiration evolves</h4>
+<ul>
+<li>Some bacteria evolve to USE oxygen (electron transport chain)</li>
+<li>Aerobic respiration: ~30-32 ATP per glucose (15x more efficient!)</li>
+<li>But comes with a cost: ROS production</li>
+<li>These bacteria also evolve defenses (SOD, catalase)</li>
+</ul>
+
+<h4>~1.5 billion years ago: Endosymbiosis</h4>
+<ul>
+<li>A primitive eukaryotic cell engulfs an aerobic bacterium</li>
+<li>Instead of digesting it, they form a symbiosis</li>
+<li>The bacterium becomes the mitochondrion</li>
+<li>Eukaryote gets: massive energy boost</li>
+<li>Eukaryote inherits: the ROS problem</li>
+</ul>
+</div>
+
+<h2>Eukaryotes vs Prokaryotes & ROS</h2>
+
+<div class="concept">
+<h3>Where Does Respiration Happen?</h3>
+
+<table>
+<tr>
+<th>Cell Type</th>
+<th>Location of ETC</th>
+<th>ROS Production</th>
+</tr>
+<tr>
+<td><strong>Eukaryotes</strong></td>
+<td>Inner mitochondrial membrane</td>
+<td>Yes - inside mitochondria</td>
+</tr>
+<tr>
+<td><strong>Aerobic prokaryotes</strong></td>
+<td>Cell (plasma) membrane</td>
+<td>Yes - at the membrane</td>
+</tr>
+<tr>
+<td><strong>Anaerobic prokaryotes</strong></td>
+<td>No ETC (fermentation only)</td>
+<td>Minimal/none</td>
+</tr>
+</table>
+
+<p><strong>Key points:</strong></p>
+<ul>
+<li>Eukaryotes have mitochondria with their own membranes → ROS trapped inside organelle</li>
+<li>Aerobic prokaryotes do ETC on their cell membrane → ROS at periphery</li>
+<li>Both make ROS, just in different locations</li>
+<li>Anaerobic prokaryotes avoid the problem by not using oxygen at all</li>
+</ul>
+</div>
+
+<div class="key-point">
+<h3>🔑 The Big Picture</h3>
+
+<p><strong>Why ROS exist:</strong></p>
+<ul>
+<li>Inevitable byproduct of using oxygen for energy</li>
+<li>The ETC isn't perfect - electrons leak</li>
+<li>About 1-2% of oxygen becomes superoxide instead of water</li>
+</ul>
+
+<p><strong>The evolutionary trade-off:</strong></p>
+<ul>
+<li><strong>Benefit:</strong> 15x more ATP (aerobic vs anaerobic)</li>
+<li><strong>Cost:</strong> Constant ROS damage, need for defense systems</li>
+<li>Natural selection favored efficiency despite the damage</li>
+</ul>
+
+<p><strong>Why eukaryotes have mitochondria:</strong></p>
+<ul>
+<li>Ancient endosymbiosis event (~1.5 billion years ago)</li>
+<li>Aerobic bacterium became mitochondrion</li>
+<li>Gave eukaryotes massive energy advantage</li>
+<li>But also inherited the ROS production machinery</li>
+</ul>
+
+<p><strong>Connection to prokaryotes:</strong></p>
+<ul>
+<li>Aerobic prokaryotes make ROS too (on their cell membrane)</li>
+<li>Anaerobic prokaryotes avoid oxygen entirely</li>
+<li>Mitochondria ARE prokaryotes (endosymbiont theory)</li>
+</ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metabolism Location + Tissue Capability Map — MCAT</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #141720;
+    --surface2: #1c2030;
+    --border: #2a2f42;
+    --accent-gold: #f5c842;
+    --accent-teal: #3dd6c0;
+    --accent-red: #f05a5a;
+    --accent-blue: #5b9cf6;
+    --accent-purple: #a78bfa;
+    --accent-orange: #fb923c;
+    --accent-green: #4ade80;
+    --accent-pink: #f472b6;
+    --text: #e8eaf0;
+    --text-dim: #8892a4;
+    --text-bright: #ffffff;
+    --mono: 'Space Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --serif: 'Playfair Display', serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .poster {
+    width: 1400px;
+    margin: 0 auto;
+    padding: 28px 28px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 14px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--accent-gold);
+    padding-bottom: 12px;
+    margin-bottom: 2px;
+  }
+  .header-title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--text-bright);
+    letter-spacing: -0.5px;
+  }
+  .header-title span { color: var(--accent-gold); }
+  .header-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* ── SECTION BOX ── */
+  .box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 15px;
+    position: relative;
+    overflow: hidden;
+  }
+  .box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 10px 10px 0 0;
+  }
+  .box.gold::before  { background: var(--accent-gold); }
+  .box.teal::before  { background: var(--accent-teal); }
+  .box.red::before   { background: var(--accent-red); }
+  .box.blue::before  { background: var(--accent-blue); }
+  .box.purple::before{ background: var(--accent-purple); }
+  .box.orange::before{ background: var(--accent-orange); }
+  .box.green::before { background: var(--accent-green); }
+  .box.pink::before  { background: var(--accent-pink); }
+
+  .box-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .box.gold .box-label   { color: var(--accent-gold); }
+  .box.teal .box-label   { color: var(--accent-teal); }
+  .box.red .box-label    { color: var(--accent-red); }
+  .box.blue .box-label   { color: var(--accent-blue); }
+  .box.purple .box-label { color: var(--accent-purple); }
+  .box.orange .box-label { color: var(--accent-orange); }
+  .box.green .box-label  { color: var(--accent-green); }
+  .box.pink .box-label   { color: var(--accent-pink); }
+
+  .box-title {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 10px;
+  }
+
+  /* ── SECTION 1: CORE DISTINCTION ── */
+  .section-distinction {
+    grid-column: 1 / 2;
+    grid-row: 2;
+  }
+  .distinction-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .dist-card {
+    background: var(--surface2);
+    border-radius: 7px;
+    padding: 9px 10px;
+    border: 1px solid var(--border);
+  }
+  .dist-card-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .dist-card.location .dist-card-title { color: var(--accent-teal); }
+  .dist-card.tissue .dist-card-title   { color: var(--accent-orange); }
+  .dist-card p { font-size: 10.5px; color: var(--text-dim); }
+  .dist-card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 5px;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .tag.teal   { background: rgba(61,214,192,.15); color: var(--accent-teal); border: 1px solid rgba(61,214,192,.3); }
+  .tag.orange { background: rgba(251,146,60,.15);  color: var(--accent-orange); border: 1px solid rgba(251,146,60,.3); }
+  .tag.gold   { background: rgba(245,200,66,.15);  color: var(--accent-gold); border: 1px solid rgba(245,200,66,.3); }
+  .tag.red    { background: rgba(240,90,90,.15);   color: var(--accent-red); border: 1px solid rgba(240,90,90,.3); }
+  .tag.blue   { background: rgba(91,156,246,.15);  color: var(--accent-blue); border: 1px solid rgba(91,156,246,.3); }
+  .tag.purple { background: rgba(167,139,250,.15); color: var(--accent-purple); border: 1px solid rgba(167,139,250,.3); }
+  .tag.green  { background: rgba(74,222,128,.15);  color: var(--accent-green); border: 1px solid rgba(74,222,128,.3); }
+  .tag.pink   { background: rgba(244,114,182,.15); color: var(--accent-pink); border: 1px solid rgba(244,114,182,.3); }
+
+  .key-example {
+    background: rgba(245,200,66,.08);
+    border: 1px solid rgba(245,200,66,.25);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 10.5px;
+  }
+  .key-example strong { color: var(--accent-gold); }
+
+  /* ── SECTION 2: COMPARTMENT MAP ── */
+  .section-compartment {
+    grid-column: 2 / 4;
+    grid-row: 2;
+  }
+  .cell-diagram {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  .compartment {
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 10px 10px 10px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .comp-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .comp-title.teal   { color: var(--accent-teal); border-color: rgba(61,214,192,.3); }
+  .comp-title.purple { color: var(--accent-purple); border-color: rgba(167,139,250,.3); }
+  .comp-title.blue   { color: var(--accent-blue); border-color: rgba(91,156,246,.3); }
+  .comp-title.orange { color: var(--accent-orange); border-color: rgba(251,146,60,.3); }
+  .comp-title.pink   { color: var(--accent-pink); border-color: rgba(244,114,182,.3); }
+
+  .pathway-list {
+    list-style: none;
+  }
+  .pathway-list li {
+    font-size: 10px;
+    color: var(--text-dim);
+    padding: 2px 0 2px 10px;
+    position: relative;
+  }
+  .pathway-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    font-size: 8px;
+  }
+  .compartment.cytosol .pathway-list li::before  { color: var(--accent-teal); }
+  .compartment.matrix  .pathway-list li::before  { color: var(--accent-purple); }
+  .compartment.imm     .pathway-list li::before  { color: var(--accent-blue); }
+  .compartment.ims     .pathway-list li::before  { color: var(--accent-orange); }
+  .compartment.er      .pathway-list li::before  { color: var(--accent-pink); }
+  .pathway-list li span { color: var(--text); font-weight: 500; }
+
+  .comp-note {
+    margin-top: 6px;
+    padding: 4px 7px;
+    border-radius: 4px;
+    font-size: 9.5px;
+    font-style: italic;
+  }
+  .comp-note.blue   { background: rgba(91,156,246,.1);  color: var(--accent-blue);   border-left: 2px solid var(--accent-blue); }
+  .comp-note.orange { background: rgba(251,146,60,.1);  color: var(--accent-orange); border-left: 2px solid var(--accent-orange); }
+  .comp-note.pink   { background: rgba(244,114,182,.1); color: var(--accent-pink);   border-left: 2px solid var(--accent-pink); }
+  .comp-note.teal   { background: rgba(61,214,192,.1);  color: var(--accent-teal);   border-left: 2px solid var(--accent-teal); }
+
+  /* ── SECTION 3: TISSUE TABLE ── */
+  .section-tissue {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+  .tissue-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5px;
+  }
+  .tissue-table th {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    padding: 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .tissue-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid rgba(42,47,66,.5);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  .tissue-table tr:last-child td { border-bottom: none; }
+  .tissue-table tr:hover td { background: rgba(255,255,255,.02); }
+
+  .tissue-name {
+    font-weight: 700;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .can-do { color: var(--accent-green); }
+  .cannot { color: var(--accent-red); }
+  .identity-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 20px;
+    font-size: 9.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .memory-line {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-style: italic;
+    color: var(--accent-gold);
+    white-space: nowrap;
+  }
+  .mini-tag {
+    display: inline-block;
+    font-size: 9px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin: 1px 1px 1px 0;
+    font-family: var(--mono);
+  }
+
+  /* ── BOTTOM ROW: 4 COLUMNS ── */
+  .section-glut   { grid-column: 1 / 2; grid-row: 4; }
+  .section-fed    { grid-column: 2 / 3; grid-row: 4; }
+  .section-errors { grid-column: 3 / 4; grid-row: 4; }
+
+  .section-sticky { grid-column: 1 / -1; grid-row: 5; }
+
+  /* GLUT */
+  .glut-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+  .glut-card {
+    background: var(--surface2);
+    border-radius: 6px;
+    padding: 8px 9px;
+    border: 1px solid var(--border);
+  }
+  .glut-num {
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    line-height: 1;
+  }
+  .glut-detail {
+    font-size: 10px;
+    color: var(--text-dim);
+  }
+  .glut-detail strong { color: var(--text); }
+
+  /* FED/FASTING */
+  .state-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .state-half {
+    background: var(--surface2);
+    border-radius: 7px;
+    padding: 9px 10px;
+    border: 1px solid var(--border);
+  }
+  .state-title {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .state-title.fed    { color: var(--accent-green); }
+  .state-title.fast   { color: var(--accent-red); }
+  .state-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin: 3px 0;
+    font-size: 10px;
+  }
+  .state-organ {
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    min-width: 48px;
+    font-size: 9.5px;
+  }
+  .state-action { color: var(--text-dim); }
+  .hormone-row {
+    font-family: var(--mono);
+    font-size: 9px;
+    margin-bottom: 7px;
+    padding: 3px 6px;
+    border-radius: 4px;
+  }
+  .hormone-row.fed  { background: rgba(74,222,128,.1); color: var(--accent-green); }
+  .hormone-row.fast { background: rgba(240,90,90,.1);  color: var(--accent-red); }
+
+  /* CONFUSION CORNER */
+  .correction-block {
+    background: var(--surface2);
+    border-radius: 7px;
+    padding: 9px 10px;
+    border-left: 3px solid var(--accent-red);
+    margin-bottom: 8px;
+  }
+  .correction-block:last-child { margin-bottom: 0; }
+  .correction-title {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--accent-red);
+    margin-bottom: 5px;
+  }
+  .correction-body {
+    font-size: 10px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .correction-body strong { color: var(--text); }
+  .arrow-chain {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: var(--accent-teal);
+    background: rgba(61,214,192,.07);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: block;
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+  }
+
+  /* STICKY BOX */
+  .sticky-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .sticky-item {
+    background: var(--surface2);
+    border-radius: 7px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    font-size: 10.5px;
+    color: var(--text-dim);
+    line-height: 1.45;
+  }
+  .sticky-item strong { color: var(--accent-gold); }
+  .sticky-item .si-label {
+    font-family: var(--mono);
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-gold);
+    margin-bottom: 3px;
+  }
+
+  /* divider */
+  .divider {
+    grid-column: 1 / -1;
+    height: 1px;
+    background: var(--border);
+    margin: 2px 0;
+  }
+
+  /* fix mark */
+  .fix {
+    font-size: 9px;
+    font-family: var(--mono);
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: rgba(240,90,90,.15);
+    color: var(--accent-red);
+    border: 1px solid rgba(240,90,90,.3);
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="header-title">METABOLISM: <span>LOCATION ≠ TISSUE CAPABILITY</span></div>
+    </div>
+    <div class="header-sub">MCAT Biochemistry · Cellular Compartments + Tissue Specialization</div>
+  </div>
+
+  <!-- SECTION 1: CORE DISTINCTION -->
+  <div class="box gold section-distinction">
+    <div class="box-label">Section 01</div>
+    <div class="box-title">The Core Distinction</div>
+    <div class="distinction-split">
+      <div class="dist-card location">
+        <div class="dist-card-title">📍 Cellular Location</div>
+        <p>Where inside the cell does the pathway physically occur?</p>
+        <div class="tags">
+          <span class="tag teal">Cytosol</span>
+          <span class="tag purple">Mito Matrix</span>
+          <span class="tag blue">Inner Mito Membrane</span>
+          <span class="tag orange">Intermembrane Space</span>
+          <span class="tag pink">ER</span>
+        </div>
+      </div>
+      <div class="dist-card tissue">
+        <div class="dist-card-title">🏥 Tissue Capability</div>
+        <p>Which organs meaningfully perform or rely on the pathway?</p>
+        <div class="tags">
+          <span class="tag orange">Liver</span>
+          <span class="tag teal">Kidney Cortex</span>
+          <span class="tag blue">Muscle</span>
+          <span class="tag green">Adipose</span>
+          <span class="tag purple">Brain</span>
+          <span class="tag red">RBCs</span>
+          <span class="tag pink">Heart</span>
+          <span class="tag gold">β-cells</span>
+        </div>
+      </div>
+    </div>
+    <div class="key-example">
+      <strong>Key example:</strong> Glycolysis is <strong>cytosolic</strong> and broadly available in nearly every cell — but <em>how tissues use glucose</em> differs dramatically. RBCs are glycolysis-only; brain prioritizes glucose but can adapt; liver routes G6P to glycogen, GNG, or PPP.
+    </div>
+  </div>
+
+  <!-- SECTION 2: COMPARTMENT MAP -->
+  <div class="box teal section-compartment">
+    <div class="box-label">Section 02</div>
+    <div class="box-title">Cell Compartment Map — Where Pathways Live</div>
+    <div class="cell-diagram">
+      <div class="compartment cytosol">
+        <div class="comp-title teal">🔵 Cytosol</div>
+        <ul class="pathway-list">
+          <li><span>Glycolysis</span></li>
+          <li><span>Pentose Phosphate Pathway</span></li>
+          <li><span>Glycogenesis</span></li>
+          <li><span>Glycogenolysis</span></li>
+          <li><span>Fatty acid synthesis</span></li>
+          <li><span>Most GNG steps</span></li>
+          <li>OAA→PEP (PEPCK), F1,6BPase, G6Pase*</li>
+        </ul>
+        <div class="comp-note teal">*G6Pase is ER-bound (liver/kidney)</div>
+      </div>
+      <div class="compartment matrix">
+        <div class="comp-title purple">🟣 Mito Matrix</div>
+        <ul class="pathway-list">
+          <li><span>Pyruvate oxidation (PDC)</span></li>
+          <li><span>TCA cycle</span></li>
+          <li><span>β-oxidation</span></li>
+          <li><span>Pyruvate → OAA</span> (GNG step 1)</li>
+          <li>Urea cycle: carbamoyl-P + citrulline synthesis</li>
+          <li>Ketogenesis</li>
+        </ul>
+        <div class="comp-note orange">GNG split: pyruvate→OAA in matrix; OAA→PEP in cytosol via malate shuttle</div>
+      </div>
+      <div class="compartment imm" style="grid-column: 3 / 5;">
+        <div class="comp-title blue">🔷 Inner Mitochondrial Membrane + Intermembrane Space</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div>
+            <div style="font-size: 9.5px; font-weight: 700; color: var(--accent-blue); margin-bottom: 5px;">Inner Membrane</div>
+            <ul class="pathway-list">
+              <li><span>Electron Transport Chain (ETC)</span></li>
+              <li><span>Complex I–IV</span> — embedded here</li>
+              <li><span>ATP synthase (Complex V)</span></li>
+              <li>Oxidative phosphorylation coupling site</li>
+            </ul>
+            <div class="comp-note blue">✔ ETC on inner membrane <span class="fix">MCAT fix</span></div>
+          </div>
+          <div>
+            <div style="font-size: 9.5px; font-weight: 700; color: var(--accent-orange); margin-bottom: 5px;">Intermembrane Space</div>
+            <ul class="pathway-list">
+              <li><span>H⁺ accumulates here</span> (proton gradient)</li>
+              <li>High [H⁺] → flows through ATP synthase → ATP</li>
+              <li>Cytochrome c released here in apoptosis</li>
+            </ul>
+            <div class="comp-note orange">✔ H⁺ pumped OUT of matrix INTO IMS by ETC</div>
+          </div>
+        </div>
+        <div style="margin-top: 8px; background: var(--surface); border-radius: 6px; padding: 7px 10px; border: 1px solid var(--border);">
+          <div style="font-size: 9px; font-family: var(--mono); color: var(--accent-pink); margin-bottom: 4px;">ER — Glucose-6-Phosphatase</div>
+          <div style="font-size: 10px; color: var(--text-dim);">Found in <strong style="color: var(--text);">liver & kidney cortex only</strong>. Converts G6P → free glucose for blood release. Absent in muscle → glucose stays trapped.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: TISSUE CAPABILITY TABLE -->
+  <div class="box blue section-tissue">
+    <div class="box-label">Section 03</div>
+    <div class="box-title">Tissue Capability Table</div>
+    <table class="tissue-table">
+      <thead>
+        <tr>
+          <th style="width: 90px;">Tissue</th>
+          <th style="width: 290px;">✅ Can Do</th>
+          <th style="width: 230px;">🚫 Cannot / Limited</th>
+          <th style="width: 130px;">Identity</th>
+          <th>Memory Line</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tissue-name" style="color: var(--accent-orange);">🟠 Liver</span></td>
+          <td class="can-do" style="font-size: 10px;">Glycolysis, Gluconeogenesis, Glycogenesis, Glycogenolysis, PPP, FA synthesis, β-oxidation, Ketogenesis, Urea cycle, G6Pase (release free glucose)</td>
+          <td class="cannot" style="font-size: 10px;">Does not burn the glucose it makes during fasting; fuels GNG via β-oxidation</td>
+          <td><span class="identity-badge" style="background: rgba(251,146,60,.15); color: var(--accent-orange); border: 1px solid rgba(251,146,60,.3);">Public glucose manager</span></td>
+          <td><span class="memory-line">"Liver = public bank; shares with all"</span></td>
+        </tr>
+        <tr>
+          <td><span class="tissue-name" style="color: var(--accent-teal);">🩵 Kidney Cortex</span></td>
+          <td class="can-do" style="font-size: 10px;">Glycolysis, Gluconeogenesis (esp. prolonged fasting), G6Pase present → can release glucose</td>
+          <td class="cannot" style="font-size: 10px;">Minor contributor early; ramps up only in prolonged fasting (>24h)</td>
+          <td><span class="identity-badge" style="background: rgba(61,214,192,.15); color: var(--accent-teal); border: 1px solid rgba(61,214,192,.3);">Long-fast backup</span></td>
+          <td><span class="memory-line">"Kidney helps liver when fast goes long"</span></td>
+        </tr>
+        <tr>
+          <td><span class="tissue-name" style="color: var(--accent-blue);">🔵 Skeletal Muscle</span></td>
+          <td class="can-do" style="font-size: 10px;">Glycolysis, Glycogenesis, Glycogenolysis (own stores), TCA, ETC, β-oxidation; creatine phosphate burst</td>
+          <td class="cannot" style="font-size: 10px;"><strong style="color: var(--accent-red);">No G6Pase → CANNOT release free glucose into blood.</strong> Glycogen is private; no GNG meaningfully</td>
+          <td><span class="identity-badge" style="background: rgba(91,156,246,.15); color: var(--accent-blue); border: 1px solid rgba(91,156,246,.3);">Selfish energy store</span></td>
+          <td><span class="memory-line">"Muscle glycogen = private wallet"</span></td>
+        </tr>
+        <tr>
+          <td><span class="tissue-name" style="color: var(--accent-green);">🟢 Adipose</span></td>
+          <td class="can-do" style="font-size: 10px;">Glycolysis, FA synthesis, TAG synthesis, Lipolysis; glucose → DHAP → glycerol-3-P (TAG backbone)</td>
+          <td class="cannot" style="font-size: 10px;">Cannot release free glucose; limited GNG; no significant β-oxidation export</td>
+          <td><span class="identity-badge" style="background: rgba(74,222,128,.15); color: var(--accent-green); border: 1px solid rgba(74,222,128,.3);">Fat builder &amp; releaser</span></td>
+          <td><span class="memory-line">"Adipose uses glucose to build TAG"</span></td>
+        </tr>
+        <tr>
+          <td><span class="tissue-name" style="color: var(--accent-purple);">🟣 Brain / Neurons</span></td>
+          <td class="can-do" style="font-size: 10px;">Glycolysis, TCA, ETC; GLUT3 (high affinity); uses ketones during prolonged fasting</td>
+          <td class="cannot" style="font-size: 10px;">Cannot meaningfully perform GNG; cannot use fatty acids directly (FA don't cross BBB well); ketones only with adaptation</td>
+          <td><span class="identity-badge" style="background: rgba(167,139,250,.15); color: var(--accent-purple); border: 1px solid rgba(167,139,250,.3);">Glucose-first adapter</span></td>
+          <td><span class="memory-line">"Brain loves glucose; adapts to ketones"</span></td>
+        </tr>
+        <tr>
+          <td><span class="tissue-name" style="color: var(--accent-red);">🔴 RBCs</span></td>
+          <td class="can-do" style="font-size: 10px;"><strong style="color: var(--accent-green);">Glycolysis ONLY.</strong> Also: 2,3-BPG production (regulates O₂ affinity)</td>
+          <td class="cannot" style="font-size: 10px;"><strong style="color: var(--accent-red);">NO mitochondria → NO TCA, ETC, OxPhos, β-oxidation, ketone use, GNG, PPP (oxidative), FA synthesis</strong></td>
+          <td><span class="identity-badge" style="background: rgba(240,90,90,.15); color: var(--accent-red); border: 1px solid rgba(240,90,90,.3);">Glycolysis-only cell</span></td>
+          <td><span class="memory-line">"RBCs: no mito → glycolysis only"</span></td>
+        </tr>
+        <tr>
+          <td><span class="tissue-name" style="color: var(--accent-pink);">🩷 Heart</span></td>
+          <td class="can-do" style="font-size: 10px;">Glycolysis, TCA, ETC, β-oxidation (preferred!), Ketone use; highly aerobic; dense mitochondria</td>
+          <td class="cannot" style="font-size: 10px;">Minimal anaerobic capacity; poor tolerance for ischemia (irreversible damage fast)</td>
+          <td><span class="identity-badge" style="background: rgba(244,114,182,.15); color: var(--accent-pink); border: 1px solid rgba(244,114,182,.3);">Aerobic fuel maximizer</span></td>
+          <td><span class="memory-line">"Heart loves mitochondria"</span></td>
+        </tr>
+        <tr>
+          <td><span class="tissue-name" style="color: var(--accent-gold);">🟡 Pancreatic β-cells</span></td>
+          <td class="can-do" style="font-size: 10px;">Glycolysis, TCA, OxPhos; GLUT2 uptake proportional to blood glucose; ATP↑ → K⁺ channel closes → depolarizes → Ca²⁺ entry → insulin exocytosis</td>
+          <td class="cannot" style="font-size: 10px;">—</td>
+          <td><span class="identity-badge" style="background: rgba(245,200,66,.15); color: var(--accent-gold); border: 1px solid rgba(245,200,66,.3);">Glucose sensor + insulin</span></td>
+          <td><span class="memory-line">"β-cells metabolize glucose to sense it"</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 4: GLUT MINI-MAP -->
+  <div class="box purple section-glut">
+    <div class="box-label">Section 04</div>
+    <div class="box-title">GLUT Transporter Mini-Map</div>
+    <div class="glut-grid">
+      <div class="glut-card">
+        <div class="glut-num" style="color: var(--accent-teal);">GLUT<span style="font-size: 22px;">1</span></div>
+        <div class="glut-detail"><strong>RBCs, BBB</strong>, brain endothelium, placenta<br><span style="color: var(--accent-teal);">Low Km • high affinity • always active</span><br>Ensures basal uptake; not insulin-responsive</div>
+      </div>
+      <div class="glut-card">
+        <div class="glut-num" style="color: var(--accent-orange);">GLUT<span style="font-size: 22px;">2</span></div>
+        <div class="glut-detail"><strong>Liver + Pancreatic β-cells</strong><br><span style="color: var(--accent-orange);">High Km • low affinity • glucose SENSOR</span><br>Uptake ∝ blood glucose → β-cell reads level → insulin release. Liver only takes in glucose when it's truly high.</div>
+      </div>
+      <div class="glut-card">
+        <div class="glut-num" style="color: var(--accent-purple);">GLUT<span style="font-size: 22px;">3</span></div>
+        <div class="glut-detail"><strong>Neurons</strong> (+ gonads, placenta)<br><span style="color: var(--accent-purple);">Very low Km • very high affinity</span><br>Brain monopolizes glucose even at low blood levels; always saturated at physiological range</div>
+      </div>
+      <div class="glut-card">
+        <div class="glut-num" style="color: var(--accent-green);">GLUT<span style="font-size: 22px;">4</span></div>
+        <div class="glut-detail"><strong>Muscle + Adipose</strong><br><span style="color: var(--accent-green);">Low Km • insulin-responsive</span><br>Stored in vesicles; insulin → PI3K/Akt cascade → vesicle fusion → mass insertion into membrane. FAILS in T2DM.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: FED vs FASTING -->
+  <div class="box green section-fed">
+    <div class="box-label">Section 05</div>
+    <div class="box-title">Fed vs. Fasting State Strip</div>
+    <div class="state-strip">
+      <div class="state-half">
+        <div class="state-title fed">🍽 Fed State</div>
+        <div class="hormone-row fed">Insulin ↑ · Glucagon ↓</div>
+        <div class="state-row"><span class="state-organ">Liver:</span><span class="state-action">glycolysis ↑, glycogenesis ↑, FA synthesis ↑, GNG off</span></div>
+        <div class="state-row"><span class="state-organ">Muscle:</span><span class="state-action">GLUT4 ↑, glycogenesis ↑, protein synthesis ↑</span></div>
+        <div class="state-row"><span class="state-organ">Adipose:</span><span class="state-action">GLUT4 ↑, glucose → DHAP → glycerol-3-P → TAG. LPL ↑</span></div>
+        <div class="state-row"><span class="state-organ">Brain:</span><span class="state-action">glucose uptake continuous (GLUT3)</span></div>
+        <div class="state-row"><span class="state-organ">β-cells:</span><span class="state-action">glucose → ATP → insulin exocytosis</span></div>
+      </div>
+      <div class="state-half">
+        <div class="state-title fast">🌙 Fasting State</div>
+        <div class="hormone-row fast">Glucagon ↑ · Insulin ↓</div>
+        <div class="state-row"><span class="state-organ">Liver:</span><span class="state-action">glycogenolysis early → GNG late; β-oxid fuels GNG; ketogenesis</span></div>
+        <div class="state-row"><span class="state-organ">Kidney:</span><span class="state-action">GNG active in prolonged fast (>24h)</span></div>
+        <div class="state-row"><span class="state-organ">Adipose:</span><span class="state-action">lipolysis ↑ → FFA + glycerol → blood</span></div>
+        <div class="state-row"><span class="state-organ">Brain:</span><span class="state-action">glucose initially; ketones after 3–5 days</span></div>
+        <div class="state-row"><span class="state-organ">RBCs:</span><span class="state-action">still require glucose — always</span></div>
+        <div class="state-row"><span class="state-organ">Muscle:</span><span class="state-action">FA + ketones; spares glucose for brain</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: CONFUSION CORRECTIONS -->
+  <div class="box red section-errors">
+    <div class="box-label">Section 06</div>
+    <div class="box-title">⚠ Confusion Correction Corner</div>
+
+    <div class="correction-block">
+      <div class="correction-title">A. Liver vs. Muscle Glycogen</div>
+      <div class="correction-body">
+        <strong>Liver</strong> = public bank. Has <strong>G6Pase</strong>. G6P → glucose → blood.<br>
+        <strong>Muscle</strong> = private wallet. <strong>No G6Pase</strong>. G6P stays trapped → must burn locally.
+      </div>
+    </div>
+
+    <div class="correction-block">
+      <div class="correction-title">B. TAG Backbone ≠ Free Glycerol</div>
+      <div class="correction-body">
+        Glycerol-3-phosphate (not free glycerol!) is made from glycolysis:<br>
+        <span class="arrow-chain">Glucose → G3P/DHAP → Glycerol-3-P → TAG backbone</span>
+        Note: <strong>G3P</strong> = glyceraldehyde-3-phosphate (glycolysis intermediate)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Glycerol-3-P</strong> = TAG ester backbone ← these are <em>different</em>!
+      </div>
+    </div>
+
+    <div class="correction-block">
+      <div class="correction-title">C. F1,6BP → Glycogen? No.</div>
+      <div class="correction-body">
+        F1,6BP does <em>not</em> directly enter glycogen.<br>
+        <span class="arrow-chain">F1,6BP → F6P → G6P → G1P → UDP-glucose → glycogen</span>
+      </div>
+    </div>
+
+    <div class="correction-block">
+      <div class="correction-title">D. β-cell Insulin Signal = ATP, not Citrate <span class="fix">CORRECTED</span></div>
+      <div class="correction-body">
+        Glucose → glycolysis + OxPhos → <strong>ATP↑</strong> → K_ATP channel closes → membrane depolarizes → voltage-gated Ca²⁺ channels open → Ca²⁺ in → insulin vesicle exocytosis. <em>Not citrate buildup.</em>
+      </div>
+    </div>
+
+    <div class="correction-block">
+      <div class="correction-title">E. Urea Cycle: Split Location <span class="fix">BONUS</span></div>
+      <div class="correction-body">
+        Steps 1–2 (carbamoyl-P + citrulline) occur in <strong>mitochondrial matrix</strong>.<br>
+        Steps 3–5 (argininosuccinate → arginine → urea) occur in <strong>cytosol</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: STICKY MEMORY BOX -->
+  <div class="box gold section-sticky">
+    <div class="box-label">Section 07 · Final Sticky Memory</div>
+    <div class="sticky-grid">
+      <div class="sticky-item">
+        <div class="si-label">Glycolysis</div>
+        <strong>Cytosolic</strong> and broadly available in nearly all cells. Key crossroads: G6P can go to glycolysis, glycogen, or PPP.
+      </div>
+      <div class="sticky-item">
+        <div class="si-label">Gluconeogenesis</div>
+        <strong>Mainly liver</strong>; kidney cortex in prolonged fasting. Requires G6Pase to release glucose. Fueled by β-oxidation of FAs.
+      </div>
+      <div class="sticky-item">
+        <div class="si-label">RBCs</div>
+        <strong>Glycolysis only.</strong> No mitochondria → no TCA, ETC, OxPhos, β-oxidation, or ketone use. Always need glucose.
+      </div>
+      <div class="sticky-item">
+        <div class="si-label">Muscle vs Liver Glycogen</div>
+        <strong>Muscle glycogen = private</strong> (no G6Pase). <strong>Liver glycogen = public</strong> (has G6Pase → releases free glucose to blood).
+      </div>
+      <div class="sticky-item">
+        <div class="si-label">GLUT2 vs GLUT4</div>
+        <strong>GLUT2</strong> = high Km, low affinity, glucose <em>sensor</em> (liver + β-cells). <strong>GLUT4</strong> = insulin-responsive, muscle + fat.
+      </div>
+      <div class="sticky-item">
+        <div class="si-label">Signals</div>
+        <strong>ATP + citrate</strong> = local energy surplus signals (inhibit PFK-1). <strong>Insulin / glucagon</strong> = whole-body hormonal signals.
+      </div>
+      <div class="sticky-item">
+        <div class="si-label">Adipose</div>
+        Uses <strong>glucose → DHAP → glycerol-3-P</strong> for TAG backbone. Fed: lipogenesis. Fasting: lipolysis → FFA to blood.
+      </div>
+      <div class="sticky-item">
+        <div class="si-label">ETC Location</div>
+        ETC complexes are on the <strong>inner mitochondrial membrane</strong>. H⁺ pumps into <strong>intermembrane space</strong>. Flows back through ATP synthase.
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

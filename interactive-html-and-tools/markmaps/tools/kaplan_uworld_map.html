@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaplan → UWorld Chapter Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f7f4ef;
+  --ink: #1a1a18;
+  --ink-dim: #6b6860;
+  --ink-faint: #c4bfb5;
+  --surface: #ffffff;
+  --border: #e2ddd6;
+
+  --biochem:   #d97706;
+  --bio:       #059669;
+  --gchem:     #2563eb;
+  --orgo:      #7c3aed;
+  --physics:   #dc2626;
+  --psych:     #db2777;
+  --cars:      #0891b2;
+}
+
+html, body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  font-size: 13.5px;
+}
+
+.app { max-width: 900px; margin: 0 auto; padding: 28px 20px 50px; }
+
+/* ── Header ── */
+.header { margin-bottom: 28px; border-bottom: 2px solid var(--ink); padding-bottom: 16px; }
+.header h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px; font-weight: 800;
+  letter-spacing: -0.03em; color: var(--ink);
+  line-height: 1;
+}
+.header .sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px; color: var(--ink-dim);
+  margin-top: 5px; letter-spacing: 0.04em;
+}
+.header .legend {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;
+}
+.legend-chip {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 600;
+  padding: 3px 9px; border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+/* ── Subject blocks ── */
+.subject-block { margin-bottom: 24px; }
+
+.subject-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 14px;
+  border-radius: 4px 4px 0 0;
+  border-bottom: 2px solid;
+  cursor: pointer;
+  user-select: none;
+}
+.subject-header h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 0.01em;
+  flex: 1;
+}
+.subject-header .toggle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; opacity: 0.6;
+  transition: transform 0.2s;
+}
+.subject-block.collapsed .toggle { transform: rotate(-90deg); }
+
+.uworld-banner {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 600;
+  padding: 6px 14px;
+  letter-spacing: 0.05em;
+  border-left: 3px solid;
+  margin-bottom: 1px;
+}
+
+/* ── Table ── */
+.map-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+}
+.subject-block.collapsed .map-table,
+.subject-block.collapsed .uworld-banner { display: none; }
+
+.map-table th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  padding: 7px 12px;
+  background: #f0ece6;
+  color: var(--ink-dim);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.map-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #f0ece6;
+  vertical-align: top;
+  line-height: 1.45;
+}
+.map-table tr:last-child td { border-bottom: none; }
+.map-table tr:hover td { background: #faf8f4; }
+
+.ch-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 600;
+  white-space: nowrap;
+}
+.ch-name {
+  font-size: 12.5px;
+  color: var(--ink);
+}
+.ch-subs {
+  font-size: 11px; color: var(--ink-dim);
+  margin-top: 2px;
+  font-style: italic;
+}
+
+.uw-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 600;
+  padding: 2px 7px; border-radius: 3px;
+  margin: 2px 3px 2px 0;
+  white-space: nowrap;
+}
+
+.note {
+  font-size: 10px; color: var(--ink-dim);
+  font-style: italic; margin-top: 2px;
+}
+
+/* ── UWorld section key ── */
+.key-section { margin-top: 32px; border-top: 1px solid var(--border); padding-top: 20px; }
+.key-section h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.01em; margin-bottom: 12px;
+}
+.key-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.key-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+.key-card .kc-subj {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+.key-card .kc-item {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 2px 0;
+  border-bottom: 1px solid #f0ece6;
+  font-size: 11.5px;
+}
+.key-card .kc-item:last-child { border-bottom: none; }
+.kc-count {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; color: var(--ink-dim);
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Kaplan Chapters → UWorld Sections</h1>
+    <div class="sub">WHEN YOU FINISH A KAPLAN CHAPTER, CHECK OFF THESE UWORLD SECTIONS</div>
+    <div class="legend">
+      <span class="legend-chip" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">BIOCHEM</span>
+      <span class="legend-chip" style="background:#05966918;color:#059669;border:1px solid #05966933">BIOLOGY</span>
+      <span class="legend-chip" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">GEN CHEM</span>
+      <span class="legend-chip" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">ORGO</span>
+      <span class="legend-chip" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">PHYSICS</span>
+      <span class="legend-chip" style="background:#db277718;color:#db2777;border:1px solid #db277733">PSYCH/SOC</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       BIOCHEMISTRY
+  ═══════════════════════════════════════ -->
+  <div class="subject-block" id="blk-biochem">
+    <div class="subject-header" style="background:#d9770610;border-color:#d97706" onclick="toggleBlk('blk-biochem')">
+      <h2 style="color:#d97706">⬡ BIOCHEMISTRY — Kaplan Chapters 1–12</h2>
+      <span class="toggle" style="color:#d97706">▾</span>
+    </div>
+    <div class="uworld-banner" style="background:#d9770608;border-color:#d97706;color:#d97706">
+      UWorld: Biochemistry (528 Qs) — 4 sections
+    </div>
+    <table class="map-table">
+      <thead><tr>
+        <th style="width:110px">Kaplan Ch</th>
+        <th>Chapter Name + Topics</th>
+        <th style="width:280px">UWorld Section(s) to unlock</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 1</span></td>
+          <td>
+            <div class="ch-name">Amino Acids, Peptides, Proteins</div>
+            <div class="ch-subs">AA structures, peptide bonds, protein structure, denaturation</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Amino Acids and Proteins</span>
+            <div class="note">Start here — biggest section (183 Qs)</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 2</span></td>
+          <td>
+            <div class="ch-name">Enzymes</div>
+            <div class="ch-subs">Catalysis, kinetics, Michaelis-Menten, inhibition, regulation</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Enzymes</span>
+            <div class="note">120 Qs — unlock after Ch 2</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 3</span></td>
+          <td>
+            <div class="ch-name">Nonenzymatic Protein Function</div>
+            <div class="ch-subs">Motor proteins, antibodies, signal transduction, protein isolation</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Amino Acids and Proteins</span>
+            <div class="note">Continue pulling from this section</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 4</span></td>
+          <td>
+            <div class="ch-name">Carbohydrates</div>
+            <div class="ch-subs">Monosaccharides, cyclic sugars, complex carbs, glycoproteins</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Carbohydrates, Nucleotides & Lipids</span>
+            <div class="note">84 Qs — unlock after Ch 4</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 5</span></td>
+          <td>
+            <div class="ch-name">Lipids</div>
+            <div class="ch-subs">Structural lipids, signaling lipids, triacylglycerols</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Carbohydrates, Nucleotides & Lipids</span>
+            <div class="note">Continue same section</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 6</span></td>
+          <td>
+            <div class="ch-name">DNA</div>
+            <div class="ch-subs">Structure, replication, repair, eukaryotic chromatin, biotechnology</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Carbohydrates, Nucleotides & Lipids</span>
+            <div class="note">Nucleotide component here; DNA questions are shared w/ Biology → Molecular Biology</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 7</span></td>
+          <td>
+            <div class="ch-name">RNA</div>
+            <div class="ch-subs">Genetic code, transcription, translation, gene regulation</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Carbohydrates, Nucleotides & Lipids</span>
+            <div class="note">Also cross-references Biology → Molecular Biology</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 8</span></td>
+          <td>
+            <div class="ch-name">Biological Membranes</div>
+            <div class="ch-subs">Fluid mosaic model, membrane transport, specialized membranes</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Carbohydrates, Nucleotides & Lipids</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 9</span></td>
+          <td>
+            <div class="ch-name">Carbohydrate Metabolism I</div>
+            <div class="ch-subs">Glycolysis, gluconeogenesis, glycogen, PPP, pyruvate dehydrogenase</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Metabolic Reactions</span>
+            <div class="note">Biggest group (135 Qs) — unlock after Ch 9</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 10</span></td>
+          <td>
+            <div class="ch-name">Aerobic Respiration</div>
+            <div class="ch-subs">TCA cycle, ETC, oxidative phosphorylation</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Metabolic Reactions</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 11</span></td>
+          <td>
+            <div class="ch-name">Lipid, Amino Acid Metabolism</div>
+            <div class="ch-subs">β-oxidation, ketone bodies, cholesterol, protein catabolism, urea cycle</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Metabolic Reactions</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#d97706">Ch 12</span></td>
+          <td>
+            <div class="ch-name">Metabolism Bioenergetics, Regulation</div>
+            <div class="ch-subs">Thermodynamics, ATP, redox, hormonal regulation, tissue metabolism</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Metabolic Reactions</span>
+            <span class="uw-tag" style="background:#d9770618;color:#d97706;border:1px solid #d9770633">Biochemistry Lab Techniques</span>
+            <div class="note">Lab Techniques (6 Qs) — do after finishing all Biochem chapters</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       BIOLOGY
+  ═══════════════════════════════════════ -->
+  <div class="subject-block" id="blk-bio">
+    <div class="subject-header" style="background:#05966910;border-color:#059669" onclick="toggleBlk('blk-bio')">
+      <h2 style="color:#059669">⬡ BIOLOGY — Kaplan Chapters 0–12</h2>
+      <span class="toggle" style="color:#059669">▾</span>
+    </div>
+    <div class="uworld-banner" style="background:#05966908;border-color:#059669;color:#059669">
+      UWorld: Biology (520 Qs) — 10 sections
+    </div>
+    <table class="map-table">
+      <thead><tr>
+        <th style="width:110px">Kaplan Ch</th>
+        <th>Chapter Name + Topics</th>
+        <th style="width:280px">UWorld Section(s) to unlock</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 0</span></td>
+          <td>
+            <div class="ch-name">Building Blocks</div>
+            <div class="ch-subs">Proteins, carbs, lipids, phosphates, nucleotides</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Cellular Biology</span>
+            <div class="note">Foundation chapter — 76 Qs available after Ch 0+1</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 1</span></td>
+          <td>
+            <div class="ch-name">Cells</div>
+            <div class="ch-subs">Cell theory, eukaryotes, prokaryotes, viruses</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Cellular Biology</span>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Biological Research Techniques</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 2</span></td>
+          <td>
+            <div class="ch-name">Reproduction</div>
+            <div class="ch-subs">Cell cycle, mitosis, meiosis, reproductive system</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Reproduction</span>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Genetics and Evolution</span>
+            <div class="note">Reproduction = 34 Qs · Genetics = 64 Qs</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 3</span></td>
+          <td>
+            <div class="ch-name">Embryogenesis</div>
+            <div class="ch-subs">Early development, gastrulation, fetal circulation, gestation</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Reproduction</span>
+            <div class="note">Continue Reproduction section</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 4</span></td>
+          <td>
+            <div class="ch-name">Nervous System</div>
+            <div class="ch-subs">Neurons, action potentials, CNS/PNS, neurotransmitters</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Endocrine and Nervous Systems</span>
+            <div class="note">86 Qs — unlock after Ch 4</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 5</span></td>
+          <td>
+            <div class="ch-name">Endocrine System</div>
+            <div class="ch-subs">Hormones, organ–hormone pairs, kidney endocrine role</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Endocrine and Nervous Systems</span>
+            <div class="note">Continue same section</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 6</span></td>
+          <td>
+            <div class="ch-name">Respiratory System</div>
+            <div class="ch-subs">Breathing mechanics, gas exchange, lung volumes</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Circulation and Respiration</span>
+            <div class="note">49 Qs — unlock after Ch 6</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 7</span></td>
+          <td>
+            <div class="ch-name">Cardiovascular System</div>
+            <div class="ch-subs">Heart anatomy, blood, cardiac physiology, hemodynamics</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Circulation and Respiration</span>
+            <div class="note">Continue same section</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 8</span></td>
+          <td>
+            <div class="ch-name">Immune System</div>
+            <div class="ch-subs">Innate immunity, adaptive immunity, lymphocytes, antibodies</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Skin and Immune Systems</span>
+            <div class="note">40 Qs — unlock after Ch 8</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 9</span></td>
+          <td>
+            <div class="ch-name">Digestive System</div>
+            <div class="ch-subs">GI anatomy, digestion, accessory organs, absorption</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Digestion and Excretion</span>
+            <div class="note">57 Qs — unlock after Ch 9</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 10</span></td>
+          <td>
+            <div class="ch-name">Homeostasis</div>
+            <div class="ch-subs">Excretory system (kidney, nephron), skin, thermoregulation</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Digestion and Excretion</span>
+            <div class="note">Kidney/excretion lives here in UWorld</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 11</span></td>
+          <td>
+            <div class="ch-name">Musculoskeletal System</div>
+            <div class="ch-subs">Muscle contraction, bone structure, joints</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Musculoskeletal System</span>
+            <div class="note">44 Qs — unlock after Ch 11</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#059669">Ch 12</span></td>
+          <td>
+            <div class="ch-name">Genetics and Mutation</div>
+            <div class="ch-subs">Mendelian genetics, gene pool, Hardy-Weinberg, evolution</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Genetics and Evolution</span>
+            <span class="uw-tag" style="background:#05966918;color:#059669;border:1px solid #05966933">Molecular Biology</span>
+            <div class="note">Genetics = 64 Qs · Molecular Bio = 69 Qs (do Molecular Bio after Ch 6–7 Biochem + Ch 12 Bio)</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       GENERAL CHEMISTRY
+  ═══════════════════════════════════════ -->
+  <div class="subject-block" id="blk-gchem">
+    <div class="subject-header" style="background:#2563eb10;border-color:#2563eb" onclick="toggleBlk('blk-gchem')">
+      <h2 style="color:#2563eb">⬡ GENERAL CHEMISTRY — Kaplan Chapters 0–12</h2>
+      <span class="toggle" style="color:#2563eb">▾</span>
+    </div>
+    <div class="uworld-banner" style="background:#2563eb08;border-color:#2563eb;color:#2563eb">
+      UWorld: General Chemistry (480 Qs) — 4 sections
+    </div>
+    <table class="map-table">
+      <thead><tr>
+        <th style="width:110px">Kaplan Ch</th>
+        <th>Chapter Name + Topics</th>
+        <th style="width:280px">UWorld Section(s) to unlock</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 0</span></td>
+          <td>
+            <div class="ch-name">Fundamentals</div>
+            <div class="ch-subs">Metric units, dimensional analysis</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Atomic Theory & Chemical Composition</span>
+            <div class="note">117 Qs — unlock after Ch 0+1+2</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 1</span></td>
+          <td>
+            <div class="ch-name">Atomic Structure</div>
+            <div class="ch-subs">Subatomic particles, atomic mass, Bohr model, quantum mechanics</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Atomic Theory & Chemical Composition</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 2</span></td>
+          <td>
+            <div class="ch-name">Periodic Table</div>
+            <div class="ch-subs">Element types, periodic trends, groups</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Atomic Theory & Chemical Composition</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 3</span></td>
+          <td>
+            <div class="ch-name">Bonding Interactions</div>
+            <div class="ch-subs">Ionic bonds, covalent bonds, intermolecular forces, VSEPR</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Interactions of Chemical Substances</span>
+            <div class="note">101 Qs — unlock after Ch 3+4</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 4</span></td>
+          <td>
+            <div class="ch-name">Compounds, Stereochemistry</div>
+            <div class="ch-subs">Molecules, moles, chemical reactions, balancing, stoichiometry, ions</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Interactions of Chemical Substances</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 5</span></td>
+          <td>
+            <div class="ch-name">Chemical Kinetics</div>
+            <div class="ch-subs">Rate laws, reaction rates, activation energy, Arrhenius</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Thermodynamics, Kinetics & Gas Laws</span>
+            <div class="note">121 Qs — unlock after Ch 5+6+7+8</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 6</span></td>
+          <td>
+            <div class="ch-name">Equilibrium</div>
+            <div class="ch-subs">Keq, Le Châtelier's principle, kinetic vs thermodynamic control</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Thermodynamics, Kinetics & Gas Laws</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 7</span></td>
+          <td>
+            <div class="ch-name">Thermochemistry</div>
+            <div class="ch-subs">Enthalpy, entropy, Gibbs free energy, Hess's law</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Thermodynamics, Kinetics & Gas Laws</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 8</span></td>
+          <td>
+            <div class="ch-name">Gases</div>
+            <div class="ch-subs">Ideal gas law, KMT, real gases, partial pressures</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Thermodynamics, Kinetics & Gas Laws</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 9</span></td>
+          <td>
+            <div class="ch-name">Solutions</div>
+            <div class="ch-subs">Concentration, solubility, solution equilibria, colligative properties</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Solutions and Electrochemistry</span>
+            <div class="note">141 Qs — unlock after Ch 9+10+11+12</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 10</span></td>
+          <td>
+            <div class="ch-name">Acids, Bases</div>
+            <div class="ch-subs">pH, Ka/Kb, buffers, titrations, polyvalent acids</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Solutions and Electrochemistry</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 11</span></td>
+          <td>
+            <div class="ch-name">Redox</div>
+            <div class="ch-subs">Oxidation states, half-reactions, net ionic equations</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Solutions and Electrochemistry</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#2563eb">Ch 12</span></td>
+          <td>
+            <div class="ch-name">Electrochemistry</div>
+            <div class="ch-subs">Galvanic/electrolytic cells, Nernst equation, Faraday's law</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#2563eb18;color:#2563eb;border:1px solid #2563eb33">Solutions and Electrochemistry</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       ORGANIC CHEMISTRY
+  ═══════════════════════════════════════ -->
+  <div class="subject-block" id="blk-orgo">
+    <div class="subject-header" style="background:#7c3aed10;border-color:#7c3aed" onclick="toggleBlk('blk-orgo')">
+      <h2 style="color:#7c3aed">⬡ ORGANIC CHEMISTRY — Kaplan Chapters 1–12</h2>
+      <span class="toggle" style="color:#7c3aed">▾</span>
+    </div>
+    <div class="uworld-banner" style="background:#7c3aed08;border-color:#7c3aed;color:#7c3aed">
+      UWorld: Organic Chemistry (315 Qs) — 3 sections
+    </div>
+    <table class="map-table">
+      <thead><tr>
+        <th style="width:110px">Kaplan Ch</th>
+        <th>Chapter Name + Topics</th>
+        <th style="width:280px">UWorld Section(s) to unlock</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 1</span></td>
+          <td>
+            <div class="ch-name">Naming</div>
+            <div class="ch-subs">IUPAC nomenclature, hydrocarbons, functional groups</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Introduction to Organic Chemistry</span>
+            <div class="note">88 Qs — unlock after Ch 1+2+3+4</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 2</span></td>
+          <td>
+            <div class="ch-name">Isomers</div>
+            <div class="ch-subs">Structural isomers, stereoisomers, R/S configuration</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Introduction to Organic Chemistry</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 3</span></td>
+          <td>
+            <div class="ch-name">Bonding</div>
+            <div class="ch-subs">Atomic/molecular orbitals, hybridization (sp, sp², sp³)</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Introduction to Organic Chemistry</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 4</span></td>
+          <td>
+            <div class="ch-name">Organic Reactions</div>
+            <div class="ch-subs">Acids/bases, nucleophiles/electrophiles, redox, SN1/SN2/E1/E2</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Introduction to Organic Chemistry</span>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Functional Groups and Their Reactions</span>
+            <div class="note">Functional Groups = 145 Qs — start unlocking here</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 5</span></td>
+          <td>
+            <div class="ch-name">Alcohols</div>
+            <div class="ch-subs">Properties, reactions, phenols, oxidation states</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Functional Groups and Their Reactions</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 6</span></td>
+          <td>
+            <div class="ch-name">Aldehydes and Ketones</div>
+            <div class="ch-subs">Properties, nucleophilic addition, oxidation/reduction</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Functional Groups and Their Reactions</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 7</span></td>
+          <td>
+            <div class="ch-name">Enolates</div>
+            <div class="ch-subs">Enolate chemistry, tautomerization, aldol reactions</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Functional Groups and Their Reactions</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 8</span></td>
+          <td>
+            <div class="ch-name">Carboxylic Acids</div>
+            <div class="ch-subs">Properties, reactions, acidity</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Functional Groups and Their Reactions</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 9</span></td>
+          <td>
+            <div class="ch-name">Carboxylic Acid Derivatives</div>
+            <div class="ch-subs">Amides, esters, anhydrides, nucleophilic acyl substitution</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Functional Groups and Their Reactions</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 10</span></td>
+          <td>
+            <div class="ch-name">Nitrogenous, Phosphorous Compounds</div>
+            <div class="ch-subs">Amino acids, α-amino acid synthesis, phosphorus compounds</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Functional Groups and Their Reactions</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 11</span></td>
+          <td>
+            <div class="ch-name">Spectroscopy</div>
+            <div class="ch-subs">Mass spec, IR, UV-Vis, NMR</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Separation Techniques, Spectroscopy & Analytical Methods</span>
+            <div class="note">82 Qs — unlock after Ch 11+12</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#7c3aed">Ch 12</span></td>
+          <td>
+            <div class="ch-name">Separations, Purifications</div>
+            <div class="ch-subs">Solubility-based, distillation, chromatography</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#7c3aed18;color:#7c3aed;border:1px solid #7c3aed33">Separation Techniques, Spectroscopy & Analytical Methods</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PHYSICS
+  ═══════════════════════════════════════ -->
+  <div class="subject-block" id="blk-physics">
+    <div class="subject-header" style="background:#dc262610;border-color:#dc2626" onclick="toggleBlk('blk-physics')">
+      <h2 style="color:#dc2626">⬡ PHYSICS — Kaplan Chapters 1–9</h2>
+      <span class="toggle" style="color:#dc2626">▾</span>
+    </div>
+    <div class="uworld-banner" style="background:#dc262608;border-color:#dc2626;color:#dc2626">
+      UWorld: Physics (399 Qs) — 5 sections
+    </div>
+    <table class="map-table">
+      <thead><tr>
+        <th style="width:110px">Kaplan Ch</th>
+        <th>Chapter Name + Topics</th>
+        <th style="width:280px">UWorld Section(s) to unlock</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="ch-label" style="color:#dc2626">Ch 1</span></td>
+          <td>
+            <div class="ch-name">Kinematics, Dynamics</div>
+            <div class="ch-subs">Motion equations, forces, Newton's laws, circular motion, momentum</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">Mechanics and Energy</span>
+            <div class="note">87 Qs — unlock after Ch 1+2</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#dc2626">Ch 2</span></td>
+          <td>
+            <div class="ch-name">Work, Energy</div>
+            <div class="ch-subs">Kinetic/potential energy, work, power, simple machines, stress/strain</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">Mechanics and Energy</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#dc2626">Ch 3</span></td>
+          <td>
+            <div class="ch-name">Thermodynamics</div>
+            <div class="ch-subs">Laws of thermodynamics, heat transfer, entropy, thermodynamic processes</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">Thermodynamics (Physics)</span>
+            <div class="note">Only 21 Qs — unlock after Ch 3</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#dc2626">Ch 4</span></td>
+          <td>
+            <div class="ch-name">Fluids</div>
+            <div class="ch-subs">Pressure, buoyancy, Pascal's law, Bernoulli, circulatory applications</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">Fluids</span>
+            <div class="note">81 Qs — unlock after Ch 4</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#dc2626">Ch 5</span></td>
+          <td>
+            <div class="ch-name">Electrostatics & Magnetism</div>
+            <div class="ch-subs">Coulomb's law, electric fields/potential, capacitors, magnetism</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">Electrostatics and Circuits</span>
+            <div class="note">98 Qs — unlock after Ch 5+6</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#dc2626">Ch 6</span></td>
+          <td>
+            <div class="ch-name">Circuits</div>
+            <div class="ch-subs">Current, resistance, Ohm's law, capacitance, series/parallel</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">Electrostatics and Circuits</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#dc2626">Ch 7</span></td>
+          <td>
+            <div class="ch-name">Waves, Sound</div>
+            <div class="ch-subs">Wave characteristics, sound, Doppler effect, standing waves</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">Light and Sound</span>
+            <div class="note">112 Qs — unlock after Ch 7+8</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#dc2626">Ch 8</span></td>
+          <td>
+            <div class="ch-name">Light, Optics</div>
+            <div class="ch-subs">EM spectrum, geometric optics, lenses, mirrors, diffraction, polarization</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">Light and Sound</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#dc2626">Ch 9</span></td>
+          <td>
+            <div class="ch-name">Atomic, Nuclear Phenomena</div>
+            <div class="ch-subs">Photoelectric effect, absorption/emission, nuclear reactions, radioactive decay</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">Mechanics and Energy</span>
+            <span class="uw-tag" style="background:#dc262618;color:#dc2626;border:1px solid #dc262633">Light and Sound</span>
+            <div class="note">Nuclear/atomic topics are split — some fall under Light & Sound, some Mechanics</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PSYCH / SOC
+  ═══════════════════════════════════════ -->
+  <div class="subject-block" id="blk-psych">
+    <div class="subject-header" style="background:#db277710;border-color:#db2777" onclick="toggleBlk('blk-psych')">
+      <h2 style="color:#db2777">⬡ PSYCH/SOC — Khan Academy Units 6, 7, 8, 14, 15</h2>
+      <span class="toggle" style="color:#db2777">▾</span>
+    </div>
+    <div class="uworld-banner" style="background:#db277708;border-color:#db2777;color:#db2777">
+      UWorld: Behavioral Sciences (289 Qs) — 8 sections
+    </div>
+    <table class="map-table">
+      <thead><tr>
+        <th style="width:160px">Khan Academy Unit / Topic</th>
+        <th>Topics Covered</th>
+        <th style="width:260px">UWorld Section(s) to unlock</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="ch-label" style="color:#db2777">Unit 6 · Sensory & Perception<br>Sleep, Consciousness,<br>Attention, Memory,<br>Cognition, Language, Emotion</span></td>
+          <td>
+            <div class="ch-name">Processing the Environment</div>
+            <div class="ch-subs">Sensation, perception, sleep, attention, memory, cognition, language, emotion, stress, drug dependence</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Sensation, Perception & Consciousness</span>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Learning, Memory & Cognition</span>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Motivation, Emotion, Attitudes, Personality & Stress</span>
+            <div class="note">47 + 79 + 30 Qs = 156 total — unlock all three after finishing Unit 6</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#db2777">Unit 7 · Behavior<br>(Bio basis, development,<br>genetics, motivation,<br>personality, disorders,<br>social psych, learning)</span></td>
+          <td>
+            <div class="ch-name">Behavior and Individual Psychology</div>
+            <div class="ch-subs">Nervous system basis, development, personality theories, psychological disorders, social psych, normative behavior, learning</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Biological Basis of Behavior</span>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Psychological Disorders & Treatment</span>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Learning, Memory & Cognition</span>
+            <div class="note">2 + 5 + (continued from Unit 6) = unlock Biological Basis & Psych Disorders after Unit 7</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#db2777">Unit 8 · Individuals & Society<br>(Self-identity, social interaction,<br>prejudice, discrimination,<br>attributing behavior)</span></td>
+          <td>
+            <div class="ch-name">Individual ↔ Society</div>
+            <div class="ch-subs">Self-identity, social interactions, prejudice/bias, self-presentation, attribution theory, social behavior, discrimination</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Identity and Social Interaction</span>
+            <div class="note">71 Qs — unlock after Unit 8</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#db2777">Unit 14 · Society & Culture<br>(Social structures, demographics, culture)</span></td>
+          <td>
+            <div class="ch-name">Society and Culture</div>
+            <div class="ch-subs">Social institutions, culture, demographic patterns, social change</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Demographics and Social Structure</span>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Theories and Research in Sociology</span>
+            <div class="note">52 + 3 Qs — unlock after Unit 14</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="ch-label" style="color:#db2777">Unit 15 · Social Inequality</span></td>
+          <td>
+            <div class="ch-name">Social Inequality</div>
+            <div class="ch-subs">Class, race, gender, social stratification, access to resources</div>
+          </td>
+          <td>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Demographics and Social Structure</span>
+            <span class="uw-tag" style="background:#db277718;color:#db2777;border:1px solid #db277733">Identity and Social Interaction</span>
+            <div class="note">Both sections continue — inequality content is distributed across these two</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── UWorld Quick Reference Key ── -->
+  <div class="key-section">
+    <h3>UWorld Section Quick Reference — Total Questions by Subject</h3>
+    <div class="key-grid">
+      <div class="key-card">
+        <div class="kc-subj" style="color:#d97706">Biochemistry · 528 Qs</div>
+        <div class="kc-item"><span>Amino Acids and Proteins</span><span class="kc-count">183</span></div>
+        <div class="kc-item"><span>Enzymes</span><span class="kc-count">120</span></div>
+        <div class="kc-item"><span>Carbohydrates, Nucleotides & Lipids</span><span class="kc-count">84</span></div>
+        <div class="kc-item"><span>Metabolic Reactions</span><span class="kc-count">135</span></div>
+        <div class="kc-item"><span>Biochemistry Lab Techniques</span><span class="kc-count">6</span></div>
+      </div>
+      <div class="key-card">
+        <div class="kc-subj" style="color:#059669">Biology · 520 Qs</div>
+        <div class="kc-item"><span>Molecular Biology</span><span class="kc-count">69</span></div>
+        <div class="kc-item"><span>Biological Research Techniques</span><span class="kc-count">1</span></div>
+        <div class="kc-item"><span>Cellular Biology</span><span class="kc-count">76</span></div>
+        <div class="kc-item"><span>Genetics and Evolution</span><span class="kc-count">64</span></div>
+        <div class="kc-item"><span>Reproduction</span><span class="kc-count">34</span></div>
+        <div class="kc-item"><span>Endocrine and Nervous Systems</span><span class="kc-count">86</span></div>
+        <div class="kc-item"><span>Circulation and Respiration</span><span class="kc-count">49</span></div>
+        <div class="kc-item"><span>Digestion and Excretion</span><span class="kc-count">57</span></div>
+        <div class="kc-item"><span>Musculoskeletal System</span><span class="kc-count">44</span></div>
+        <div class="kc-item"><span>Skin and Immune Systems</span><span class="kc-count">40</span></div>
+      </div>
+      <div class="key-card">
+        <div class="kc-subj" style="color:#2563eb">General Chemistry · 480 Qs</div>
+        <div class="kc-item"><span>Atomic Theory & Chemical Composition</span><span class="kc-count">117</span></div>
+        <div class="kc-item"><span>Interactions of Chemical Substances</span><span class="kc-count">101</span></div>
+        <div class="kc-item"><span>Thermodynamics, Kinetics & Gas Laws</span><span class="kc-count">121</span></div>
+        <div class="kc-item"><span>Solutions and Electrochemistry</span><span class="kc-count">141</span></div>
+      </div>
+      <div class="key-card">
+        <div class="kc-subj" style="color:#7c3aed">Organic Chemistry · 315 Qs</div>
+        <div class="kc-item"><span>Introduction to Organic Chemistry</span><span class="kc-count">88</span></div>
+        <div class="kc-item"><span>Functional Groups and Their Reactions</span><span class="kc-count">145</span></div>
+        <div class="kc-item"><span>Separation Techniques, Spectroscopy & Analytical Methods</span><span class="kc-count">82</span></div>
+      </div>
+      <div class="key-card">
+        <div class="kc-subj" style="color:#dc2626">Physics · 399 Qs</div>
+        <div class="kc-item"><span>Mechanics and Energy</span><span class="kc-count">87</span></div>
+        <div class="kc-item"><span>Fluids</span><span class="kc-count">81</span></div>
+        <div class="kc-item"><span>Electrostatics and Circuits</span><span class="kc-count">98</span></div>
+        <div class="kc-item"><span>Light and Sound</span><span class="kc-count">112</span></div>
+        <div class="kc-item"><span>Thermodynamics</span><span class="kc-count">21</span></div>
+      </div>
+      <div class="key-card">
+        <div class="kc-subj" style="color:#db2777">Behavioral Sciences · 289 Qs</div>
+        <div class="kc-item"><span>Biological Basis of Behavior</span><span class="kc-count">2</span></div>
+        <div class="kc-item"><span>Sensation, Perception & Consciousness</span><span class="kc-count">47</span></div>
+        <div class="kc-item"><span>Learning, Memory & Cognition</span><span class="kc-count">79</span></div>
+        <div class="kc-item"><span>Motivation, Emotion, Attitudes, Personality & Stress</span><span class="kc-count">30</span></div>
+        <div class="kc-item"><span>Psychological Disorders & Treatment</span><span class="kc-count">5</span></div>
+        <div class="kc-item"><span>Theories and Research in Sociology</span><span class="kc-count">3</span></div>
+        <div class="kc-item"><span>Identity and Social Interaction</span><span class="kc-count">71</span></div>
+        <div class="kc-item"><span>Demographics and Social Structure</span><span class="kc-count">52</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleBlk(id) {
+  document.getElementById(id).classList.toggle('collapsed');
+}
+</script>
+</body>
+</html>

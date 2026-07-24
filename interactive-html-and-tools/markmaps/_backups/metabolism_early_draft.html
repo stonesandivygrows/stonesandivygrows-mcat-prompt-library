@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCAT Metabolism Map</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="hdr">
+  <h1>✦ MCAT METABOLISM</h1>
+  <div class="btns">
+    <button class="btn c-cns on" data-cat="cns">CNS</button>
+    <button class="btn c-gi on" data-cat="gi">GI Tract</button>
+    <button class="btn c-bl on" data-cat="blood">Blood</button>
+    <button class="btn c-hn on" data-cat="hormone">Hormones</button>
+    <button class="btn c-or on" data-cat="organ">Organs</button>
+    <button class="btn c-cy on" data-cat="cytoplasm">Cytoplasm</button>
+    <button class="btn c-mi on" data-cat="mito">Mito</button>
+    <button class="btn c-et on" data-cat="etc">ETC</button>
+    <button class="btn c-ur on" data-cat="urea">Urea</button>
+    <button class="btn c-re on" data-cat="regulator">Regulators</button>
+    <label class="pathway-label" for="pathwaySelect">Pathway</label>
+    <select id="pathwaySelect" class="pathway-select" aria-label="Pathway focus mode">
+      <option value="">None</option>
+    </select>
+    <button class="btn c-ut" data-action="fit">⌖ Fit</button>
+    <button class="btn c-ut" data-action="clear">✕ Clear</button>
+    <button type="button" class="btn c-ut" id="exportTilesToggle" data-action="export-tiles-panel" aria-expanded="false" aria-controls="tileExportBar">Export 4 Study Tiles</button>
+    <button type="button" class="btn c-ut" id="helpBtn" data-action="help">? Help</button>
+    <button type="button" class="btn c-ut" id="keyBtn" data-action="key">Key</button>
+  </div>
+  <div class="search-stack">
+    <div class="search-row">
+      <input type="search" id="nodeSearchInput" class="search-input" placeholder="Search label or description…" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Search nodes by label or description" aria-controls="nodeSearchResults" aria-expanded="false" />
+      <button type="button" class="btn c-ut" id="nodeSearchClear">Clear search</button>
+    </div>
+    <div id="nodeSearchResults" class="search-results" hidden role="listbox" aria-label="Matching nodes"></div>
+  </div>
+</div>
+<div id="tileExportBar" class="tile-export-bar" hidden>
+  <p class="tile-export-hint">Single-image export is disabled because the full graph exceeds browser export limits. Use <strong>Export 4 Study Tiles</strong>, then combine the PNGs into a PDF/poster if needed. Each tile tries scales 4× → 3× → 2× → 1.5×. Download tiles one at a time if your browser blocks multiple files.</p>
+  <div class="tile-export-btns">
+    <button type="button" class="btn c-ut" data-tile-export="1">Tile 1 · top-left</button>
+    <button type="button" class="btn c-ut" data-tile-export="2">Tile 2 · top-right</button>
+    <button type="button" class="btn c-ut" data-tile-export="3">Tile 3 · bottom-left</button>
+    <button type="button" class="btn c-ut" data-tile-export="4">Tile 4 · bottom-right</button>
+    <button type="button" class="btn c-ut" data-action="export-tiles-close">Close</button>
+  </div>
+</div>
+<div id="wrap">
+  <div id="cy"></div>
+  <div id="panel">
+    <h2>Node Info</h2>
+    <p class="ph">Click any node to see MCAT-relevant details and connections</p>
+  </div>
+</div>
+<div id="leg">
+  <h3>EDGE KEY</h3>
+  <div class="lr"><div style="width:26px;height:0;border-top:1.5px solid #4f46e5"></div><span>Produces / Converts</span></div>
+  <div class="lr"><div style="width:26px;height:0;border-top:2px dashed #15803d"></div><span style="color:#15803d">✦ Activates</span></div>
+  <div class="lr"><div style="width:26px;height:0;border-top:2px solid #be123c"></div><span style="color:#be123c">✗ Inhibits</span></div>
+  <div class="lr"><div style="width:26px;height:0;border-top:1.5px dashed #7c3aed"></div><span style="color:#7c3aed">◈ Signals</span></div>
+  <div class="lr"><div style="width:26px;height:0;border-top:1.5px dotted #0e7490"></div><span style="color:#0e7490">⇢ Transports</span></div>
+</div>
+<div id="zc">
+  <button class="zb" id="zi">+</button>
+  <button class="zb" id="zo">−</button>
+</div>
+<div id="helpOverlay" class="help-overlay" aria-hidden="true">
+  <div class="help-dialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+    <button type="button" class="help-close" id="helpClose" aria-label="Close help">×</button>
+    <h2 id="helpTitle">How to use this map</h2>
+    <ul class="help-list">
+      <li><strong>Pan:</strong> Drag on the map area with your mouse or finger (trackpad: click and drag). On a keyboard, use the arrow keys.</li>
+      <li><strong>Zoom:</strong> Use the + and − buttons at the bottom-left, pinch on a trackpad, or keyboard + and − (zoom in/out).</li>
+      <li><strong>Click a node:</strong> Highlights it and its connections; details appear in the right-hand panel.</li>
+      <li><strong>Click empty space</strong> on the map: Clears highlights and resets the panel to the starting message.</li>
+      <li><strong>Pathway focus:</strong> Use the <strong>Pathway</strong> menu to highlight one study pathway; unrelated nodes/edges fade. Search clears pathway mode; choosing a pathway clears search. <strong>Clear</strong> resets pathway to <strong>None</strong>.</li>
+      <li><strong>Fit:</strong> Zooms so the whole map is visible.</li>
+      <li><strong>Clear:</strong> Removes selection highlights and resets the panel (same as clicking empty space).</li>
+    </ul>
+    <p class="help-keys"><strong>Search:</strong> Use the search box in the header to find nodes by label or text in their descriptions. Matches are highlighted on the map; others fade. Click a result to zoom there and open the side panel. Use <strong>Clear search</strong> or <kbd>Esc</kbd> while the search box is focused to clear only the search.</p>
+    <p class="help-keys"><strong>Map key:</strong> Use the <strong>Key</strong> button for category colors, edge meanings, and placeholders for abbreviations, priorities, and shapes.</p>
+    <p class="help-keys"><strong>Keyboard shortcuts</strong> (when you are not typing in a field): arrow keys pan; + / − zoom; <kbd>0</kbd> fits the map; <kbd>Esc</kbd> clears selection (and closes this help or the key panel).</p>
+  </div>
+</div>
+<div id="keyOverlay" class="key-overlay" aria-hidden="true">
+  <div class="key-dialog" role="dialog" aria-modal="true" aria-labelledby="keyTitle">
+    <button type="button" class="key-close" id="keyClose" aria-label="Close map key">×</button>
+    <h2 id="keyTitle">Map key</h2>
+    <div id="keyPanelMount"></div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+<script src="data/metabolism.js"></script>
+<script src="data/pathways.js"></script>
+<script src="data/keyLegend.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captain Hook MCAT Biology - Interactive Mind Map</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #141b3d;
+            --accent-blue: #4a9eff;
+            --accent-cyan: #00d4ff;
+            --accent-pink: #ff4a9e;
+            --accent-orange: #ff8c42;
+            --accent-green: #00ff9f;
+            --accent-purple: #b84aff;
+            --text-primary: #e8edf5;
+            --text-secondary: #8b9cc9;
+            --border: rgba(74, 158, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1447 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--border);
+            background: rgba(74, 158, 255, 0.1);
+            color: var(--text-primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+
+        .btn:hover {
+            background: rgba(74, 158, 255, 0.2);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 158, 255, 0.4);
+        }
+
+        .container {
+            margin-top: 80px;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mindmap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            padding: 2rem;
+        }
+
+        .central-node {
+            padding: 1.5rem 3rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(74, 158, 255, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .central-node:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 40px rgba(74, 158, 255, 0.4); }
+            50% { box-shadow: 0 10px 60px rgba(74, 158, 255, 0.6); }
+        }
+
+        .branches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1600px;
+        }
+
+        .branch {
+            background: rgba(20, 27, 61, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .branch:hover {
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 30px rgba(74, 158, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .branch-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Space Mono', monospace;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .branch-title:hover {
+            background: rgba(74, 158, 255, 0.1);
+        }
+
+        .branch-title[contenteditable="true"]:focus {
+            outline: 2px solid var(--accent-blue);
+            background: rgba(74, 158, 255, 0.1);
+        }
+
+        .branch:nth-child(8n+1) .branch-title { color: var(--accent-blue); }
+        .branch:nth-child(8n+2) .branch-title { color: var(--accent-cyan); }
+        .branch:nth-child(8n+3) .branch-title { color: var(--accent-pink); }
+        .branch:nth-child(8n+4) .branch-title { color: var(--accent-orange); }
+        .branch:nth-child(8n+5) .branch-title { color: var(--accent-green); }
+        .branch:nth-child(8n+6) .branch-title { color: var(--accent-purple); }
+        .branch:nth-child(8n+7) .branch-title { color: #ffd700; }
+        .branch:nth-child(8n+8) .branch-title { color: #ff6b9d; }
+
+        .section {
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+
+        .section-title:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .section-title[contenteditable="true"]:focus {
+            outline: 2px solid var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .items {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .item {
+            padding: 0.3rem 0.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            margin-bottom: 0.25rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .item:before {
+            content: '▸';
+            position: absolute;
+            left: 0.3rem;
+            color: var(--accent-blue);
+            opacity: 0.5;
+        }
+
+        .item:hover {
+            color: var(--text-primary);
+            background: rgba(74, 158, 255, 0.1);
+            padding-left: 1.8rem;
+        }
+
+        .item:hover:before {
+            opacity: 1;
+        }
+
+        .item[contenteditable="true"]:focus {
+            outline: 2px solid var(--accent-blue);
+            background: rgba(74, 158, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .add-btn {
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.85rem;
+            background: rgba(74, 158, 255, 0.05);
+            border: 1px dashed var(--border);
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .add-btn:hover {
+            background: rgba(74, 158, 255, 0.1);
+            color: var(--text-primary);
+            border-color: var(--accent-blue);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .modal-content textarea {
+            width: 100%;
+            min-height: 300px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: flex-end;
+        }
+
+        .delete-btn {
+            background: rgba(255, 74, 74, 0.1);
+            border: 1px solid rgba(255, 74, 74, 0.3);
+            color: #ff4a4a;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            opacity: 0;
+            transition: all 0.2s ease;
+        }
+
+        .item:hover .delete-btn,
+        .section:hover .delete-btn {
+            opacity: 1;
+        }
+
+        .delete-btn:hover {
+            background: rgba(255, 74, 74, 0.2);
+            border-color: #ff4a4a;
+        }
+
+        .instructions {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(20, 27, 61, 0.9);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            font-size: 0.85rem;
+            max-width: 300px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .instructions h3 {
+            font-family: 'Space Mono', monospace;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .instructions ul {
+            list-style: none;
+            color: var(--text-secondary);
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .instructions li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Stagger animation delays */
+        .branch:nth-child(1) { animation-delay: 0.1s; }
+        .branch:nth-child(2) { animation-delay: 0.15s; }
+        .branch:nth-child(3) { animation-delay: 0.2s; }
+        .branch:nth-child(4) { animation-delay: 0.25s; }
+        .branch:nth-child(5) { animation-delay: 0.3s; }
+        .branch:nth-child(6) { animation-delay: 0.35s; }
+        .branch:nth-child(7) { animation-delay: 0.4s; }
+        .branch:nth-child(8) { animation-delay: 0.45s; }
+        .branch:nth-child(9) { animation-delay: 0.5s; }
+        .branch:nth-child(10) { animation-delay: 0.55s; }
+        .branch:nth-child(11) { animation-delay: 0.6s; }
+        .branch:nth-child(12) { animation-delay: 0.65s; }
+        .branch:nth-child(13) { animation-delay: 0.7s; }
+        .branch:nth-child(14) { animation-delay: 0.75s; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>CAPTAIN HOOK MCAT BIOLOGY</h1>
+        <div class="controls">
+            <button class="btn" onclick="addBranch()">+ Add Branch</button>
+            <button class="btn" onclick="exportToMarkdown()">Export MD</button>
+            <button class="btn btn-primary" onclick="saveAsHTML()">Save HTML</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="mindmap">
+            <div class="central-node" contenteditable="true">
+                Captain Hook MCAT Biology
+            </div>
+
+            <div class="branches" id="branches">
+                <!-- Branches will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h3>Quick Guide</h3>
+        <ul>
+            <li>Click any text to edit</li>
+            <li>Use + buttons to add items</li>
+            <li>Hover to delete items</li>
+            <li>Export as Markdown or HTML</li>
+        </ul>
+    </div>
+
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <h2>Export as Markdown</h2>
+            <textarea id="exportText" readonly></textarea>
+            <div class="modal-buttons">
+                <button class="btn" onclick="closeModal()">Close</button>
+                <button class="btn btn-primary" onclick="copyMarkdown()">Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mindmapData = {
+            "Endocrine System": {
+                "Cell Signaling": ["Second messengers: cAMP, IP3, Calcium", "Amplification", "Feedback loops"],
+                "Hormone Types": ["Peptide hormones", "Steroid hormones", "Amino acid derivatives"],
+                "Hypothalamus & Pituitary": ["GnRH", "GHRH", "TRH", "CRH", "Dopamine inhibits prolactin", "ADH", "Oxytocin"],
+                "Thyroid & Parathyroid": ["T3/T4", "Calcitonin lowers calcium", "PTH raises calcium", "Vitamin D activation"],
+                "Adrenal Glands": ["Cortex: Aldosterone, Cortisol", "Medulla: Epinephrine, Norepinephrine"],
+                "Pancreas": ["Insulin", "Glucagon", "Somatostatin"],
+                "Fluid Regulation": ["ADH", "Aldosterone", "ANP", "RAAS"]
+            },
+            "Genetics & Reproduction": {
+                "Mendelian Genetics": ["Segregation", "Independent assortment", "Codominance"],
+                "Meiosis": ["Crossing over", "Recombination", "Genetic diversity"],
+                "Female Reproduction": ["Follicular phase", "Ovulation", "Corpus luteum"],
+                "Male Reproduction": ["Spermatogenesis", "Testosterone"],
+                "Embryology": ["Zygote", "Morula", "Blastula", "Gastrula"]
+            },
+            "Evolution": {
+                "Natural Selection": ["Stabilizing", "Directional", "Disruptive"],
+                "Genetic Drift": ["Founder effect", "Bottleneck effect"],
+                "Hardy-Weinberg": [],
+                "Speciation": []
+            },
+            "Immune System": {
+                "Innate Immunity": ["Neutrophils", "Eosinophils", "Basophils", "Macrophages"],
+                "Adaptive Immunity": ["B cells", "T cells", "Antibodies"],
+                "MHC": ["MHC I", "MHC II"],
+                "Immunity Types": ["Active", "Passive"]
+            },
+            "Nervous System": {
+                "Organization": ["CNS", "PNS", "Sympathetic", "Parasympathetic"],
+                "Neurons": ["Dendrites", "Axons", "Synapses"],
+                "Action Potentials": ["Depolarization", "Repolarization"],
+                "Glial Cells": ["Schwann cells", "Oligodendrocytes"]
+            },
+            "Digestive System": {
+                "Alimentary Canal": ["Mouth", "Esophagus", "Stomach", "Small intestine", "Large intestine"],
+                "Digestion": ["Mechanical", "Chemical"],
+                "Accessory Organs": ["Liver", "Gallbladder", "Pancreas"],
+                "Peristalsis": []
+            },
+            "Renal System": {
+                "Kidney Anatomy": ["Nephron", "Glomerulus", "Bowman capsule"],
+                "Processes": ["Filtration", "Reabsorption", "Secretion", "Excretion"],
+                "RAAS": [],
+                "Acid Base Balance": []
+            },
+            "Respiratory System": {
+                "Key Components": ["Alveoli", "Surfactant", "Hemoglobin"],
+                "Gas Transport": ["Oxygen dissociation curve", "Carbon dioxide transport", "Bicarbonate buffer"]
+            },
+            "Cardiovascular System": {
+                "Heart": ["Atria", "Ventricles"],
+                "Blood Vessels": ["Arteries", "Veins", "Capillaries"],
+                "Blood Components": ["RBCs", "WBCs", "Platelets"],
+                "Clotting": ["Thrombin", "Fibrin"],
+                "ABO Blood Types": []
+            },
+            "Musculoskeletal System": {
+                "Muscle Types": ["Skeletal", "Cardiac", "Smooth"],
+                "Muscle Contraction": ["Actin", "Myosin", "Troponin", "Tropomyosin"],
+                "Bone": ["Osteoclasts", "Calcium storage"]
+            },
+            "Developmental Biology": {
+                "Germ Layers": ["Ectoderm", "Mesoderm", "Endoderm"],
+                "Stem Cells": ["Totipotent", "Pluripotent", "Multipotent"],
+                "Differentiation": []
+            },
+            "Cell Biology": {
+                "Organelles": ["Nucleus", "Ribosomes", "ER", "Golgi", "Mitochondria"],
+                "Membranes": ["Diffusion", "Active transport", "Endocytosis", "Exocytosis"],
+                "Cytoskeleton": ["Microfilaments", "Intermediate filaments", "Microtubules"],
+                "Cell Cycle": ["Mitosis", "Meiosis"]
+            },
+            "Homeostasis": {
+                "Blood Glucose": ["Insulin", "Glucagon"],
+                "Calcium Balance": ["PTH", "Calcitonin"],
+                "pH Regulation": ["Respiratory compensation", "Renal compensation"],
+                "Blood Pressure": ["RAAS", "ANP", "ADH"]
+            },
+            "High Yield Mnemonics": {
+                "Key Mnemonics": ["FLAT PEG", "Calcitonin tones calcium", "ADH vs Aldosterone", "Exercise shifts Hb curve right"]
+            }
+        };
+
+        function renderMindmap() {
+            const branchesContainer = document.getElementById('branches');
+            branchesContainer.innerHTML = '';
+
+            for (const [branchTitle, sections] of Object.entries(mindmapData)) {
+                const branchDiv = document.createElement('div');
+                branchDiv.className = 'branch';
+                
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'branch-title';
+                titleDiv.contentEditable = true;
+                titleDiv.textContent = branchTitle;
+                titleDiv.addEventListener('blur', function() {
+                    const oldTitle = branchTitle;
+                    const newTitle = this.textContent.trim();
+                    if (newTitle && newTitle !== oldTitle) {
+                        mindmapData[newTitle] = mindmapData[oldTitle];
+                        delete mindmapData[oldTitle];
+                    }
+                });
+                branchDiv.appendChild(titleDiv);
+
+                for (const [sectionTitle, items] of Object.entries(sections)) {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.className = 'section';
+
+                    const sectionTitleDiv = document.createElement('div');
+                    sectionTitleDiv.className = 'section-title';
+                    sectionTitleDiv.contentEditable = true;
+                    sectionTitleDiv.textContent = sectionTitle;
+                    
+                    const deleteSecBtn = document.createElement('button');
+                    deleteSecBtn.className = 'delete-btn';
+                    deleteSecBtn.textContent = '✕';
+                    deleteSecBtn.onclick = function() {
+                        delete mindmapData[branchTitle][sectionTitle];
+                        renderMindmap();
+                    };
+                    sectionTitleDiv.appendChild(deleteSecBtn);
+                    
+                    sectionTitleDiv.addEventListener('blur', function() {
+                        const oldSecTitle = sectionTitle;
+                        const newSecTitle = this.textContent.replace('✕', '').trim();
+                        if (newSecTitle && newSecTitle !== oldSecTitle) {
+                            mindmapData[branchTitle][newSecTitle] = mindmapData[branchTitle][oldSecTitle];
+                            delete mindmapData[branchTitle][oldSecTitle];
+                        }
+                    });
+                    sectionDiv.appendChild(sectionTitleDiv);
+
+                    if (items.length > 0) {
+                        const itemsList = document.createElement('ul');
+                        itemsList.className = 'items';
+
+                        items.forEach((item, index) => {
+                            const itemLi = document.createElement('li');
+                            itemLi.className = 'item';
+                            itemLi.contentEditable = true;
+                            itemLi.textContent = item;
+                            
+                            const deleteBtn = document.createElement('button');
+                            deleteBtn.className = 'delete-btn';
+                            deleteBtn.textContent = '✕';
+                            deleteBtn.onclick = function() {
+                                mindmapData[branchTitle][sectionTitle].splice(index, 1);
+                                renderMindmap();
+                            };
+                            itemLi.appendChild(deleteBtn);
+                            
+                            itemLi.addEventListener('blur', function() {
+                                const newText = this.textContent.replace('✕', '').trim();
+                                if (newText) {
+                                    mindmapData[branchTitle][sectionTitle][index] = newText;
+                                }
+                            });
+                            itemsList.appendChild(itemLi);
+                        });
+
+                        sectionDiv.appendChild(itemsList);
+                    }
+
+                    const addItemBtn = document.createElement('button');
+                    addItemBtn.className = 'add-btn';
+                    addItemBtn.textContent = '+ Add Item';
+                    addItemBtn.onclick = function() {
+                        mindmapData[branchTitle][sectionTitle].push('New item');
+                        renderMindmap();
+                    };
+                    sectionDiv.appendChild(addItemBtn);
+
+                    branchDiv.appendChild(sectionDiv);
+                }
+
+                const addSectionBtn = document.createElement('button');
+                addSectionBtn.className = 'add-btn';
+                addSectionBtn.textContent = '+ Add Section';
+                addSectionBtn.onclick = function() {
+                    const newSectionName = 'New Section ' + (Object.keys(sections).length + 1);
+                    mindmapData[branchTitle][newSectionName] = [];
+                    renderMindmap();
+                };
+                branchDiv.appendChild(addSectionBtn);
+
+                branchesContainer.appendChild(branchDiv);
+            }
+        }
+
+        function addBranch() {
+            const newBranchName = 'New Branch ' + (Object.keys(mindmapData).length + 1);
+            mindmapData[newBranchName] = {
+                'New Section': ['New item']
+            };
+            renderMindmap();
+        }
+
+        function exportToMarkdown() {
+            const centralNode = document.querySelector('.central-node').textContent;
+            let markdown = `# ${centralNode}\n\n`;
+
+            for (const [branchTitle, sections] of Object.entries(mindmapData)) {
+                markdown += `## ${branchTitle}\n\n`;
+                
+                for (const [sectionTitle, items] of Object.entries(sections)) {
+                    markdown += `### ${sectionTitle}\n`;
+                    
+                    if (items.length > 0) {
+                        items.forEach(item => {
+                            markdown += `- ${item}\n`;
+                        });
+                    }
+                    markdown += '\n';
+                }
+                
+                markdown += '---\n\n';
+            }
+
+            document.getElementById('exportText').value = markdown;
+            document.getElementById('exportModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('exportModal').classList.remove('active');
+        }
+
+        function copyMarkdown() {
+            const textarea = document.getElementById('exportText');
+            textarea.select();
+            document.execCommand('copy');
+            alert('Markdown copied to clipboard!');
+        }
+
+        function saveAsHTML() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'captain_hook_mcat_biology_mindmap.html';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Initialize
+        renderMindmap();
+    </script>
+</body>
+</html>

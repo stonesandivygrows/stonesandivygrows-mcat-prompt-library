@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Enhanced Lab Vocab & Stats Decoder</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 900px; margin: 20px auto; padding: 20px; background: #fafafa; }
+.search-box { width: 100%; padding: 10px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 20px; }
+.search-box:focus { outline: none; box-shadow: 0 0 0 3px rgba(55, 138, 221, 0.2); border-color: #378ADD; }
+.category-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.cat-tab { padding: 6px 14px; background: white; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; font-size: 13px; color: #666; }
+.cat-tab:hover { background: #f5f5f5; }
+.cat-tab.active { background: #378ADD; color: white; border-color: #378ADD; font-weight: 500; }
+.term-card { background: white; border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+.term-card .term-name { font-size: 15px; font-weight: 500; margin: 0 0 6px; }
+.term-card .term-def { font-size: 14px; color: #666; margin: 0 0 12px; line-height: 1.5; }
+.term-card .mcat-tip { background: #FFF3CD; color: #856404; padding: 8px 12px; border-radius: 6px; font-size: 13px; margin-top: 10px; }
+.visual-example { background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: 10px; font-size: 13px; }
+.no-results { text-align: center; padding: 40px; color: #999; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<h1 style="margin-bottom: 8px;">🔬 Enhanced Lab Vocab & Stats Decoder</h1>
+<p style="color: #666; margin-bottom: 24px;">Search for MCAT terms with visual explanations</p>
+
+<input type="text" class="search-box" id="searchBox" placeholder="Search (e.g., cooperativity, allosteric, feedback, Hill coefficient)..." />
+
+<div class="category-tabs">
+  <div class="cat-tab active" onclick="filterCategory('all')">All</div>
+  <div class="cat-tab" onclick="filterCategory('kinetics')">Enzyme kinetics</div>
+  <div class="cat-tab" onclick="filterCategory('stats')">Statistics</div>
+  <div class="cat-tab" onclick="filterCategory('graphs')">Graphs & scales</div>
+  <div class="cat-tab" onclick="filterCategory('methods')">Lab methods</div>
+  <div class="cat-tab" onclick="filterCategory('techniques')">Techniques</div>
+</div>
+
+<div id="termsContainer"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const terms = [
+  {
+    name: 'Cooperativity',
+    category: 'kinetics',
+    definition: 'When binding of one substrate molecule affects the binding of subsequent substrate molecules to the same enzyme.',
+    mcatTip: 'Positive cooperativity (Hill > 1) = sigmoidal curve. First substrate makes it EASIER to bind next one. Negative cooperativity (Hill < 1) = first substrate makes it HARDER.',
+    visual: `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 12px;">
+        <div style="border: 2px solid #28a745; border-radius: 6px; padding: 10px; text-align: center; background: #d4edda; color: #155724;">
+          <div style="font-weight: 500; margin-bottom: 6px;">Positive (Hill > 1)</div>
+          <div style="font-size: 20px; margin: 6px 0;">📈</div>
+          <div>S-shaped curve</div>
+          <div style="margin-top: 4px;">1st binding → easier for 2nd</div>
+        </div>
+        <div style="border: 2px solid #dc3545; border-radius: 6px; padding: 10px; text-align: center; background: #f8d7da; color: #721c24;">
+          <div style="font-weight: 500; margin-bottom: 6px;">Negative (Hill < 1)</div>
+          <div style="font-size: 20px; margin: 6px 0;">📉</div>
+          <div>Flatter curve</div>
+          <div style="margin-top: 4px;">1st binding → harder for 2nd</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'Hill coefficient',
+    category: 'kinetics',
+    definition: 'Mathematical measure of cooperativity. Tells you how much substrates "communicate" through the enzyme.',
+    mcatTip: 'n = 1: no cooperativity (hyperbolic curve). n > 1: positive cooperativity (sigmoidal curve). n < 1: negative cooperativity. For hemoglobin (4 sites), n = 2.8 (strong positive).',
+    visual: `
+      <div style="font-size: 13px;">
+        <div style="padding: 8px; border-left: 3px solid #28a745; background: #d4edda; color: #155724; margin-bottom: 6px; border-radius: 2px;">
+          <strong>n > 1:</strong> Positive cooperativity → each binding makes next easier
+        </div>
+        <div style="padding: 8px; border-left: 3px solid #666; background: #f5f5f5; margin-bottom: 6px; border-radius: 2px;">
+          <strong>n = 1:</strong> No cooperativity → independent binding sites
+        </div>
+        <div style="padding: 8px; border-left: 3px solid #dc3545; background: #f8d7da; color: #721c24; border-radius: 2px;">
+          <strong>n < 1:</strong> Negative cooperativity → each binding makes next harder
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'Allosteric regulation',
+    category: 'kinetics',
+    definition: 'Regulation by molecules that bind AWAY from the active site. Changes enzyme shape → changes activity.',
+    mcatTip: 'Allosteric site ≠ active site. Allosteric effector can be an activator OR inhibitor. Competitive inhibitors are NOT allosteric (they bind active site).',
+    visual: `
+      <div style="display: flex; gap: 16px; align-items: center; justify-content: center;">
+        <div style="text-align: center;">
+          <div style="width: 80px; height: 80px; border: 2px solid #666; border-radius: 8px; position: relative; background: #f5f5f5;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 11px; font-weight: 500;">Active site</div>
+            <div style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; background: #378ADD; border-radius: 50%;"></div>
+            <span style="position: absolute; top: 2px; right: -50px; font-size: 10px; color: #666;">← Allosteric<br>site</span>
+          </div>
+          <div style="font-size: 12px; margin-top: 8px;">Effector binds HERE</div>
+        </div>
+        <div style="font-size: 24px;">→</div>
+        <div style="text-align: center;">
+          <div style="width: 80px; height: 80px; border: 2px solid #28a745; border-radius: 8px; position: relative; background: #d4edda; color: #155724;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 11px; font-weight: 500;">Active site<br>changes!</div>
+          </div>
+          <div style="font-size: 12px; margin-top: 8px;">Activity changes</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'Feedback inhibition (negative feedback)',
+    category: 'kinetics',
+    definition: 'End product of a pathway inhibits an earlier enzyme in that same pathway. Prevents overproduction.',
+    mcatTip: 'The most regulated enzyme is usually the first COMMITTED, IRREVERSIBLE step. Example: PFK-1 in glycolysis (not hexokinase, because glucose-6-P can go other places).',
+    visual: `
+      <div style="font-size: 12px; text-align: center;">
+        <div style="display: flex; gap: 8px; align-items: center; justify-content: center; margin-bottom: 12px;">
+          <div style="padding: 8px 12px; background: #f5f5f5; border-radius: 4px;">Enzyme 1</div>
+          <div>→</div>
+          <div style="padding: 8px 12px; background: #f5f5f5; border-radius: 4px;">Enzyme 2</div>
+          <div>→</div>
+          <div style="padding: 8px 12px; background: #d4edda; color: #155724; border-radius: 4px; font-weight: 500;">Product</div>
+        </div>
+        <div style="border-top: 2px dashed #dc3545; padding-top: 8px; color: #721c24;">
+          ↑ Product feeds back to INHIBIT Enzyme 1
+        </div>
+        <div style="margin-top: 8px; font-size: 11px; color: #666;">When you have enough product, shut down the assembly line</div>
+      </div>
+    `
+  },
+  {
+    name: 'Sigmoidal curve',
+    category: 'kinetics',
+    definition: 'S-shaped curve indicating positive cooperativity. Shows enzyme acts as a sensitive "switch" to substrate levels.',
+    mcatTip: 'The steep middle part is where tiny changes in [substrate] cause HUGE changes in velocity. This is why cooperative enzymes are great for regulation - they respond sharply.',
+    visual: `
+      <div id="sigmoidChart" style="height: 160px; position: relative;"></div>
+      <div style="text-align: center; font-size: 11px; color: #666; margin-top: 8px;">The steep middle = sensitive "switch"</div>
+    `
+  },
+  {
+    name: 'p-value',
+    category: 'stats',
+    definition: 'Probability that your results happened by random chance. Lower p-value = less likely due to chance.',
+    mcatTip: 'p ≤ 0.05 = statistically significant (5% or less chance it\'s random). p > 0.05 = not significant.',
+    visual: `
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <div style="flex: 1; text-align: center;">
+          <div style="font-size: 24px; font-weight: 500; color: #28a745;">p = 0.02</div>
+          <div style="font-size: 12px; color: #666; margin-top: 4px;">Significant ✓</div>
+          <div style="font-size: 11px; margin-top: 2px;">Only 2% chance this is random</div>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <div style="font-size: 24px; font-weight: 500; color: #dc3545;">p = 0.15</div>
+          <div style="font-size: 12px; color: #666; margin-top: 4px;">Not significant ✗</div>
+          <div style="font-size: 11px; margin-top: 2px;">15% chance this is random</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'Knockout (KO)',
+    category: 'methods',
+    definition: 'Gene is completely removed or inactivated. Used to study what happens when a gene is missing.',
+    mcatTip: 'If a knockout mouse lacks a phenotype you expected, the gene might not be essential for that function, or there\'s redundancy (another gene compensates).',
+    visual: `
+      <div style="display: flex; gap: 8px; align-items: center; font-size: 13px;">
+        <div style="padding: 8px 12px; background: #d4edda; color: #155724; border-radius: 4px; text-align: center; flex: 1;">
+          <div style="font-weight: 500;">Wild-type</div>
+          <div style="margin-top: 4px; font-family: monospace;">Gene A: ON</div>
+        </div>
+        <div style="font-size: 20px;">→</div>
+        <div style="padding: 8px 12px; background: #f8d7da; color: #721c24; border-radius: 4px; text-align: center; flex: 1;">
+          <div style="font-weight: 500;">Knockout</div>
+          <div style="margin-top: 4px; font-family: monospace;">Gene A: DELETED</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'In vivo vs In vitro',
+    category: 'methods',
+    definition: 'In vivo = in a living organism. In vitro = in a test tube or dish ("in glass").',
+    mcatTip: 'In vivo is more physiologically relevant but harder to control. In vitro is controlled but may not reflect real biology. MCAT loves asking which is more "biologically relevant".',
+    visual: `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px;">
+        <div style="border: 1px solid #ddd; border-radius: 4px; padding: 10px; text-align: center;">
+          <div style="font-weight: 500; margin-bottom: 6px;">In vivo</div>
+          <div style="font-size: 24px;">🐁</div>
+          <div style="margin-top: 6px; font-size: 12px; color: #666;">Whole organism<br>Real conditions</div>
+        </div>
+        <div style="border: 1px solid #ddd; border-radius: 4px; padding: 10px; text-align: center;">
+          <div style="font-weight: 500; margin-bottom: 6px;">In vitro</div>
+          <div style="font-size: 24px;">🧪</div>
+          <div style="margin-top: 6px; font-size: 12px; color: #666;">Petri dish<br>Controlled lab</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'Log scale / Semi-log plot',
+    category: 'graphs',
+    definition: 'Axis shows powers of 10 (1, 10, 100, 1000...) instead of linear spacing. Makes exponential growth look like a straight line.',
+    mcatTip: 'If a graph has a log scale and you see a straight line, the relationship is exponential. Each tick up is 10× larger, not +1. Watch for this on bacterial growth curves!',
+    visual: `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div style="text-align: center;">
+          <div style="font-size: 12px; font-weight: 500; margin-bottom: 8px;">Linear scale</div>
+          <div style="height: 100px; border-left: 1px solid #ddd; border-bottom: 1px solid #ddd; position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 4px 0 4px 8px;">
+            <span style="font-size: 10px;">100</span>
+            <span style="font-size: 10px;">75</span>
+            <span style="font-size: 10px;">50</span>
+            <span style="font-size: 10px;">25</span>
+            <span style="font-size: 10px;">0</span>
+          </div>
+          <div style="font-size: 11px; margin-top: 4px; color: #666;">Equal spacing</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 12px; font-weight: 500; margin-bottom: 8px;">Log scale</div>
+          <div style="height: 100px; border-left: 1px solid #ddd; border-bottom: 1px solid #ddd; position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 4px 0 4px 8px;">
+            <span style="font-size: 10px;">10,000</span>
+            <span style="font-size: 10px;">1,000</span>
+            <span style="font-size: 10px;">100</span>
+            <span style="font-size: 10px;">10</span>
+            <span style="font-size: 10px;">1</span>
+          </div>
+          <div style="font-size: 11px; margin-top: 4px; color: #666;">Powers of 10</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'Confidence interval',
+    category: 'stats',
+    definition: 'Range where the true value likely falls. "95% CI" means we\'re 95% confident the real value is in this range.',
+    mcatTip: 'If confidence intervals of two groups DON\'T overlap, the difference is statistically significant. If they overlap, it\'s NOT significant. This is how you read error bars!',
+    visual: `
+      <div style="text-align: center; font-size: 12px; color: #666;">
+        <div style="margin: 12px 0;">Drug A: 72 ± 8 mmHg | Drug B: 55 ± 7 mmHg</div>
+        <div style="background: #d4edda; color: #155724; padding: 8px; border-radius: 4px; margin-top: 8px;">
+          These intervals DON'T overlap → statistically significant difference!
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'Chromatography',
+    category: 'techniques',
+    definition: 'Separates molecules based on properties like size, charge, or hydrophobicity. Mobile phase carries molecules through stationary phase.',
+    mcatTip: 'Types: size exclusion (by size), ion exchange (by charge), affinity (by binding), reverse-phase (by hydrophobicity). Smaller/less retained molecules elute FIRST (come out first).',
+    visual: `
+      <div style="font-size: 12px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
+          <div style="padding: 8px; background: #f5f5f5; border-radius: 4px; text-align: center;">
+            <div style="font-weight: 500;">Size exclusion</div>
+            <div style="margin-top: 4px; color: #666;">Large → elute fast</div>
+            <div>(can't fit in pores)</div>
+          </div>
+          <div style="padding: 8px; background: #f5f5f5; border-radius: 4px; text-align: center;">
+            <div style="font-weight: 500;">Ion exchange</div>
+            <div style="margin-top: 4px; color: #666;">Less charged → fast</div>
+            <div>(weak binding)</div>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'Type I vs Type II error',
+    category: 'stats',
+    definition: 'Type I: false positive (say there\'s an effect when there isn\'t). Type II: false negative (miss a real effect).',
+    mcatTip: 'Type I = α (significance level, usually 0.05). Type II = β. Mnemonic: Type I = convicting an innocent person (worse error, α).',
+    visual: `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 12px;">
+        <div style="padding: 10px; background: #f8d7da; color: #721c24; border-radius: 4px; text-align: center;">
+          <div style="font-weight: 500; margin-bottom: 4px;">Type I error (α)</div>
+          <div>False positive</div>
+          <div style="margin-top: 6px; font-size: 11px;">Said drug works,<br>but it doesn't</div>
+        </div>
+        <div style="padding: 10px; background: #FFF3CD; color: #856404; border-radius: 4px; text-align: center;">
+          <div style="font-weight: 500; margin-bottom: 4px;">Type II error (β)</div>
+          <div>False negative</div>
+          <div style="margin-top: 6px; font-size: 11px;">Said drug doesn't work,<br>but it does</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'Standard deviation (SD)',
+    category: 'stats',
+    definition: 'Measures spread of data. ~68% of data falls within ±1 SD, ~95% within ±2 SD.',
+    mcatTip: 'Larger SD = more variability. Error bars often show ±1 SD or ±2 SEM (standard error of mean). SEM is always smaller than SD.',
+    visual: `
+      <div style="text-align: center; font-size: 12px;">
+        <div style="margin-bottom: 8px;">Mean = 100</div>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 4px; margin-top: 8px; flex-wrap: wrap;">
+          <div style="width: 50px; text-align: right; color: #666; font-size: 11px;">-2 SD</div>
+          <div style="width: 50px; background: #f5f5f5; padding: 6px 0; border-radius: 2px;">80</div>
+          <div style="width: 50px; text-align: center; color: #666; font-size: 11px;">-1 SD</div>
+          <div style="width: 50px; background: #f5f5f5; padding: 6px 0; border-radius: 2px;">90</div>
+          <div style="width: 60px; background: #378ADD; color: white; padding: 6px 0; border-radius: 2px; font-weight: 500;">100</div>
+          <div style="width: 50px; background: #f5f5f5; padding: 6px 0; border-radius: 2px;">110</div>
+          <div style="width: 50px; text-align: center; color: #666; font-size: 11px;">+1 SD</div>
+          <div style="width: 50px; background: #f5f5f5; padding: 6px 0; border-radius: 2px;">120</div>
+          <div style="width: 50px; color: #666; font-size: 11px;">+2 SD</div>
+        </div>
+        <div style="margin-top: 8px; font-size: 11px; color: #666;">68% of data between 90-110 | 95% between 80-120</div>
+      </div>
+    `
+  },
+  {
+    name: 'Northern / Southern / Western blot',
+    category: 'techniques',
+    definition: 'Southern = DNA, Northern = RNA, Western = protein. All use gel electrophoresis + transfer to membrane + probe.',
+    mcatTip: 'Mnemonic: "SNoW DRoP" - Southern (DNA), Northern (RNA), Western (Protein). Or: the letters go down alphabetically - D-R-P.',
+    visual: `
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 12px; text-align: center;">
+        <div style="padding: 10px; background: #f5f5f5; border-radius: 4px;">
+          <div style="font-weight: 500; margin-bottom: 4px;">Southern</div>
+          <div style="font-size: 20px; margin: 6px 0;">🧬</div>
+          <div>DNA</div>
+        </div>
+        <div style="padding: 10px; background: #f5f5f5; border-radius: 4px;">
+          <div style="font-weight: 500; margin-bottom: 4px;">Northern</div>
+          <div style="font-size: 20px; margin: 6px 0;">📋</div>
+          <div>RNA</div>
+        </div>
+        <div style="padding: 10px; background: #f5f5f5; border-radius: 4px;">
+          <div style="font-weight: 500; margin-bottom: 4px;">Western</div>
+          <div style="font-size: 20px; margin: 6px 0;">🔬</div>
+          <div>Protein</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'K<sub>M</sub> (Michaelis constant)',
+    category: 'kinetics',
+    definition: 'Substrate concentration at which enzyme reaches half its maximum velocity (½V<sub>max</sub>). Measure of enzyme-substrate affinity.',
+    mcatTip: 'LOW K<sub>M</sub> = HIGH affinity (needs less substrate to reach ½V<sub>max</sub>). HIGH K<sub>M</sub> = LOW affinity (needs more substrate). Competitive inhibitors INCREASE K<sub>M</sub>.',
+    visual: `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 12px; text-align: center;">
+        <div style="padding: 10px; border: 2px solid #28a745; border-radius: 4px; background: #d4edda; color: #155724;">
+          <div style="font-weight: 500; margin-bottom: 4px;">Low K<sub>M</sub> = 1 mM</div>
+          <div style="margin-top: 6px;">High affinity</div>
+          <div style="font-size: 11px; margin-top: 4px;">Only need 1 mM<br>for ½V<sub>max</sub></div>
+        </div>
+        <div style="padding: 10px; border: 2px solid #dc3545; border-radius: 4px; background: #f8d7da; color: #721c24;">
+          <div style="font-weight: 500; margin-bottom: 4px;">High K<sub>M</sub> = 10 mM</div>
+          <div style="margin-top: 6px;">Low affinity</div>
+          <div style="font-size: 11px; margin-top: 4px;">Need 10 mM<br>for ½V<sub>max</sub></div>
+        </div>
+      </div>
+    `
+  },
+  {
+    name: 'V<sub>max</sub> (Maximum velocity)',
+    category: 'kinetics',
+    definition: 'Maximum reaction rate when all enzyme active sites are saturated with substrate. Depends on enzyme concentration.',
+    mcatTip: 'V<sub>max</sub> = k<sub>cat</sub> × [E<sub>total</sub>]. Competitive inhibitors DON\'T change V<sub>max</sub>. Uncompetitive and noncompetitive inhibitors DO decrease V<sub>max</sub>.',
+    visual: `
+      <div style="font-size: 12px; text-align: center;">
+        <div style="margin-bottom: 10px;">When ALL enzymes are working at full speed:</div>
+        <div style="display: flex; gap: 8px; justify-content: center; align-items: center;">
+          <div style="padding: 8px 12px; background: #378ADD; color: white; border-radius: 4px;">Enzyme 1 ⚡</div>
+          <div style="padding: 8px 12px; background: #378ADD; color: white; border-radius: 4px;">Enzyme 2 ⚡</div>
+          <div style="padding: 8px 12px; background: #378ADD; color: white; border-radius: 4px;">Enzyme 3 ⚡</div>
+        </div>
+        <div style="margin-top: 10px; font-weight: 500;">This speed = V<sub>max</sub></div>
+        <div style="margin-top: 6px; font-size: 11px; color: #666;">Can only go faster if you add more enzyme</div>
+      </div>
+    `
+  }
+];
+
+let currentCategory = 'all';
+let charts = {};
+
+function renderTerms(searchQuery = '') {
+  const container = document.getElementById('termsContainer');
+  const filtered = terms.filter(t => {
+    const matchesCategory = currentCategory === 'all' || t.category === currentCategory;
+    const matchesSearch = searchQuery === '' || 
+      t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.definition.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.mcatTip.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+  
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="no-results">No terms found. Try a different search or category.</div>';
+    return;
+  }
+  
+  // Clear old charts
+  Object.values(charts).forEach(chart => chart.destroy());
+  charts = {};
+  
+  container.innerHTML = filtered.map((term, idx) => `
+    <div class="term-card">
+      <p class="term-name">${term.name}</p>
+      <p class="term-def">${term.definition}</p>
+      ${term.visual ? '<div class="visual-example">' + term.visual.replace('sigmoidChart', 'sigmoidChart' + idx) + '</div>' : ''}
+      <div class="mcat-tip"><strong>MCAT tip:</strong> ${term.mcatTip}</div>
+    </div>
+  `).join('');
+  
+  // Render sigmoidal chart if present
+  filtered.forEach((term, idx) => {
+    if (term.name === 'Sigmoidal curve') {
+      setTimeout(() => {
+        const x = [];
+        const ySigmoid = [];
+        const yHyperbolic = [];
+        for (let i = 0; i <= 10; i += 0.2) {
+          x.push(i);
+          ySigmoid.push(100 * Math.pow(i, 3) / (Math.pow(3, 3) + Math.pow(i, 3)));
+          yHyperbolic.push(100 * i / (3 + i));
+        }
+        charts['sigmoid' + idx] = new Chart(document.getElementById('sigmoidChart' + idx), {
+          type: 'line',
+          data: {
+            labels: x,
+            datasets: [
+              {
+                label: 'Sigmoidal (cooperative)',
+                data: ySigmoid,
+                borderColor: '#D85A30',
+                backgroundColor: 'transparent',
+                pointRadius: 0,
+                borderWidth: 2
+              },
+              {
+                label: 'Hyperbolic (no coop)',
+                data: yHyperbolic,
+                borderColor: '#888',
+                backgroundColor: 'transparent',
+                pointRadius: 0,
+                borderWidth: 2,
+                borderDash: [4, 2]
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { 
+                display: true,
+                position: 'bottom',
+                labels: { font: { size: 11 }, padding: 8, boxWidth: 12, boxHeight: 2 }
+              }
+            },
+            scales: {
+              x: { title: { display: true, text: '[Substrate]', font: { size: 11 } }, ticks: { display: false } },
+              y: { title: { display: true, text: 'Velocity', font: { size: 11 } }, min: 0, max: 110 }
+            }
+          }
+        });
+      }, 100);
+    }
+  });
+}
+
+function filterCategory(cat) {
+  currentCategory = cat;
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  renderTerms(document.getElementById('searchBox').value);
+}
+
+document.getElementById('searchBox').addEventListener('input', (e) => {
+  renderTerms(e.target.value);
+});
+
+renderTerms();
+</script>
+
+</body>
+</html>

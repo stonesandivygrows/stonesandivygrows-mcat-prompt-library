@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Molecular Building Blocks Explorer</title>
+<style>
+:root {
+  --adenosine-color: #D85A30;
+  --phosphate-color: #7F77DD;
+  --ion-color: #1D9E75;
+  --nucleotide-color: #378ADD;
+  --amino-color: #BA7517;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #2c2c2a;
+}
+
+.subtitle {
+  color: #888780;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+.view-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.view-btn {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #5f5e5a;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.view-btn.active {
+  background: #f1efe8;
+  color: #2c2c2a;
+  font-weight: 500;
+}
+
+.view-btn:hover:not(.active) {
+  background: #f8f8f8;
+}
+
+.view-section {
+  display: none;
+}
+
+.view-section.active {
+  display: block;
+}
+
+/* ADENOSINE FAMILY */
+.adenosine-builder {
+  background: linear-gradient(135deg, #fef5f1 0%, #fff 100%);
+  padding: 30px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.molecule-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 30px 0;
+  min-height: 120px;
+  flex-wrap: wrap;
+}
+
+.molecule-part {
+  padding: 20px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 18px;
+  border: 3px solid;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+
+.molecule-part:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.adenosine-base {
+  background: #FAECE7;
+  border-color: var(--adenosine-color);
+  color: var(--adenosine-color);
+}
+
+.phosphate-group {
+  background: #EEEDFE;
+  border-color: var(--phosphate-color);
+  color: var(--phosphate-color);
+}
+
+.ribose {
+  background: #fef9e7;
+  border-color: #BA7517;
+  color: #BA7517;
+  font-size: 14px;
+  padding: 12px 20px;
+}
+
+.plus-sign {
+  font-size: 24px;
+  color: #b4b2a9;
+  font-weight: 300;
+}
+
+.builder-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.builder-btn {
+  padding: 10px 20px;
+  border: 2px solid #d3d1c7;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.builder-btn:hover {
+  background: #f1efe8;
+  border-color: #888780;
+}
+
+.molecule-name {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2c2c2a;
+  margin-top: 20px;
+}
+
+.molecule-function {
+  text-align: center;
+  font-size: 14px;
+  color: #5f5e5a;
+  margin-top: 8px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* COMPARISON TABLE */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.comp-card {
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.comp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.comp-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.comp-formula {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  background: rgba(0,0,0,0.03);
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.comp-role {
+  font-size: 13px;
+  color: #5f5e5a;
+  line-height: 1.5;
+}
+
+.comp-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.05);
+  color: #5f5e5a;
+}
+
+/* IONS SECTION */
+.ions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.ion-card {
+  text-align: center;
+  padding: 24px;
+  border-radius: 10px;
+  border: 2px solid;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.ion-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.ion-symbol {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.ion-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.ion-function {
+  font-size: 12px;
+  color: #5f5e5a;
+  line-height: 1.4;
+}
+
+/* NUCLEOTIDES */
+.nucleotide-strip {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.nucleotide-box {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 700;
+  border: 3px solid;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nucleotide-box:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* AMINO ACIDS */
+.amino-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.amino-card {
+  background: #fef9e7;
+  border: 2px solid #BA7517;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.amino-card:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(186, 117, 23, 0.2);
+}
+
+.amino-letter {
+  font-size: 24px;
+  font-weight: 700;
+  color: #BA7517;
+  margin-bottom: 4px;
+}
+
+.amino-name {
+  font-size: 12px;
+  color: #5f5e5a;
+  margin-bottom: 6px;
+}
+
+.amino-property {
+  font-size: 10px;
+  color: #888780;
+  font-style: italic;
+}
+
+/* INFO BOXES */
+.info-box {
+  background: #e6f1fb;
+  border-left: 4px solid #378add;
+  padding: 16px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+.info-box.warning {
+  background: #fef9e7;
+  border-left-color: #BA7517;
+}
+
+.info-box-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #2c2c2a;
+}
+
+.info-box-text {
+  font-size: 13px;
+  color: #5f5e5a;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .molecule-display {
+    flex-direction: column;
+  }
+  
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Molecular Building Blocks Explorer</h1>
+  <p class="subtitle">Understanding the connections: adenosine, ATP, nucleotides, ions, and more</p>
+
+  <div class="view-controls">
+    <button class="view-btn active" onclick="showView('adenosine')">Adenosine Family</button>
+    <button class="view-btn" onclick="showView('comparison')">ATP/ADP/AMP/cAMP</button>
+    <button class="view-btn" onclick="showView('ions')">Ions</button>
+    <button class="view-btn" onclick="showView('nucleotides')">Nucleotides (ATGCU)</button>
+    <button class="view-btn" onclick="showView('amino')">Essential Amino Acids</button>
+    <button class="view-btn" onclick="showView('overlaps')">Key Overlaps</button>
+  </div>
+
+  <!-- ADENOSINE FAMILY VIEW -->
+  <div id="adenosine-view" class="view-section active">
+    <div class="adenosine-builder">
+      <div class="molecule-display" id="molecule-display">
+        <!-- Will be populated by JavaScript -->
+      </div>
+      
+      <div class="molecule-name" id="molecule-name">Adenosine</div>
+      <div class="molecule-function" id="molecule-function">Base structure: adenine + ribose sugar</div>
+      
+      <div class="builder-controls">
+        <button class="builder-btn" onclick="buildMolecule('adenosine')">Adenosine</button>
+        <button class="builder-btn" onclick="buildMolecule('AMP')">+ 1 Phosphate = AMP</button>
+        <button class="builder-btn" onclick="buildMolecule('ADP')">+ 2 Phosphates = ADP</button>
+        <button class="builder-btn" onclick="buildMolecule('ATP')">+ 3 Phosphates = ATP</button>
+        <button class="builder-btn" onclick="buildMolecule('cAMP')">Cyclic AMP</button>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-box-title">💡 Key Insight: Adenosine is the core!</div>
+      <div class="info-box-text">
+        <strong>Adenosine = Adenine base + Ribose sugar</strong><br>
+        All these molecules (ATP, AMP, cAMP) contain adenosine as their foundation. The differences are in the phosphate groups attached.
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON VIEW -->
+  <div id="comparison-view" class="view-section">
+    <div class="comparison-grid">
+      <div class="comp-card" style="border-color: #D85A30; background: #FAECE7;">
+        <div class="comp-title" style="color: #D85A30;">ATP</div>
+        <div class="comp-formula">Adenosine + 3 Phosphates</div>
+        <div class="comp-role">
+          <strong>Energy currency of the cell</strong><br>
+          • Stores energy in phosphate bonds<br>
+          • Powers most cellular processes<br>
+          • Hydrolysis releases ~7.3 kcal/mol
+        </div>
+        <div class="comp-tags">
+          <span class="tag">High energy</span>
+          <span class="tag">Unstable bonds</span>
+        </div>
+      </div>
+
+      <div class="comp-card" style="border-color: #7F77DD; background: #EEEDFE;">
+        <div class="comp-title" style="color: #7F77DD;">ADP</div>
+        <div class="comp-formula">Adenosine + 2 Phosphates</div>
+        <div class="comp-role">
+          <strong>Intermediate energy state</strong><br>
+          • Product of ATP hydrolysis<br>
+          • Can be recharged back to ATP<br>
+          • Cellular "spent battery"
+        </div>
+        <div class="comp-tags">
+          <span class="tag">Moderate energy</span>
+          <span class="tag">Rechargeable</span>
+        </div>
+      </div>
+
+      <div class="comp-card" style="border-color: #1D9E75; background: #E1F5EE;">
+        <div class="comp-title" style="color: #1D9E75;">AMP</div>
+        <div class="comp-formula">Adenosine + 1 Phosphate</div>
+        <div class="comp-role">
+          <strong>Low energy nucleotide</strong><br>
+          • Signals low energy status<br>
+          • Activates AMPK (energy sensor)<br>
+          • Building block for RNA
+        </div>
+        <div class="comp-tags">
+          <span class="tag">Low energy</span>
+          <span class="tag">Signaling</span>
+          <span class="tag">RNA component</span>
+        </div>
+      </div>
+
+      <div class="comp-card" style="border-color: #378ADD; background: #E6F1FB;">
+        <div class="comp-title" style="color: #378ADD;">cAMP</div>
+        <div class="comp-formula">Cyclic AMP (ring structure)</div>
+        <div class="comp-role">
+          <strong>Second messenger signaling</strong><br>
+          • NOT for energy!<br>
+          • Mediates hormone signals (epinephrine, glucagon)<br>
+          • Phosphate forms ring with ribose
+        </div>
+        <div class="comp-tags">
+          <span class="tag">Signaling only</span>
+          <span class="tag">Hormone response</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box warning">
+      <div class="info-box-title">⚠️ Common Mistake</div>
+      <div class="info-box-text">
+        <strong>cAMP is NOT an energy molecule!</strong> Even though it contains adenosine like ATP, its function is completely different. cAMP is a signaling molecule, while ATP/ADP/AMP are about energy storage and transfer.
+      </div>
+    </div>
+  </div>
+
+  <!-- IONS VIEW -->
+  <div id="ions-view" class="view-section">
+    <div class="ions-grid">
+      <div class="ion-card" style="border-color: #378ADD; background: #E6F1FB;">
+        <div class="ion-symbol" style="color: #378ADD;">Na⁺</div>
+        <div class="ion-name">Sodium</div>
+        <div class="ion-function">
+          • Nerve impulses<br>
+          • Muscle contraction<br>
+          • High outside cells<br>
+          • Action potential depolarization
+        </div>
+      </div>
+
+      <div class="ion-card" style="border-color: #639922; background: #EAF3DE;">
+        <div class="ion-symbol" style="color: #639922;">K⁺</div>
+        <div class="ion-name">Potassium</div>
+        <div class="ion-function">
+          • Resting membrane potential<br>
+          • Repolarization<br>
+          • High inside cells<br>
+          • Cardiac rhythm
+        </div>
+      </div>
+
+      <div class="ion-card" style="border-color: #D85A30; background: #FAECE7;">
+        <div class="ion-symbol" style="color: #D85A30;">Ca²⁺</div>
+        <div class="ion-name">Calcium</div>
+        <div class="ion-function">
+          • Muscle contraction trigger<br>
+          • Neurotransmitter release<br>
+          • Bone structure<br>
+          • Second messenger
+        </div>
+      </div>
+
+      <div class="ion-card" style="border-color: #7F77DD; background: #EEEDFE;">
+        <div class="ion-symbol" style="color: #7F77DD;">Cl⁻</div>
+        <div class="ion-name">Chloride</div>
+        <div class="ion-function">
+          • Balances positive charges<br>
+          • Maintains osmotic pressure<br>
+          • Inhibitory signaling (GABA)<br>
+          • Follows sodium
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-box-title">🔑 Key Concept: Ion Gradients</div>
+      <div class="info-box-text">
+        Think of ions like a battery: Na⁺ high outside, K⁺ high inside creates electrical potential. The Na⁺/K⁺-ATPase pump (uses ATP!) maintains these gradients. When ions flow down their gradients, energy is released for signaling.
+      </div>
+    </div>
+  </div>
+
+  <!-- NUCLEOTIDES VIEW -->
+  <div id="nucleotides-view" class="view-section">
+    <h2 style="font-size: 18px; margin-bottom: 16px; color: #2c2c2a;">DNA Bases (A, T, G, C)</h2>
+    <div class="nucleotide-strip">
+      <div class="nucleotide-box" style="background: #FAECE7; border-color: #D85A30; color: #D85A30;" onclick="showNucleotideInfo('A')">
+        A
+      </div>
+      <div class="nucleotide-box" style="background: #EAF3DE; border-color: #639922; color: #639922;" onclick="showNucleotideInfo('T')">
+        T
+      </div>
+      <div class="nucleotide-box" style="background: #E6F1FB; border-color: #378ADD; color: #378ADD;" onclick="showNucleotideInfo('G')">
+        G
+      </div>
+      <div class="nucleotide-box" style="background: #EEEDFE; border-color: #7F77DD; color: #7F77DD;" onclick="showNucleotideInfo('C')">
+        C
+      </div>
+    </div>
+
+    <h2 style="font-size: 18px; margin: 30px 0 16px; color: #2c2c2a;">RNA Bases (A, U, G, C)</h2>
+    <div class="nucleotide-strip">
+      <div class="nucleotide-box" style="background: #FAECE7; border-color: #D85A30; color: #D85A30;" onclick="showNucleotideInfo('A')">
+        A
+      </div>
+      <div class="nucleotide-box" style="background: #FBEAF0; border-color: #D4537E; color: #D4537E;" onclick="showNucleotideInfo('U')">
+        U
+      </div>
+      <div class="nucleotide-box" style="background: #E6F1FB; border-color: #378ADD; color: #378ADD;" onclick="showNucleotideInfo('G')">
+        G
+      </div>
+      <div class="nucleotide-box" style="background: #EEEDFE; border-color: #7F77DD; color: #7F77DD;" onclick="showNucleotideInfo('C')">
+        C
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-box-title">🧬 Structure of Nucleotides</div>
+      <div class="info-box-text">
+        Every nucleotide has THREE parts:<br>
+        <strong>1. Nitrogenous base</strong> (A, T, G, C, or U)<br>
+        <strong>2. Sugar</strong> (ribose in RNA, deoxyribose in DNA)<br>
+        <strong>3. Phosphate group(s)</strong><br><br>
+        
+        <strong>Key difference:</strong> DNA uses Thymine (T), RNA uses Uracil (U)
+      </div>
+    </div>
+
+    <div class="info-box warning">
+      <div class="info-box-title">⚠️ Base Pairing Rules</div>
+      <div class="info-box-text">
+        <strong>DNA:</strong> A pairs with T (2 hydrogen bonds), G pairs with C (3 hydrogen bonds)<br>
+        <strong>RNA:</strong> A pairs with U (2 hydrogen bonds), G pairs with C (3 hydrogen bonds)<br><br>
+        <em>Mnemonic: "AT" has 2 letters, 2 bonds. "GC" has 3 letters total, 3 bonds.</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- AMINO ACIDS VIEW -->
+  <div id="amino-view" class="view-section">
+    <h2 style="font-size: 18px; margin-bottom: 16px; color: #2c2c2a;">Essential Amino Acids (PVT TIM HALL)</h2>
+    <p style="font-size: 14px; color: #5f5e5a; margin-bottom: 20px;">
+      These 9 amino acids cannot be synthesized by the body and must come from diet
+    </p>
+
+    <div class="amino-grid">
+      <div class="amino-card">
+        <div class="amino-letter">P</div>
+        <div class="amino-name">Phenylalanine</div>
+        <div class="amino-property">Aromatic</div>
+      </div>
+      
+      <div class="amino-card">
+        <div class="amino-letter">V</div>
+        <div class="amino-name">Valine</div>
+        <div class="amino-property">Branched-chain</div>
+      </div>
+      
+      <div class="amino-card">
+        <div class="amino-letter">T</div>
+        <div class="amino-name">Threonine</div>
+        <div class="amino-property">Polar</div>
+      </div>
+      
+      <div class="amino-card">
+        <div class="amino-letter">T</div>
+        <div class="amino-name">Tryptophan</div>
+        <div class="amino-property">Aromatic</div>
+      </div>
+      
+      <div class="amino-card">
+        <div class="amino-letter">I</div>
+        <div class="amino-name">Isoleucine</div>
+        <div class="amino-property">Branched-chain</div>
+      </div>
+      
+      <div class="amino-card">
+        <div class="amino-letter">M</div>
+        <div class="amino-name">Methionine</div>
+        <div class="amino-property">Sulfur-containing</div>
+      </div>
+      
+      <div class="amino-card">
+        <div class="amino-letter">H</div>
+        <div class="amino-name">Histidine</div>
+        <div class="amino-property">Charged (basic)</div>
+      </div>
+      
+      <div class="amino-card">
+        <div class="amino-letter">A</div>
+        <div class="amino-name">Arginine*</div>
+        <div class="amino-property">Semi-essential</div>
+      </div>
+      
+      <div class="amino-card">
+        <div class="amino-letter">L</div>
+        <div class="amino-name">Leucine</div>
+        <div class="amino-property">Branched-chain</div>
+      </div>
+      
+      <div class="amino-card">
+        <div class="amino-letter">L</div>
+        <div class="amino-name">Lysine</div>
+        <div class="amino-property">Charged (basic)</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-box-title">📝 Mnemonic: PVT TIM HALL</div>
+      <div class="info-box-text">
+        <strong>P</strong>henylalanine, <strong>V</strong>aline, <strong>T</strong>hreonine<br>
+        <strong>T</strong>ryptophan, <strong>I</strong>soleucine, <strong>M</strong>ethionine<br>
+        <strong>H</strong>istidine, <strong>A</strong>rginine*, <strong>L</strong>eucine, <strong>L</strong>ysine<br><br>
+        <em>*Arginine is semi-essential (essential during growth periods)</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERLAPS VIEW -->
+  <div id="overlaps-view" class="view-section">
+    <h2 style="font-size: 20px; margin-bottom: 20px; color: #2c2c2a;">Understanding the Overlaps</h2>
+
+    <div class="info-box">
+      <div class="info-box-title">🔗 Adenosine: The Common Thread</div>
+      <div class="info-box-text">
+        <strong>Adenosine appears in:</strong><br>
+        • ATP (adenosine triphosphate)<br>
+        • ADP (adenosine diphosphate)<br>
+        • AMP (adenosine monophosphate)<br>
+        • cAMP (cyclic adenosine monophosphate)<br>
+        • DNA/RNA as the "A" nucleotide (adenine + sugar + phosphate)<br><br>
+        
+        <strong>Why?</strong> Adenosine is incredibly stable and versatile. Evolution selected it as a building block for both energy molecules AND genetic material.
+      </div>
+    </div>
+
+    <div class="info-box warning">
+      <div class="info-box-title">🧩 Pyrophosphate (PPᵢ) Connection</div>
+      <div class="info-box-text">
+        <strong>Pyrophosphate = Two phosphate groups linked together</strong><br><br>
+        
+        Released during:<br>
+        • DNA/RNA synthesis (when nucleotides join)<br>
+        • ATP formation (AMP + PPᵢ → ATP)<br>
+        • Many biosynthetic reactions<br><br>
+        
+        <strong>Why it matters:</strong> Pyrophosphate hydrolysis is highly exergonic (releases energy), making reactions irreversible and driving biosynthesis forward.
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-box-title">⚡ The ATP-Nucleotide Connection</div>
+      <div class="info-box-text">
+        <strong>ATP is BOTH:</strong><br>
+        1. An energy currency (what we usually think of)<br>
+        2. A nucleotide building block for RNA<br><br>
+        
+        When ATP is incorporated into RNA, it's no longer storing energy — it's genetic information. The cell uses the SAME molecule for two completely different purposes!
+      </div>
+    </div>
+
+    <div style="background: #f9f9f9; padding: 24px; border-radius: 10px; margin-top: 24px;">
+      <h3 style="font-size: 16px; margin-bottom: 16px; color: #2c2c2a;">Quick Reference: What Goes Where?</h3>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+        <div>
+          <div style="font-weight: 600; color: #D85A30; margin-bottom: 8px;">Contains Adenosine:</div>
+          <div style="font-size: 13px; color: #5f5e5a;">
+            ATP, ADP, AMP, cAMP, NAD⁺, FAD, CoA, RNA (as "A")
+          </div>
+        </div>
+        
+        <div>
+          <div style="font-weight: 600; color: #7F77DD; margin-bottom: 8px;">Energy Molecules:</div>
+          <div style="font-size: 13px; color: #5f5e5a;">
+            ATP, ADP, AMP (NOT cAMP!), GTP, NADH, FADH₂
+          </div>
+        </div>
+        
+        <div>
+          <div style="font-weight: 600; color: #1D9E75; margin-bottom: 8px;">Signaling Molecules:</div>
+          <div style="font-size: 13px; color: #5f5e5a;">
+            cAMP, cGMP, Ca²⁺, IP₃, DAG
+          </div>
+        </div>
+        
+        <div>
+          <div style="font-weight: 600; color: #378ADD; margin-bottom: 8px;">Neurotransmitters:</div>
+          <div style="font-size: 13px; color: #5f5e5a;">
+            ACh (acetylcholine), GABA, Dopamine, Serotonin
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showView(viewName) {
+  document.querySelectorAll('.view-section').forEach(section => {
+    section.classList.remove('active');
+  });
+  
+  document.getElementById(viewName + '-view').classList.add('active');
+  
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+}
+
+const molecules = {
+  adenosine: {
+    parts: ['Adenine', 'Ribose'],
+    name: 'Adenosine',
+    function: 'Base structure: adenine base + ribose sugar. Foundation for all adenine nucleotides.'
+  },
+  AMP: {
+    parts: ['Adenine', 'Ribose', 'P'],
+    name: 'AMP (Adenosine Monophosphate)',
+    function: 'Low energy nucleotide. Signals low cellular energy. Component of RNA. Activates AMPK.'
+  },
+  ADP: {
+    parts: ['Adenine', 'Ribose', 'P', 'P'],
+    name: 'ADP (Adenosine Diphosphate)',
+    function: 'Intermediate energy state. Product when ATP loses one phosphate. Can be recharged to ATP.'
+  },
+  ATP: {
+    parts: ['Adenine', 'Ribose', 'P', 'P', 'P'],
+    name: 'ATP (Adenosine Triphosphate)',
+    function: 'The energy currency! High-energy phosphate bonds store ~7.3 kcal/mol. Powers cellular work.'
+  },
+  cAMP: {
+    parts: ['Adenine', 'Ribose', 'P (cyclic)'],
+    name: 'cAMP (Cyclic AMP)',
+    function: 'Second messenger in cell signaling. NOT for energy! Mediates hormone responses. The phosphate forms a ring with the ribose.'
+  }
+};
+
+function buildMolecule(type) {
+  const molecule = molecules[type];
+  const display = document.getElementById('molecule-display');
+  const nameEl = document.getElementById('molecule-name');
+  const funcEl = document.getElementById('molecule-function');
+  
+  display.innerHTML = '';
+  
+  molecule.parts.forEach((part, index) => {
+    if (index > 0) {
+      const plus = document.createElement('span');
+      plus.className = 'plus-sign';
+      plus.textContent = '+';
+      display.appendChild(plus);
+    }
+    
+    const partEl = document.createElement('div');
+    partEl.className = 'molecule-part';
+    
+    if (part === 'Adenine') {
+      partEl.classList.add('adenosine-base');
+      partEl.textContent = 'Adenine';
+    } else if (part === 'Ribose') {
+      partEl.classList.add('ribose');
+      partEl.textContent = 'Ribose';
+    } else if (part.includes('P')) {
+      partEl.classList.add('phosphate-group');
+      partEl.textContent = part;
+    }
+    
+    display.appendChild(partEl);
+  });
+  
+  nameEl.textContent = molecule.name;
+  funcEl.textContent = molecule.function;
+}
+
+function showNucleotideInfo(base) {
+  const info = {
+    'A': 'Adenine - Purine (double-ring). Pairs with T in DNA, U in RNA. Found in ATP, NAD+, FAD, CoA.',
+    'T': 'Thymine - Pyrimidine (single-ring). Only in DNA. Pairs with A.',
+    'U': 'Uracil - Pyrimidine (single-ring). Only in RNA. Pairs with A. Replaces thymine.',
+    'G': 'Guanine - Purine (double-ring). Pairs with C. Found in GTP (also an energy molecule).',
+    'C': 'Cytosine - Pyrimidine (single-ring). Pairs with G.'
+  };
+  
+  alert(info[base]);
+}
+
+// Initialize with adenosine
+buildMolecule('adenosine');
+</script>
+
+</body>
+</html>

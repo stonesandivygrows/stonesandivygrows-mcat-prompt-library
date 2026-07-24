@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Captain Hook MCAT Biology Mind Map</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e8e8f0;height:100vh;overflow:hidden}
+#toolbar{position:fixed;top:0;left:0;right:0;height:48px;background:#1a1d2e;border-bottom:1px solid #2a2d42;display:flex;align-items:center;gap:8px;padding:0 16px;z-index:100}
+#toolbar h1{font-size:14px;font-weight:600;color:#c8caf0;margin-right:8px;white-space:nowrap}
+.tb-btn{background:#23263a;border:1px solid #2a2d42;color:#a0a2c0;font-size:12px;padding:5px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all .15s}
+.tb-btn:hover{background:#2d3050;color:#e0e2f0;border-color:#4a4d70}
+.tb-btn.active{background:#3d4070;color:#c0c4ff;border-color:#5a5eaa}
+#search-wrap{margin-left:auto;display:flex;align-items:center;gap:6px}
+#search{background:#23263a;border:1px solid #2a2d42;color:#e0e2f0;font-size:12px;padding:5px 10px;border-radius:6px;width:180px;outline:none}
+#search:focus{border-color:#5a5eaa}
+#search::placeholder{color:#555870}
+#canvas-wrap{position:fixed;top:48px;left:0;right:0;bottom:0;overflow:hidden;cursor:grab}
+#canvas-wrap.grabbing{cursor:grabbing}
+#canvas{position:absolute;transform-origin:0 0}
+
+/* Node styles */
+.node{position:absolute;user-select:none}
+.node-box{border-radius:8px;cursor:pointer;transition:box-shadow .15s,transform .15s;position:relative}
+.node-box:hover{transform:translateY(-1px)}
+
+/* Level colors */
+.lv2 .node-box{background:#1e2240;border:1.5px solid #4a4eaa;color:#b8bcff;font-size:13px;font-weight:600;padding:8px 14px;min-width:180px;max-width:220px;text-align:center}
+.lv2 .node-box:hover{box-shadow:0 0 12px #4a4eaa88;border-color:#7a7ecc}
+.lv3 .node-box{background:#1a2330;border:1px solid #2a5060;color:#7ecfea;font-size:12px;font-weight:500;padding:6px 12px;min-width:140px;max-width:190px}
+.lv3 .node-box:hover{box-shadow:0 0 8px #2a506080;border-color:#4a7090}
+.lv4 .node-box{background:#1a2220;border:1px solid #1e4030;color:#7ecfa0;font-size:11px;padding:5px 10px;min-width:120px;max-width:170px}
+.lv4 .node-box:hover{box-shadow:0 0 6px #1e403060}
+.lv5 .node-box{background:#1e1e28;border:1px solid #3a2a50;color:#c0a0e0;font-size:11px;padding:4px 9px;min-width:100px;max-width:160px}
+
+.node-box.collapsed::after{content:'▸';position:absolute;right:6px;top:50%;transform:translateY(-50%);opacity:.6;font-size:10px}
+.node-box.expanded::after{content:'▾';position:absolute;right:6px;top:50%;transform:translateY(-50%);opacity:.6;font-size:10px}
+
+.node-box.editing{outline:2px solid #7a7ecc;background:#22254a}
+.node-box[contenteditable=true]{cursor:text}
+
+.node-box.highlight{box-shadow:0 0 0 2px #ffd700 !important;border-color:#ffd700 !important}
+
+/* SVG connector layer */
+#connectors{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
+.conn{stroke:#2a3050;stroke-width:1.5;fill:none;opacity:.7}
+.conn.lv2{stroke:#3a3e7a;stroke-width:2}
+.conn.lv3{stroke:#2a5060;stroke-width:1.5}
+.conn.lv4{stroke:#1e4030;stroke-width:1}
+.conn.lv5{stroke:#3a2a50;stroke-width:1}
+
+/* Add node button */
+.add-child{display:none;position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);background:#3d4070;border:1px solid #5a5eaa;color:#c0c4ff;font-size:10px;padding:2px 7px;border-radius:10px;cursor:pointer;z-index:10;white-space:nowrap}
+.node:hover .add-child{display:block}
+.add-child:hover{background:#4d5090}
+
+#hint{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);font-size:11px;color:#444870;pointer-events:none;white-space:nowrap}
+</style>
+</head>
+<body>
+<div id="toolbar">
+  <h1>🧬 MCAT Biology</h1>
+  <button class="tb-btn" onclick="expandAll()">Expand all</button>
+  <button class="tb-btn" onclick="collapseAll()">Collapse all</button>
+  <button class="tb-btn" onclick="resetView()">Reset view</button>
+  <button class="tb-btn" id="editToggle" onclick="toggleEdit()">✏️ Edit mode</button>
+  <button class="tb-btn" onclick="exportMD()">⬇ Export .md</button>
+  <div id="search-wrap">
+    <input id="search" type="text" placeholder="Search nodes…" oninput="doSearch(this.value)">
+  </div>
+</div>
+
+<div id="canvas-wrap">
+  <svg id="connectors"></svg>
+  <div id="canvas"></div>
+</div>
+<div id="hint">Scroll to zoom · Drag to pan · Click node to expand/collapse · Double-click to edit</div>
+
+<script>
+const TREE = {"text": "Captain Hook MCAT Biology 🧬🧠", "children": [{"text": "Endocrine System & Cell Signaling  🧪", "children": [{"text": "Core signaling principles", "children": [{"text": "Hormones bind target receptors", "children": [], "level": 4, "id": "n3"}, {"text": "Second messengers: cAMP, IP3, Ca²⁺", "children": [], "level": 4, "id": "n4"}, {"text": "Amplification increases signal intensity", "children": [], "level": 4, "id": "n5"}, {"text": "Negative feedback inhibits earlier pathway steps", "children": [], "level": 4, "id": "n6"}, {"text": "Positive feedback reinforces its own production", "children": [], "level": 4, "id": "n7"}], "level": 3, "id": "n2"}, {"text": "Hormone classes", "children": [{"text": "Peptide hormones: surface receptors, second messengers", "children": [], "level": 4, "id": "n9"}, {"text": "Steroid hormones: intracellular receptors, gene transcription", "children": [], "level": 4, "id": "n10"}, {"text": "Amino acid derivatives: peptide-like or steroid-like", "children": [], "level": 4, "id": "n11"}, {"text": "Water-soluble hormones travel freely in blood", "children": [], "level": 4, "id": "n12"}, {"text": "Lipid-soluble hormones need carrier proteins", "children": [], "level": 4, "id": "n13"}], "level": 3, "id": "n8"}, {"text": "Hypothalamus–pituitary axis", "children": [{"text": "Hypothalamus controls pituitary", "children": [], "level": 4, "id": "n15"}, {"text": "Portal system: two capillary beds in series", "children": [], "level": 4, "id": "n16"}, {"text": "Hypothalamic hormones", "children": [{"text": "GnRH → FSH, LH", "children": [], "level": 5, "id": "n18"}, {"text": "GHRH → GH", "children": [], "level": 5, "id": "n19"}, {"text": "TRH → TSH, prolactin", "children": [], "level": 5, "id": "n20"}, {"text": "CRH → ACTH", "children": [], "level": 5, "id": "n21"}, {"text": "Dopamine inhibits prolactin", "children": [], "level": 5, "id": "n22"}], "level": 4, "id": "n17"}, {"text": "Anterior pituitary: FLAT PEG", "children": [{"text": "FLAT: FSH, LH, ACTH, TSH are tropic", "children": [], "level": 5, "id": "n24"}, {"text": "PEG: Prolactin, Endorphins, GH are direct", "children": [], "level": 5, "id": "n25"}], "level": 4, "id": "n23"}, {"text": "Posterior pituitary stores/releases ADH and oxytocin", "children": [], "level": 4, "id": "n26"}], "level": 3, "id": "n14"}, {"text": "Major endocrine organs", "children": [{"text": "Thyroid", "children": [{"text": "T3/T4 from follicular cells", "children": [], "level": 5, "id": "n29"}, {"text": "Regulates metabolic rate", "children": [], "level": 5, "id": "n30"}, {"text": "Calcitonin lowers blood Ca²⁺", "children": [], "level": 5, "id": "n31"}], "level": 4, "id": "n28"}, {"text": "Parathyroid", "children": [{"text": "PTH raises blood Ca²⁺", "children": [], "level": 5, "id": "n33"}, {"text": "Activates vitamin D", "children": [], "level": 5, "id": "n34"}, {"text": "Increases gut Ca²⁺ absorption", "children": [], "level": 5, "id": "n35"}, {"text": "Increases osteoclast-mediated Ca²⁺ release", "children": [], "level": 5, "id": "n36"}, {"text": "Decreases renal Ca²⁺ excretion", "children": [], "level": 5, "id": "n37"}], "level": 4, "id": "n32"}, {"text": "Adrenal cortex", "children": [{"text": "Corticosteroids: aldosterone, cortisol", "children": [], "level": 5, "id": "n39"}, {"text": "Aldosterone increases Na⁺ and water reabsorption", "children": [], "level": 5, "id": "n40"}, {"text": "Cortisol raises blood glucose and reduces inflammation", "children": [], "level": 5, "id": "n41"}], "level": 4, "id": "n38"}, {"text": "Adrenal medulla", "children": [{"text": "Epinephrine", "children": [], "level": 5, "id": "n43"}, {"text": "Norepinephrine", "children": [], "level": 5, "id": "n44"}, {"text": "Fight-or-flight response", "children": [], "level": 5, "id": "n45"}], "level": 4, "id": "n42"}, {"text": "Pancreas", "children": [{"text": "Beta cells secrete insulin", "children": [], "level": 5, "id": "n47"}, {"text": "Alpha cells secrete glucagon", "children": [], "level": 5, "id": "n48"}, {"text": "Delta cells secrete somatostatin", "children": [], "level": 5, "id": "n49"}], "level": 4, "id": "n46"}, {"text": "Pineal gland secretes melatonin", "children": [], "level": 4, "id": "n50"}, {"text": "Thymus secretes thymosin for T-cell maturation", "children": [], "level": 4, "id": "n51"}], "level": 3, "id": "n27"}, {"text": "Fluid, glucose, and calcium control", "children": [{"text": "ADH", "children": [{"text": "Inserts aquaporins in collecting duct", "children": [], "level": 5, "id": "n54"}, {"text": "Reabsorbs water alone", "children": [], "level": 5, "id": "n55"}, {"text": "Increases blood volume", "children": [], "level": 5, "id": "n56"}, {"text": "Dilutes blood and concentrates urine", "children": [], "level": 5, "id": "n57"}], "level": 4, "id": "n53"}, {"text": "Aldosterone", "children": [{"text": "Acts at DCT and collecting duct", "children": [], "level": 5, "id": "n59"}, {"text": "Reabsorbs Na⁺; water follows", "children": [], "level": 5, "id": "n60"}, {"text": "Secretes K⁺ and H⁺", "children": [], "level": 5, "id": "n61"}, {"text": "Raises blood volume without changing osmolarity", "children": [], "level": 5, "id": "n62"}], "level": 4, "id": "n58"}, {"text": "ANP", "children": [{"text": "Secreted by cardiac atria", "children": [], "level": 5, "id": "n64"}, {"text": "Responds to excess blood volume", "children": [], "level": 5, "id": "n65"}, {"text": "Promotes Na⁺ secretion", "children": [], "level": 5, "id": "n66"}, {"text": "Antagonizes aldosterone", "children": [], "level": 5, "id": "n67"}], "level": 4, "id": "n63"}, {"text": "Insulin lowers blood glucose", "children": [{"text": "Promotes glucose uptake", "children": [], "level": 5, "id": "n69"}, {"text": "Stores glucose as glycogen", "children": [], "level": 5, "id": "n70"}, {"text": "Promotes fat and protein synthesis", "children": [], "level": 5, "id": "n71"}], "level": 4, "id": "n68"}, {"text": "Glucagon raises blood glucose", "children": [{"text": "Glycogenolysis", "children": [], "level": 5, "id": "n73"}, {"text": "Gluconeogenesis", "children": [], "level": 5, "id": "n74"}, {"text": "Protein and fat degradation", "children": [], "level": 5, "id": "n75"}], "level": 4, "id": "n72"}], "level": 3, "id": "n52"}], "level": 2, "id": "n1"}, {"text": "Reproduction, Meiosis & Genetics  🧬", "children": [{"text": "Meiosis and genetic diversity", "children": [{"text": "Anaphase I: homolog separation → law of segregation", "children": [], "level": 4, "id": "n78"}, {"text": "Metaphase I: random homolog alignment → independent assortment", "children": [], "level": 4, "id": "n79"}, {"text": "Prophase I: crossing over and recombination", "children": [], "level": 4, "id": "n80"}, {"text": "Linked genes inherited together more often", "children": [], "level": 4, "id": "n81"}, {"text": "Segregation and assortment increase offspring diversity", "children": [], "level": 4, "id": "n82"}], "level": 3, "id": "n77"}, {"text": "Mendelian genetics", "children": [{"text": "Law of segregation: gametes receive one allele", "children": [], "level": 4, "id": "n84"}, {"text": "Law of independent assortment: unlinked traits assort separately", "children": [], "level": 4, "id": "n85"}, {"text": "Linked genes are exception to full independence", "children": [], "level": 4, "id": "n86"}, {"text": "Codominance: ABO blood groups", "children": [], "level": 4, "id": "n87"}, {"text": "Recessive allele i gives O blood type", "children": [], "level": 4, "id": "n88"}], "level": 3, "id": "n83"}, {"text": "Female reproductive physiology", "children": [{"text": "Estrogen", "children": [{"text": "Female secondary sex characteristics", "children": [], "level": 5, "id": "n91"}, {"text": "Female reproductive tract development", "children": [], "level": 5, "id": "n92"}, {"text": "Builds endometrium", "children": [], "level": 5, "id": "n93"}], "level": 4, "id": "n90"}, {"text": "Follicular phase", "children": [{"text": "Estrogen and progesterone fall", "children": [], "level": 5, "id": "n95"}, {"text": "GnRH disinhibited", "children": [], "level": 5, "id": "n96"}, {"text": "FSH and LH rise", "children": [], "level": 5, "id": "n97"}, {"text": "Follicles grow", "children": [], "level": 5, "id": "n98"}], "level": 4, "id": "n94"}, {"text": "Ovulation", "children": [{"text": "High estrogen causes positive feedback", "children": [], "level": 5, "id": "n100"}, {"text": "GnRH increases", "children": [], "level": 5, "id": "n101"}, {"text": "LH surge triggers ovulation", "children": [], "level": 5, "id": "n102"}], "level": 4, "id": "n99"}, {"text": "No implantation", "children": [{"text": "LH falls", "children": [], "level": 5, "id": "n104"}, {"text": "Corpus luteum stops progesterone", "children": [], "level": 5, "id": "n105"}, {"text": "Endometrium sloughs", "children": [], "level": 5, "id": "n106"}, {"text": "Cycle restarts", "children": [], "level": 5, "id": "n107"}], "level": 4, "id": "n103"}], "level": 3, "id": "n89"}, {"text": "Male reproductive physiology", "children": [{"text": "Testes: seminiferous tubules and Leydig cells", "children": [], "level": 4, "id": "n109"}, {"text": "Sperm development", "children": [{"text": "Spermatogonium", "children": [], "level": 5, "id": "n111"}, {"text": "Primary spermatocyte", "children": [], "level": 5, "id": "n112"}, {"text": "Secondary spermatocyte", "children": [], "level": 5, "id": "n113"}, {"text": "Spermatid", "children": [], "level": 5, "id": "n114"}, {"text": "Spermatozoa", "children": [], "level": 5, "id": "n115"}], "level": 4, "id": "n110"}, {"text": "FSH supports spermatogenesis", "children": [], "level": 4, "id": "n116"}, {"text": "LH stimulates testosterone via Leydig cells", "children": [], "level": 4, "id": "n117"}], "level": 3, "id": "n108"}, {"text": "Fertilization and early development", "children": [{"text": "Oocyte coverings: zona pellucida and corona radiata", "children": [], "level": 4, "id": "n119"}, {"text": "Cleavage: rapid mitotic divisions after fertilization", "children": [], "level": 4, "id": "n120"}, {"text": "Zygote → morula → blastula → gastrula", "children": [], "level": 4, "id": "n121"}, {"text": "Implantation depends on hormonal support", "children": [], "level": 4, "id": "n122"}], "level": 3, "id": "n118"}], "level": 2, "id": "n76"}, {"text": "Evolution & Population Genetics  🌿", "children": [{"text": "Natural selection", "children": [{"text": "Stabilizing selection", "children": [], "level": 4, "id": "n125"}, {"text": "Directional selection", "children": [], "level": 4, "id": "n126"}, {"text": "Disruptive selection", "children": [], "level": 4, "id": "n127"}, {"text": "Fitness depends on environment", "children": [], "level": 4, "id": "n128"}, {"text": "Selection changes allele frequencies", "children": [], "level": 4, "id": "n129"}], "level": 3, "id": "n124"}, {"text": "Genetic drift", "children": [{"text": "Random allele-frequency change", "children": [], "level": 4, "id": "n131"}, {"text": "Stronger in small populations", "children": [], "level": 4, "id": "n132"}, {"text": "Founder effect: small isolated population", "children": [], "level": 4, "id": "n133"}, {"text": "Bottleneck effect: sudden population reduction", "children": [], "level": 4, "id": "n134"}], "level": 3, "id": "n130"}, {"text": "Speciation and evolutionary tempo", "children": [{"text": "Reproductive isolation enables divergence", "children": [], "level": 4, "id": "n136"}, {"text": "Gradualism: slow change over time", "children": [], "level": 4, "id": "n137"}, {"text": "Punctuated equilibrium: short bursts after pressure changes", "children": [], "level": 4, "id": "n138"}, {"text": "Fossil record supports variable tempo", "children": [], "level": 4, "id": "n139"}], "level": 3, "id": "n135"}, {"text": "Hardy–Weinberg frame", "children": [{"text": "No mutation", "children": [], "level": 4, "id": "n141"}, {"text": "No migration", "children": [], "level": 4, "id": "n142"}, {"text": "No selection", "children": [], "level": 4, "id": "n143"}, {"text": "Large population", "children": [], "level": 4, "id": "n144"}, {"text": "Random mating", "children": [], "level": 4, "id": "n145"}, {"text": "Useful null model for evolution", "children": [], "level": 4, "id": "n146"}], "level": 3, "id": "n140"}], "level": 2, "id": "n123"}, {"text": "Immune & Lymphatic Systems  🛡️", "children": [{"text": "Lymphatic system functions", "children": [{"text": "Returns excess interstitial fluid", "children": [], "level": 4, "id": "n149"}, {"text": "Absorbs dietary fats via lacteals", "children": [], "level": 4, "id": "n150"}, {"text": "Filters lymph in lymph nodes", "children": [], "level": 4, "id": "n151"}, {"text": "Exposes immune cells to antigens", "children": [], "level": 4, "id": "n152"}], "level": 3, "id": "n148"}, {"text": "Innate immunity", "children": [{"text": "Nonspecific defense", "children": [], "level": 4, "id": "n154"}, {"text": "Granulocytes", "children": [{"text": "Neutrophils: pus-forming phagocytes", "children": [], "level": 5, "id": "n156"}, {"text": "Eosinophils: parasite defense", "children": [], "level": 5, "id": "n157"}, {"text": "Basophils: histamine release", "children": [], "level": 5, "id": "n158"}], "level": 4, "id": "n155"}, {"text": "Macrophages", "children": [{"text": "Phagocytosis", "children": [], "level": 5, "id": "n160"}, {"text": "Antigen presentation", "children": [], "level": 5, "id": "n161"}, {"text": "Cytokine release", "children": [], "level": 5, "id": "n162"}], "level": 4, "id": "n159"}, {"text": "Interferons: antiviral signaling", "children": [], "level": 4, "id": "n163"}], "level": 3, "id": "n153"}, {"text": "Adaptive immunity", "children": [{"text": "Humoral immunity: B cells and antibodies", "children": [], "level": 4, "id": "n165"}, {"text": "Cell-mediated immunity: T cells", "children": [], "level": 4, "id": "n166"}, {"text": "Antigens recognized as foreign proteins", "children": [], "level": 4, "id": "n167"}, {"text": "Primary response: slower first exposure", "children": [], "level": 4, "id": "n168"}, {"text": "Secondary response: fast memory response", "children": [], "level": 4, "id": "n169"}], "level": 3, "id": "n164"}, {"text": "MHC and antigen presentation", "children": [{"text": "MHC binds and displays antigen", "children": [], "level": 4, "id": "n171"}, {"text": "Exogenous pathway: extracellular antigen on MHC II", "children": [], "level": 4, "id": "n172"}, {"text": "Professional APCs: macrophages and dendritic cells", "children": [], "level": 4, "id": "n173"}, {"text": "MHC II activates CD4⁺ helper T cells", "children": [], "level": 4, "id": "n174"}, {"text": "Helper T cells activate B cells and cytotoxic T cells", "children": [], "level": 4, "id": "n175"}], "level": 3, "id": "n170"}, {"text": "T-cell functions", "children": [{"text": "Helper T cells coordinate immune response", "children": [], "level": 4, "id": "n177"}, {"text": "Cytotoxic T cells kill infected cells", "children": [], "level": 4, "id": "n178"}, {"text": "Memory T cells preserve antigen memory", "children": [], "level": 4, "id": "n179"}, {"text": "Regulatory T cells terminate response", "children": [], "level": 4, "id": "n180"}, {"text": "Positive selection keeps T cells that bind MHC", "children": [], "level": 4, "id": "n181"}], "level": 3, "id": "n176"}, {"text": "Active vs passive immunity", "children": [{"text": "Active immunity: exposure creates long-term memory", "children": [], "level": 4, "id": "n183"}, {"text": "Passive immunity: received antibodies", "children": [], "level": 4, "id": "n184"}, {"text": "Passive protection is immediate but temporary", "children": [], "level": 4, "id": "n185"}, {"text": "Examples: maternal antibodies, antibody injections", "children": [], "level": 4, "id": "n186"}], "level": 3, "id": "n182"}], "level": 2, "id": "n147"}, {"text": "Nervous System  ⚡", "children": [{"text": "System organization", "children": [{"text": "CNS: brain and spinal cord", "children": [], "level": 4, "id": "n189"}, {"text": "PNS: nerves outside CNS", "children": [], "level": 4, "id": "n190"}, {"text": "Somatic PNS: conscious control", "children": [], "level": 4, "id": "n191"}, {"text": "Autonomic PNS: unconscious control", "children": [], "level": 4, "id": "n192"}], "level": 3, "id": "n188"}, {"text": "Autonomic divisions", "children": [{"text": "Sympathetic: fight-or-flight", "children": [], "level": 4, "id": "n194"}, {"text": "Parasympathetic: rest-and-digest", "children": [], "level": 4, "id": "n195"}, {"text": "Parasympathetic stimulates digestive secretions", "children": [], "level": 4, "id": "n196"}, {"text": "Parasympathetic enhances peristalsis", "children": [], "level": 4, "id": "n197"}], "level": 3, "id": "n193"}, {"text": "Neuron structure and signaling", "children": [{"text": "Dendrites receive signals", "children": [], "level": 4, "id": "n199"}, {"text": "Axon conducts action potential", "children": [], "level": 4, "id": "n200"}, {"text": "Axon terminals release neurotransmitters", "children": [], "level": 4, "id": "n201"}, {"text": "Synapse uses neurotransmitter diffusion", "children": [], "level": 4, "id": "n202"}, {"text": "Postsynaptic cell is activated or inhibited", "children": [], "level": 4, "id": "n203"}], "level": 3, "id": "n198"}, {"text": "Action potentials", "children": [{"text": "Resting membrane potential", "children": [], "level": 4, "id": "n205"}, {"text": "Depolarization via Na⁺ influx", "children": [], "level": 4, "id": "n206"}, {"text": "Repolarization via K⁺ efflux", "children": [], "level": 4, "id": "n207"}, {"text": "Hyperpolarization and refractory period", "children": [], "level": 4, "id": "n208"}, {"text": "+35 mV triggers repolarization mechanisms", "children": [], "level": 4, "id": "n209"}], "level": 3, "id": "n204"}, {"text": "Glial cells and myelin", "children": [{"text": "Neurons are not the only nervous-system cells", "children": [], "level": 4, "id": "n211"}, {"text": "Oligodendrocytes myelinate CNS", "children": [], "level": 4, "id": "n212"}, {"text": "Schwann cells myelinate PNS", "children": [], "level": 4, "id": "n213"}, {"text": "Myelin increases conduction speed", "children": [], "level": 4, "id": "n214"}], "level": 3, "id": "n210"}], "level": 2, "id": "n187"}, {"text": "Digestive System  🍽️", "children": [{"text": "Core anatomy", "children": [{"text": "Alimentary canal: mouth to anus", "children": [], "level": 4, "id": "n217"}, {"text": "Oral cavity", "children": [], "level": 4, "id": "n218"}, {"text": "Pharynx", "children": [], "level": 4, "id": "n219"}, {"text": "Esophagus", "children": [], "level": 4, "id": "n220"}, {"text": "Stomach", "children": [], "level": 4, "id": "n221"}, {"text": "Small intestine", "children": [], "level": 4, "id": "n222"}, {"text": "Large intestine", "children": [], "level": 4, "id": "n223"}, {"text": "Rectum", "children": [], "level": 4, "id": "n224"}], "level": 3, "id": "n216"}, {"text": "Major processes", "children": [{"text": "Ingestion", "children": [], "level": 4, "id": "n226"}, {"text": "Mechanical digestion", "children": [], "level": 4, "id": "n227"}, {"text": "Chemical digestion", "children": [], "level": 4, "id": "n228"}, {"text": "Absorption", "children": [], "level": 4, "id": "n229"}, {"text": "Elimination", "children": [], "level": 4, "id": "n230"}], "level": 3, "id": "n225"}, {"text": "Extracellular digestion", "children": [{"text": "Breakdown occurs outside cells", "children": [], "level": 4, "id": "n232"}, {"text": "Occurs in digestive tract", "children": [], "level": 4, "id": "n233"}, {"text": "Nutrients are absorbed afterward", "children": [], "level": 4, "id": "n234"}], "level": 3, "id": "n231"}, {"text": "Motility and control", "children": [{"text": "Peristalsis: rhythmic GI contraction", "children": [], "level": 4, "id": "n236"}, {"text": "Propels food forward", "children": [], "level": 4, "id": "n237"}, {"text": "Sphincters divide canal sections", "children": [], "level": 4, "id": "n238"}, {"text": "Parasympathetic activity increases secretion and motility", "children": [], "level": 4, "id": "n239"}], "level": 3, "id": "n235"}, {"text": "Accessory organs", "children": [{"text": "Liver: bile production and metabolic processing", "children": [], "level": 4, "id": "n241"}, {"text": "Gallbladder: bile storage", "children": [], "level": 4, "id": "n242"}, {"text": "Pancreas: digestive enzymes and bicarbonate", "children": [], "level": 4, "id": "n243"}, {"text": "Salivary glands: lubrication and amylase", "children": [], "level": 4, "id": "n244"}], "level": 3, "id": "n240"}], "level": 2, "id": "n215"}, {"text": "Renal System & Acid–Base Balance  💧", "children": [{"text": "Kidney anatomy", "children": [{"text": "Hilum: entry and exit point", "children": [], "level": 4, "id": "n247"}, {"text": "Renal artery enters", "children": [], "level": 4, "id": "n248"}, {"text": "Renal vein exits", "children": [], "level": 4, "id": "n249"}, {"text": "Ureter exits", "children": [], "level": 4, "id": "n250"}, {"text": "Nephron is functional unit", "children": [], "level": 4, "id": "n251"}], "level": 3, "id": "n246"}, {"text": "Renal portal system", "children": [{"text": "Two capillary beds in series", "children": [], "level": 4, "id": "n253"}, {"text": "Glomerulus in Bowman’s capsule", "children": [], "level": 4, "id": "n254"}, {"text": "Vasa recta around nephron", "children": [], "level": 4, "id": "n255"}, {"text": "Supports filtration and reabsorption", "children": [], "level": 4, "id": "n256"}], "level": 3, "id": "n252"}, {"text": "Nephron processes", "children": [{"text": "Filtration at glomerulus", "children": [], "level": 4, "id": "n258"}, {"text": "Reabsorption returns useful solutes/water", "children": [], "level": 4, "id": "n259"}, {"text": "Secretion removes wastes and ions", "children": [], "level": 4, "id": "n260"}, {"text": "Excretion eliminates urine", "children": [], "level": 4, "id": "n261"}], "level": 3, "id": "n257"}, {"text": "Hormonal regulation", "children": [{"text": "RAAS responds to low blood pressure", "children": [], "level": 4, "id": "n263"}, {"text": "Renin cleaves angiotensinogen → angiotensin I", "children": [], "level": 4, "id": "n264"}, {"text": "ACE converts angiotensin I → angiotensin II", "children": [], "level": 4, "id": "n265"}, {"text": "Angiotensin II stimulates aldosterone", "children": [], "level": 4, "id": "n266"}, {"text": "Aldosterone raises blood volume", "children": [], "level": 4, "id": "n267"}, {"text": "ADH increases water reabsorption", "children": [], "level": 4, "id": "n268"}], "level": 3, "id": "n262"}, {"text": "Blood pressure and volume", "children": [{"text": "More water reabsorbed → higher blood volume", "children": [], "level": 4, "id": "n270"}, {"text": "Higher blood volume → higher blood pressure", "children": [], "level": 4, "id": "n271"}, {"text": "Less reabsorption → lower pressure", "children": [], "level": 4, "id": "n272"}, {"text": "ANP lowers blood volume", "children": [], "level": 4, "id": "n273"}], "level": 3, "id": "n269"}, {"text": "Acid–base regulation", "children": [{"text": "Kidneys secrete H⁺ or HCO₃⁻", "children": [], "level": 4, "id": "n275"}, {"text": "Corrects acidosis by excreting H⁺", "children": [], "level": 4, "id": "n276"}, {"text": "Corrects alkalosis by excreting HCO₃⁻", "children": [], "level": 4, "id": "n277"}, {"text": "Works with bicarbonate buffer system", "children": [], "level": 4, "id": "n278"}], "level": 3, "id": "n274"}], "level": 2, "id": "n245"}, {"text": "Respiratory System & Gas Transport  🫁", "children": [{"text": "Lung and alveolar function", "children": [{"text": "Alveoli are gas-exchange surfaces", "children": [], "level": 4, "id": "n281"}, {"text": "Surfactant lowers surface tension", "children": [], "level": 4, "id": "n282"}, {"text": "Prevents alveolar collapse during exhalation", "children": [], "level": 4, "id": "n283"}, {"text": "Gas dissolves according to partial pressure", "children": [], "level": 4, "id": "n284"}], "level": 3, "id": "n280"}, {"text": "Oxygen transport", "children": [{"text": "Less than 1% O₂ dissolves directly in blood", "children": [], "level": 4, "id": "n286"}, {"text": "Hemoglobin carries most O₂", "children": [], "level": 4, "id": "n287"}, {"text": "Hb saturation depends on tissue pO₂", "children": [], "level": 4, "id": "n288"}, {"text": "High lung pO₂ → high Hb saturation", "children": [], "level": 4, "id": "n289"}, {"text": "Low tissue pO₂ → O₂ unloading", "children": [], "level": 4, "id": "n290"}], "level": 3, "id": "n285"}, {"text": "Hemoglobin dissociation curve", "children": [{"text": "X-axis: pO₂", "children": [], "level": 4, "id": "n292"}, {"text": "Y-axis: Hb O₂ saturation", "children": [], "level": 4, "id": "n293"}, {"text": "Right shift: lower Hb affinity", "children": [], "level": 4, "id": "n294"}, {"text": "Right shift helps O₂ delivery to tissues", "children": [], "level": 4, "id": "n295"}, {"text": "Exercise: ↑CO₂, ↑H⁺, ↑temperature → right shift", "children": [], "level": 4, "id": "n296"}, {"text": "High altitude increases RBC production via EPO", "children": [], "level": 4, "id": "n297"}], "level": 3, "id": "n291"}, {"text": "Carbon dioxide transport", "children": [{"text": "CO₂ converted to bicarbonate in RBCs", "children": [], "level": 4, "id": "n299"}, {"text": "Carbonic anhydrase catalyzes reversible reaction", "children": [], "level": 4, "id": "n300"}, {"text": "Tissues: CO₂ → HCO₃⁻ for transport", "children": [], "level": 4, "id": "n301"}, {"text": "Lungs: HCO₃⁻ → CO₂ for exhalation", "children": [], "level": 4, "id": "n302"}], "level": 3, "id": "n298"}, {"text": "Respiratory acid–base compensation", "children": [{"text": "CO₂ + H₂O ⇌ H₂CO₃ ⇌ H⁺ + HCO₃⁻", "children": [], "level": 4, "id": "n304"}, {"text": "Low pH triggers increased respiration", "children": [], "level": 4, "id": "n305"}, {"text": "Exhaling CO₂ shifts buffer left", "children": [], "level": 4, "id": "n306"}, {"text": "H⁺ decreases and pH rises", "children": [], "level": 4, "id": "n307"}], "level": 3, "id": "n303"}], "level": 2, "id": "n279"}, {"text": "Cardiovascular System & Blood  ❤️", "children": [{"text": "System components", "children": [{"text": "Heart", "children": [], "level": 4, "id": "n310"}, {"text": "Blood vessels", "children": [], "level": 4, "id": "n311"}, {"text": "Blood", "children": [], "level": 4, "id": "n312"}], "level": 3, "id": "n309"}, {"text": "Heart chambers", "children": [{"text": "Atria receive incoming blood", "children": [], "level": 4, "id": "n314"}, {"text": "Atria send blood to ventricles", "children": [], "level": 4, "id": "n315"}, {"text": "Ventricles send blood to circuits", "children": [], "level": 4, "id": "n316"}, {"text": "Right ventricle → pulmonary circuit", "children": [], "level": 4, "id": "n317"}, {"text": "Left ventricle → systemic circuit", "children": [], "level": 4, "id": "n318"}, {"text": "Adult left ventricle is more muscular", "children": [], "level": 4, "id": "n319"}], "level": 3, "id": "n313"}, {"text": "Cardiac physiology", "children": [{"text": "Cardiac output = heart rate × stroke volume", "children": [], "level": 4, "id": "n321"}, {"text": "Intercalated discs contain gap junctions", "children": [], "level": 4, "id": "n322"}, {"text": "Gap junctions enable rapid signal spread", "children": [], "level": 4, "id": "n323"}, {"text": "Parallel vessel networks share pressure drop", "children": [], "level": 4, "id": "n324"}], "level": 3, "id": "n320"}, {"text": "Blood vessels and endothelium", "children": [{"text": "Endothelial cells line blood vessels", "children": [], "level": 4, "id": "n326"}, {"text": "Secrete vasodilators and vasoconstrictors", "children": [], "level": 4, "id": "n327"}, {"text": "Allow WBC passage during inflammation", "children": [], "level": 4, "id": "n328"}, {"text": "Release repair and clotting chemicals", "children": [], "level": 4, "id": "n329"}], "level": 3, "id": "n325"}, {"text": "Blood cells and clotting", "children": [{"text": "Erythrocytes carry hemoglobin", "children": [], "level": 4, "id": "n331"}, {"text": "Leukocytes defend against pathogens", "children": [], "level": 4, "id": "n332"}, {"text": "Platelets contribute to clotting", "children": [], "level": 4, "id": "n333"}, {"text": "Hemoglobin: g/dL measurement", "children": [], "level": 4, "id": "n334"}, {"text": "Hematocrit: percent RBC volume", "children": [], "level": 4, "id": "n335"}, {"text": "Clot endpoint: prothrombin → thrombin", "children": [], "level": 4, "id": "n336"}, {"text": "Thrombin converts fibrinogen → fibrin", "children": [], "level": 4, "id": "n337"}, {"text": "Fibrin net traps cells and platelets", "children": [], "level": 4, "id": "n338"}], "level": 3, "id": "n330"}, {"text": "ABO blood types", "children": [{"text": "A and B alleles are codominant", "children": [], "level": 4, "id": "n340"}, {"text": "i allele is recessive", "children": [], "level": 4, "id": "n341"}, {"text": "A antigen recognized by A blood", "children": [], "level": 4, "id": "n342"}, {"text": "B antigen recognized by B blood", "children": [], "level": 4, "id": "n343"}, {"text": "AB recognizes both A and B", "children": [], "level": 4, "id": "n344"}, {"text": "O has no A/B antigens", "children": [], "level": 4, "id": "n345"}], "level": 3, "id": "n339"}], "level": 2, "id": "n308"}, {"text": "Musculoskeletal System  💪", "children": [{"text": "Muscle types", "children": [{"text": "Skeletal muscle: voluntary, striated", "children": [], "level": 4, "id": "n348"}, {"text": "Cardiac muscle: involuntary, striated", "children": [], "level": 4, "id": "n349"}, {"text": "Smooth muscle: involuntary, nonstriated", "children": [], "level": 4, "id": "n350"}, {"text": "All muscle contraction relies on Ca²⁺", "children": [], "level": 4, "id": "n351"}], "level": 3, "id": "n347"}, {"text": "Skeletal muscle contraction sequence", "children": [{"text": "ACh triggers sarcolemma depolarization", "children": [], "level": 4, "id": "n353"}, {"text": "Action potential travels through T-tubules", "children": [], "level": 4, "id": "n354"}, {"text": "Sarcoplasmic reticulum releases Ca²⁺", "children": [], "level": 4, "id": "n355"}, {"text": "Ca²⁺ binds troponin", "children": [], "level": 4, "id": "n356"}, {"text": "Tropomyosin shifts away from actin sites", "children": [], "level": 4, "id": "n357"}, {"text": "Myosin binds actin", "children": [], "level": 4, "id": "n358"}, {"text": "Power stroke pulls actin toward M-line", "children": [], "level": 4, "id": "n359"}, {"text": "ATP binds myosin to detach", "children": [], "level": 4, "id": "n360"}, {"text": "ATP hydrolysis recocks myosin", "children": [], "level": 4, "id": "n361"}, {"text": "Ca²⁺ removal relaxes muscle", "children": [], "level": 4, "id": "n362"}], "level": 3, "id": "n352"}, {"text": "Bone and calcium", "children": [{"text": "Calcium supports bone structure", "children": [], "level": 4, "id": "n364"}, {"text": "Osteoclasts release calcium from bone", "children": [], "level": 4, "id": "n365"}, {"text": "Calcitonin inhibits osteoclast activity", "children": [], "level": 4, "id": "n366"}, {"text": "PTH increases calcium release and absorption", "children": [], "level": 4, "id": "n367"}, {"text": "Vitamin D supports gut absorption", "children": [], "level": 4, "id": "n368"}], "level": 3, "id": "n363"}, {"text": "Cytoskeleton connection", "children": [{"text": "Actin microfilaments generate force with myosin", "children": [], "level": 4, "id": "n370"}, {"text": "Microfilaments support cleavage furrow", "children": [], "level": 4, "id": "n371"}, {"text": "Intermediate filaments resist tension", "children": [], "level": 4, "id": "n372"}, {"text": "Keratin, desmin, lamin are examples", "children": [], "level": 4, "id": "n373"}], "level": 3, "id": "n369"}], "level": 2, "id": "n346"}, {"text": "Developmental Biology  🐣", "children": [{"text": "Early embryogenesis", "children": [{"text": "Cleavage: rapid mitotic divisions", "children": [], "level": 4, "id": "n376"}, {"text": "Blastula forms hollow structure", "children": [], "level": 4, "id": "n377"}, {"text": "Gastrulation folds blastula inward", "children": [], "level": 4, "id": "n378"}, {"text": "Gastrula creates layered structure", "children": [], "level": 4, "id": "n379"}], "level": 3, "id": "n375"}, {"text": "Germ layers", "children": [{"text": "Ectoderm", "children": [{"text": "Skin outer layer", "children": [], "level": 5, "id": "n382"}, {"text": "Nervous system", "children": [], "level": 5, "id": "n383"}, {"text": "Sensory structures", "children": [], "level": 5, "id": "n384"}], "level": 4, "id": "n381"}, {"text": "Mesoderm", "children": [{"text": "Musculoskeletal system", "children": [], "level": 5, "id": "n386"}, {"text": "Circulatory system and heart", "children": [], "level": 5, "id": "n387"}, {"text": "Kidneys", "children": [], "level": 5, "id": "n388"}, {"text": "Gonads", "children": [], "level": 5, "id": "n389"}, {"text": "Spleen", "children": [], "level": 5, "id": "n390"}, {"text": "Adrenal cortex", "children": [], "level": 5, "id": "n391"}], "level": 4, "id": "n385"}, {"text": "Endoderm", "children": [{"text": "Digestive tract epithelial lining", "children": [], "level": 5, "id": "n393"}, {"text": "Lungs", "children": [], "level": 5, "id": "n394"}, {"text": "Pancreas", "children": [], "level": 5, "id": "n395"}, {"text": "Thyroid", "children": [], "level": 5, "id": "n396"}, {"text": "Bladder", "children": [], "level": 5, "id": "n397"}, {"text": "Liver", "children": [], "level": 5, "id": "n398"}], "level": 4, "id": "n392"}], "level": 3, "id": "n380"}, {"text": "Cell fate", "children": [{"text": "Same DNA can produce different cells", "children": [], "level": 4, "id": "n400"}, {"text": "Differentiation depends on gene expression", "children": [], "level": 4, "id": "n401"}, {"text": "Determination caused by asymmetric products", "children": [], "level": 4, "id": "n402"}, {"text": "Inductive signals influence fate", "children": [], "level": 4, "id": "n403"}], "level": 3, "id": "n399"}, {"text": "Stem cells", "children": [{"text": "Undifferentiated cells", "children": [], "level": 4, "id": "n405"}, {"text": "Give rise to differentiating cells", "children": [], "level": 4, "id": "n406"}, {"text": "Totipotent", "children": [], "level": 4, "id": "n407"}, {"text": "Pluripotent", "children": [], "level": 4, "id": "n408"}, {"text": "Multipotent", "children": [], "level": 4, "id": "n409"}], "level": 3, "id": "n404"}], "level": 2, "id": "n374"}, {"text": "Cell Biology & Molecular Foundations  🔬", "children": [{"text": "Cell organization", "children": [{"text": "Nucleus stores genetic information", "children": [], "level": 4, "id": "n412"}, {"text": "Ribosomes synthesize proteins", "children": [], "level": 4, "id": "n413"}, {"text": "Rough ER handles secreted/membrane proteins", "children": [], "level": 4, "id": "n414"}, {"text": "Smooth ER handles lipids and detoxification", "children": [], "level": 4, "id": "n415"}, {"text": "Golgi modifies, sorts, and ships", "children": [], "level": 4, "id": "n416"}, {"text": "Mitochondria produce ATP", "children": [], "level": 4, "id": "n417"}, {"text": "Lysosomes digest cellular material", "children": [], "level": 4, "id": "n418"}], "level": 3, "id": "n411"}, {"text": "Membranes and transport", "children": [{"text": "Phospholipid bilayer creates selective barrier", "children": [], "level": 4, "id": "n420"}, {"text": "Simple diffusion follows gradients", "children": [], "level": 4, "id": "n421"}, {"text": "Facilitated diffusion uses proteins", "children": [], "level": 4, "id": "n422"}, {"text": "Active transport uses energy", "children": [], "level": 4, "id": "n423"}, {"text": "Endocytosis brings material in", "children": [], "level": 4, "id": "n424"}, {"text": "Exocytosis releases material", "children": [], "level": 4, "id": "n425"}], "level": 3, "id": "n419"}, {"text": "Cytoskeleton", "children": [{"text": "Microfilaments: actin, force, cleavage furrow", "children": [], "level": 4, "id": "n427"}, {"text": "Intermediate filaments: tension resistance", "children": [], "level": 4, "id": "n428"}, {"text": "Microtubules: transport and spindle organization", "children": [], "level": 4, "id": "n429"}, {"text": "Centrosome is microtubule-organizing center", "children": [], "level": 4, "id": "n430"}, {"text": "Centromere is chromosome region, not centrosome", "children": [], "level": 4, "id": "n431"}], "level": 3, "id": "n426"}, {"text": "Cell surface structures", "children": [{"text": "Cilia move material along cell surface", "children": [], "level": 4, "id": "n433"}, {"text": "Respiratory cilia move mucus", "children": [], "level": 4, "id": "n434"}, {"text": "Flagella move cells", "children": [], "level": 4, "id": "n435"}, {"text": "Cell junctions coordinate tissue structure", "children": [], "level": 4, "id": "n436"}], "level": 3, "id": "n432"}, {"text": "Cell cycle and division", "children": [{"text": "Mitosis produces genetically identical cells", "children": [], "level": 4, "id": "n438"}, {"text": "Meiosis produces gametes", "children": [], "level": 4, "id": "n439"}, {"text": "Crossing over creates recombination", "children": [], "level": 4, "id": "n440"}, {"text": "Cytokinesis separates daughter cells", "children": [], "level": 4, "id": "n441"}], "level": 3, "id": "n437"}], "level": 2, "id": "n410"}, {"text": "Integrated Homeostasis Themes  🔁", "children": [{"text": "Blood volume regulation", "children": [{"text": "Low BP → RAAS → aldosterone → volume rises", "children": [], "level": 4, "id": "n444"}, {"text": "High volume → ANP → Na⁺ excretion → volume falls", "children": [], "level": 4, "id": "n445"}, {"text": "ADH adjusts water retention", "children": [], "level": 4, "id": "n446"}], "level": 3, "id": "n443"}, {"text": "Osmolarity regulation", "children": [{"text": "ADH reabsorbs water alone → dilution", "children": [], "level": 4, "id": "n448"}, {"text": "Aldosterone reabsorbs Na⁺ and water → osmolarity maintained", "children": [], "level": 4, "id": "n449"}, {"text": "Kidney controls solute and water balance", "children": [], "level": 4, "id": "n450"}], "level": 3, "id": "n447"}, {"text": "Calcium balance", "children": [{"text": "PTH raises blood Ca²⁺", "children": [], "level": 4, "id": "n452"}, {"text": "Calcitonin lowers blood Ca²⁺", "children": [], "level": 4, "id": "n453"}, {"text": "Vitamin D increases gut absorption", "children": [], "level": 4, "id": "n454"}, {"text": "Bone, kidney, and gut coordinate response", "children": [], "level": 4, "id": "n455"}], "level": 3, "id": "n451"}, {"text": "Blood glucose balance", "children": [{"text": "Insulin lowers glucose after feeding", "children": [], "level": 4, "id": "n457"}, {"text": "Glucagon raises glucose during fasting", "children": [], "level": 4, "id": "n458"}, {"text": "Cortisol raises glucose during stress", "children": [], "level": 4, "id": "n459"}, {"text": "Somatostatin inhibits insulin and glucagon", "children": [], "level": 4, "id": "n460"}], "level": 3, "id": "n456"}, {"text": "pH balance", "children": [{"text": "Respiratory system changes CO₂", "children": [], "level": 4, "id": "n462"}, {"text": "Kidneys secrete H⁺ or HCO₃⁻", "children": [], "level": 4, "id": "n463"}, {"text": "Carbonic anhydrase links CO₂ transport and pH", "children": [], "level": 4, "id": "n464"}, {"text": "Bicarbonate buffer is central", "children": [], "level": 4, "id": "n465"}], "level": 3, "id": "n461"}, {"text": "Immune regulation", "children": [{"text": "Innate response activates adaptive response", "children": [], "level": 4, "id": "n467"}, {"text": "MHC presentation guides specificity", "children": [], "level": 4, "id": "n468"}, {"text": "Memory cells strengthen secondary response", "children": [], "level": 4, "id": "n469"}, {"text": "Regulatory T cells reduce overactivation", "children": [], "level": 4, "id": "n470"}], "level": 3, "id": "n466"}], "level": 2, "id": "n442"}, {"text": "High-Yield Mnemonics & Exam Hooks  🎯", "children": [{"text": "FLAT PEG", "children": [{"text": "FLAT are tropic pituitary hormones", "children": [], "level": 4, "id": "n473"}, {"text": "PEG are direct pituitary hormones", "children": [], "level": 4, "id": "n474"}], "level": 3, "id": "n472"}, {"text": "Calcitonin tones down calcium", "children": [], "level": 3, "id": "n475"}, {"text": "Endoderm = endernal organ linings", "children": [], "level": 3, "id": "n476"}, {"text": "Mesoderm = means to move, move things, excrete, reproduce", "children": [], "level": 3, "id": "n477"}, {"text": "Exercise shifts Hb curve right", "children": [], "level": 3, "id": "n478"}, {"text": "Aldosterone vs ADH", "children": [{"text": "ADH: water alone, dilutes blood", "children": [], "level": 4, "id": "n480"}, {"text": "Aldosterone: Na⁺ plus water, maintains osmolarity", "children": [], "level": 4, "id": "n481"}], "level": 3, "id": "n479"}, {"text": "Mendel stage links", "children": [{"text": "Anaphase I → segregation", "children": [], "level": 4, "id": "n483"}, {"text": "Metaphase I → independent assortment", "children": [], "level": 4, "id": "n484"}, {"text": "Prophase I → crossing over", "children": [], "level": 4, "id": "n485"}], "level": 3, "id": "n482"}], "level": 2, "id": "n471"}], "level": 0, "id": "root"};
+
+// ── State ──────────────────────────────────────────────────────────────
+let nodes = {};       // id → {data, el, x, y, w, h, parentId}
+let collapsed = new Set();
+let editMode = false;
+let transform = {x: 60, y: 80, scale: 1};
+let drag = {active:false, startX:0, startY:0, ox:0, oy:0};
+
+const canvas = document.getElementById('canvas');
+const svgEl  = document.getElementById('connectors');
+const wrap   = document.getElementById('canvas-wrap');
+
+// ── Colors / level config ──────────────────────────────────────────────
+const LV_W = {2:200, 3:175, 4:160, 5:150};
+const LV_GAP_X = {2:60, 3:50, 4:40, 5:35};
+const LV_GAP_Y = {2:18, 3:12, 4:8, 5:6};
+
+// ── Build DOM ──────────────────────────────────────────────────────────
+function buildNodes(data, parentId) {
+  const el = document.createElement('div');
+  el.className = `node lv${data.level || 1}`;
+  el.id = 'nd-' + data.id;
+
+  const box = document.createElement('div');
+  box.className = 'node-box' + (data.children.length ? ' collapsed' : '');
+  box.textContent = data.text;
+  box.dataset.id = data.id;
+  box.addEventListener('click', e => { e.stopPropagation(); handleClick(data.id); });
+  box.addEventListener('dblclick', e => { e.stopPropagation(); if(editMode) startEdit(box, data); });
+  el.appendChild(box);
+
+  if(data.children.length || editMode) {
+    const addBtn = document.createElement('button');
+    addBtn.className = 'add-child';
+    addBtn.textContent = '+ child';
+    addBtn.addEventListener('click', e => { e.stopPropagation(); addChild(data.id); });
+    el.appendChild(addBtn);
+  }
+
+  canvas.appendChild(el);
+  nodes[data.id] = {data, el, box, x:0, y:0, w:LV_W[data.level]||160, h:30, parentId};
+
+  for(const child of data.children) buildNodes(child, data.id);
+}
+
+function handleClick(id) {
+  const n = nodes[id];
+  if(!n.data.children.length) return;
+  if(collapsed.has(id)) collapsed.delete(id);
+  else collapsed.add(id);
+  layout();
+  drawConnectors();
+}
+
+// ── Layout ─────────────────────────────────────────────────────────────
+function isVisible(id) {
+  const n = nodes[id];
+  if(!n.parentId) return true;
+  if(collapsed.has(n.parentId)) return false;
+  return isVisible(n.parentId);
+}
+
+function subtreeHeight(data) {
+  if(collapsed.has(data.id) || !data.children.length) {
+    return nodeHeight(data);
+  }
+  const gap = LV_GAP_Y[data.level] || 8;
+  let total = 0;
+  for(let i=0; i<data.children.length; i++) {
+    total += subtreeHeight(data.children[i]);
+    if(i < data.children.length-1) total += gap;
+  }
+  return Math.max(total, nodeHeight(data));
+}
+
+function nodeHeight(data) {
+  const lv = data.level;
+  return lv===2?38:lv===3?32:lv===4?28:25;
+}
+
+function layoutNode(data, x, y) {
+  const n = nodes[data.id];
+  if(!n) return;
+  n.x = x; n.y = y;
+  n.el.style.left = x+'px';
+  n.el.style.top  = y+'px';
+  n.el.style.display = isVisible(data.id) ? 'block' : 'none';
+
+  const box = n.box;
+  box.className = 'node-box' + (data.children.length ? (collapsed.has(data.id) ? ' collapsed' : ' expanded') : '');
+
+  if(collapsed.has(data.id) || !data.children.length) return;
+
+  const gapX = LV_GAP_X[data.level] || 50;
+  const gapY = LV_GAP_Y[data.level] || 8;
+  const cx = x + (LV_W[data.level]||160) + gapX;
+
+  // vertically center children around current node
+  const totalH = data.children.reduce((s,c,i)=>s+subtreeHeight(c)+(i<data.children.length-1?gapY:0),0);
+  const midY = y + nodeHeight(data)/2;
+  let cy = midY - totalH/2;
+
+  for(const child of data.children) {
+    const ch = subtreeHeight(child);
+    layoutNode(child, cx, cy + (ch - nodeHeight(child))/2);
+    cy += ch + gapY;
+  }
+}
+
+function layout() {
+  const root = TREE;
+  // Layout each L2 section top-to-bottom with spacing
+  let y = 0;
+  for(const section of root.children) {
+    const h = subtreeHeight(section);
+    layoutNode(section, 0, y);
+    y += h + 40;
+  }
+}
+
+// ── Connectors ─────────────────────────────────────────────────────────
+function drawConnectors() {
+  svgEl.innerHTML = '';
+  for(const [id, n] of Object.entries(nodes)) {
+    if(!n.parentId || !isVisible(id)) continue;
+    const p = nodes[n.parentId];
+    if(!p || !isVisible(n.parentId)) continue;
+
+    const x1 = p.x + (LV_W[p.data.level]||160);
+    const y1 = p.y + nodeHeight(p.data)/2;
+    const x2 = n.x;
+    const y2 = n.y + nodeHeight(n.data)/2;
+    const mx = (x1+x2)/2;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d', `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`);
+    path.setAttribute('class', `conn lv${n.data.level}`);
+    svgEl.appendChild(path);
+  }
+}
+
+// ── Pan & Zoom ─────────────────────────────────────────────────────────
+function applyTransform() {
+  canvas.style.transform = `translate(${transform.x}px,${transform.y}px) scale(${transform.scale})`;
+  svgEl.style.transform  = `translate(${transform.x}px,${transform.y}px) scale(${transform.scale})`;
+}
+
+wrap.addEventListener('mousedown', e => {
+  if(e.target.closest('.node-box,.add-child')) return;
+  drag = {active:true, startX:e.clientX, startY:e.clientY, ox:transform.x, oy:transform.y};
+  wrap.classList.add('grabbing');
+});
+window.addEventListener('mousemove', e => {
+  if(!drag.active) return;
+  transform.x = drag.ox + (e.clientX - drag.startX);
+  transform.y = drag.oy + (e.clientY - drag.startY);
+  applyTransform();
+});
+window.addEventListener('mouseup', () => { drag.active=false; wrap.classList.remove('grabbing'); });
+
+wrap.addEventListener('wheel', e => {
+  e.preventDefault();
+  const factor = e.deltaY < 0 ? 1.1 : 0.909;
+  const rect = wrap.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  transform.x = mx - (mx - transform.x) * factor;
+  transform.y = my - (my - transform.y) * factor;
+  transform.scale = Math.min(3, Math.max(0.15, transform.scale * factor));
+  applyTransform();
+}, {passive:false});
+
+function resetView() {
+  transform = {x:60, y:80, scale:1};
+  applyTransform();
+}
+
+// ── Edit ───────────────────────────────────────────────────────────────
+function toggleEdit() {
+  editMode = !editMode;
+  document.getElementById('editToggle').classList.toggle('active', editMode);
+  document.getElementById('hint').textContent = editMode
+    ? 'Edit mode: double-click node to rename · click "+ child" to add · Delete key to remove'
+    : 'Scroll to zoom · Drag to pan · Click node to expand/collapse · Double-click to edit';
+  // Show/hide add buttons
+  document.querySelectorAll('.add-child').forEach(b => b.style.display = editMode ? '' : '');
+}
+
+function startEdit(box, data) {
+  box.contentEditable = 'true';
+  box.classList.add('editing');
+  box.focus();
+  const range = document.createRange();
+  range.selectNodeContents(box);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+
+  function finish() {
+    box.contentEditable = 'false';
+    box.classList.remove('editing');
+    data.text = box.textContent.trim() || data.text;
+    box.textContent = data.text;
+  }
+  box.addEventListener('blur', finish, {once:true});
+  box.addEventListener('keydown', e => {
+    if(e.key==='Enter'){ e.preventDefault(); box.blur(); }
+    if(e.key==='Escape'){ box.textContent=data.text; box.blur(); }
+    if(e.key==='Delete' && e.metaKey){ deleteNode(data.id); }
+  }, {once:false});
+}
+
+let nodeCounter = 10000;
+function addChild(parentId) {
+  const parent = nodes[parentId];
+  if(!parent) return;
+  nodeCounter++;
+  const childLevel = Math.min((parent.data.level||2)+1, 5);
+  const newNode = {text:'New node', children:[], level:childLevel, id:'u'+nodeCounter};
+  parent.data.children.push(newNode);
+  if(collapsed.has(parentId)) collapsed.delete(parentId);
+  buildNodes(newNode, parentId);
+  layout();
+  drawConnectors();
+  // auto-start edit
+  setTimeout(()=>{ const n=nodes[newNode.id]; if(n) startEdit(n.box, newNode); }, 50);
+}
+
+function deleteNode(id) {
+  const n = nodes[id];
+  if(!n || !n.parentId) return;
+  const parent = nodes[n.parentId];
+  parent.data.children = parent.data.children.filter(c=>c.id!==id);
+  // Remove all descendants
+  function remove(data) {
+    for(const c of data.children) remove(c);
+    const nd = nodes[data.id];
+    if(nd) { nd.el.remove(); delete nodes[data.id]; }
+  }
+  remove(n.data);
+  layout(); drawConnectors();
+}
+
+// ── Search ─────────────────────────────────────────────────────────────
+function doSearch(q) {
+  document.querySelectorAll('.node-box').forEach(b => b.classList.remove('highlight'));
+  if(!q.trim()) return;
+  const lower = q.toLowerCase();
+  for(const [id, n] of Object.entries(nodes)) {
+    if(n.data.text.toLowerCase().includes(lower)) {
+      n.box.classList.add('highlight');
+      // Ensure visible
+      let pid = n.parentId;
+      while(pid) {
+        collapsed.delete(pid);
+        pid = nodes[pid]?.parentId;
+      }
+    }
+  }
+  layout(); drawConnectors();
+}
+
+// ── Expand / Collapse ──────────────────────────────────────────────────
+function expandAll() {
+  collapsed.clear();
+  layout(); drawConnectors();
+}
+function collapseAll() {
+  TREE.children.forEach(s => { collapsed.add(s.id); s.children.forEach(c=>collapsed.add(c.id)); });
+  layout(); drawConnectors();
+}
+
+// ── Export ─────────────────────────────────────────────────────────────
+function exportMD() {
+  function toMD(data, depth) {
+    const prefix = '#'.repeat(Math.min(depth, 6));
+    let md = `${prefix} ${data.text}\n\n`;
+    for(const c of data.children) md += toMD(c, depth+1);
+    return md;
+  }
+  let md = `# Captain Hook MCAT Biology Deck 🧬🧠\n\n`;
+  for(const s of TREE.children) md += toMD(s, 2);
+  const blob = new Blob([md], {type:'text/markdown'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'MCAT_Biology_MindMap.md';
+  a.click();
+}
+
+// ── Init ───────────────────────────────────────────────────────────────
+for(const section of TREE.children) {
+  buildNodes(section, null);
+  // Start sections collapsed at L3+
+  section.children.forEach(c => collapsed.add(c.id));
+}
+layout();
+drawConnectors();
+applyTransform();
+</script>
+</body>
+</html>

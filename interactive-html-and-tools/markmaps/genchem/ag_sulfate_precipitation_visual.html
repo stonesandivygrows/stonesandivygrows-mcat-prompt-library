@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>AgNO3 + (NH4)2SO4 Ion Precipitation Visual</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 28px;
+    color: #222;
+  }
+  h1 { margin-top: 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  .panel {
+    background: white;
+    border: 2px solid #333;
+    border-radius: 14px;
+    padding: 18px;
+    min-height: 260px;
+  }
+  .beaker {
+    border: 4px solid #555;
+    border-top: none;
+    border-radius: 0 0 28px 28px;
+    height: 210px;
+    position: relative;
+    background: linear-gradient(to top, #dff3ff 0%, #dff3ff 78%, transparent 78%);
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .ion {
+    position: absolute;
+    border-radius: 50%;
+    padding: 10px 12px;
+    font-weight: bold;
+    border: 2px solid #222;
+    background: #fff;
+    min-width: 45px;
+    text-align: center;
+  }
+  .sulfate { background: #ffe4b3; }
+  .ammonium { background: #d8ffd8; }
+  .silver { background: #e6e6ff; }
+  .nitrate { background: #ffd9e6; }
+  .precip {
+    position: absolute;
+    background: #dcdcdc;
+    border: 2px solid #555;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-weight: bold;
+  }
+  .eq {
+    font-size: 20px;
+    background: #f0f0f0;
+    border-left: 5px solid #555;
+    padding: 10px;
+    margin: 14px 0;
+  }
+  .big {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .note {
+    background: #fff9d8;
+    border: 1px solid #c9b95c;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 14px;
+  }
+  .arrow {
+    text-align: center;
+    font-size: 36px;
+    margin: 10px 0;
+  }
+  .full {
+    grid-column: 1 / -1;
+  }
+</style>
+</head>
+<body>
+<h1>Why 2 M AgNO₃ is not enough for 2 M sulfate</h1>
+
+<p class="big">Main idea: two Ag⁺ ions are needed for every one SO₄²⁻ ion, but 2 M AgNO₃ only gives 2 M Ag⁺.</p>
+
+<div class="grid">
+  <div class="panel">
+    <h2>Solution 1: 2 M (NH₄)₂SO₄</h2>
+    <div class="eq">(NH₄)₂SO₄(aq) → 2 NH₄⁺(aq) + SO₄²⁻(aq)</div>
+    <p>Each dissolved formula unit gives <b>one sulfate</b> and <b>two ammonium ions</b>.</p>
+    <p>So 2 M ammonium sulfate gives:</p>
+    <p class="big">2 M SO₄²⁻ and 4 M NH₄⁺</p>
+    <div class="beaker">
+      <div class="ion sulfate" style="left:45px; top:55px;">SO₄²⁻</div>
+      <div class="ion sulfate" style="left:165px; top:115px;">SO₄²⁻</div>
+      <div class="ion ammonium" style="left:15px; top:135px;">NH₄⁺</div>
+      <div class="ion ammonium" style="left:120px; top:35px;">NH₄⁺</div>
+      <div class="ion ammonium" style="left:255px; top:65px;">NH₄⁺</div>
+      <div class="ion ammonium" style="left:275px; top:145px;">NH₄⁺</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Solution 2: 2 M AgNO₃</h2>
+    <div class="eq">AgNO₃(aq) → Ag⁺(aq) + NO₃⁻(aq)</div>
+    <p>Each dissolved formula unit gives <b>one silver ion</b> and <b>one nitrate ion</b>.</p>
+    <p>So 2 M silver nitrate gives:</p>
+    <p class="big">2 M Ag⁺ and 2 M NO₃⁻</p>
+    <div class="beaker">
+      <div class="ion silver" style="left:65px; top:60px;">Ag⁺</div>
+      <div class="ion silver" style="left:205px; top:125px;">Ag⁺</div>
+      <div class="ion nitrate" style="left:180px; top:45px;">NO₃⁻</div>
+      <div class="ion nitrate" style="left:60px; top:135px;">NO₃⁻</div>
+    </div>
+  </div>
+
+  <div class="panel full">
+    <h2>When mixed: precipitation requires 2 silver ions per sulfate</h2>
+    <div class="eq">2 Ag⁺(aq) + SO₄²⁻(aq) → Ag₂SO₄(s)</div>
+    <p>There are <b>2 sulfate ions</b> available but only <b>2 silver ions</b> available in the simplified visual model.</p>
+    <p>Those 2 silver ions can only fully pair with <b>1 sulfate ion</b>.</p>
+    <div class="beaker" style="height:260px;">
+      <div class="precip" style="left:90px; top:150px;">Ag₂SO₄(s)<br/>precipitate</div>
+      <div class="ion silver" style="left:65px; top:75px;">Ag⁺</div>
+      <div class="ion silver" style="left:165px; top:75px;">Ag⁺</div>
+      <div class="ion sulfate" style="left:118px; top:20px;">SO₄²⁻</div>
+      <div class="ion sulfate" style="left:310px; top:100px;">SO₄²⁻<br/>left over</div>
+      <div class="ion ammonium" style="left:20px; top:170px;">NH₄⁺</div>
+      <div class="ion ammonium" style="left:250px; top:170px;">NH₄⁺</div>
+      <div class="ion nitrate" style="left:410px; top:170px;">NO₃⁻</div>
+      <div class="ion nitrate" style="left:500px; top:90px;">NO₃⁻</div>
+    </div>
+    <div class="note">
+      <b>Conclusion:</b> If the solution contains 2 M sulfate, complete precipitation requires 4 M Ag⁺.
+      But 2 M AgNO₃ gives only 2 M Ag⁺. Therefore, silver is insufficient and sulfate is left over.
+    </div>
+  </div>
+</div>
+
+<h2>One-line MCAT rule</h2>
+<div class="eq">
+compound molarity × ion subscript = ion molarity
+</div>
+<p>
+2 M (NH₄)₂SO₄ gives 2 M sulfate because sulfate has subscript 1.<br/>
+2 M AgNO₃ gives 2 M silver because silver has subscript 1.<br/>
+But Ag₂SO₄ formation needs 2 Ag⁺ for every 1 sulfate, so 2 M silver only covers 1 M sulfate.
+</p>
+</body>
+</html>

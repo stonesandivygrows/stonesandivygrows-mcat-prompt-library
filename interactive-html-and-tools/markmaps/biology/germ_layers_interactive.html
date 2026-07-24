@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Germ Layers Explorer</title>
+<style>
+:root {
+  --color-ectoderm: #7F77DD;
+  --color-mesoderm: #1D9E75;
+  --color-endoderm: #D85A30;
+  --color-ectoderm-light: #EEEDFE;
+  --color-mesoderm-light: #E1F5EE;
+  --color-endoderm-light: #FAECE7;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #2c2c2a;
+}
+
+.subtitle {
+  color: #888780;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+.view-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+}
+
+.view-btn {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #5f5e5a;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.view-btn.active {
+  background: #f1efe8;
+  color: #2c2c2a;
+  font-weight: 500;
+}
+
+.view-btn:hover:not(.active) {
+  background: #f8f8f8;
+}
+
+.view-section {
+  display: none;
+}
+
+.view-section.active {
+  display: block;
+}
+
+/* SPATIAL VIEW */
+.embryo-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.embryo-cross-section {
+  position: relative;
+  width: 400px;
+  height: 300px;
+}
+
+.layer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid;
+}
+
+.layer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.ectoderm {
+  background: var(--color-ectoderm-light);
+  border-color: var(--color-ectoderm);
+  color: var(--color-ectoderm);
+  width: 380px;
+  height: 280px;
+  border-radius: 140px;
+  left: 10px;
+  top: 10px;
+}
+
+.mesoderm {
+  background: var(--color-mesoderm-light);
+  border-color: var(--color-mesoderm);
+  color: var(--color-mesoderm);
+  width: 280px;
+  height: 200px;
+  border-radius: 100px;
+  left: 60px;
+  top: 50px;
+}
+
+.endoderm {
+  background: var(--color-endoderm-light);
+  border-color: var(--color-endoderm);
+  color: var(--color-endoderm);
+  width: 180px;
+  height: 120px;
+  border-radius: 60px;
+  left: 110px;
+  top: 90px;
+}
+
+.layer-label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.spatial-legend {
+  text-align: center;
+  color: #888780;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+/* TIMELINE VIEW */
+.timeline {
+  position: relative;
+  padding: 40px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 40px;
+  top: 60px;
+  bottom: 60px;
+  width: 3px;
+  background: #d3d1c7;
+}
+
+.timeline-stage {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 80px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 29px;
+  top: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.stage-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #2c2c2a;
+}
+
+.stage-time {
+  font-size: 12px;
+  color: #888780;
+  margin-bottom: 8px;
+}
+
+.stage-desc {
+  font-size: 14px;
+  color: #5f5e5a;
+  line-height: 1.5;
+}
+
+/* TISSUES VIEW */
+.tissues-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.tissue-card {
+  border-radius: 8px;
+  padding: 20px;
+  border: 2px solid;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.tissue-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tissue-card.ectoderm-card {
+  background: var(--color-ectoderm-light);
+  border-color: var(--color-ectoderm);
+}
+
+.tissue-card.mesoderm-card {
+  background: var(--color-mesoderm-light);
+  border-color: var(--color-mesoderm);
+}
+
+.tissue-card.endoderm-card {
+  background: var(--color-endoderm-light);
+  border-color: var(--color-endoderm);
+}
+
+.tissue-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.tissue-card.ectoderm-card .tissue-card-title {
+  color: var(--color-ectoderm);
+}
+
+.tissue-card.mesoderm-card .tissue-card-title {
+  color: var(--color-mesoderm);
+}
+
+.tissue-card.endoderm-card .tissue-card-title {
+  color: var(--color-endoderm);
+}
+
+.tissue-list {
+  list-style: none;
+}
+
+.tissue-list li {
+  padding: 4px 0;
+  font-size: 13px;
+  color: #5f5e5a;
+  position: relative;
+  padding-left: 12px;
+}
+
+.tissue-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+/* MEMORY AIDS */
+.memory-section {
+  margin-top: 30px;
+}
+
+.memory-card {
+  background: #fef9e7;
+  border: 1px solid #f4e4a6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.memory-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #b8860b;
+  margin-bottom: 8px;
+}
+
+.memory-text {
+  font-size: 14px;
+  color: #5f5e5a;
+  line-height: 1.6;
+}
+
+.mnemonic {
+  font-family: 'Courier New', monospace;
+  background: white;
+  padding: 12px;
+  border-radius: 4px;
+  margin-top: 8px;
+  font-size: 13px;
+  border-left: 3px solid #f4e4a6;
+}
+
+@media (max-width: 768px) {
+  .tissues-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .embryo-cross-section {
+    transform: scale(0.8);
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Germ Layers: Ectoderm, Mesoderm, Endoderm</h1>
+  <p class="subtitle">Understanding embryonic development through spatial organization, timing, and tissue derivation</p>
+
+  <div class="view-controls">
+    <button class="view-btn active" onclick="showView('spatial')">Spatial Layout</button>
+    <button class="view-btn" onclick="showView('timeline')">Development Timeline</button>
+    <button class="view-btn" onclick="showView('tissues')">Tissue Derivatives</button>
+    <button class="view-btn" onclick="showView('memory')">Memory Aids</button>
+  </div>
+
+  <!-- SPATIAL VIEW -->
+  <div id="spatial-view" class="view-section active">
+    <div class="embryo-container">
+      <div class="embryo-cross-section">
+        <div class="layer ectoderm" onclick="highlightLayer('ectoderm')">
+          <span class="layer-label">ECTODERM<br><small style="font-size:12px;font-weight:400">Outermost</small></span>
+        </div>
+        <div class="layer mesoderm" onclick="highlightLayer('mesoderm')">
+          <span class="layer-label">MESODERM<br><small style="font-size:12px;font-weight:400">Middle</small></span>
+        </div>
+        <div class="layer endoderm" onclick="highlightLayer('endoderm')">
+          <span class="layer-label">ENDODERM<br><small style="font-size:12px;font-weight:400">Innermost</small></span>
+        </div>
+      </div>
+    </div>
+    <p class="spatial-legend">
+      Cross-section of a gastrula showing the three primary germ layers<br>
+      <strong>Key concept:</strong> Ecto = outer, Meso = middle, Endo = inner
+    </p>
+    
+    <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+      <h3 style="font-size: 16px; margin-bottom: 12px; color: #2c2c2a;">Spatial Memory Trick</h3>
+      <p style="font-size: 14px; color: #5f5e5a; line-height: 1.6;">
+        Think of an <strong>onion</strong>: The outer skin (ectoderm) protects everything. The fleshy middle layers (mesoderm) provide structure and support. The innermost core (endoderm) processes nutrients.
+      </p>
+    </div>
+  </div>
+
+  <!-- TIMELINE VIEW -->
+  <div id="timeline-view" class="view-section">
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      
+      <div class="timeline-stage">
+        <div class="timeline-dot" style="background: #b4b2a9;"></div>
+        <div class="stage-title">Fertilization</div>
+        <div class="stage-time">Day 0</div>
+        <div class="stage-desc">Sperm meets egg, forming a zygote. Single cell begins division.</div>
+      </div>
+
+      <div class="timeline-stage">
+        <div class="timeline-dot" style="background: #b4b2a9;"></div>
+        <div class="stage-title">Morula → Blastula</div>
+        <div class="stage-time">Days 3-5</div>
+        <div class="stage-desc">Solid ball of cells (morula) develops into hollow sphere (blastula) with fluid-filled cavity.</div>
+      </div>
+
+      <div class="timeline-stage">
+        <div class="timeline-dot" style="background: var(--color-ectoderm);"></div>
+        <div class="stage-title">Gastrulation Begins</div>
+        <div class="stage-time">Week 2-3</div>
+        <div class="stage-desc">
+          <strong>Critical phase!</strong> The three germ layers form through cell migration:
+          <ul style="margin-top: 8px; margin-left: 20px;">
+            <li>Ectoderm forms on the outside</li>
+            <li>Endoderm migrates to create inner layer</li>
+            <li>Mesoderm fills the space between them</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-stage">
+        <div class="timeline-dot" style="background: var(--color-mesoderm);"></div>
+        <div class="stage-title">Neurulation</div>
+        <div class="stage-time">Weeks 3-4</div>
+        <div class="stage-desc">Ectoderm folds inward to form neural tube (future brain and spinal cord). Mesoderm begins segmentation.</div>
+      </div>
+
+      <div class="timeline-stage">
+        <div class="timeline-dot" style="background: var(--color-endoderm);"></div>
+        <div class="stage-title">Organogenesis</div>
+        <div class="stage-time">Weeks 4-8</div>
+        <div class="stage-desc">Each germ layer differentiates into specific organs and tissues. Major body structures become recognizable.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TISSUES VIEW -->
+  <div id="tissues-view" class="view-section">
+    <div class="tissues-grid">
+      <div class="tissue-card ectoderm-card">
+        <div class="tissue-card-title">ECTODERM DERIVATIVES</div>
+        <ul class="tissue-list">
+          <li>Nervous system (brain, spinal cord)</li>
+          <li>Epidermis (outer skin)</li>
+          <li>Hair, nails, sweat glands</li>
+          <li>Lens of eye, cornea</li>
+          <li>Tooth enamel</li>
+          <li>Adrenal medulla</li>
+          <li>Pituitary gland (anterior)</li>
+        </ul>
+      </div>
+
+      <div class="tissue-card mesoderm-card">
+        <div class="tissue-card-title">MESODERM DERIVATIVES</div>
+        <ul class="tissue-list">
+          <li>Skeletal muscle</li>
+          <li>Cardiac muscle</li>
+          <li>Smooth muscle</li>
+          <li>Bones and cartilage</li>
+          <li>Blood and blood vessels</li>
+          <li>Kidneys and ureters</li>
+          <li>Gonads (testes, ovaries)</li>
+          <li>Dermis (inner skin)</li>
+        </ul>
+      </div>
+
+      <div class="tissue-card endoderm-card">
+        <div class="tissue-card-title">ENDODERM DERIVATIVES</div>
+        <ul class="tissue-list">
+          <li>GI tract lining</li>
+          <li>Liver and pancreas</li>
+          <li>Lungs (epithelium)</li>
+          <li>Thyroid gland</li>
+          <li>Bladder lining</li>
+          <li>Urinary tract</li>
+          <li>Thymus</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px; padding: 20px; background: #e6f1fb; border-radius: 8px; border-left: 4px solid #378add;">
+      <h3 style="font-size: 15px; margin-bottom: 8px; color: #0c447c;">Recognition Pattern</h3>
+      <p style="font-size: 14px; color: #2c2c2a; line-height: 1.6;">
+        <strong>Ectoderm:</strong> "Attracts" → external/nervous structures<br>
+        <strong>Mesoderm:</strong> "Makes" → movement & support structures<br>
+        <strong>Endoderm:</strong> "Eats" → internal organ linings
+      </p>
+    </div>
+  </div>
+
+  <!-- MEMORY AIDS VIEW -->
+  <div id="memory-view" class="view-section">
+    <div class="memory-section">
+      <div class="memory-card">
+        <div class="memory-title">📍 Position-Based Mnemonic</div>
+        <div class="memory-text">
+          <strong>Outside to Inside = E-M-E</strong>
+          <div class="mnemonic">
+            <strong>E</strong>ctoderm = <strong>E</strong>xterior (skin, nerves - what you present to the world)<br>
+            <strong>M</strong>esoderm = <strong>M</strong>iddle (muscles, bones - the structural support)<br>
+            <strong>E</strong>ndoderm = En<strong>E</strong>rgy (gut, lungs - processes fuel)
+          </div>
+        </div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-title">🎯 Functional Categories</div>
+        <div class="memory-text">
+          Think about what each layer's job is:
+          <div class="mnemonic">
+            Ectoderm = <strong>INTERACTION</strong> layer (sense & respond to environment)<br>
+            Mesoderm = <strong>MOVEMENT</strong> layer (muscles that move, bones that support)<br>
+            Endoderm = <strong>DIGESTION</strong> layer (process food & make energy)
+          </div>
+        </div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-title">🧠 Word Root Associations</div>
+        <div class="memory-text">
+          <div class="mnemonic">
+            <strong>Ecto-</strong> = "outer" (like ecto-skeleton on a crab)<br>
+            <strong>Meso-</strong> = "middle" (like meso-potamia = "between rivers")<br>
+            <strong>Endo-</strong> = "inner" (like endo-scope goes inside you)
+          </div>
+        </div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-title">🔄 Common Confusion Fixes</div>
+        <div class="memory-text">
+          <strong>Skin is BOTH layers:</strong>
+          <ul style="margin-top: 8px; margin-left: 20px; font-size: 13px;">
+            <li>Epidermis (outer skin) = Ectoderm</li>
+            <li>Dermis (inner skin with blood vessels) = Mesoderm</li>
+          </ul>
+          <strong style="margin-top: 12px; display: block;">Lungs are BOTH too:</strong>
+          <ul style="margin-top: 8px; margin-left: 20px; font-size: 13px;">
+            <li>Lung epithelial lining = Endoderm</li>
+            <li>Smooth muscle in airways = Mesoderm</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="memory-card">
+        <div class="memory-title">⚡ Quick Test Questions</div>
+        <div class="memory-text" style="font-size: 13px;">
+          <strong>Q: Where does the brain come from?</strong><br>
+          A: Ectoderm (nervous system = ectoderm)
+          <br><br>
+          <strong>Q: What layer makes blood?</strong><br>
+          A: Mesoderm (blood, vessels, heart all mesoderm)
+          <br><br>
+          <strong>Q: Liver is which layer?</strong><br>
+          A: Endoderm (digestive organ lining)
+          <br><br>
+          <strong>Q: Tooth enamel?</strong><br>
+          A: Ectoderm (only hard tissue from ectoderm!)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showView(viewName) {
+  // Hide all views
+  document.querySelectorAll('.view-section').forEach(section => {
+    section.classList.remove('active');
+  });
+  
+  // Show selected view
+  document.getElementById(viewName + '-view').classList.add('active');
+  
+  // Update button states
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+}
+
+function highlightLayer(layer) {
+  const info = {
+    ectoderm: "ECTODERM: Outermost layer. Forms skin, nervous system, and sensory organs. Think 'external-facing structures'.",
+    mesoderm: "MESODERM: Middle layer. Forms muscles, bones, blood, and internal support structures. Think 'movement and structure'.",
+    endoderm: "ENDODERM: Innermost layer. Forms digestive tract, lungs, and organ linings. Think 'internal processing'."
+  };
+  
+  alert(info[layer]);
+}
+</script>
+
+</body>
+</html>

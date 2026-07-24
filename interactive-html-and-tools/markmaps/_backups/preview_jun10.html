@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MCAT Electrostatics Through Chemistry — Mind Map</title>
+<style>
+  :root{
+    --bg:#f7f8fb;
+    --ink:#1f2937;
+    --muted:#5b6472;
+    --blue:#2563eb;
+    --blue2:#dbeafe;
+    --green:#047857;
+    --green2:#d1fae5;
+    --purple:#7c3aed;
+    --purple2:#ede9fe;
+    --orange:#c2410c;
+    --orange2:#ffedd5;
+    --red:#b91c1c;
+    --red2:#fee2e2;
+    --gray:#e5e7eb;
+    --card:#ffffff;
+    --shadow:0 8px 22px rgba(15,23,42,.10);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background: radial-gradient(circle at top left,#eef6ff 0,#f7f8fb 35%,#fff 100%);
+    color:var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height:1.35;
+  }
+  header{
+    padding:22px 22px 14px;
+    position:sticky;top:0;z-index:10;
+    background:rgba(247,248,251,.92);backdrop-filter: blur(10px);
+    border-bottom:1px solid #e5e7eb;
+  }
+  h1{margin:0;font-size:clamp(24px,3vw,40px);letter-spacing:-.03em}
+  .subtitle{margin-top:6px;color:var(--muted);font-size:15px;max-width:1000px}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  button{
+    border:1px solid #cbd5e1;background:#fff;color:#111827;border-radius:999px;padding:9px 13px;
+    font-weight:650;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.04)
+  }
+  button:hover{background:#f1f5f9}
+  .wrap{padding:22px;max-width:1600px;margin:auto}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+  .pill{border-radius:999px;padding:7px 10px;font-size:13px;font-weight:700;border:1px solid rgba(0,0,0,.08)}
+  .pblue{background:var(--blue2);color:var(--blue)} .pgreen{background:var(--green2);color:var(--green)}
+  .ppurple{background:var(--purple2);color:var(--purple)} .porange{background:var(--orange2);color:var(--orange)}
+  .pred{background:var(--red2);color:var(--red)}
+  .map{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;align-items:stretch}
+  .node{
+    background:var(--card);border:2px solid #e5e7eb;border-radius:18px;padding:15px;
+    box-shadow:var(--shadow);position:relative;overflow:hidden;
+  }
+  .node h2,.node h3{margin:0 0 8px}.node h2{font-size:23px}.node h3{font-size:17px}
+  .node p{margin:7px 0;color:#374151}.node ul{margin:8px 0 0 18px;padding:0}.node li{margin:5px 0}
+  .eq{font-family:"SFMono-Regular",Consolas,Monaco,monospace;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 9px;display:inline-block;margin:5px 0;color:#111827;font-weight:700}
+  .tag{font-size:12px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+  .central{grid-column:1 / -1;text-align:center;border-color:#111827;background:linear-gradient(180deg,#fff,#f8fafc)}
+  .central .eq{font-size:16px}
+  .span3{grid-column:span 3}.span4{grid-column:span 4}.span6{grid-column:span 6}.span12{grid-column:1/-1}
+  .blue{border-color:#93c5fd}.green{border-color:#6ee7b7}.purple{border-color:#c4b5fd}.orange{border-color:#fdba74}.red{border-color:#fca5a5}
+  .mini{font-size:13px;color:#4b5563}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin-top:12px}
+  .step{background:#fff;border:1px solid #cbd5e1;border-radius:13px;padding:9px 11px;font-weight:750}
+  .arrow{font-size:22px;color:#64748b;font-weight:900}
+  .chemgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:9px}
+  .smallcard{border:1px solid #e5e7eb;border-radius:14px;padding:10px;background:#fbfdff}
+  .smallcard b{display:block;margin-bottom:4px}
+  details{margin-top:10px;border-top:1px dashed #d1d5db;padding-top:8px}
+  summary{font-weight:800;cursor:pointer;color:#1d4ed8}
+  table{width:100%;border-collapse:collapse;margin-top:9px;font-size:14px;background:white;border-radius:12px;overflow:hidden}
+  th,td{border:1px solid #e5e7eb;padding:8px;text-align:left;vertical-align:top} th{background:#f3f4f6}
+  .printnote{font-size:12px;color:#64748b;margin-top:16px}
+  @media (max-width:950px){.span3,.span4,.span6{grid-column:1/-1}.chemgrid{grid-template-columns:1fr}.toolbar{display:none}}
+  @media print{
+    header{position:static}.toolbar{display:none}.wrap{padding:8px}.node{box-shadow:none;break-inside:avoid}.map{gap:8px}body{background:white}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>MCAT Electrostatics Through Chemistry</h1>
+  <div class="subtitle">A typed mind map for connecting Coulomb force, electric field, electric potential, voltage, current, resistance, polarity, ionic character, and electrochemistry.</div>
+  <div class="toolbar">
+    <button onclick="document.querySelectorAll('details').forEach(d=>d.open=true)">Open details</button>
+    <button onclick="document.querySelectorAll('details').forEach(d=>d.open=false)">Close details</button>
+    <button onclick="window.print()">Print / Save PDF</button>
+  </div>
+</header>
+<div class="wrap">
+  <div class="legend">
+    <span class="pill pblue">Physics quantity</span>
+    <span class="pill pgreen">Chemistry analogy</span>
+    <span class="pill ppurple">Electrochem bridge</span>
+    <span class="pill porange">Test-day shortcut</span>
+    <span class="pill pred">Common trap</span>
+  </div>
+
+  <section class="map">
+    <div class="node central">
+      <div class="tag">One-line story</div>
+      <h2>Charges create fields → fields create forces → potential differences drive movement → movement is current → resistance opposes it.</h2>
+      <div class="flow">
+        <span class="step">Charge q</span><span class="arrow">→</span>
+        <span class="step">Electric Field E</span><span class="arrow">→</span>
+        <span class="step">Force F</span><span class="arrow">→</span>
+        <span class="step">Potential V</span><span class="arrow">→</span>
+        <span class="step">Voltage ΔV</span><span class="arrow">→</span>
+        <span class="step">Current I</span><span class="arrow">→</span>
+        <span class="step">Resistance R</span>
+      </div>
+    </div>
+
+    <div class="node blue span4">
+      <div class="tag">Start here</div>
+      <h3>Charge q</h3>
+      <p><b>What it is:</b> positive or negative electric property.</p>
+      <ul>
+        <li>Protons / cations: positive</li>
+        <li>Electrons / anions: negative</li>
+        <li>Opposites attract; likes repel</li>
+      </ul>
+      <details><summary>Chem translation</summary>
+        <p>Ionic bonds, salt formation, electron transfer, electrostatic potential maps, and redox all begin with charge separation.</p>
+      </details>
+    </div>
+
+    <div class="node blue span4">
+      <div class="tag">Push / pull</div>
+      <h3>Electrostatic Force F</h3>
+      <div class="eq">F = k q₁q₂ / r²</div>
+      <p><b>Meaning:</b> the attraction or repulsion between two charges.</p>
+      <ul>
+        <li>Bigger charges → stronger force</li>
+        <li>Greater distance → weaker force</li>
+      </ul>
+      <details><summary>When to use in chem</summary>
+        <p>Use for ionic bond strength, lattice energy logic, ion-ion attraction, and why higher charge/smaller distance usually strengthens electrostatic interactions.</p>
+      </details>
+    </div>
+
+    <div class="node green span4">
+      <div class="tag">Chem example</div>
+      <h3>Ionic character vs lattice strength</h3>
+      <p><b>Ionic character</b> asks: how unequal is electron sharing?</p>
+      <div class="eq">ionic character ↑ as ΔEN ↑</div>
+      <p><b>Lattice strength</b> asks: how strongly do the ions attract?</p>
+      <div class="eq">force ↑ as |q₁q₂| ↑ and r ↓</div>
+      <p class="mini">Do not use formal charge first when the question asks “percent ionic character.” Use electronegativity difference.</p>
+    </div>
+
+    <div class="node blue span4">
+      <div class="tag">Influence zone</div>
+      <h3>Electric Field E</h3>
+      <div class="eq">E = F/q</div><br/>
+      <div class="eq">E = kQ/r²</div>
+      <p><b>Meaning:</b> the region around a source charge where another charge would feel force.</p>
+      <ul>
+        <li>Field points away from + charges</li>
+        <li>Field points toward − charges</li>
+      </ul>
+      <details><summary>Chem translation</summary>
+        <p>A polar bond or ion creates an electric influence around it. That is why partial charges can affect neighboring molecules, enzymes, water, and ion channels.</p>
+      </details>
+    </div>
+
+    <div class="node blue span4">
+      <div class="tag">Energy per charge</div>
+      <h3>Electric Potential V</h3>
+      <div class="eq">V = U/q</div><br/>
+      <div class="eq">V = kQ/r</div>
+      <p><b>Meaning:</b> electric potential energy per unit charge at one location.</p>
+      <p class="mini">Potential is like asking: “How much electric energy would each coulomb have here?”</p>
+      <details><summary>Potential vs field</summary>
+        <p>Field is force-related. Potential is energy-related. Field tells direction of push; potential tells energy per charge.</p>
+      </details>
+    </div>
+
+    <div class="node blue span4">
+      <div class="tag">Driving force</div>
+      <h3>Voltage / Electric Potential Difference ΔV</h3>
+      <div class="eq">ΔV = ΔU/q</div>
+      <p><b>Meaning:</b> energy difference per charge between two points.</p>
+      <p><b>Unit:</b> volt = joule/coulomb.</p>
+      <details><summary>Chem translation</summary>
+        <p>Voltage is like a gradient. It does not automatically mean charges are moving; it means there is a drive that can make charges move if a path exists.</p>
+      </details>
+    </div>
+
+    <div class="node purple span6">
+      <div class="tag">Electrochem bridge</div>
+      <h3>Cell potential is voltage</h3>
+      <p>A redox reaction separates electron source and electron sink.</p>
+      <div class="chemgrid">
+        <div class="smallcard"><b>Anode</b>oxidation; electrons produced</div>
+        <div class="smallcard"><b>Cathode</b>reduction; electrons consumed</div>
+        <div class="smallcard"><b>Electron flow</b>anode → cathode</div>
+        <div class="smallcard"><b>Cell potential</b>voltage driving electron flow</div>
+      </div>
+      <p class="mini">Mnemonic: <b>An Ox, Red Cat</b> = Anode Oxidation, Reduction Cathode.</p>
+    </div>
+
+    <div class="node purple span6">
+      <div class="tag">Moving charges</div>
+      <h3>Current I</h3>
+      <div class="eq">I = Q/t</div>
+      <p><b>Meaning:</b> charge flow per time.</p>
+      <ul>
+        <li>Conventional current: + to −</li>
+        <li>Electron flow: − to +</li>
+      </ul>
+      <details><summary>Chem translation</summary>
+        <p>In a wire, electrons move. In solution, ions move. In a membrane, Na⁺, K⁺, Ca²⁺, and Cl⁻ can move down electrochemical gradients through channels.</p>
+      </details>
+    </div>
+
+    <div class="node blue span4">
+      <div class="tag">Opposition</div>
+      <h3>Resistance R</h3>
+      <div class="eq">R = ρL/A</div>
+      <p><b>Meaning:</b> opposition to current flow.</p>
+      <ul>
+        <li>Longer path → more resistance</li>
+        <li>Bigger area → less resistance</li>
+        <li>Material matters through resistivity ρ</li>
+      </ul>
+      <details><summary>Use with your myelin question</summary>
+        <p>Bigger axon diameter lowers internal resistance. Myelin mainly insulates the membrane and prevents charge leak; it does not increase the axoplasm’s conducting area.</p>
+      </details>
+    </div>
+
+    <div class="node blue span4">
+      <div class="tag">Circuit rule</div>
+      <h3>Ohm’s Law</h3>
+      <div class="eq">V = IR</div>
+      <p><b>Translation:</b> voltage pushes, resistance blocks, current is the resulting flow.</p>
+      <table>
+        <tr><th>Change</th><th>Result if other variable constant</th></tr>
+        <tr><td>V increases</td><td>I increases</td></tr>
+        <tr><td>R increases</td><td>I decreases</td></tr>
+      </table>
+    </div>
+
+    <div class="node green span4">
+      <div class="tag">Membrane analogy</div>
+      <h3>Ion movement in cells</h3>
+      <p>Ion flow depends on the <b>electrochemical gradient</b>:</p>
+      <ul>
+        <li>chemical gradient: concentration difference</li>
+        <li>electrical gradient: charge/potential difference</li>
+        <li>channel state: open vs closed</li>
+      </ul>
+      <p class="mini">If the channel opens and the ion moves downhill, ion movement is passive even if gating required voltage, ligand binding, or regulation.</p>
+    </div>
+
+    <div class="node green span6">
+      <div class="tag">Bond polarity</div>
+      <h3>Electronegativity → partial charges → electrostatic potential</h3>
+      <div class="flow">
+        <span class="step">ΔEN small</span><span class="arrow">→</span><span class="step">shared e⁻</span><span class="arrow">→</span><span class="step">covalent</span>
+      </div>
+      <div class="flow">
+        <span class="step">ΔEN large</span><span class="arrow">→</span><span class="step">uneven e⁻</span><span class="arrow">→</span><span class="step">polar / ionic</span>
+      </div>
+      <p class="mini">Electrostatic potential maps show charge distribution: electron-rich areas vs electron-poor areas.</p>
+    </div>
+
+    <div class="node orange span6">
+      <div class="tag">Test-day sorting rule</div>
+      <h3>Which equation should I reach for?</h3>
+      <table>
+        <tr><th>Question wording</th><th>Use</th></tr>
+        <tr><td>force between ions/charges</td><td>F = kq₁q₂/r²</td></tr>
+        <tr><td>field from charge</td><td>E = kQ/r² or E = F/q</td></tr>
+        <tr><td>energy per charge</td><td>V = U/q</td></tr>
+        <tr><td>difference between two points</td><td>ΔV = ΔU/q</td></tr>
+        <tr><td>charge per second</td><td>I = Q/t</td></tr>
+        <tr><td>current/voltage/resistance</td><td>V = IR</td></tr>
+        <tr><td>wire/channel geometry</td><td>R = ρL/A</td></tr>
+        <tr><td>ionic character</td><td>ΔEN trend, not Coulomb first</td></tr>
+      </table>
+    </div>
+
+    <div class="node red span12">
+      <div class="tag">Common traps from your review</div>
+      <h3>Trap Map</h3>
+      <div class="chemgrid">
+        <div class="smallcard"><b>Trap 1: Ionic character vs strength</b>Least ionic character = smallest electronegativity difference. Stronger lattice = charge size + ion size.</div>
+        <div class="smallcard"><b>Trap 2: Voltage vs current</b>Voltage is the drive. Current is the actual movement.</div>
+        <div class="smallcard"><b>Trap 3: Field vs force</b>Field exists around a source charge. Force happens when another charge is placed there.</div>
+        <div class="smallcard"><b>Trap 4: Potential vs potential difference</b>Potential is one-point energy per charge. Voltage compares two points.</div>
+        <div class="smallcard"><b>Trap 5: Passive vs gated channels</b>Voltage-gated means voltage opens the channel. Ion movement can still be passive if downhill.</div>
+        <div class="smallcard"><b>Trap 6: Myelin and resistance</b>Myelin prevents membrane charge leak. Larger axon diameter lowers internal resistance, but myelin is not the same as larger conducting area.</div>
+      </div>
+    </div>
+
+    <div class="node orange span12">
+      <div class="tag">Screenshot version</div>
+      <h3>Ultra-short map</h3>
+      <p class="eq">q → E → F → V → ΔV → I, with R opposing I</p>
+      <p><b>Chem lens:</b> ion charges create attractions, electronegativity creates partial charges, redox creates voltage, voltage drives electron flow, resistance limits flow.</p>
+      <p class="eq">F = kq₁q₂/r² &nbsp; | &nbsp; E = F/q &nbsp; | &nbsp; V = U/q &nbsp; | &nbsp; ΔV = ΔU/q &nbsp; | &nbsp; I = Q/t &nbsp; | &nbsp; V = IR &nbsp; | &nbsp; R = ρL/A</p>
+    </div>
+  </section>
+  <p class="printnote">Designed for screenshotting, printing, or saving as PDF. Use browser zoom at 80–90% for a wider view.</p>
+</div>
+</body>
+</html>
